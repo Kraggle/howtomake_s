@@ -1,0 +1,62 @@
+@import "common/variables";
+@import "layouts/list";
+@import "layouts/post-nav";
+
+.main {
+    .search-box {
+        display: flex;
+        padding: 50px;
+        gap: 50px;
+        margin-bottom: 100px;
+
+        > div {
+            flex: 1 1 0;
+        }
+
+        .search-wrap {
+            position: relative;
+            display: flex;
+            align-items: stretch;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: -3px 3px 12px 0 rgba(0, 0, 0, 0.3), 3px -3px 12px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .search-input {
+            border-radius: 0;
+            flex-grow: 2;
+            background: #fff;
+            font-size: 14px;
+            transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 5px 10px;
+        }
+
+        .search-submit {
+            padding: 5px 11px;
+            background: $color-highlight;
+            line-height: 26px;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+            color: #fff;
+        }
+
+        .display-text p {
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            line-height: 1.3em;
+            color: #fff;
+        }
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+        }
+    }
+}

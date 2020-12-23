@@ -1,0 +1,244 @@
+.foot {
+    .foot-clouds {
+        background-image: url(../assets/images/clouds.png);
+        background-color: #fff;
+        background-size: 1467px 100px;
+        background-position: center;
+        height: 100px;
+        width: 100%;
+        position: relative;
+        top: -1px;
+    }
+
+    .foot-wrap {
+        background-image: linear-gradient(180deg, $color-main 0%, $color-gradient 35%, $color-gradient 100%);
+        padding-bottom: 80px;
+    }
+
+    .foot-content {
+        max-width: 1080px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 180px repeat(3, 80px) repeat(2, 50px);
+        grid-template-areas: "label label label search search search" "logo logo nav1 nav1 login login" "logo logo nav2 nav2 login login" "logo logo icons icons login login" ". copy copy copy copy ." ". claim claim claim claim .";
+        align-items: center;
+        justify-items: center;
+        color: #fff;
+    }
+
+    .foot-search-label {
+        grid-area: label;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 2px;
+        line-height: 1.3em;
+        padding: 0 70px;
+    }
+
+    .search-wrap {
+        position: relative;
+        grid-area: search;
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: -3px 3px 12px 0 rgba(#000, 0.3), 3px -3px 12px 0 rgba(#000, 0.3);
+
+        .search-input {
+            flex-grow: 2;
+            border-radius: 0;
+            background: #fff;
+            font-size: 14px;
+
+            @include transition;
+
+            padding: 5px 10px;
+
+            @include placeholder {
+                color: rgba($color: #000, $alpha: 0.6);
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+
+
+            &:focus {
+                box-shadow: inset 0 0 8px 4px rgba($color-highlight, 0.3);
+            }
+        }
+
+        .search-submit {
+            padding: 5px 11px;
+            background: $color-highlight;
+            line-height: 26px;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+
+            @include transition;
+
+            color: #fff;
+
+            &:hover {
+                background: $color-highlight-hover;
+            }
+        }
+    }
+
+    .foot-logo {
+        grid-area: logo;
+        max-width: 230px;
+        align-self: flex-start;
+    }
+
+    .foot-nav-wrap {
+        &.one {
+            grid-area: nav1;
+        }
+
+        &.two {
+            grid-area: nav2;
+        }
+
+        .foot-nav {
+            display: flex;
+            list-style-type: none;
+            gap: 20px;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+
+                @include transition;
+
+                &:hover {
+                    color: $color-main;
+                }
+            }
+        }
+    }
+
+    .foot-login-wrap {
+        grid-area: login;
+        justify-self: end;
+        align-self: flex-start;
+        position: relative;
+        width: 235px;
+
+        .user-hi {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            color: #000;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        .log-out,
+        .forgot {
+            font-size: 11px;
+            color: #fff;
+            display: block;
+            text-align: right;
+            transition: $transition;
+
+            &:hover {
+                color: darken(#fff, 15%);
+            }
+        }
+
+        .login-remember {
+            margin-top: 5px;
+        }
+
+        .login-submit {
+            .button {
+                width: 100%;
+                margin-top: 15px;
+                padding: 15px;
+                background: rgba(#000, 0.1);
+                text-transform: uppercase;
+                border-radius: 4px;
+            }
+        }
+
+        .user-name {
+            font-weight: bold;
+        }
+
+        .forgot {
+            margin-top: -5px;
+        }
+    }
+
+    .foot-icon-wrap {
+        grid-area: icons;
+
+        img {
+            height: 50px;
+        }
+    }
+
+    .foot-copy {
+        grid-area: copy;
+        text-align: center;
+    }
+
+    .foot-claim {
+        grid-area: claim;
+        text-align: center;
+    }
+
+    @media (max-width: 1140px) {
+        .foot-content {
+            max-width: calc(100% - 80px);
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "label" "search" "logo" "nav1" "nav2" "icons" "login" "copy" "claim";
+            align-items: center;
+            justify-items: center;
+            color: #fff;
+            gap: 20px;
+            padding-top: 50px;
+        }
+
+        .foot-search-label {
+            padding: 0;
+        }
+
+        .foot-logo {
+            padding: 50px 0;
+            width: calc(100% - 40px);
+            max-width: 400px;
+        }
+
+        .foot-icon-wrap {
+            text-align: center;
+
+            img {
+                height: initial;
+                width: calc(100% - 40px);
+                max-width: 400px;
+            }
+        }
+
+        .foot-login-wrap {
+            justify-self: center;
+            padding: 40px 0;
+        }
+    }
+}

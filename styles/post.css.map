@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,iCAAiC;AAKjC,kDAAkD",
+    "sources": [
+        "source/post.scss",
+        "source/common/_variables.scss"
+    ],
+    "names": [],
+    "file": "post.css"
+}

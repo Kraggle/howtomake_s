@@ -1,0 +1,1 @@
+const V = JSON.parse('{"theme":"/wp-content/themes/howtomake_s","call":"/wp-content/themes/howtomake_s/php/getters","assets":"/wp-content/themes/howtomake_s/assets","images":"/wp-content/themes/howtomake_s/assets/images","fonts":"/wp-content/themes/howtomake_s/assets/fonts"}');export default V;

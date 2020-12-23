@@ -1,0 +1,7 @@
+.et-db #et-boc .et-l .et_pb_contact_form_0 .et_pb_contact_field .input {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+.et-db #et-boc .et-l .et_pb_contact_form_0 .et_pb_contact_field .input::placeholder {
+  letter-spacing: 1px;
+}

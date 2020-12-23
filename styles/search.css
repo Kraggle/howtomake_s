@@ -1,0 +1,201 @@
+/** Import Bootstrap functions */
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: italic;
+}
+.list {
+  position: relative;
+  width: 100%;
+  max-width: calc(100vw - 80px);
+  margin: 0 auto 50px;
+  display: flex;
+  gap: 50px;
+}
+.list .list-part {
+  display: flex;
+  flex-flow: column;
+  gap: 50px;
+  flex: 1 1 0;
+}
+@media (max-width: 950px) {
+  .list .list-part[part="3"] {
+    display: none;
+  }
+}
+@media (max-width: 650px) {
+  .list .list-part[part="2"] {
+    display: none;
+  }
+}
+.list > .entry {
+  display: none;
+}
+.list .entry {
+  position: relative;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  background-color: #fff;
+}
+.list .entry-image {
+  display: block;
+  position: relative;
+}
+.list .entry-image img {
+  width: 100%;
+}
+.list .entry-image.video {
+  padding-top: 55%;
+  overflow: hidden;
+}
+.list .entry-image.video img {
+  position: absolute;
+  top: -19%;
+  left: 0;
+}
+.list .entry-title {
+  color: #8c8c8c;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 20px 20px 5px;
+  font-size: 25px;
+}
+.list .entry-meta {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.24);
+  line-height: 1.4em;
+  padding: 5px 20px;
+}
+.list .entry-excerpt {
+  padding: 0 20px 20px;
+  line-height: 25px;
+  color: #5896d3;
+}
+
+.post-nav {
+  margin-bottom: 50px;
+}
+.post-nav .screen-reader-text {
+  display: none;
+}
+.post-nav .nav-links {
+  max-width: calc(100vw - 80px);
+  margin: 0 auto;
+}
+.post-nav .nav-links a {
+  position: relative;
+  display: inline-block;
+  padding: 18px 34px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: bold;
+  background: #29c4a9;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.post-nav .nav-links a::after {
+  position: absolute;
+  content: "5";
+  font-family: etmodules;
+  font-size: 18px;
+  margin-top: -3px;
+  right: 20px;
+  opacity: 0;
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.post-nav .nav-links a:hover {
+  padding-left: 26px;
+  padding-right: 42px;
+}
+.post-nav .nav-links a:hover::after {
+  right: 14px;
+  opacity: 1;
+}
+.post-nav .nav-previous {
+  float: right;
+}
+.post-nav .nav-next {
+  float: left;
+}
+.post-nav .nav-next a::after {
+  content: "4";
+  right: initial;
+  left: 20px;
+}
+.post-nav .nav-next a:hover {
+  padding-right: 26px;
+  padding-left: 42px;
+}
+.post-nav .nav-next a:hover::after {
+  left: 14px;
+  opacity: 1;
+}
+.post-nav::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.main .search-box {
+  display: flex;
+  padding: 50px;
+  gap: 50px;
+  margin-bottom: 100px;
+}
+.main .search-box > div {
+  flex: 1 1 0;
+}
+.main .search-box .search-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: -3px 3px 12px 0 rgba(0, 0, 0, 0.3), 3px -3px 12px 0 rgba(0, 0, 0, 0.3);
+}
+.main .search-box .search-input {
+  border-radius: 0;
+  flex-grow: 2;
+  background: #fff;
+  font-size: 14px;
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 5px 10px;
+}
+.main .search-box .search-submit {
+  padding: 5px 11px;
+  background: #f69552;
+  line-height: 26px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+}
+.main .search-box .display-text p {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1.3em;
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .main .search-box {
+    flex-direction: column;
+  }
+}

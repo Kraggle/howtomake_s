@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,iCAAiC;AAKjC,kDAAkD",
+    "sources": [
+        "video.scss",
+        "common/_variables.scss"
+    ],
+    "names": [],
+    "file": "video.css"
+}

@@ -1,0 +1,36 @@
+{
+    "extends": [
+        "plugin:@wordpress/eslint-plugin/esnext"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "env": {
+        "browser": true
+    },
+    "ignorePatterns": [
+        "**/vendor/*",
+        "**/node_modules/*",
+        "**/src/*"
+    ],
+    "rules": {
+        "padded-blocks": "off",
+        "space-in-parens": "off",
+        "eqeqeq": "off",
+        "comma-dangle": "off",
+        "computed-property-spacing": "off",
+        "space-unary-ops": "off",
+        "curly": "off",
+        "linebreak-style": "off",
+        "no-trailing-spaces": "off",
+        "no-unused-vars": "warn",
+        "no-nested-ternary": "off",
+        "template-curly-spacing": "off",
+        "arrow-parens": "off",
+        "no-unused-expressions": "off",
+        "array-bracket-spacing": "off",
+        "no-mixed-operators": "off",
+        "no-fallthrough": "off",
+        "no-console": "off"
+    }
+}

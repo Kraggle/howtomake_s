@@ -1,0 +1,138 @@
+/** Import Bootstrap functions */
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: italic;
+}
+.main > .title {
+  color: #fff;
+  margin-bottom: 60px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 50px;
+}
+.wrapper .content-wrap {
+  flex-grow: 2;
+  background-color: #fff;
+  padding: 50px;
+  border-top: 10px solid #0da0c5;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 980px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+.wrapper a {
+  color: #29c4a9;
+  text-decoration: none;
+}
+.wrapper p {
+  color: #5896d3;
+  margin-bottom: 20px;
+}
+.wrapper a + h6,
+.wrapper a + h5,
+.wrapper a + h4,
+.wrapper a + h3,
+.wrapper a + h2, .wrapper p + h6,
+.wrapper p + h5,
+.wrapper p + h4,
+.wrapper p + h3,
+.wrapper p + h2, .wrapper ul + h6,
+.wrapper ul + h5,
+.wrapper ul + h4,
+.wrapper ul + h3,
+.wrapper ul + h2, .wrapper ol + h6,
+.wrapper ol + h5,
+.wrapper ol + h4,
+.wrapper ol + h3,
+.wrapper ol + h2, .wrapper div + h6,
+.wrapper div + h5,
+.wrapper div + h4,
+.wrapper div + h3,
+.wrapper div + h2, .wrapper noscript + h6,
+.wrapper noscript + h5,
+.wrapper noscript + h4,
+.wrapper noscript + h3,
+.wrapper noscript + h2 {
+  margin-top: 50px;
+}
+.wrapper ul + p, .wrapper ol + p {
+  margin-top: 30px;
+}
+.wrapper noscript + br {
+  display: none;
+}
+.wrapper br + a {
+  display: block;
+  text-align: right;
+}
+.wrapper li {
+  margin: 20px;
+  color: #5896d3;
+  line-height: 1.1em;
+  font-size: 15px;
+}
+.wrapper h3 {
+  font-size: 25px;
+}
+.wrapper h2 {
+  font-size: 35px;
+  font-weight: 750;
+}
+.wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5, .wrapper h6 {
+  margin-bottom: 15px;
+}
+.wrapper .image-wrap {
+  position: relative;
+  margin: 20px 0;
+}
+.wrapper .image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 600px) {
+  .wrapper h2 {
+    font-size: 30px;
+  }
+}
+
+.content-wrap .search-form {
+  position: relative;
+}
+.content-wrap .search-form button {
+  width: 24px;
+  height: 24px;
+  color: #000;
+  position: absolute;
+  right: 14px;
+  top: 9px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.content-wrap .search-form input {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 100%;
+}
+.content-wrap .search-form input::placeholder {
+  text-transform: uppercase;
+}
+.content-wrap .search-form input:focus {
+  outline: none;
+}

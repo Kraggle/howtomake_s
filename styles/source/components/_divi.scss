@@ -1,0 +1,90 @@
+// overwrite messy divi builder css
+.et_pb_posts {
+    .et_pb_post {
+        .entry-title {
+            padding: 0 20px 20px !important;
+        }
+
+        .post-content {
+            padding: 7px 20px 10px !important;
+            line-height: 1.5em;
+            word-break: break-word;
+        }
+    }
+}
+
+.small-listing {
+    .entry-title {
+        padding-bottom: 15px !important;
+    }
+}
+
+.et_pb_text {
+    h3 {
+        a {
+            text-transform: inherit !important;
+            font-size: inherit;
+            font-weight: inherit !important;
+        }
+    }
+}
+
+.wpcf7 {
+    position: relative;
+    margin-top: 30px !important;
+
+    input {
+        width: 100% !important;
+        background-color: rgba(#000, 0.05) !important;
+        border: 0 !important;
+        border-radius: 4px !important;
+        line-height: 36px;
+        padding: 0 10px !important;
+        transition: $transition !important;
+
+        &.wpcf7-text {
+            text-align: left !important;
+
+            &:focus {
+                background-color: rgba(#000, 0.15) !important;
+            }
+        }
+
+        &.wpcf7-submit {
+            font-size: 16px;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: rgba(#000, 0.15) !important;
+            }
+        }
+    }
+
+    p {
+        &:first-of-type {
+            padding-bottom: 10px !important;
+        }
+    }
+}
+
+.et_pb_toggle {
+    .et_pb_toggle_content {
+        ul {
+            margin: 15px 0 5px 15px !important;
+        }
+
+        li {
+            padding-bottom: 20px !important;
+        }
+
+        a > span {
+            font-weight: bold;
+        }
+
+        h3 span {
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
