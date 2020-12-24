@@ -14,7 +14,9 @@
 
 			<? // INFO:: Logo 
 			?>
-			<img class="foot-logo" src="<? echo wp_get_attachment_image_url(17385, 'medium') ?>" alt="How to Make Money from Home Logo">
+			<div class="foot-logo">
+				<? get_template_part('views/partials/logo') ?>
+			</div>
 
 			<? // INFO:: Navigation top 
 			?>

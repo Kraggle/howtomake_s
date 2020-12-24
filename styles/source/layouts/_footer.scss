@@ -94,6 +94,11 @@
         grid-area: logo;
         max-width: 230px;
         align-self: flex-start;
+        height: 100%;
+
+        .logo {
+            width: 100%;
+        }
     }
 
     .foot-nav-wrap {

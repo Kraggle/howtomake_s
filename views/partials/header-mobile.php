@@ -13,7 +13,7 @@
 		<div class="menu-spacer"></div>
 
 		<a class="brand" href="<? echo esc_url(home_url('/')); ?>">
-			<img class="logo" src="<? echo wp_get_attachment_image_url(17385, 'medium') ?>" alt="<? echo esc_attr(get_bloginfo('name')); ?>" />
+			<? get_template_part('views/partials/logo') ?>
 		</a>
 
 		<div class="menu-spacer"></div>

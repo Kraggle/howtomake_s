@@ -161,7 +161,7 @@ export default {
 			if (!back.length) return;
 
 			setTimeout(() => {
-				const img = $('.lower .brand img'),
+				const img = $('.lower .brand .logo'),
 					logo = $('.page-loader .loader-logo'),
 					loader = $('.page-loader .loader');
 

@@ -160,7 +160,7 @@ foreach ([
 		$templates = array_map(function ($value) {
 			global $acceptedTemplates;
 			$acceptedTemplates[] = str_replace('.php', '', $value);
-			return ".\\views\\$value";
+			return "./views/$value";
 		}, $templates);
 
 		add_filter('body_class', function ($classes) {
@@ -181,7 +181,7 @@ add_action('wp_enqueue_scripts', function () {
 	global $template;
 	// error_log('Using template: ' . basename($template));
 
-	// wp_enqueue_style('google_fonts', "//fonts.googleapis.com/css?family=Questrial", false, null);
+	wp_enqueue_style('page_loader', get_template_directory_uri() . "/styles/loader.css");
 	// wp_enqueue_script('greensock', "//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js", array(), null, true);
 
 	if (is_single() && comments_open() && get_option('thread_comments')) {

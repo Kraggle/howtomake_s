@@ -63,13 +63,6 @@ function htm_add_head_stuff() {
 		],
 		"home" => (object) [
 			"query" => is_front_page(),
-			"scripts" => [
-				(object) [
-					"name" => "htm_s/home",
-					"src" => "$uri/scripts/home.js",
-					"module" => true
-				]
-			],
 			"styles" => [
 				(object) [
 					"name" => "htm_s/home",
