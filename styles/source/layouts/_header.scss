@@ -1,10 +1,3 @@
-$sub-top: 124px;
-$sub-scroll-top: 54px;
-$sub-admin-top: 156px;
-$sub-scroll-admin-top: 87px;
-$sub-pad: 59px;
-$sub-scroll-pad: 39px;
-
 .primary-nav {
     position: relative;
     min-height: 100%;
@@ -52,7 +45,7 @@ $sub-scroll-pad: 39px;
             > a {
                 &::after {
                     font-family: ETmodules;
-                    content: "3";
+                    content: '3';
                     position: absolute;
                 }
             }
@@ -1099,7 +1092,7 @@ $sub-scroll-pad: 39px;
     width: 1000px;
     transform: translate(-50%, -30px);
     height: 30px;
-    z-index: 2;
+    z-index: 999;
     overflow: hidden;
 
     &::before {
@@ -1127,7 +1120,7 @@ $sub-scroll-pad: 39px;
 }
 
 .body-wrap {
-    @include transition(padding-top);
+    @include transition(600ms, padding-top);
 
     padding-top: 163px;
 }
@@ -1156,12 +1149,26 @@ body {
     }
 
     &.admin-bar {
-        .menu-box {
-            top: $sub-admin-top;
+        .for-desktop .menu-box {
+            top: $sub-admin-top !important;
+        }
+
+        .for-mobile {
+            &.primary-nav {
+                top: 92px;
+
+                @media screen and (max-width: 782px) {
+                    top: 107px;
+                }
+            }
         }
 
         .banner {
             margin-top: 32px;
+
+            @media screen and (max-width: 782px) {
+                top: 15px;
+            }
 
             &.scrolled {
                 &:not(.for-mobile) {

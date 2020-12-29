@@ -49,14 +49,14 @@ function htm_add_head_stuff() {
 			"query" => true,
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/main",
+					"name" => "htm_s-main",
 					"src" => "$uri/scripts/main.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/main",
+					"name" => "htm_s-main",
 					"src" => "$uri/styles/main.css"
 				]
 			]
@@ -65,7 +65,7 @@ function htm_add_head_stuff() {
 			"query" => is_front_page(),
 			"styles" => [
 				(object) [
-					"name" => "htm_s/home",
+					"name" => "htm_s-home",
 					"src" => "$uri/styles/home.css"
 				]
 			]
@@ -74,14 +74,14 @@ function htm_add_head_stuff() {
 			"query" => $base === 'single.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/single",
+					"name" => "htm_s-single",
 					"src" => "$uri/scripts/single.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/single",
+					"name" => "htm_s-single",
 					"src" => "$uri/styles/single.css"
 				]
 			]
@@ -90,30 +90,30 @@ function htm_add_head_stuff() {
 			"query" => $base === 'category.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/category",
+					"name" => "htm_s-category",
 					"src" => "$uri/scripts/category.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/category",
+					"name" => "htm_s-category",
 					"src" => "$uri/styles/category.css"
 				]
 			]
 		],
 		"search" => (object) [
-			"query" => is_search(),
+			"query" => $base === 'page-search.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/search",
+					"name" => "htm_s-search",
 					"src" => "$uri/scripts/search.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/search",
+					"name" => "htm_s-search",
 					"src" => "$uri/styles/search.css"
 				]
 			]
@@ -122,14 +122,14 @@ function htm_add_head_stuff() {
 			"query" => $base === 'channel.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/channel",
+					"name" => "htm_s-channel",
 					"src" => "$uri/scripts/channel.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/channel",
+					"name" => "htm_s-channel",
 					"src" => "$uri/styles/channel.css"
 				]
 			]
@@ -138,7 +138,7 @@ function htm_add_head_stuff() {
 			"query" => $base === 'page.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s/page",
+					"name" => "htm_s-page",
 					"src" => "$uri/styles/page.css"
 				]
 			]
@@ -147,7 +147,7 @@ function htm_add_head_stuff() {
 			"query" => $base === '404.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s/page",
+					"name" => "htm_s-page",
 					"src" => "$uri/styles/page.css"
 				]
 			]
@@ -156,7 +156,7 @@ function htm_add_head_stuff() {
 			"query" => $base === 'page-contact-us.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s/page",
+					"name" => "htm_s-page",
 					"src" => "$uri/styles/contact.css"
 				]
 			]
@@ -167,14 +167,8 @@ function htm_add_head_stuff() {
 		if (!$item->query) continue;
 
 		if ($item->scripts) {
-			foreach ($item->scripts as $script) {
-				printf(
-					'<script id="%1$s" src="%2$s" type="%3$s"></script>',
-					$script->name,
-					$script->src,
-					$script->module ? 'module' : 'text/javascript'
-				);
-			}
+			foreach ($item->scripts as $script)
+				wp_enqueue_script(($script->module ? 'module-' : '') . $script->name, $script->src);
 		}
 
 		if ($item->styles) {
@@ -183,6 +177,15 @@ function htm_add_head_stuff() {
 		}
 	}
 }
+
+function htm_script_as_module($tag, $handle, $src) {
+	if (preg_match('/^module-/', $handle)) {
+		$tag = '<script type="module" src="' . esc_url($src) . '" id="' . $handle . '"></script>';
+	}
+
+	return $tag;
+}
+add_filter('script_loader_tag', 'htm_script_as_module', 10, 3);
 
 /**
  * Retrieves the channel information for the current video and prints it.
@@ -310,4 +313,12 @@ function htm_s_echo_channel($channel, $key) {
 
 		return;
 	}
+}
+
+function load_template_part($template_name, $part_name = null) {
+	ob_start();
+	get_template_part($template_name, $part_name);
+	$var = ob_get_contents();
+	ob_end_clean();
+	return $var;
 }

@@ -13,7 +13,8 @@ function htm_s_on_install() {
 		'call' => "$path/php/getters",
 		'assets' => "$path/assets",
 		'images' => "$path/assets/images",
-		'fonts' => "$path/assets/fonts"
+		'fonts' => "$path/assets/fonts",
+		'ajax' => "/wp-admin/admin-ajax.php"
 	);
 
 	$js = fopen(get_template_directory() . '/scripts/custom/Paths.js', 'w') or die('Unable to open file!');
@@ -26,6 +27,7 @@ function htm_s_on_install() {
 
 	global $htm__s_version;
 	add_option('htm__s_version', $htm__s_version);
+	update_option('htm__s_version', $htm__s_version);
 	error_log(get_site_option('htm__s_version'));
 }
 

@@ -50,8 +50,13 @@ body.admin-bar {
   }
 }
 
+button,
 input {
   font-family: "Mulish", Helvetica, Arial, Lucida, sans-serif;
+}
+button:focus,
+input:focus {
+  outline: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -163,6 +168,229 @@ body .et_pb_searchform > div .et_pb_searchsubmit {
 }
 body .et_pb_searchform > div .et_pb_searchsubmit:hover {
   background: #ef690c !important;
+}
+
+.foot .foot-clouds {
+  background-image: url(../assets/images/clouds.png);
+  background-color: #fff;
+  background-size: 1467px 100px;
+  background-position: center;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: -1px;
+}
+.foot .foot-wrap {
+  background-image: linear-gradient(180deg, #0da0c5 0%, #29c4a9 35%, #29c4a9 100%);
+  padding-bottom: 80px;
+}
+.foot .foot-content {
+  max-width: 1080px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 180px repeat(3, 80px) repeat(2, 50px);
+  grid-template-areas: "label label label search search search" "logo logo nav1 nav1 login login" "logo logo nav2 nav2 login login" "logo logo icons icons login login" ". copy copy copy copy ." ". claim claim claim claim .";
+  align-items: center;
+  justify-items: center;
+  color: #fff;
+}
+.foot .foot-search-label {
+  grid-area: label;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1.3em;
+  padding: 0 70px;
+}
+.foot .search-wrap {
+  position: relative;
+  grid-area: search;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: -3px 3px 12px 0 rgba(0, 0, 0, 0.3), 3px -3px 12px 0 rgba(0, 0, 0, 0.3);
+}
+.foot .search-wrap .search-input {
+  flex-grow: 2;
+  border-radius: 0;
+  background: #fff;
+  font-size: 14px;
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 5px 10px;
+}
+.foot .search-wrap .search-input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.foot .search-wrap .search-input:-moz-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.foot .search-wrap .search-input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.foot .search-wrap .search-input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.foot .search-wrap .search-input:focus {
+  box-shadow: inset 0 0 8px 4px rgba(246, 149, 82, 0.3);
+}
+.foot .search-wrap .search-submit {
+  padding: 5px 11px;
+  background: #f69552;
+  line-height: 26px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+}
+.foot .search-wrap .search-submit:hover {
+  background: #ef690c;
+}
+.foot .foot-logo {
+  grid-area: logo;
+  max-width: 230px;
+  align-self: flex-start;
+  height: 100%;
+}
+.foot .foot-logo .logo {
+  width: 100%;
+}
+.foot .foot-nav-wrap.one {
+  grid-area: nav1;
+}
+.foot .foot-nav-wrap.two {
+  grid-area: nav2;
+}
+.foot .foot-nav-wrap .foot-nav {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+}
+.foot .foot-nav-wrap .foot-nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.foot .foot-nav-wrap .foot-nav a:hover {
+  color: #0da0c5;
+}
+.foot .foot-login-wrap {
+  grid-area: login;
+  justify-self: end;
+  align-self: flex-start;
+  position: relative;
+  width: 235px;
+}
+.foot .foot-login-wrap .user-hi {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.foot .foot-login-wrap .input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #000;
+  background: #fff;
+  border-radius: 4px;
+}
+.foot .foot-login-wrap .log-out,
+.foot .foot-login-wrap .forgot {
+  font-size: 11px;
+  color: #fff;
+  display: block;
+  text-align: right;
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.foot .foot-login-wrap .log-out:hover,
+.foot .foot-login-wrap .forgot:hover {
+  color: #d9d9d9;
+}
+.foot .foot-login-wrap .login-remember {
+  margin-top: 5px;
+}
+.foot .foot-login-wrap .login-submit .button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+.foot .foot-login-wrap .user-name {
+  font-weight: bold;
+}
+.foot .foot-login-wrap .forgot {
+  margin-top: -5px;
+}
+.foot .foot-icon-wrap {
+  grid-area: icons;
+}
+.foot .foot-icon-wrap img {
+  height: 50px;
+}
+.foot .foot-copy {
+  grid-area: copy;
+  text-align: center;
+}
+.foot .foot-claim {
+  grid-area: claim;
+  text-align: center;
+}
+@media (max-width: 1140px) {
+  .foot .foot-content {
+    max-width: calc(100% - 80px);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "label" "search" "logo" "nav1" "nav2" "icons" "login" "copy" "claim";
+    align-items: center;
+    justify-items: center;
+    color: #fff;
+    gap: 20px;
+    padding-top: 50px;
+  }
+  .foot .foot-search-label {
+    padding: 0;
+  }
+  .foot .foot-logo {
+    padding: 50px 0;
+    width: calc(100% - 40px);
+    max-width: 400px;
+  }
+  .foot .foot-icon-wrap {
+    text-align: center;
+  }
+  .foot .foot-icon-wrap img {
+    height: initial;
+    width: calc(100% - 40px);
+    max-width: 400px;
+  }
+  .foot .foot-login-wrap {
+    justify-self: center;
+    padding: 40px 0;
+  }
 }
 
 .primary-nav {
@@ -1002,7 +1230,7 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
   width: 1000px;
   transform: translate(-50%, -30px);
   height: 30px;
-  z-index: 2;
+  z-index: 999;
   overflow: hidden;
 }
 .menu-back::before {
@@ -1027,7 +1255,7 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
 }
 
 .body-wrap {
-  transition: padding-top all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 600ms padding-top cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: 163px;
 }
 
@@ -1043,11 +1271,24 @@ body.scrolled:not(.for-mobile) .menu-back.open {
 body.scrolled:not(.for-mobile) .body-wrap {
   padding-top: 123px;
 }
-body.admin-bar .menu-box {
-  top: 156px;
+body.admin-bar .for-desktop .menu-box {
+  top: 156px !important;
+}
+body.admin-bar .for-mobile.primary-nav {
+  top: 92px;
+}
+@media screen and (max-width: 782px) {
+  body.admin-bar .for-mobile.primary-nav {
+    top: 107px;
+  }
 }
 body.admin-bar .banner {
   margin-top: 32px;
+}
+@media screen and (max-width: 782px) {
+  body.admin-bar .banner {
+    top: 15px;
+  }
 }
 body.admin-bar .banner.scrolled:not(.for-mobile) .menu-box {
   top: 87px;
@@ -1064,238 +1305,16 @@ body.admin-bar.scrolled .menu-back.open {
   left: -50000px;
 }
 
-.foot .foot-clouds {
-  background-image: url(../assets/images/clouds.png);
-  background-color: #fff;
-  background-size: 1467px 100px;
-  background-position: center;
-  height: 100px;
-  width: 100%;
-  position: relative;
-  top: -1px;
-}
-.foot .foot-wrap {
-  background-image: linear-gradient(180deg, #0da0c5 0%, #29c4a9 35%, #29c4a9 100%);
-  padding-bottom: 80px;
-}
-.foot .foot-content {
-  max-width: 1080px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 180px repeat(3, 80px) repeat(2, 50px);
-  grid-template-areas: "label label label search search search" "logo logo nav1 nav1 login login" "logo logo nav2 nav2 login login" "logo logo icons icons login login" ". copy copy copy copy ." ". claim claim claim claim .";
-  align-items: center;
-  justify-items: center;
-  color: #fff;
-}
-.foot .foot-search-label {
-  grid-area: label;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 2px;
-  line-height: 1.3em;
-  padding: 0 70px;
-}
-.foot .search-wrap {
-  position: relative;
-  grid-area: search;
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: -3px 3px 12px 0 rgba(0, 0, 0, 0.3), 3px -3px 12px 0 rgba(0, 0, 0, 0.3);
-}
-.foot .search-wrap .search-input {
-  flex-grow: 2;
-  border-radius: 0;
-  background: #fff;
-  font-size: 14px;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 5px 10px;
-}
-.foot .search-wrap .search-input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.foot .search-wrap .search-input:-moz-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.foot .search-wrap .search-input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.foot .search-wrap .search-input:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.foot .search-wrap .search-input:focus {
-  box-shadow: inset 0 0 8px 4px rgba(246, 149, 82, 0.3);
-}
-.foot .search-wrap .search-submit {
-  padding: 5px 11px;
-  background: #f69552;
-  line-height: 26px;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-  color: #fff;
-}
-.foot .search-wrap .search-submit:hover {
-  background: #ef690c;
-}
-.foot .foot-logo {
-  grid-area: logo;
-  max-width: 230px;
-  align-self: flex-start;
-  height: 100%;
-}
-.foot .foot-logo .logo {
-  width: 100%;
-}
-.foot .foot-nav-wrap.one {
-  grid-area: nav1;
-}
-.foot .foot-nav-wrap.two {
-  grid-area: nav2;
-}
-.foot .foot-nav-wrap .foot-nav {
-  display: flex;
-  list-style-type: none;
-  gap: 20px;
-}
-.foot .foot-nav-wrap .foot-nav a {
-  color: #fff;
-  text-decoration: none;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-}
-.foot .foot-nav-wrap .foot-nav a:hover {
-  color: #0da0c5;
-}
-.foot .foot-login-wrap {
-  grid-area: login;
-  justify-self: end;
-  align-self: flex-start;
-  position: relative;
-  width: 235px;
-}
-.foot .foot-login-wrap .user-hi {
-  display: block;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.foot .foot-login-wrap .input {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  color: #000;
-  background: #fff;
-  border-radius: 4px;
-}
-.foot .foot-login-wrap .log-out,
-.foot .foot-login-wrap .forgot {
-  font-size: 11px;
-  color: #fff;
-  display: block;
-  text-align: right;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-}
-.foot .foot-login-wrap .log-out:hover,
-.foot .foot-login-wrap .forgot:hover {
-  color: #d9d9d9;
-}
-.foot .foot-login-wrap .login-remember {
-  margin-top: 5px;
-}
-.foot .foot-login-wrap .login-submit .button {
-  width: 100%;
-  margin-top: 15px;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.1);
-  text-transform: uppercase;
-  border-radius: 4px;
-}
-.foot .foot-login-wrap .user-name {
-  font-weight: bold;
-}
-.foot .foot-login-wrap .forgot {
-  margin-top: -5px;
-}
-.foot .foot-icon-wrap {
-  grid-area: icons;
-}
-.foot .foot-icon-wrap img {
-  height: 50px;
-}
-.foot .foot-copy {
-  grid-area: copy;
-  text-align: center;
-}
-.foot .foot-claim {
-  grid-area: claim;
-  text-align: center;
-}
-@media (max-width: 1140px) {
-  .foot .foot-content {
-    max-width: calc(100% - 80px);
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "label" "search" "logo" "nav1" "nav2" "icons" "login" "copy" "claim";
-    align-items: center;
-    justify-items: center;
-    color: #fff;
-    gap: 20px;
-    padding-top: 50px;
-  }
-  .foot .foot-search-label {
-    padding: 0;
-  }
-  .foot .foot-logo {
-    padding: 50px 0;
-    width: calc(100% - 40px);
-    max-width: 400px;
-  }
-  .foot .foot-icon-wrap {
-    text-align: center;
-  }
-  .foot .foot-icon-wrap img {
-    height: initial;
-    width: calc(100% - 40px);
-    max-width: 400px;
-  }
-  .foot .foot-login-wrap {
-    justify-self: center;
-    padding: 40px 0;
-  }
-}
-
 .body-decor {
   height: 170px;
   background-image: linear-gradient(180deg, #0da0c5 0%, #29c4a9 100%);
 }
 
 .body-curves {
-  margin-top: -1px;
+  margin-top: -0.7px;
   height: 100px;
   background-image: url(../assets/images/body-curves.svg);
+  background-size: 1400px 100px;
 }
 .body-curves + .content {
   margin: -230px auto 0;

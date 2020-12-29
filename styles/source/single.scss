@@ -1,4 +1,4 @@
-@import "common/variables";
+@import 'common/variables';
 
 .content {
     .main {
@@ -40,6 +40,7 @@
         overflow: hidden;
         border-radius: 20px;
         background-color: #fff;
+        max-height: 608px;
     }
 
     .wrapper {
@@ -150,25 +151,25 @@ h3.related-title {
     }
 
     @media (max-width: 1040px) {
-        .related-part[part="5"] {
+        .related-part[part='5'] {
             display: none;
         }
     }
 
     @media (max-width: 920px) {
-        .related-part[part="4"] {
+        .related-part[part='4'] {
             display: none;
         }
     }
 
     @media (max-width: 760px) {
-        .related-part[part="3"] {
+        .related-part[part='3'] {
             display: none;
         }
     }
 
     @media (max-width: 520px) {
-        .related-part[part="2"] {
+        .related-part[part='2'] {
             display: none;
         }
     }

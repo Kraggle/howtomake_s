@@ -43,6 +43,7 @@
   overflow: hidden;
   border-radius: 20px;
   background-color: #fff;
+  max-height: 608px;
 }
 .content .wrapper {
   display: flex;

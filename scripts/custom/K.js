@@ -1297,3 +1297,20 @@ if (!Date.prototype.addMinutes) {
 }
 
 export default K;
+class Timed {
+	run(callback, time) {
+		this.time = time;
+		this.callback = callback;
+
+		this._action();
+	}
+
+	_action() {
+		this.timeout && (clearTimeout(this.timeout));
+		this.timeout = setTimeout(this.callback, this.time);
+	}
+}
+
+export function timed() {
+	return new Timed();
+}

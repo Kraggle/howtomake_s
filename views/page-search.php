@@ -1,0 +1,256 @@
+<?php
+
+/**
+ * The template for displaying search results pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ *
+ * @package howtomake_S
+ */
+
+wp_reset_query();
+
+$orderby = [
+	(object) [
+		'name' => 'Relevance',
+		'value' => 'relevance',
+		'enabled' => true
+	],
+	(object) [
+		'name' => 'Date Published',
+		'value' => 'date',
+		'enabled' => true
+	],
+	(object) [
+		'name' => 'Date Modified',
+		'value' => 'modified',
+		'enabled' => true
+	],
+	(object) [
+		'name' => 'Title',
+		'value' => 'title',
+		'enabled' => true
+	],
+	(object) [
+		'name' => 'Author',
+		'value' => 'author',
+		'enabled' => false
+	],
+	(object) [
+		'name' => 'Type',
+		'value' => 'type',
+		'enabled' => false
+	],
+	(object) [
+		'name' => 'Name',
+		'value' => 'name',
+		'enabled' => false
+	],
+	(object) [
+		'name' => 'Random',
+		'value' => 'rand',
+		'enabled' => true
+	],
+];
+
+$taxes = (object) [
+	'post' => 'category',
+	'video' => 'video-category'
+];
+
+$uri = explode('/', $_SERVER['REQUEST_URI']);
+if ($uri[1] !== 'search') {
+	$_REQUEST['type'] = ($uri[1] == 'cat' ? 'post' : 'video') . '~' . $uri[2];
+}
+
+// INFO:: Default search terms
+$query = (object) [
+	'order' => 'desc',
+	'orderby' => $_REQUEST['term'] ? 'relevance' : 'date',
+	'type' => [
+		'video',
+		'post'
+	]
+];
+
+// INFO:: Parse the terms from the uri
+foreach ($_REQUEST as $key => $val) {
+
+	if ($key === 'type') {
+		$types = explode(',', $val);
+		$aTypes = [];
+
+		foreach ($types as $value) {
+
+			if (preg_match('/~/', $value)) {
+				$cats = explode('~', $value);
+				$type = $cats[0];
+				$aTypes[] = $type;
+				$tax = $taxes->$type;
+				$len = count($cats);
+
+				for ($i = 1; $i < $len; $i++) {
+					if ($i === 1) $query->$tax = [];
+
+					$query->$tax[] = $cats[$i];
+				}
+			} else {
+				$aTypes[] = $value;
+			}
+		}
+		$query->$key = $aTypes;
+	} else {
+		$query->$key = $val;
+	}
+}
+
+// error_log(json_encode($query));
+
+add_action('loop_start', 'et_dbp_main_loop_start');
+add_action('loop_end', 'et_dbp_main_loop_end');
+?>
+<!doctype html>
+<html <? echo get_language_attributes() ?>>
+<? get_template_part('views/partials/head') ?>
+
+<body <? body_class() ?>>
+	<? get_template_part('views/partials/loader') ?>
+	<div class="body-wrap">
+		<? do_action('get_header') ?>
+		<? get_template_part('views/partials/header') ?>
+		<div class="wrap main-container" role="document">
+			<div class="body-decor"></div>
+			<div class="body-curves"></div>
+			<div class="content">
+				<main class="main">
+
+					<div class="query-vars" data-nonce="<? echo wp_create_nonce('custom_search_nonce') ?>">
+
+						<div class="search-box">
+							<input id="search" type="text" name="s" class="search" placeholder="Search" value="<? echo $query->term ?>">
+							<button class="svg clear"><i class="fa-icon type-solid svg-times"></i></button>
+							<div class="divider"></div>
+							<button class="svg submit"><i class="fa-icon type-solid svg-search"></i></button>
+						</div>
+
+						<div class="order-box">
+							<div class="dropdown orderby select-wrap">
+								<label class="name" for="orderby">Sort by</label>
+								<select name="orderby" id="orderby">
+									<? foreach ($orderby as $o) {
+										if ($o->enabled) { ?>
+											<option value="<? echo $o->value ?>" <? echo ($o->value === $query->orderby ? ' selected' : '') ?>>
+												<? echo $o->name ?>
+											</option>
+									<? }
+									} ?>
+								</select>
+							</div>
+
+							<div class="toggle toggle-wrap">
+								<label class="name">Order</label>
+								<label for="asc">ASC</label>
+								<input type="radio" name="order" id="asc" value="asc" <? echo ($query->order === 'asc' ? 'checked' : '') ?>>
+								<label for="desc">DESC</label>
+								<input type="radio" name="order" id="desc" value="desc" <? echo ($query->order === 'desc' ? 'checked' : '') ?>>
+							</div>
+						</div>
+					</div>
+
+					<div class="which-box">
+
+						<div class="checks flex type-box" data-at-least=1>
+							<label class="name">Type</label>
+							<div class="check" data-disable="posts">
+								<label for="post">Articles</label>
+								<input type="checkbox" name="post" id="post" <? echo (in_array('post', $query->type) ? 'checked' : '') ?> enabled="true">
+							</div>
+							<div class="check" data-disable="videos">
+								<label for="video">Videos</label>
+								<input type="checkbox" name="video" id="video" <? echo (in_array('video', $query->type) ? 'checked' : '') ?> enabled="true">
+							</div>
+							<!-- <div class="check">
+								<label for="page">Pages</label>
+								<input type="checkbox" name="page" id="page">
+							</div> -->
+						</div>
+
+						<? $args = array(
+							'taxonomy' => 'category',
+							'orderby' => 'name',
+							'order' => 'ASC'
+						);
+						$taxes = get_terms($args);
+						$enabled = in_array('post', $query->type); ?>
+
+						<div class="checks cat-wrap" tax="category" data-at-least=1 data-include="videos" data-name="posts" enabled="<? echo json_encode($enabled) ?>">
+							<label class="name">Article Categories</label>
+							<button class="any">Select All</button>
+
+							<? foreach ($taxes as $tax) {
+								$checked = 'checked';
+								if (is_array($query->category)) {
+									if (!in_array($tax->slug, $query->category))
+										$checked = '';
+								} elseif (!$enabled) {
+									$checked = '';
+								} ?>
+
+								<div class="check">
+									<label for="_<? echo $tax->term_id ?>"><? echo $tax->name ?></label>
+									<input type="checkbox" name="<? echo $tax->slug ?>" id="_<? echo $tax->term_id ?>" tax="<? echo $tax->taxonomy ?>" enabled="<? echo json_encode($enabled) ?>" <? echo $checked ?>>
+								</div>
+							<? } ?>
+						</div>
+
+						<? $args = array(
+							'taxonomy' => 'video-category',
+							'orderby' => 'name',
+							'order' => 'ASC'
+						);
+						$taxes = get_terms($args);
+						$enabled = in_array('video', $query->type); ?>
+
+						<div class="checks cat-wrap" tax="video-category" data-at-least=1 data-include="posts" data-name="videos" enabled="<? echo json_encode($enabled) ?>">
+							<label class="name">Video Categories</label>
+							<button class="any">Select All</button>
+
+							<? foreach ($taxes as $tax) {
+								$checked = 'checked';
+								$cat = 'video-category';
+								if (is_array($query->$cat)) {
+									if (!in_array($tax->slug, $query->$cat))
+										$checked = '';
+								} elseif (!$enabled) {
+									$checked = '';
+								} ?>
+
+								<div class="check">
+									<label for="_<? echo $tax->term_id ?>"><? echo $tax->name ?></label>
+									<input type="checkbox" name="<? echo $tax->slug ?>" id="_<? echo $tax->term_id ?>" tax="<? echo $tax->taxonomy ?>" enabled="<? echo json_encode($enabled) ?>" <? echo $checked ?>>
+								</div>
+							<? } ?>
+						</div>
+					</div>
+
+					<div class="list">
+
+						<div class="list-part" part=1></div>
+						<div class="list-part" part=2></div>
+						<div class="list-part" part=3></div>
+					</div>
+
+				</main>
+			</div>
+		</div>
+
+		<? do_action('get_footer') ?>
+		<? get_template_part('views/partials/footer') ?>
+		<? wp_footer() ?>
+	</div>
+</body>
+
+</html>
+
+<?
+// END

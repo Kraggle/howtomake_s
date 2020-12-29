@@ -1,11 +1,18 @@
-@import "common/variables";
+@import 'common/variables';
 
-@import "common/global";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "layouts/header";
-@import "layouts/footer";
+@import 'common/global';
+@import 'components/buttons';
+@import 'components/comments';
+@import 'components/forms';
+@import 'layouts/header';
+@import 'layouts/footer';
+
+$sub-top: 124px;
+$sub-scroll-top: 54px;
+$sub-admin-top: 156px;
+$sub-scroll-admin-top: 87px;
+$sub-pad: 59px;
+$sub-scroll-pad: 39px;
 
 // .et-db #et-boc .et-l .et_pb_section_video_bg {
 //     visibility: hidden !important;
@@ -17,9 +24,10 @@
 }
 
 .body-curves {
-    margin-top: -1px;
+    margin-top: -0.7px;
     height: 100px;
     background-image: url(../assets/images/body-curves.svg);
+    background-size: 1400px 100px;
 
     + .content {
         margin: -230px auto 0;
@@ -199,13 +207,13 @@ h1 {
     }
 
     @media (max-width: 830px) {
-        .more-part[part="3"] {
+        .more-part[part='3'] {
             display: none;
         }
     }
 
     @media (max-width: 560px) {
-        .more-part[part="2"] {
+        .more-part[part='2'] {
             display: none;
         }
     }

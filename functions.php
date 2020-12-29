@@ -1,7 +1,7 @@
 <?php
 
 global $htm__s_version;
-$htm__s_version = '0.1.09';
+$htm__s_version = '0.1.10';
 
 /**
  * htm_s functions and definitions
@@ -135,7 +135,7 @@ array_map(function ($file) use ($htm_s_error) {
 	}
 }, [
 	'custom-header', 'template-tags', 'template-functions', 'customizer',
-	'custom-posts', 'shortcodes', 'other-functions', 'forms'
+	'custom-posts', 'shortcodes', 'other-functions', 'forms', 'ajax-calls'
 ]);
 
 /**
@@ -148,9 +148,9 @@ foreach ([
 ] as $type) {
 	add_filter("{$type}_template_hierarchy", function ($templates) {
 		if (in_array('category.php', $templates)) {
-			array_unshift($templates, 'category.php');
+			array_unshift($templates, 'page-search.php');
 		} elseif (in_array('taxonomy-video-category.php', $templates)) {
-			array_unshift($templates, 'category.php');
+			array_unshift($templates, 'page-search.php');
 		} elseif (in_array('front-page.php', $templates)) {
 			array_unshift($templates, 'page-home.php');
 		} elseif (in_array('taxonomy-video-channel.php', $templates)) {
@@ -174,11 +174,31 @@ foreach ([
 	});
 }
 
+// add_action('template_redirect', function () {
+
+// 	global $wp_query;
+// 	$query = $wp_query->query;
+
+// 	if (array_key_exists('video-category', $query)) {
+// 		$cat = $query['video-category'];
+
+// 		wp_safe_redirect(site_url("/search?type=video~$cat"));
+// 		exit();
+// 	} elseif (array_key_exists('category_name', $query)) {
+// 		$cat = $query['category_name'];
+
+// 		wp_safe_redirect(site_url("/search?type=post~$cat"));
+// 		exit();
+// 	}
+// });
+
+
+
 /**
  * Enqueue scripts and styles.
  */
 add_action('wp_enqueue_scripts', function () {
-	global $template;
+	// global $template;
 	// error_log('Using template: ' . basename($template));
 
 	wp_enqueue_style('page_loader', get_template_directory_uri() . "/styles/loader.css");
