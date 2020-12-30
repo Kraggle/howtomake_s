@@ -1,4 +1,4 @@
-<?
+<?php
 // HTML partial/header-mobile
 ?>
 
@@ -12,19 +12,19 @@
 
 		<div class="menu-spacer"></div>
 
-		<a class="brand" href="<? echo esc_url(home_url('/')); ?>">
-			<? get_template_part('views/partials/logo') ?>
+		<a class="brand" href="<?php echo esc_url(home_url('/')); ?>">
+			<?php get_template_part('views/partials/logo') ?>
 		</a>
 
 		<div class="menu-spacer"></div>
 
 		<div class="top-search for-mobile">
-			<? get_template_part('views/widgets/search-form') ?>
+			<?php get_template_part('views/widgets/search-form') ?>
 		</div>
 	</div>
 
 	<nav class="primary-nav for-mobile">
-		<?
+		<?php
 		if (has_nav_menu('primary-menu')) {
 			wp_nav_menu([
 				'theme_location' => 'primary-menu',
@@ -39,5 +39,5 @@
 
 </header>
 
-<?
+<?php
 // END

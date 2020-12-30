@@ -110,24 +110,24 @@ add_action('loop_start', 'et_dbp_main_loop_start');
 add_action('loop_end', 'et_dbp_main_loop_end');
 ?>
 <!doctype html>
-<html <? echo get_language_attributes() ?>>
-<? get_template_part('views/partials/head') ?>
+<html <?php echo get_language_attributes() ?>>
+<?php get_template_part('views/partials/head') ?>
 
-<body <? body_class() ?>>
-	<? get_template_part('views/partials/loader') ?>
+<body <?php body_class() ?>>
+	<?php get_template_part('views/partials/loader') ?>
 	<div class="body-wrap">
-		<? do_action('get_header') ?>
-		<? get_template_part('views/partials/header') ?>
+		<?php do_action('get_header') ?>
+		<?php get_template_part('views/partials/header') ?>
 		<div class="wrap main-container" role="document">
 			<div class="body-decor"></div>
 			<div class="body-curves"></div>
 			<div class="content">
 				<main class="main">
 
-					<div class="query-vars" data-nonce="<? echo wp_create_nonce('custom_search_nonce') ?>">
+					<div class="query-vars" data-nonce="<?php echo wp_create_nonce('custom_search_nonce') ?>">
 
 						<div class="search-box">
-							<input id="search" type="text" name="s" class="search" placeholder="Search" value="<? echo $query->term ?>">
+							<input id="search" type="text" name="s" class="search" placeholder="Search" value="<?php echo $query->term ?>">
 							<button class="svg clear"><i class="fa-icon type-solid svg-times"></i></button>
 							<div class="divider"></div>
 							<button class="svg submit"><i class="fa-icon type-solid svg-search"></i></button>
@@ -137,12 +137,12 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 							<div class="dropdown orderby select-wrap">
 								<label class="name" for="orderby">Sort by</label>
 								<select name="orderby" id="orderby">
-									<? foreach ($orderby as $o) {
+									<?php foreach ($orderby as $o) {
 										if ($o->enabled) { ?>
-											<option value="<? echo $o->value ?>" <? echo ($o->value === $query->orderby ? ' selected' : '') ?>>
-												<? echo $o->name ?>
+											<option value="<?php echo $o->value ?>" <?php echo ($o->value === $query->orderby ? ' selected' : '') ?>>
+												<?php echo $o->name ?>
 											</option>
-									<? }
+									<?php }
 									} ?>
 								</select>
 							</div>
@@ -150,9 +150,9 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 							<div class="toggle toggle-wrap">
 								<label class="name">Order</label>
 								<label for="asc">ASC</label>
-								<input type="radio" name="order" id="asc" value="asc" <? echo ($query->order === 'asc' ? 'checked' : '') ?>>
+								<input type="radio" name="order" id="asc" value="asc" <?php echo ($query->order === 'asc' ? 'checked' : '') ?>>
 								<label for="desc">DESC</label>
-								<input type="radio" name="order" id="desc" value="desc" <? echo ($query->order === 'desc' ? 'checked' : '') ?>>
+								<input type="radio" name="order" id="desc" value="desc" <?php echo ($query->order === 'desc' ? 'checked' : '') ?>>
 							</div>
 						</div>
 					</div>
@@ -163,11 +163,11 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 							<label class="name">Type</label>
 							<div class="check" data-disable="posts">
 								<label for="post">Articles</label>
-								<input type="checkbox" name="post" id="post" <? echo (in_array('post', $query->type) ? 'checked' : '') ?> enabled="true">
+								<input type="checkbox" name="post" id="post" <?php echo (in_array('post', $query->type) ? 'checked' : '') ?> enabled="true">
 							</div>
 							<div class="check" data-disable="videos">
 								<label for="video">Videos</label>
-								<input type="checkbox" name="video" id="video" <? echo (in_array('video', $query->type) ? 'checked' : '') ?> enabled="true">
+								<input type="checkbox" name="video" id="video" <?php echo (in_array('video', $query->type) ? 'checked' : '') ?> enabled="true">
 							</div>
 							<!-- <div class="check">
 								<label for="page">Pages</label>
@@ -175,7 +175,7 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 							</div> -->
 						</div>
 
-						<? $args = array(
+						<?php $args = array(
 							'taxonomy' => 'category',
 							'orderby' => 'name',
 							'order' => 'ASC'
@@ -183,11 +183,11 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 						$taxes = get_terms($args);
 						$enabled = in_array('post', $query->type); ?>
 
-						<div class="checks cat-wrap" tax="category" data-at-least=1 data-include="videos" data-name="posts" enabled="<? echo json_encode($enabled) ?>">
+						<div class="checks cat-wrap" tax="category" data-at-least=1 data-include="videos" data-name="posts" enabled="<?php echo json_encode($enabled) ?>">
 							<label class="name">Article Categories</label>
 							<button class="any">Select All</button>
 
-							<? foreach ($taxes as $tax) {
+							<?php foreach ($taxes as $tax) {
 								$checked = 'checked';
 								if (is_array($query->category)) {
 									if (!in_array($tax->slug, $query->category))
@@ -197,13 +197,13 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 								} ?>
 
 								<div class="check">
-									<label for="_<? echo $tax->term_id ?>"><? echo $tax->name ?></label>
-									<input type="checkbox" name="<? echo $tax->slug ?>" id="_<? echo $tax->term_id ?>" tax="<? echo $tax->taxonomy ?>" enabled="<? echo json_encode($enabled) ?>" <? echo $checked ?>>
+									<label for="_<?php echo $tax->term_id ?>"><?php echo $tax->name ?></label>
+									<input type="checkbox" name="<?php echo $tax->slug ?>" id="_<?php echo $tax->term_id ?>" tax="<?php echo $tax->taxonomy ?>" enabled="<?php echo json_encode($enabled) ?>" <?php echo $checked ?>>
 								</div>
-							<? } ?>
+							<?php } ?>
 						</div>
 
-						<? $args = array(
+						<?php $args = array(
 							'taxonomy' => 'video-category',
 							'orderby' => 'name',
 							'order' => 'ASC'
@@ -211,11 +211,11 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 						$taxes = get_terms($args);
 						$enabled = in_array('video', $query->type); ?>
 
-						<div class="checks cat-wrap" tax="video-category" data-at-least=1 data-include="posts" data-name="videos" enabled="<? echo json_encode($enabled) ?>">
+						<div class="checks cat-wrap" tax="video-category" data-at-least=1 data-include="posts" data-name="videos" enabled="<?php echo json_encode($enabled) ?>">
 							<label class="name">Video Categories</label>
 							<button class="any">Select All</button>
 
-							<? foreach ($taxes as $tax) {
+							<?php foreach ($taxes as $tax) {
 								$checked = 'checked';
 								$cat = 'video-category';
 								if (is_array($query->$cat)) {
@@ -226,10 +226,10 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 								} ?>
 
 								<div class="check">
-									<label for="_<? echo $tax->term_id ?>"><? echo $tax->name ?></label>
-									<input type="checkbox" name="<? echo $tax->slug ?>" id="_<? echo $tax->term_id ?>" tax="<? echo $tax->taxonomy ?>" enabled="<? echo json_encode($enabled) ?>" <? echo $checked ?>>
+									<label for="_<?php echo $tax->term_id ?>"><?php echo $tax->name ?></label>
+									<input type="checkbox" name="<?php echo $tax->slug ?>" id="_<?php echo $tax->term_id ?>" tax="<?php echo $tax->taxonomy ?>" enabled="<?php echo json_encode($enabled) ?>" <?php echo $checked ?>>
 								</div>
-							<? } ?>
+							<?php } ?>
 						</div>
 					</div>
 
@@ -244,13 +244,13 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 			</div>
 		</div>
 
-		<? do_action('get_footer') ?>
-		<? get_template_part('views/partials/footer') ?>
-		<? wp_footer() ?>
+		<?php do_action('get_footer') ?>
+		<?php get_template_part('views/partials/footer') ?>
+		<?php wp_footer() ?>
 	</div>
 </body>
 
 </html>
 
-<?
+<?php
 // END

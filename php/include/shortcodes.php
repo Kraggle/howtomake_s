@@ -117,14 +117,14 @@ function htm_s_shotcode_more_panel() {
 
 		<!-- search panel -->
 		<div class="more-panel">
-			<? get_template_part('views/widgets/search-form') ?>
+			<?php get_template_part('views/widgets/search-form') ?>
 		</div>
 
 		<!-- about panel -->
 		<div class="more-panel">
 			<h4 class="more-title">About Us</h4>
 			<div class="more-content">
-				<? get_template_part('views/partials/about-us') ?>
+				<?php get_template_part('views/partials/about-us') ?>
 			</div>
 		</div>
 
@@ -132,7 +132,7 @@ function htm_s_shotcode_more_panel() {
 		<div class="more-panel">
 			<h4 class="more-title">Popular</h4>
 			<div class="more-content">
-				<? wpp_get_mostpopular([
+				<?php wpp_get_mostpopular([
 					'post_type' => 'post',
 					'wpp_start' => '',
 					'wpp_end'   => '',
@@ -146,7 +146,7 @@ function htm_s_shotcode_more_panel() {
 		<div class="more-panel">
 			<h4 class="more-title">Categories</h4>
 			<div class="more-content">
-				<? $list = wp_list_categories([
+				<?php $list = wp_list_categories([
 					'title_li'           => '',
 					'style'              => 'none',
 					'echo'               => false,
@@ -162,20 +162,20 @@ function htm_s_shotcode_more_panel() {
 		<div class="more-panel">
 			<h4 class="more-title">Latest</h4>
 			<div class="more-content">
-				<? $latest = get_posts([
+				<?php $latest = get_posts([
 					'post_type' => 'post'
 				]);
 
 				if ($latest) {
 					foreach ($latest as $post) { ?>
-						<a href="<? echo get_permalink($post) ?>"><? echo $post->post_title ?></a>
-				<? }
+						<a href="<?php echo get_permalink($post) ?>"><?php echo $post->post_title ?></a>
+				<?php }
 				} ?>
 			</div>
 		</div>
 	</div>
 
-<? $html = ob_get_contents();
+<?php $html = ob_get_contents();
 	ob_end_clean();
 
 	return $html;

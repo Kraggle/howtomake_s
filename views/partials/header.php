@@ -1,4 +1,4 @@
-<?
+<?php
 // HTML partial/header
 
 // CREATE header-mobile.html
@@ -27,7 +27,7 @@ fclose($fw);
 
 		<div class="menu-spacer"></div>
 
-		<?
+		<?php
 		if (has_nav_menu('social-menu')) {
 			wp_nav_menu([
 				'theme_location' => 'social-menu',
@@ -41,19 +41,19 @@ fclose($fw);
 
 		<!-- .et-top-search -->
 		<div class="top-search">
-			<? get_template_part('views/widgets/search-form') ?>
+			<?php get_template_part('views/widgets/search-form') ?>
 		</div>
 	</div>
 
 	<div class="lower">
-		<a class="brand" href="<? echo esc_url(home_url('/')); ?>">
-			<? get_template_part('views/partials/logo') ?>
+		<a class="brand" href="<?php echo esc_url(home_url('/')); ?>">
+			<?php get_template_part('views/partials/logo') ?>
 		</a>
 
 		<div class="menu-spacer"></div>
 
 		<nav class="primary-nav for-desktop">
-			<?
+			<?php
 			if (has_nav_menu('primary-menu')) {
 				wp_nav_menu([
 					'theme_location' => 'primary-menu',
@@ -68,5 +68,5 @@ fclose($fw);
 	</div>
 </header>
 
-<?
+<?php
 // END

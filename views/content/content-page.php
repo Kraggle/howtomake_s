@@ -12,7 +12,7 @@ if (!is_front_page()) the_title('<h1 class="title">', '</h1>'); ?>
 
 <div class="wrapper">
 	<div class="content-wrap">
-		<? the_content(
+		<?php the_content(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
@@ -35,8 +35,8 @@ if (!is_front_page()) the_title('<h1 class="title">', '</h1>'); ?>
 		); ?>
 	</div>
 
-	<? if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]') ?>
+	<?php if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]') ?>
 </div>
 
-<? // htm_s_entry_footer(); 
+<?php // htm_s_entry_footer(); 
 // END

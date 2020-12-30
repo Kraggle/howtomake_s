@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * This is used to run tasks only once the plugin version

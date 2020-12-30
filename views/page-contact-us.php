@@ -17,17 +17,17 @@ add_action('loop_start', 'et_dbp_main_loop_start');
 add_action('loop_end', 'et_dbp_main_loop_end');
 ?>
 <!doctype html>
-<html <? echo get_language_attributes() ?>>
-<? get_template_part('views/partials/head') ?>
+<html <?php echo get_language_attributes() ?>>
+<?php get_template_part('views/partials/head') ?>
 
-<body <? body_class() ?>>
-	<? get_template_part('views/partials/loader') ?>
+<body <?php body_class() ?>>
+	<?php get_template_part('views/partials/loader') ?>
 	<div class="body-wrap">
-		<? do_action('get_header') ?>
-		<? get_template_part('views/partials/header') ?>
+		<?php do_action('get_header') ?>
+		<?php get_template_part('views/partials/header') ?>
 		<div class="wrap main-container" role="document">
 
-			<? if (have_posts()) {
+			<?php if (have_posts()) {
 				while (have_posts()) {
 					the_post();
 					get_template_part('views/content/content-contact');
@@ -40,13 +40,13 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 
 		</div>
 
-		<? do_action('get_footer') ?>
-		<? get_template_part('views/partials/footer') ?>
-		<? wp_footer() ?>
+		<?php do_action('get_footer') ?>
+		<?php get_template_part('views/partials/footer') ?>
+		<?php wp_footer() ?>
 	</div>
 </body>
 
 </html>
 
-<?
+<?php
 // END
