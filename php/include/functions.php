@@ -66,7 +66,7 @@ function getExtraYoutubeInfo(Array $videoIds)
 
 					// duration (in seconds)
 					$interval = new DateInterval($item->contentDetails->duration);
-					$duration = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s) / 60);
+					$duration = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s));
 				
                     // Video Duration
                     if ($duration){
