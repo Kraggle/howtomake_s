@@ -17,5 +17,10 @@
     },
     "scripts": {
         "post-update-cmd": "Google\\Task\\Composer::cleanup"
+    },
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
     }
 }
