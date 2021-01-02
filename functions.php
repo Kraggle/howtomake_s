@@ -235,3 +235,6 @@ add_action('wp_enqueue_scripts', function () {
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/php/include/jetpack.php';
 }
+
+// Show Custom Fields on editor
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');

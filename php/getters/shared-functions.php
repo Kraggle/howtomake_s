@@ -4,6 +4,7 @@ function read_time($content) {
 	return ceil(str_word_count(strip_tags($content)) / 250);
 }
 
+// Used to save as minutes. Now saves as seconds
 function get_duration($id) {
 
 	$api_key = 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8';
@@ -21,9 +22,9 @@ function get_duration($id) {
 
 	// duration
 	$interval = new DateInterval($duration_encoded);
-	$minutes = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s) / 60);
+	
 
-	return $minutes;
+	return $interval;// DateInterval
 }
 
 function get_channel_logo($id, $termId) {
@@ -66,3 +67,4 @@ function get_channel_logo($id, $termId) {
 		return $attachId;
 	}
 }
+

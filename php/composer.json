@@ -9,5 +9,13 @@
             "name": "Hayden Kibble",
             "email": "kibblehayden@gmail.com"
         }
-    ]
+    ],
+    "extra": {
+        "google/apiclient-services": [
+            "YouTube"
+        ]
+    },
+    "scripts": {
+        "post-update-cmd": "Google\\Task\\Composer::cleanup"
+    }
 }

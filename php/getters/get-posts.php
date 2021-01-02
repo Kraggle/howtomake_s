@@ -48,11 +48,17 @@ foreach ($results as $post) {
 		if (!$duration) {
 			$id = get_post_meta($post->ID, 'youtube_video_id')[0];
 
-			$duration = get_duration($id);
-			if ($duration)
-				add_post_meta($post->ID, 'video_duration', $duration);
-			else
+			$interval = get_duration($id);
+			$seconds = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s));
+			if ($seconds){
+				add_post_meta($post->ID, 'video_duration', $seconds);
+
+				add_post_meta($id, 'video_duration_h', $interval->h);// hour portion
+				add_post_meta($id, 'video_duration_m', $interval->i);// minutes portion
+				add_post_meta($id, 'video_duration_s', $interval->s);// seconds portion
+			}else{
 				$duration = 0;
+			}
 		}
 	}
 
