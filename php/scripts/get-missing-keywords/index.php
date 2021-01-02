@@ -28,7 +28,7 @@ $query = "SELECT `ID`, `post_title`, `post_content`
         
 	WHERE 
 		`post_type` = 'video' 
-        AND ID NOT IN (SELECT DISTNCT object_id FROM {$wpdb->prefix}term_relationships tr INNER JOIN {$wpdb->prefix}term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy = 'post_tag' )
+        AND ID NOT IN (SELECT object_id FROM {$wpdb->prefix}term_relationships tr INNER JOIN {$wpdb->prefix}term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy = 'post_tag' )
 	ORDER BY 
         `post_date` DESC
     LIMIT $processAmount";
