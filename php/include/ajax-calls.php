@@ -18,7 +18,7 @@ function htm_custom_search() {
 		while ($query->have_posts()) {
 			$query->the_post();
 
-			$posts[] = load_template_part('views/category/entry', get_post_type());
+			$posts[] = load_template_part('views/category/search', get_post_type());
 		}
 
 		$return = [
@@ -32,6 +32,8 @@ function htm_custom_search() {
 			"success" => false
 		];
 	}
+
+	// error_log(json_encode($query));
 
 	echo json_encode($return);
 }

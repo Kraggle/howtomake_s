@@ -4,27 +4,28 @@ function read_time($content) {
 	return ceil(str_word_count(strip_tags($content)) / 250);
 }
 
-// Used to save as minutes. Now saves as seconds
-function get_duration($id) {
+if (!function_exists('get_duration')) {
+	function get_duration($id) {
 
-	$api_key = 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8';
+		$api_key = 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8';
 
-	// video json data
-	$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$id&key=$api_key");
-	$result = json_decode($json_result);
+		// video json data
+		$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$id&key=$api_key");
+		$result = json_decode($json_result);
 
-	// video duration data
-	if (!count($result->items)) {
-		return 0;
+		// video duration data
+		if (!count($result->items)) {
+			return 0;
+		}
+
+		$duration_encoded = $result->items[0]->contentDetails->duration;
+
+		// duration
+		$interval = new DateInterval($duration_encoded);
+		$minutes = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s) / 60);
+
+		return $minutes;
 	}
-
-	$duration_encoded = $result->items[0]->contentDetails->duration;
-
-	// duration
-	$interval = new DateInterval($duration_encoded);
-	
-
-	return $interval;// DateInterval
 }
 
 function get_channel_logo($id, $termId) {
@@ -67,4 +68,3 @@ function get_channel_logo($id, $termId) {
 		return $attachId;
 	}
 }
-

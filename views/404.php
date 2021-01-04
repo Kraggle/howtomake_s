@@ -13,8 +13,6 @@
  * @package howtomake_S
  */
 
-add_action('loop_start', 'et_dbp_main_loop_start');
-add_action('loop_end', 'et_dbp_main_loop_end');
 ?>
 <!doctype html>
 <html <?php echo get_language_attributes() ?>>

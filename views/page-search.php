@@ -106,8 +106,6 @@ foreach ($_REQUEST as $key => $val) {
 
 // error_log(json_encode($query));
 
-add_action('loop_start', 'et_dbp_main_loop_start');
-add_action('loop_end', 'et_dbp_main_loop_end');
 ?>
 <!doctype html>
 <html <?php echo get_language_attributes() ?>>
@@ -124,16 +122,18 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 			<div class="content">
 				<main class="main">
 
-					<div class="query-vars" data-nonce="<?php echo wp_create_nonce('custom_search_nonce') ?>">
+					<div class="mobile-button"><i class="fa-icon type-regular svg-search"></i></div>
 
-						<div class="search-box">
-							<input id="search" type="text" name="s" class="search" placeholder="Search" value="<?php echo $query->term ?>">
-							<button class="svg clear"><i class="fa-icon type-solid svg-times"></i></button>
-							<div class="divider"></div>
-							<button class="svg submit"><i class="fa-icon type-solid svg-search"></i></button>
-						</div>
+					<div class="mobile-wrap">
+						<div class="query-vars" data-nonce="<?php echo wp_create_nonce('custom_search_nonce') ?>">
 
-						<div class="order-box">
+							<div class="search-box">
+								<input id="search" type="text" name="s" class="search" placeholder="Search" value="<?php echo $query->term ?>">
+								<button class="svg clear"><i class="fa-icon type-light svg-times"></i></button>
+								<div class="divider"></div>
+								<button class="svg submit"><i class="fa-icon type-regular svg-search"></i></button>
+							</div>
+
 							<div class="dropdown orderby select-wrap">
 								<label class="name" for="orderby">Sort by</label>
 								<select name="orderby" id="orderby">
@@ -154,91 +154,95 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 								<label for="desc">DESC</label>
 								<input type="radio" name="order" id="desc" value="desc" <?php echo ($query->order === 'desc' ? 'checked' : '') ?>>
 							</div>
-						</div>
-					</div>
 
-					<div class="which-box">
-
-						<div class="checks flex type-box" data-at-least=1>
-							<label class="name">Type</label>
-							<div class="check" data-disable="posts">
-								<label for="post">Articles</label>
-								<input type="checkbox" name="post" id="post" <?php echo (in_array('post', $query->type) ? 'checked' : '') ?> enabled="true">
+							<div class="results none">
+								<label class="name">Results</label>
+								<span class="got">20</span>
+								<span>/</span>
+								<span class="total">164</span>
+								<span class="no">None</span>
 							</div>
-							<div class="check" data-disable="videos">
-								<label for="video">Videos</label>
-								<input type="checkbox" name="video" id="video" <?php echo (in_array('video', $query->type) ? 'checked' : '') ?> enabled="true">
+
+						</div>
+
+						<div class="which-box">
+
+							<div class="checks flex type-box" data-at-least=1>
+								<label class="name">Type</label>
+								<div class="check" data-disable="posts">
+									<label for="post">Articles</label>
+									<input type="checkbox" name="post" id="post" <?php echo (in_array('post', $query->type) ? 'checked' : '') ?> enabled="true">
+								</div>
+								<div class="check" data-disable="videos">
+									<label for="video">Videos</label>
+									<input type="checkbox" name="video" id="video" <?php echo (in_array('video', $query->type) ? 'checked' : '') ?> enabled="true">
+								</div>
+								<!-- <div class="check">
+									<label for="page">Pages</label>
+									<input type="checkbox" name="page" id="page">
+								</div> -->
 							</div>
-							<!-- <div class="check">
-								<label for="page">Pages</label>
-								<input type="checkbox" name="page" id="page">
-							</div> -->
-						</div>
 
-						<?php $args = array(
-							'taxonomy' => 'category',
-							'orderby' => 'name',
-							'order' => 'ASC'
-						);
-						$taxes = get_terms($args);
-						$enabled = in_array('post', $query->type); ?>
+							<?php $args = array(
+								'taxonomy' => 'category',
+								'orderby' => 'name',
+								'order' => 'ASC'
+							);
+							$taxes = get_terms($args);
+							$enabled = in_array('post', $query->type); ?>
 
-						<div class="checks cat-wrap" tax="category" data-at-least=1 data-include="videos" data-name="posts" enabled="<?php echo json_encode($enabled) ?>">
-							<label class="name">Article Categories</label>
-							<button class="any">Select All</button>
+							<div class="checks cat-wrap" tax="category" data-at-least=1 data-include="videos" data-name="posts" enabled="<?php echo json_encode($enabled) ?>">
+								<label class="name">Article Categories</label>
+								<button class="any">Select All</button>
 
-							<?php foreach ($taxes as $tax) {
-								$checked = 'checked';
-								if (is_array($query->category)) {
-									if (!in_array($tax->slug, $query->category))
+								<?php foreach ($taxes as $tax) {
+									$checked = 'checked';
+									if (is_array($query->category)) {
+										if (!in_array($tax->slug, $query->category))
+											$checked = '';
+									} elseif (!$enabled) {
 										$checked = '';
-								} elseif (!$enabled) {
-									$checked = '';
-								} ?>
+									} ?>
 
-								<div class="check">
-									<label for="_<?php echo $tax->term_id ?>"><?php echo $tax->name ?></label>
-									<input type="checkbox" name="<?php echo $tax->slug ?>" id="_<?php echo $tax->term_id ?>" tax="<?php echo $tax->taxonomy ?>" enabled="<?php echo json_encode($enabled) ?>" <?php echo $checked ?>>
-								</div>
-							<?php } ?>
-						</div>
+									<div class="check">
+										<label for="_<?php echo $tax->term_id ?>"><?php echo $tax->name ?></label>
+										<input type="checkbox" name="<?php echo $tax->slug ?>" id="_<?php echo $tax->term_id ?>" tax="<?php echo $tax->taxonomy ?>" enabled="<?php echo json_encode($enabled) ?>" <?php echo $checked ?>>
+									</div>
+								<?php } ?>
+							</div>
 
-						<?php $args = array(
-							'taxonomy' => 'video-category',
-							'orderby' => 'name',
-							'order' => 'ASC'
-						);
-						$taxes = get_terms($args);
-						$enabled = in_array('video', $query->type); ?>
+							<?php $args = array(
+								'taxonomy' => 'video-category',
+								'orderby' => 'name',
+								'order' => 'ASC'
+							);
+							$taxes = get_terms($args);
+							$enabled = in_array('video', $query->type); ?>
 
-						<div class="checks cat-wrap" tax="video-category" data-at-least=1 data-include="posts" data-name="videos" enabled="<?php echo json_encode($enabled) ?>">
-							<label class="name">Video Categories</label>
-							<button class="any">Select All</button>
+							<div class="checks cat-wrap" tax="video-category" data-at-least=1 data-include="posts" data-name="videos" enabled="<?php echo json_encode($enabled) ?>">
+								<label class="name">Video Categories</label>
+								<button class="any">Select All</button>
 
-							<?php foreach ($taxes as $tax) {
-								$checked = 'checked';
-								$cat = 'video-category';
-								if (is_array($query->$cat)) {
-									if (!in_array($tax->slug, $query->$cat))
+								<?php foreach ($taxes as $tax) {
+									$checked = 'checked';
+									$cat = 'video-category';
+									if (is_array($query->$cat)) {
+										if (!in_array($tax->slug, $query->$cat))
+											$checked = '';
+									} elseif (!$enabled) {
 										$checked = '';
-								} elseif (!$enabled) {
-									$checked = '';
-								} ?>
+									} ?>
 
-								<div class="check">
-									<label for="_<?php echo $tax->term_id ?>"><?php echo $tax->name ?></label>
-									<input type="checkbox" name="<?php echo $tax->slug ?>" id="_<?php echo $tax->term_id ?>" tax="<?php echo $tax->taxonomy ?>" enabled="<?php echo json_encode($enabled) ?>" <?php echo $checked ?>>
-								</div>
-							<?php } ?>
+									<div class="check">
+										<label for="_<?php echo $tax->term_id ?>"><?php echo $tax->name ?></label>
+										<input type="checkbox" name="<?php echo $tax->slug ?>" id="_<?php echo $tax->term_id ?>" tax="<?php echo $tax->taxonomy ?>" enabled="<?php echo json_encode($enabled) ?>" <?php echo $checked ?>>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 					</div>
 
-					<div class="list">
-
-						<div class="list-part" part=1></div>
-						<div class="list-part" part=2></div>
-						<div class="list-part" part=3></div>
-					</div>
+					<div class="list"></div>
 
 				</main>
 			</div>

@@ -1,3 +1,10 @@
+$sub-top: 124px;
+$sub-scroll-top: 54px;
+$sub-admin-top: 156px;
+$sub-scroll-admin-top: 87px;
+$sub-pad: 59px;
+$sub-scroll-pad: 39px;
+
 .primary-nav {
     position: relative;
     min-height: 100%;
@@ -44,8 +51,8 @@
         &.has-sub-menu {
             > a {
                 &::after {
-                    font-family: ETmodules;
-                    content: '3';
+                    font-family: 'Font Awesome 5 Pro';
+                    content: fa-content($fa-var-chevron-down);
                     position: absolute;
                 }
             }
@@ -153,7 +160,7 @@
     }
 
     .tab-icon {
-        font-size: 18px;
+        font-size: 12px;
         position: absolute;
         right: -24px;
         top: -1px;
@@ -162,8 +169,8 @@
         font-style: normal;
 
         &::after {
-            font-family: ETmodules;
-            content: '5';
+            font-family: 'Font Awesome 5 Pro';
+            content: fa-content($fa-var-chevron-right);
         }
     }
 
@@ -207,9 +214,9 @@
                     padding-right: 25px;
 
                     &::after {
-                        font-size: 16px;
+                        font-size: 12px;
                         right: 7px;
-                        top: 9px;
+                        top: 13px;
                     }
                 }
 
@@ -461,6 +468,7 @@
             > a {
                 &::after {
                     right: 12px;
+                    top: 11px;
                 }
             }
         }
@@ -502,7 +510,7 @@
             right: 20px;
 
             &::after {
-                content: '3';
+                content: fa-content($fa-var-chevron-down);
             }
         }
 
@@ -711,13 +719,14 @@
                     line-height: 30px;
                     text-align: center;
                     border-radius: 3px;
-                    color: #fff;
+                    color: transparent;
 
                     svg {
                         position: relative;
                         width: 18px;
                         height: 18px;
                         margin-top: 6px;
+                        color: #fff;
                     }
                 }
             }
@@ -979,6 +988,7 @@
         &::placeholder {
             color: #fff;
             text-transform: uppercase;
+            opacity: 1;
         }
 
         &:focus {
@@ -1149,8 +1159,8 @@ body {
     }
 
     &.admin-bar {
-        .for-desktop .menu-box {
-            top: $sub-admin-top !important;
+        &.for-desktop .menu-box {
+            top: $sub-admin-top;
         }
 
         .for-mobile {

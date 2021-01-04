@@ -1,7 +1,8 @@
-@import "common/variables";
-@import "layouts/list";
-@import "layouts/gallery";
-@import "layouts/post-nav";
+@import 'common/variables';
+@import 'common/fa-variables';
+@import 'layouts/list';
+@import 'layouts/gallery';
+@import 'layouts/post-nav';
 
 .detail-wrap {
     display: flex;

@@ -5,10 +5,10 @@ $(() => {
 	header.build();
 
 	$('a[href^="#"]').on('click', function(e) {
-		e.preventDefault();
 		const id = $(this).attr('href');
+		if (!id.match(/^#/) || id.length == 1 || !$(id).length) return;
 
-		if (id.length == 1 || !$(id).length) return;
+		e.preventDefault();
 
 		$([document.documentElement, document.body]).animate({
 			scrollTop: $(id).offset().top - 170
