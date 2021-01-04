@@ -26,9 +26,9 @@ foreach ($results as $post) {
     $duration = get_post_meta($post->ID, 'video_duration')[0];
 
     if ($duration){
-       // echo $duration;
+
         $duration = $duration * 60;
-        //echo " => " . $duration . ", ";
+
         update_post_meta($post->ID, 'video_duration', $duration);
         
         echo "+";
