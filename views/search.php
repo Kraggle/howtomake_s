@@ -10,21 +10,21 @@
 
 ?>
 <!doctype html>
-<html <? echo get_language_attributes() ?>>
-<? get_template_part('views/partials/head') ?>
+<html <?php echo get_language_attributes() ?>>
+<?php get_template_part('views/partials/head') ?>
 
-<body <? body_class() ?>>
-	<? get_template_part('views/partials/loader') ?>
+<body <?php body_class() ?>>
+	<?php get_template_part('views/partials/loader') ?>
 	<div class="body-wrap">
-		<? do_action('get_header') ?>
-		<? get_template_part('views/partials/header') ?>
+		<?php do_action('get_header') ?>
+		<?php get_template_part('views/partials/header') ?>
 		<div class="wrap main-container" role="document">
 			<div class="body-decor"></div>
 			<div class="body-curves"></div>
 			<div class="content">
 				<main class="main">
 
-					<? if (have_posts()) { ?>
+					<?php if (have_posts()) { ?>
 
 						<!-- <h1 class="page-title">Search Results</h1> -->
 
@@ -33,12 +33,12 @@
 								<p>Search to see if you can make money out of your hobby.</p>
 							</div>
 							<div class="form-wrap">
-								<? get_template_part('views/widgets/search-bar') ?>
+								<?php get_template_part('views/widgets/search-bar') ?>
 							</div>
 						</div>
 
 						<div class="list">
-							<? while (have_posts()) {
+							<?php while (have_posts()) {
 								the_post();
 								// error_log('Post Type: ' . get_post_type());
 								get_template_part('views/category/entry', get_post_type());
@@ -49,7 +49,7 @@
 							<div class="list-part" part=3></div>
 						</div>
 
-					<? the_posts_navigation([
+					<?php the_posts_navigation([
 							'prev_text'          => 'Older',
 							'next_text'          => 'Newer',
 							'screen_reader_text' => '',
@@ -61,17 +61,17 @@
 				</main>
 			</div>
 
-			<? get_template_part('views/partials/subscribe-panel') ?>
-			<? get_template_part('views/partials/more-panel') ?>
+			<?php get_template_part('views/partials/subscribe-panel') ?>
+			<?php get_template_part('views/partials/more-panel') ?>
 		</div>
 
-		<? do_action('get_footer') ?>
-		<? get_template_part('views/partials/footer') ?>
-		<? wp_footer() ?>
+		<?php do_action('get_footer') ?>
+		<?php get_template_part('views/partials/footer') ?>
+		<?php wp_footer() ?>
 	</div>
 </body>
 
 </html>
 
-<?
+<?php
 // END

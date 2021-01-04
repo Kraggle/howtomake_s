@@ -11,7 +11,7 @@
 if (is_front_page()) { ?>
 	<div class="search-wrapper">
 		<p class="do-start">Start making money from home</p>
-		<? get_template_part('views/widgets/search-bar') ?>
+		<?php get_template_part('views/widgets/search-bar') ?>
 	</div>
 
 
@@ -25,7 +25,7 @@ if (is_front_page()) {
 
 <div class="wrapper">
 	<div class="content-wrap">
-		<? the_content(
+		<?php the_content(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
@@ -48,9 +48,9 @@ if (is_front_page()) {
 		); ?>
 	</div>
 
-	<? if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]');
+	<?php if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]');
 	else get_template_part('views/widgets/home-side-panel') ?>
 </div>
 
-<? // htm_s_entry_footer(); 
+<?php // htm_s_entry_footer(); 
 // END

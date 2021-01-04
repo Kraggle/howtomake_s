@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * This function creates a custom login form adding:

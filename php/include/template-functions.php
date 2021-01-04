@@ -443,16 +443,16 @@ function do_more_panel($content, $title = '', $args = array()) {
 	} ?>
 
 	<div class="<?php echo implode(' ', $classes) ?>">
-		<? if ($type == 'quote') { ?>
-			<i class="quote"><? echo get_font_awesome_icon('quote-right', 'solid') ?></i>
-		<? } ?>
-		<? echo $title ?>
+		<?php if ($type == 'quote') { ?>
+			<i class="quote"><?php echo get_font_awesome_icon('quote-right', 'solid') ?></i>
+		<?php } ?>
+		<?php echo $title ?>
 		<div class="more-content">
-			<? echo is_callable($content) ? $content() : $content ?>
+			<?php echo is_callable($content) ? $content() : $content ?>
 		</div>
 	</div>
 
-<? }
+<?php }
 
 /**
  * Used to remove divi shortcodes from pre existing posts and pages.

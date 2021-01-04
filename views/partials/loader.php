@@ -1,9 +1,9 @@
-<? // HTM Loader
+<?php // HTM Loader
 ?>
 
 <div class="page-loader">
 	<div class="loader-logo">
-		<? get_template_part('views/partials/logo') ?>
+		<?php get_template_part('views/partials/logo') ?>
 	</div>
 	<div class="loader">
 		<div class="duo duo1">
@@ -17,5 +17,5 @@
 	</div>
 </div>
 
-<?
+<?php
 // END

@@ -115,7 +115,7 @@ function htm_s_shotcode_more_panel() {
 		<div class="more-part" part="2"></div>
 		<div class="more-part" part="3"></div>
 
-		<?
+		<?php
 		// Search Panel
 		do_more_panel(function () {
 			get_template_part('views/widgets/search-form');
@@ -155,14 +155,14 @@ function htm_s_shotcode_more_panel() {
 
 			if ($latest) {
 				foreach ($latest as $post) { ?>
-					<a href="<? echo get_permalink($post) ?>"><? echo $post->post_title ?></a>
-		<? }
+					<a href="<?php echo get_permalink($post) ?>"><?php echo $post->post_title ?></a>
+		<?php }
 			}
 		}, 'Latest'); ?>
 
 	</div>
 
-<? $html = ob_get_contents();
+<?php $html = ob_get_contents();
 	ob_end_clean();
 
 	return $html;

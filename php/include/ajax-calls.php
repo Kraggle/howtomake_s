@@ -1,4 +1,4 @@
-<?
+<?php
 add_action('wp_ajax_custom_search', 'htm_custom_search');
 add_action('wp_ajax_nopriv_custom_search', 'htm_custom_search');
 
