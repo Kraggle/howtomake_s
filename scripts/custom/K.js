@@ -1296,7 +1296,8 @@ if (!Date.prototype.addMinutes) {
 	};
 }
 
-export default K;
+export { K };
+
 class Timed {
 	run(callback, time) {
 		this.time = time;

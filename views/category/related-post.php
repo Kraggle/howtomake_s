@@ -15,7 +15,7 @@
 				<? echo  get_the_author() ?>
 			</a>
 		</span> |
-		<span class="related-date"><? echo get_the_date() ?></span> |
+		<span class="related-date"><? echo get_the_date('M jS, Y') ?></span> |
 		<? the_category(', ') ?>
 		<div class="related-excerpt">
 			<? echo remove_emoji(get_the_excerpt()) ?>

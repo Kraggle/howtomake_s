@@ -13,7 +13,7 @@
 		<span class="related-author">
 			<a title="Video by" href="<? the_channel(null, 'link') ?>"><? the_channel(null, 'name'); ?></a>
 		</span> |
-		<span class="related-date"><? echo get_the_date() ?></span> |
+		<span class="related-date"><? echo get_the_date('M jS, Y') ?></span> |
 		<? the_terms($id, 'video-category', '', ', ') ?>
 	</p>
 	<div class="related-excerpt">

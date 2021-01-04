@@ -58,6 +58,4 @@
 </html>
 
 <?
-add_action('loop_start', 'et_dbp_main_loop_start');
-add_action('loop_end', 'et_dbp_main_loop_end');
 // END

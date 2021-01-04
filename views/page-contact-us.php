@@ -13,8 +13,6 @@
  * @package howtomake_S
  */
 
-add_action('loop_start', 'et_dbp_main_loop_start');
-add_action('loop_end', 'et_dbp_main_loop_end');
 ?>
 <!doctype html>
 <html <? echo get_language_attributes() ?>>
@@ -26,18 +24,23 @@ add_action('loop_end', 'et_dbp_main_loop_end');
 		<? do_action('get_header') ?>
 		<? get_template_part('views/partials/header') ?>
 		<div class="wrap main-container" role="document">
+			<div class="body-decor"></div>
+			<div class="body-curves"></div>
+			<div class="content">
+				<main class="main">
 
-			<? if (have_posts()) {
-				while (have_posts()) {
-					the_post();
-					get_template_part('views/content/content-contact');
-				}
+					<? the_title('<h1 class="title">', '</h1>'); ?>
 
-				the_posts_navigation();
-			} else {
-				get_template_part('views/content/content', 'none');
-			} ?>
+					<? if (have_posts()) {
+						while (have_posts()) {
+							the_post();
 
+							the_content();
+						}
+					} ?>
+
+				</main>
+			</div>
 		</div>
 
 		<? do_action('get_footer') ?>

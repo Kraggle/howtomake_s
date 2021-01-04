@@ -322,3 +322,145 @@ function load_template_part($template_name, $part_name = null) {
 	ob_end_clean();
 	return $var;
 }
+
+function get_font_awesome_icon($name, $type = 'regular') {
+	ob_start();
+	include(get_template_directory() . "/assets/fonts/font-awesome/$type/$name.svg");
+	$var = ob_get_contents();
+	ob_end_clean();
+	return $var;
+}
+
+
+function get_read_time($post = null) {
+	global $id;
+	if (!$post) $post = $id;
+	if (!$post) return;
+
+	$minutes = get_post_meta($post, 'read_time', true);
+
+	if (!$minutes)
+		$minutes = set_read_time($post);
+
+	// error_log(json_encode($minutes));
+
+	return $minutes;
+}
+
+function set_read_time($post = null) {
+	global $id;
+	if (!$post) $post = $id;
+	if (!$post) return;
+
+	$minutes = ceil(str_word_count(strip_tags(get_the_content())) / 250);
+	add_post_meta($post, 'read_time', $minutes);
+	return $minutes;
+}
+
+function get_duration($post = null) {
+	global $id;
+	if (!$post) $post = $id;
+	if (!$post) return;
+
+	$api_key = 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8';
+
+	if (get_post_type($post) === 'video') {
+		$minutes = get_post_meta($post, 'video_duration', true);
+
+		if (!$minutes) {
+			$yt = get_post_meta($post, 'youtube_video_id', true);
+
+			// video json data
+			$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$yt&key=$api_key");
+			$result = json_decode($json_result);
+
+			// video duration data
+			if (!count($result->items)) {
+				return 0;
+			}
+
+			$duration_encoded = $result->items[0]->contentDetails->duration;
+
+			// duration
+			$interval = new DateInterval($duration_encoded);
+			$minutes = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s) / 60);
+
+
+			if ($minutes)
+				add_post_meta($post, 'video_duration', $minutes);
+			else
+				$minutes = 0;
+		}
+	}
+	return $minutes;
+}
+
+function get_attachment_image_by_slug($slug, $size = 'thumbnail') {
+	$args = array(
+		'post_type' => 'attachment',
+		'name' => sanitize_title($slug),
+		'posts_per_page' => 1,
+		'post_status' => 'inherit',
+	);
+	$_header = get_posts($args);
+	$header = $_header ? array_pop($_header) : null;
+	return $header ? wp_get_attachment_image($header->ID, $size) : '';
+}
+
+/**
+ * Create a more panel, used on the right side bar of the pages and posts
+ *
+ * @param string|function $content  A string containing the content of the panel or a function 
+ *                            that returns the string value.
+ * @param string          $title    The title you want for the panel. Default empty string.
+ * @param array           $args     An array of arguments. Default empty array.
+ * @return null           Echo the resulting panel if no errors, null otherwise.
+ */
+function do_more_panel($content, $title = '', $args = array()) {
+	if (!isset($content) || !$content) return null;
+
+	$type = 'default';
+	if (isset($args['type']))
+		$type = $args['type'];
+
+	if ($title) {
+		$title = '<h4 class="more-title">' . $title . '</h4>';
+	}
+
+	if (isset($args['classes'])) {
+		$classes = $args['classes'];
+		if (!is_array($classes))
+			$classes = explode(' ', $classes);
+	}
+
+	$classes[] = 'more-panel';
+
+	if ($type !== 'default')
+		$classes[] = "is-$type";
+
+	if (isset($args['background'])) {
+		$classes[] = 'bg-' . $args['background'];
+	} ?>
+
+	<div class="<?php echo implode(' ', $classes) ?>">
+		<? if ($type == 'quote') { ?>
+			<i class="quote"><? echo get_font_awesome_icon('quote-right', 'solid') ?></i>
+		<? } ?>
+		<? echo $title ?>
+		<div class="more-content">
+			<? echo is_callable($content) ? $content() : $content ?>
+		</div>
+	</div>
+
+<? }
+
+/**
+ * Used to remove divi shortcodes from pre existing posts and pages.
+ * Also removes the domain from any internal links. 
+ */
+add_action('the_post', function ($post_object) {
+
+	$post_object->post_content = preg_replace('/(\[.{0,2}et_pb[^]]+]|https{0,1}:.{2,4}how\w+.\w{3,4})/m', '', $post_object->post_content);
+
+	return $post_object;
+});
