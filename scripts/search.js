@@ -1,12 +1,13 @@
 import { jQuery as $ } from './src/jquery3.4.1.js';
-import { onResize, list } from './partials/list.js';
+// import { onResize, list } from './partials/list.js';
 import V from './custom/Paths.js';
-import { timed } from './custom/K.js';
+import { timed, K } from './custom/K.js';
+import { clamp as $clamp } from './src/clamp.js';
 
 const timer = timed();
 
 $(() => {
-	list.build();
+	// list.build();
 
 	// INFO:: Build the dropdown menus
 	$('.dropdown').each(function() {
@@ -155,6 +156,30 @@ $(() => {
 				getSearchResults();
 			}, 500);
 		}
+
+		const hasFixed = $('.query-vars').hasClass('fixed'),
+			top = $(window).scrollTop();
+		if (top > 0 && !hasFixed) {
+			$('.query-vars, .which-box').addClass('fixed');
+		} else if (!top && hasFixed) {
+			$('.query-vars, .which-box').removeClass('fixed');
+		}
+	});
+
+	const onResize = () => {
+		const list = $('main .list');
+		list.css('grid-template-columns', `repeat(${Math.round(list.outerWidth(true) / 300)}, 1fr)`);
+	};
+	onResize();
+	$(window).on('resize', onResize);
+
+	$('.mobile-button').on('click', function() {
+		const _m = $('.mobile-wrap');
+		if (_m.hasClass('open')) {
+			_m.removeClass('open');
+		} else {
+			_m.addClass('open');
+		}
 	});
 });
 
@@ -164,8 +189,12 @@ function reloadResults() {
 	}, 500);
 }
 
-let page = 0,
-	loadingMore = false;
+let offset = 0,
+	loadingMore = false,
+	found = null;
+
+const postsPerPage = () =>
+	Math.max(6, Math.round($('.list').outerWidth(true) / 300) * Math.round($(window).outerHeight(true) / 300));
 
 function getSearchResults(reset = false) {
 	if (loadingMore) {
@@ -177,22 +206,26 @@ function getSearchResults(reset = false) {
 
 	loadingMore = true;
 
-	if (reset) {
+	if (reset)
 		$('.list article.entry').remove();
-		page = 0;
-	}
 
-	page++;
+	offset = $('.list .entry').length;
+
+	if (!K.empty(found) && offset === found) {
+		loadingMore = false;
+		return;
+	}
 
 	createLoaders();
 
 	const query = {
 		s: $('#search').val(),
-		paged: page,
 		orderby: $('#orderby').val(),
 		order: $('input[name=order]:checked').val(),
 		post_type: [],
-		tax_query: {}
+		tax_query: {},
+		posts_per_page: postsPerPage(),
+		offset
 	};
 
 	$('.type-box input:checked').each(function() {
@@ -212,7 +245,7 @@ function getSearchResults(reset = false) {
 		});
 	});
 
-	console.log(query);
+	// console.log(query);
 
 	$.ajax({
 		url: V.ajax,
@@ -223,15 +256,36 @@ function getSearchResults(reset = false) {
 		}
 	}).done(function(data) {
 		data = JSON.parse(data.replace(/0$/, ''));
-		const start = (page - 1) * 9;
+
+		// console.log(data);
+
+		const start = offset + 1;
 		$.each(data.posts, (i, v) => {
 			$(`article[index=${start + i}]`).replaceWith($(v).attr('index', start + i));
 		});
 
 		$('.entry.only-loader').remove();
+		$('.entry .entry-title').clamp({ clamp: 2 });
+
+		doCounter(data.found);
 
 		loadingMore = false;
 	});
+}
+
+function doCounter(total) {
+	const _w = $('.results');
+	if (!total) {
+		found = null;
+		_w.addClass('none');
+		return;
+	}
+
+	found = total;
+
+	_w.removeClass('none');
+	$('.got', _w).text($('.entry').length);
+	$('.total', _w).text(total);
 }
 
 function closeAllSelect() {
@@ -241,8 +295,9 @@ function closeAllSelect() {
 }
 
 function createLoaders() {
-	const start = (page - 1) * 9;
-	for (let i = start; i < start + 9; i++) {
+	const posts = postsPerPage(),
+		start = offset + 1;
+	for (let i = start; i < start + posts; i++) {
 		$('.list').append($(
 			`<article index="${i}" class="entry only-loader">
 				<div class="load-ripple">
@@ -253,5 +308,16 @@ function createLoaders() {
 		));
 	}
 
-	onResize(true);
+	// onResize(true);
 }
+
+$.fn.extend({
+	clamp(options) {
+		this.each(function() {
+			if ($(this).data('clamp') !== options) {
+				$clamp(this, options);
+				$(this).data('clamp', options);
+			}
+		});
+	}
+});

@@ -8,7 +8,20 @@
  * @package htm_s
  */
 
-if (!is_front_page()) the_title('<h1 class="title">', '</h1>'); ?>
+if (is_front_page()) { ?>
+	<div class="search-wrapper">
+		<p class="do-start">Start making money from home</p>
+		<?php get_template_part('views/widgets/search-bar') ?>
+	</div>
+
+
+<?php }
+
+the_title('<h1 class="title">', '</h1>');
+
+if (is_front_page()) {
+	get_template_part('views/widgets/home-navigation');
+} ?>
 
 <div class="wrapper">
 	<div class="content-wrap">
@@ -35,7 +48,8 @@ if (!is_front_page()) the_title('<h1 class="title">', '</h1>'); ?>
 		); ?>
 	</div>
 
-	<?php if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]') ?>
+	<?php if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]');
+	else get_template_part('views/widgets/home-side-panel') ?>
 </div>
 
 <?php // htm_s_entry_footer(); 

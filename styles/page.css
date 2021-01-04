@@ -132,6 +132,7 @@
 }
 .content-wrap .search-form input::placeholder {
   text-transform: uppercase;
+  opacity: 1;
 }
 .content-wrap .search-form input:focus {
   outline: none;

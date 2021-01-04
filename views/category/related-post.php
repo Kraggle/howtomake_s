@@ -15,11 +15,11 @@
 				<?php echo  get_the_author() ?>
 			</a>
 		</span> |
-		<span class="related-date"><?php echo get_the_date() ?></span> |
+		<span class="related-date"><?php echo get_the_date('M jS, Y') ?></span> |
 		<?php the_category(', ') ?>
-		<div class="related-excerpt">
-			<?php echo remove_emoji(get_the_excerpt()) ?>
-		</div>
+	<div class="related-excerpt">
+		<?php echo remove_emoji(get_the_excerpt()) ?>
+	</div>
 	</p>
 </article>
 

@@ -129,7 +129,7 @@ export default {
 		};
 		$.get(`${V.theme}/views/partials/header-mobile.html`, response => menu.mobile = $(response));
 
-		$('<img class="hidden-image" />').appendTo('body');
+		$('<img class="hidden-image" />').appendTo('.menu-back');
 
 		const switchTimer = timed();
 		const switchHeader = (isMobile) => {
@@ -187,7 +187,15 @@ export default {
 					back.css('opacity', 0);
 
 					setTimeout(() => back.remove(), 1200);
-				}, 900);
+
+					const id = window.location.href.match(/#[^?]+/);
+
+					if (id) {
+						$([document.documentElement, document.body]).animate({
+							scrollTop: $(id[0]).offset().top - 170
+						}, 800);
+					}
+				}, 750);
 			}, 250);
 		};
 
@@ -373,10 +381,10 @@ const load = {
 						if (data.length) {
 							$.each(data, (i, cat) => {
 								$('.tab-list', this).append(
-									`<div category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
+									`<a href="${cat.link}" category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
 										<span class="tab-title">${cat.name}</span>
 										<i class="tab-icon"></i>
-									</div>`
+									</a>`
 								);
 
 								$('.tab-box', this).append(
