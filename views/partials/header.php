@@ -1,6 +1,8 @@
 <?php
 // HTML partial/header
 
+$nonce = wp_create_nonce('main_menu_nonce');
+
 // CREATE header-mobile.html
 ob_start();
 
@@ -18,7 +20,7 @@ fclose($fw);
 
 <div class="menu-back"></div>
 
-<header class="banner for-desktop">
+<header class="banner for-desktop" data-nonce="<?php echo $nonce ?>">
 	<div class="upper">
 		<div class="trending-box">
 			<span class="trending-label">TRENDING:</span>

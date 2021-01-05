@@ -2,7 +2,7 @@
 // HTML partial/header-mobile
 ?>
 
-<header class="banner for-mobile">
+<header class="banner for-mobile" data-nonce="<?php echo $nonce ?>">
 	<div class="lower">
 		<div class="hamburger">
 			<span></span>

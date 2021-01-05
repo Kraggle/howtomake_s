@@ -1,8 +1,5 @@
 <?php
 
-global $htm__s_version;
-$htm__s_version = '0.1.10';
-
 /**
  * htm_s functions and definitions
  *
@@ -11,10 +8,15 @@ $htm__s_version = '0.1.10';
  * @package htm_s
  */
 
-if (!defined('_S_VERSION')) {
-	// Replace the version number of the theme on each release.
+// Replace the version number of the theme on each release.
+if (!defined('_S_VERSION'))
 	define('_S_VERSION', '1.0.0');
-}
+
+if (!defined('K_YT_API_KEY'))
+	define('K_YT_API_KEY', 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8');
+
+global $htm__s_version;
+$htm__s_version = '0.1.10';
 
 add_action('after_setup_theme', function () {
 	/**

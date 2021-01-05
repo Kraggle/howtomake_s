@@ -24,8 +24,7 @@
 	<p class="entry-detail">
 		<span class="detail-time">
 			<?php echo get_font_awesome_icon('history', 'light') ?>
-			<?php $time = get_duration();
-			echo "$time min" . ($time == 1 ? '' : 's'); ?>
+			<?php echo get_duration(null, 'full') ?>
 		</span>
 		<span class="spacer"></span>
 		<span class="detail-type">

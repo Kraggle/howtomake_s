@@ -339,10 +339,7 @@ function get_read_time($post = null) {
 
 	$minutes = get_post_meta($post, 'read_time', true);
 
-	if (!$minutes)
-		$minutes = set_read_time($post);
-
-	// error_log(json_encode($minutes));
+	if (!$minutes) $minutes = set_read_time($post);
 
 	return $minutes;
 }
@@ -352,47 +349,48 @@ function set_read_time($post = null) {
 	if (!$post) $post = $id;
 	if (!$post) return;
 
-	$minutes = ceil(str_word_count(strip_tags(get_the_content())) / 250);
+	$minutes = ceil(str_word_count(strip_tags(get_the_content(null, false, $post))) / 250);
 	add_post_meta($post, 'read_time', $minutes);
 	return $minutes;
 }
 
-function get_duration($post = null) {
+function get_duration($post = null, $format = 'minutes') {
 	global $id;
 	if (!$post) $post = $id;
-	if (!$post) return;
+	if (!$post || get_post_type($post) !== 'video') return 0;
 
-	$api_key = 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8';
+	$duration = get_post_meta($post, 'video_duration_raw', true);
 
-	if (get_post_type($post) === 'video') {
-		$minutes = get_post_meta($post, 'video_duration', true);
+	if (!$duration) {
+		$yt = get_post_meta($post, 'youtube_video_id', true);
 
-		if (!$minutes) {
-			$yt = get_post_meta($post, 'youtube_video_id', true);
+		// video json data
+		$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$yt&key=" . K_YT_API_KEY);
+		$result = json_decode($json_result);
 
-			// video json data
-			$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$yt&key=$api_key");
-			$result = json_decode($json_result);
+		// video duration data
+		if (!count($result->items)) return 0;
 
-			// video duration data
-			if (!count($result->items)) {
-				return 0;
-			}
+		$duration = $result->items[0]->contentDetails->duration;
 
-			$duration_encoded = $result->items[0]->contentDetails->duration;
-
-			// duration
-			$interval = new DateInterval($duration_encoded);
-			$minutes = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s) / 60);
-
-
-			if ($minutes)
-				add_post_meta($post, 'video_duration', $minutes);
-			else
-				$minutes = 0;
-		}
+		if ($duration)
+			add_post_meta($post, 'video_duration_raw', $duration);
+		else
+			return 0;
 	}
-	return $minutes;
+
+	$interval = new DateInterval($duration);
+
+	switch ($format) {
+		case 'minutes':
+			return ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s) / 60);
+		default:
+			$hrs = $interval->days * 24 + $interval->h;
+			$min = $interval->i;
+			$sec = str_pad($interval->s, 2, '0', STR_PAD_LEFT);
+
+			return $hrs ? "$hrs:" . str_pad($min, 2, '0', STR_PAD_LEFT) . ":$sec" : "$min:$sec";
+	}
 }
 
 function get_attachment_image_by_slug($slug, $size = 'thumbnail') {
@@ -464,3 +462,51 @@ add_action('the_post', function ($post_object) {
 
 	return $post_object;
 });
+
+
+function get_channel_logo($term_id) {
+	if (!$term_id) return;
+
+	$ytId = get_term_meta($term_id, 'yt_channel_id', true);
+	if (!$ytId) return;
+
+	// get the logo from the database
+	$imageId = get_term_meta($term_id, 'actual_logo', true);
+
+	if (!$imageId) {
+
+		$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=snippet&id=$id&key=" . K_YT_API_KEY);
+		$result = json_decode($json_result);
+
+		if ($result->items && count($result->items)) {
+			$thumb = $result->items[0]->snippet->thumbnails->high;
+
+			include_once(ROOT . 'wp-admin/includes/image.php');
+
+			$imageType = end(explode('/', getimagesize($thumb->url)['mime']));
+			$fileName = date('dmY') . (int) microtime(true) . '.' . $imageType;
+
+			$uploadFile = wp_upload_dir()['path'] . '/' . $fileName;
+			$saveFile = fopen($uploadFile, 'w');
+			fwrite($saveFile, file_get_contents($thumb->url));
+			fclose($saveFile);
+
+			$fileType = wp_check_filetype(basename($fileName), null);
+			$attachment = array(
+				'post_mime_type' => $fileType['type'],
+				'post_title' => $fileName,
+				'post_content' => '',
+				'post_status' => 'inherit'
+			);
+
+			$imageId = wp_insert_attachment($attachment, $uploadFile);
+			$fullSizePath = get_attached_file(get_post($imageId)->ID);
+			$attachData = wp_generate_attachment_metadata($imageId, $fullSizePath);
+			wp_update_attachment_metadata($imageId, $attachData);
+
+			add_term_meta($termId, 'actual_logo', $imageId);
+		}
+	}
+
+	return wp_get_attachment_image_url($imageId, 'medium');
+}
