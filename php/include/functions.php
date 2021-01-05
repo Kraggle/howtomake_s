@@ -34,9 +34,9 @@ function getYoutubeService()
 
 /* [ YtID => PostID ] */
 
-function getExtraYoutubeInfo(Array $videoIds)
+function getExtraYoutubeInfo(Array $videoIds, Array $features = null)// keywords, duration
 {
-
+    global $nl;
     if(count($videoIds)){
 
 
@@ -50,7 +50,7 @@ function getExtraYoutubeInfo(Array $videoIds)
             $optParams = array(
                 'id' => implode(',', array_keys($ids)),
             );
-            echo "$nl$nl Loading extra YT video info$nl$nl";
+            echo "$nl$nl Loading extra YT video info $nl $nl";
             
             try{
 
@@ -61,22 +61,14 @@ function getExtraYoutubeInfo(Array $videoIds)
                     if(!$id) continue;// Skip if video ID not in list, shoudln't happen
 
                     // Attach keywords as tags to post
-                    $result = wp_set_post_tags($id, $item->snippet->tags, true );
+                    if(is_null($features) || in_array('keywords', $features))
+                        $result = wp_set_post_tags($id, $item->snippet->tags, true );
 
 
-					// duration (in seconds)
-					//$interval = new DateInterval($item->contentDetails->duration);
-					//$duration = ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s));
-				
                     // Video Duration
-                    if ($duration){
-                        // update_post_meta($id, 'video_duration', $duration);// Total in seconds
-                        
-                        // update_post_meta($id, 'video_duration_h', $interval->h);// hour portion
-                        // update_post_meta($id, 'video_duration_m', $interval->i);// minutes portion
-                        // update_post_meta($id, 'video_duration_s', $interval->s);// seconds portion
+                    if(is_null($features) || in_array('duration', $features))
                         update_post_meta($id, 'video_duration_raw', $item->contentDetails->duration);// ISO_8601 Format
-                    }
+
                     //file_put_contents('youtube-videos-extra.txt', print_r($item, true));
 
                 }
