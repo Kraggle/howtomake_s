@@ -78,6 +78,14 @@ add_action('after_setup_theme', function () {
 	 * Use main stylesheet for visual editor
 	 */
 	add_editor_style('./styles/main.css');
+
+	add_image_size('featured', 1080, 608, true);
+	add_image_size('post', 850);
+	add_image_size('result', 350, 197, true);
+	add_image_size('menu', 250, 141, true);
+	add_image_size('related', 150, 84, true);
+	add_image_size('channel', 120, 120, true);
+	add_image_size('tiny', 60, 60, true);
 }, 20);
 
 /**
@@ -137,8 +145,12 @@ array_map(function ($file) use ($htm_s_error) {
 	}
 }, [
 	'custom-header', 'template-tags', 'template-functions', 'customizer',
-	'custom-posts', 'shortcodes', 'other-functions', 'forms', 'ajax-calls'
+	'custom-posts', 'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool'
 ]);
+
+add_action('init', function () {
+	new HTM_Admin_Menu();
+});
 
 /**
  * Template Hierarchy should search for .blade.php files
