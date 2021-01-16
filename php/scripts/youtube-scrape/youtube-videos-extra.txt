@@ -1,0 +1,404 @@
+Google_Service_YouTube_Video Object
+(
+    [ageGatingType:protected] => Google_Service_YouTube_VideoAgeGating
+    [ageGatingDataType:protected] => 
+    [contentDetailsType:protected] => Google_Service_YouTube_VideoContentDetails
+    [contentDetailsDataType:protected] => 
+    [etag] => ogjN6IUeRRsA1qPVKhVQ50hLS9E
+    [fileDetailsType:protected] => Google_Service_YouTube_VideoFileDetails
+    [fileDetailsDataType:protected] => 
+    [id] => 3qmLEuCTLXA
+    [kind] => youtube#video
+    [liveStreamingDetailsType:protected] => Google_Service_YouTube_VideoLiveStreamingDetails
+    [liveStreamingDetailsDataType:protected] => 
+    [localizationsType:protected] => Google_Service_YouTube_VideoLocalization
+    [localizationsDataType:protected] => map
+    [monetizationDetailsType:protected] => Google_Service_YouTube_VideoMonetizationDetails
+    [monetizationDetailsDataType:protected] => 
+    [playerType:protected] => Google_Service_YouTube_VideoPlayer
+    [playerDataType:protected] => 
+    [processingDetailsType:protected] => Google_Service_YouTube_VideoProcessingDetails
+    [processingDetailsDataType:protected] => 
+    [projectDetailsType:protected] => Google_Service_YouTube_VideoProjectDetails
+    [projectDetailsDataType:protected] => 
+    [recordingDetailsType:protected] => Google_Service_YouTube_VideoRecordingDetails
+    [recordingDetailsDataType:protected] => 
+    [snippetType:protected] => Google_Service_YouTube_VideoSnippet
+    [snippetDataType:protected] => 
+    [statisticsType:protected] => Google_Service_YouTube_VideoStatistics
+    [statisticsDataType:protected] => 
+    [statusType:protected] => Google_Service_YouTube_VideoStatus
+    [statusDataType:protected] => 
+    [suggestionsType:protected] => Google_Service_YouTube_VideoSuggestions
+    [suggestionsDataType:protected] => 
+    [topicDetailsType:protected] => Google_Service_YouTube_VideoTopicDetails
+    [topicDetailsDataType:protected] => 
+    [internal_gapi_mappings:protected] => Array
+        (
+        )
+
+    [modelData:protected] => Array
+        (
+        )
+
+    [processed:protected] => Array
+        (
+        )
+
+    [snippet] => Google_Service_YouTube_VideoSnippet Object
+        (
+            [collection_key:protected] => tags
+            [categoryId] => 24
+            [channelId] => UCDAzmE9V4Xw5CdLkn3pvO3A
+            [channelTitle] => Dragons' Den
+            [defaultAudioLanguage] => en
+            [defaultLanguage] => 
+            [description] => Juma El-Awaisi and Anwar Almojarkesh own a company that has exclusive rights to sell Braci products in the UK – the sound recognition platform that allows users to convert sounds into visual and sensory notifications. They’re seeking an investment of £50,000 in return for 20% equity.
+
+An international sensation, Dragon's Den features entrepreneurs pitching for investment in the Den from our Dragons, five venture capitalists willing to invest their own money in exchange for equity.
+
+#DragonsDen #PeterJones #Audacious #Technology
+            [liveBroadcastContent] => none
+            [localizedType:protected] => Google_Service_YouTube_VideoLocalization
+            [localizedDataType:protected] => 
+            [publishedAt] => 2020-12-26T12:00:00Z
+            [tags] => Array
+                (
+                    [0] => bbc iplayer
+                    [1] => british tv
+                    [2] => watch uk tv online
+                    [3] => watch british tv online
+                    [4] => dragons
+                    [5] => den
+                    [6] => best
+                    [7] => new
+                    [8] => series
+                    [9] => worst
+                    [10] => pitches
+                    [11] => funniest
+                    [12] => moments
+                    [13] => most
+                    [14] => shocking
+                    [15] => ideas
+                    [16] => products
+                    [17] => businesses
+                    [18] => peter jones
+                    [19] => deborah meaden
+                    [20] => dragons den worst pitches
+                    [21] => dragons den funny
+                    [22] => dragons den series 17
+                    [23] => dragons den 2020
+                    [24] => shark tank
+                    [25] => shark tank 2020
+                    [26] => new dragons den
+                    [27] => new shark tank
+                    [28] => sara davies
+                    [29] => tej lalvani
+                    [30] => touker suleyman
+                    [31] => new episode
+                    [32] => series 17
+                    [33] => Juma El-Awaisi
+                    [34] => Anwar Almojarkesh
+                    [35] => tech fight
+                    [36] => deaf aids
+                )
+
+            [thumbnailsType:protected] => Google_Service_YouTube_ThumbnailDetails
+            [thumbnailsDataType:protected] => 
+            [title] => Deaf Aiding App Receives Battering Over Technology Rights | Dragons' Den
+            [internal_gapi_mappings:protected] => Array
+                (
+                )
+
+            [modelData:protected] => Array
+                (
+                )
+
+            [processed:protected] => Array
+                (
+                )
+
+            [thumbnails] => Google_Service_YouTube_ThumbnailDetails Object
+                (
+                    [defaultType:protected] => Google_Service_YouTube_Thumbnail
+                    [defaultDataType:protected] => 
+                    [highType:protected] => Google_Service_YouTube_Thumbnail
+                    [highDataType:protected] => 
+                    [maxresType:protected] => Google_Service_YouTube_Thumbnail
+                    [maxresDataType:protected] => 
+                    [mediumType:protected] => Google_Service_YouTube_Thumbnail
+                    [mediumDataType:protected] => 
+                    [standardType:protected] => Google_Service_YouTube_Thumbnail
+                    [standardDataType:protected] => 
+                    [internal_gapi_mappings:protected] => Array
+                        (
+                        )
+
+                    [modelData:protected] => Array
+                        (
+                        )
+
+                    [processed:protected] => Array
+                        (
+                        )
+
+                    [default] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 90
+                            [url] => https://i.ytimg.com/vi/3qmLEuCTLXA/default.jpg
+                            [width] => 120
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [medium] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 180
+                            [url] => https://i.ytimg.com/vi/3qmLEuCTLXA/mqdefault.jpg
+                            [width] => 320
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [high] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 360
+                            [url] => https://i.ytimg.com/vi/3qmLEuCTLXA/hqdefault.jpg
+                            [width] => 480
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [standard] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 480
+                            [url] => https://i.ytimg.com/vi/3qmLEuCTLXA/sddefault.jpg
+                            [width] => 640
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [maxres] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 720
+                            [url] => https://i.ytimg.com/vi/3qmLEuCTLXA/maxresdefault.jpg
+                            [width] => 1280
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [localized] => Google_Service_YouTube_VideoLocalization Object
+                (
+                    [description] => Juma El-Awaisi and Anwar Almojarkesh own a company that has exclusive rights to sell Braci products in the UK – the sound recognition platform that allows users to convert sounds into visual and sensory notifications. They’re seeking an investment of £50,000 in return for 20% equity.
+
+An international sensation, Dragon's Den features entrepreneurs pitching for investment in the Den from our Dragons, five venture capitalists willing to invest their own money in exchange for equity.
+
+#DragonsDen #PeterJones #Audacious #Technology
+                    [title] => Deaf Aiding App Receives Battering Over Technology Rights | Dragons' Den
+                    [internal_gapi_mappings:protected] => Array
+                        (
+                        )
+
+                    [modelData:protected] => Array
+                        (
+                        )
+
+                    [processed:protected] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [contentDetails] => Google_Service_YouTube_VideoContentDetails Object
+        (
+            [caption] => false
+            [contentRatingType:protected] => Google_Service_YouTube_ContentRating
+            [contentRatingDataType:protected] => 
+            [countryRestrictionType:protected] => Google_Service_YouTube_AccessPolicy
+            [countryRestrictionDataType:protected] => 
+            [definition] => hd
+            [dimension] => 2d
+            [duration] => PT12M23S
+            [hasCustomThumbnail] => 
+            [licensedContent] => 1
+            [projection] => rectangular
+            [regionRestrictionType:protected] => Google_Service_YouTube_VideoContentDetailsRegionRestriction
+            [regionRestrictionDataType:protected] => 
+            [internal_gapi_mappings:protected] => Array
+                (
+                )
+
+            [modelData:protected] => Array
+                (
+                )
+
+            [processed:protected] => Array
+                (
+                )
+
+            [contentRating] => Google_Service_YouTube_ContentRating Object
+                (
+                    [collection_key:protected] => fpbRatingReasons
+                    [acbRating] => 
+                    [agcomRating] => 
+                    [anatelRating] => 
+                    [bbfcRating] => 
+                    [bfvcRating] => 
+                    [bmukkRating] => 
+                    [catvRating] => 
+                    [catvfrRating] => 
+                    [cbfcRating] => 
+                    [cccRating] => 
+                    [cceRating] => 
+                    [chfilmRating] => 
+                    [chvrsRating] => 
+                    [cicfRating] => 
+                    [cnaRating] => 
+                    [cncRating] => 
+                    [csaRating] => 
+                    [cscfRating] => 
+                    [czfilmRating] => 
+                    [djctqRating] => 
+                    [djctqRatingReasons] => 
+                    [ecbmctRating] => 
+                    [eefilmRating] => 
+                    [egfilmRating] => 
+                    [eirinRating] => 
+                    [fcbmRating] => 
+                    [fcoRating] => 
+                    [fmocRating] => 
+                    [fpbRating] => 
+                    [fpbRatingReasons] => 
+                    [fskRating] => 
+                    [grfilmRating] => 
+                    [icaaRating] => 
+                    [ifcoRating] => 
+                    [ilfilmRating] => 
+                    [incaaRating] => 
+                    [kfcbRating] => 
+                    [kijkwijzerRating] => 
+                    [kmrbRating] => 
+                    [lsfRating] => 
+                    [mccaaRating] => 
+                    [mccypRating] => 
+                    [mcstRating] => 
+                    [mdaRating] => 
+                    [medietilsynetRating] => 
+                    [mekuRating] => 
+                    [menaMpaaRating] => 
+                    [mibacRating] => 
+                    [mocRating] => 
+                    [moctwRating] => 
+                    [mpaaRating] => 
+                    [mpaatRating] => 
+                    [mtrcbRating] => 
+                    [nbcRating] => 
+                    [nbcplRating] => 
+                    [nfrcRating] => 
+                    [nfvcbRating] => 
+                    [nkclvRating] => 
+                    [nmcRating] => 
+                    [oflcRating] => 
+                    [pefilmRating] => 
+                    [rcnofRating] => 
+                    [resorteviolenciaRating] => 
+                    [rtcRating] => 
+                    [rteRating] => 
+                    [russiaRating] => 
+                    [skfilmRating] => 
+                    [smaisRating] => 
+                    [smsaRating] => 
+                    [tvpgRating] => 
+                    [ytRating] => 
+                    [internal_gapi_mappings:protected] => Array
+                        (
+                        )
+
+                    [modelData:protected] => Array
+                        (
+                        )
+
+                    [processed:protected] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [statistics] => Google_Service_YouTube_VideoStatistics Object
+        (
+            [commentCount] => 309
+            [dislikeCount] => 47
+            [favoriteCount] => 0
+            [likeCount] => 944
+            [viewCount] => 84769
+            [internal_gapi_mappings:protected] => Array
+                (
+                )
+
+            [modelData:protected] => Array
+                (
+                )
+
+            [processed:protected] => Array
+                (
+                )
+
+        )
+
+)

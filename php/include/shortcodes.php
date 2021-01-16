@@ -115,67 +115,54 @@ function htm_s_shotcode_more_panel() {
 		<div class="more-part" part="2"></div>
 		<div class="more-part" part="3"></div>
 
-		<!-- search panel -->
-		<div class="more-panel">
-			<? get_template_part('views/widgets/search-form') ?>
-		</div>
+		<?php
+		// Search Panel
+		do_more_panel(function () {
+			get_template_part('views/widgets/search-form');
+		});
 
-		<!-- about panel -->
-		<div class="more-panel">
-			<h4 class="more-title">About Us</h4>
-			<div class="more-content">
-				<? get_template_part('views/partials/about-us') ?>
-			</div>
-		</div>
+		// About Panel
+		do_more_panel(function () {
+			get_template_part('views/partials/about-us');
+		}, 'About Us');
 
-		<!-- popular panel -->
-		<div class="more-panel">
-			<h4 class="more-title">Popular</h4>
-			<div class="more-content">
-				<? wpp_get_mostpopular([
-					'post_type' => 'post',
-					'wpp_start' => '',
-					'wpp_end'   => '',
-					'post_html' => '<a href="{url}">{text_title}</a>',
-					'range'     => 'last7days'
-				]) ?>
-			</div>
-		</div>
+		// Popular Panel
+		do_more_panel(function () {
+			wpp_get_mostpopular([
+				'post_type' => 'post',
+				'wpp_start' => '',
+				'wpp_end'   => '',
+				'post_html' => '<a href="{url}">{text_title}</a>',
+				'range'     => 'last7days'
+			]);
+		}, 'Popular');
 
-		<!-- categories panel -->
-		<div class="more-panel">
-			<h4 class="more-title">Categories</h4>
-			<div class="more-content">
-				<? $list = wp_list_categories([
-					'title_li'           => '',
-					'style'              => 'none',
-					'echo'               => false,
-					'use_desc_for_title' => false,
-					'taxonomy'           => 'category'
-				]);
-				$list = trim(str_replace('<br />',  '', $list));
-				echo $list; ?>
-			</div>
-		</div>
+		do_more_panel(function () {
+			$list = wp_list_categories([
+				'title_li'           => '',
+				'style'              => 'none',
+				'echo'               => false,
+				'use_desc_for_title' => false,
+				'taxonomy'           => 'category'
+			]);
+			return trim(str_replace('<br />',  '', $list));
+		}, 'Categories');
 
-		<!-- latest panel -->
-		<div class="more-panel">
-			<h4 class="more-title">Latest</h4>
-			<div class="more-content">
-				<? $latest = get_posts([
-					'post_type' => 'post'
-				]);
+		do_more_panel(function () {
+			$latest = get_posts([
+				'post_type' => 'post'
+			]);
 
-				if ($latest) {
-					foreach ($latest as $post) { ?>
-						<a href="<? echo get_permalink($post) ?>"><? echo $post->post_title ?></a>
-				<? }
-				} ?>
-			</div>
-		</div>
+			if ($latest) {
+				foreach ($latest as $post) { ?>
+					<a href="<?php echo get_permalink($post) ?>"><?php echo $post->post_title ?></a>
+		<?php }
+			}
+		}, 'Latest'); ?>
+
 	</div>
 
-<? $html = ob_get_contents();
+<?php $html = ob_get_contents();
 	ob_end_clean();
 
 	return $html;

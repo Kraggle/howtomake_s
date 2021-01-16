@@ -1,5 +1,7 @@
-<?
+<?php
 // HTML partial/header
+
+$nonce = wp_create_nonce('main_menu_nonce');
 
 // CREATE header-mobile.html
 ob_start();
@@ -18,7 +20,7 @@ fclose($fw);
 
 <div class="menu-back"></div>
 
-<header class="banner for-desktop">
+<header class="banner for-desktop" data-nonce="<?php echo $nonce ?>">
 	<div class="upper">
 		<div class="trending-box">
 			<span class="trending-label">TRENDING:</span>
@@ -27,7 +29,7 @@ fclose($fw);
 
 		<div class="menu-spacer"></div>
 
-		<?
+		<?php
 		if (has_nav_menu('social-menu')) {
 			wp_nav_menu([
 				'theme_location' => 'social-menu',
@@ -41,19 +43,19 @@ fclose($fw);
 
 		<!-- .et-top-search -->
 		<div class="top-search">
-			<? get_template_part('views/widgets/search-form') ?>
+			<?php get_template_part('views/widgets/search-form') ?>
 		</div>
 	</div>
 
 	<div class="lower">
-		<a class="brand" href="<? echo esc_url(home_url('/')); ?>">
-			<img class="logo" src="<? echo wp_get_attachment_image_url(17385, 'medium') ?>" alt="<? echo esc_attr(get_bloginfo('name')); ?>" />
+		<a class="brand" href="<?php echo esc_url(home_url('/')); ?>">
+			<?php get_template_part('views/partials/logo') ?>
 		</a>
 
 		<div class="menu-spacer"></div>
 
 		<nav class="primary-nav for-desktop">
-			<?
+			<?php
 			if (has_nav_menu('primary-menu')) {
 				wp_nav_menu([
 					'theme_location' => 'primary-menu',
@@ -68,5 +70,5 @@ fclose($fw);
 	</div>
 </header>
 
-<?
+<?php
 // END

@@ -1,15 +1,15 @@
-<?
+<?php
 // The more section for the bottom of pages
 ?>
 <div class="more-panel">
 	<div class="more-box">
 		<h3 class="more-title">About Us</h3>
-		<? get_template_part('views/partials/about-us') ?>
+		<?php get_template_part('views/partials/about-us') ?>
 	</div>
 	<div class="more-box">
 		<h3 class="more-title">Articles</h3>
 		<div class="more-links">
-			<? $list = wp_list_categories([
+			<?php $list = wp_list_categories([
 				'title_li'           => '',
 				'style'              => 'none',
 				'echo'               => false,
@@ -23,7 +23,7 @@
 	<div class="more-box">
 		<h3 class="more-title">Videos</h3>
 		<div class="more-links">
-			<? $list = wp_list_categories([
+			<?php $list = wp_list_categories([
 				'title_li'           => '',
 				'style'              => 'none',
 				'echo'               => false,
@@ -35,3 +35,6 @@
 		</div>
 	</div>
 </div>
+
+<?php
+// END

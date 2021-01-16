@@ -14,13 +14,13 @@
     }
 
     @media (max-width: 950px) {
-        .list-part[part="3"] {
+        .list-part[part='3'] {
             display: none;
         }
     }
 
     @media (max-width: 650px) {
-        .list-part[part="2"] {
+        .list-part[part='2'] {
             display: none;
         }
     }
@@ -34,6 +34,10 @@
         box-shadow: 0 10px 30px -10px rgba(#000, 0.6);
         text-align: center;
         background-color: #fff;
+
+        &.loader {
+            padding-top: 100%;
+        }
     }
 
     .entry-image {

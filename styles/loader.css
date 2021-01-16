@@ -1,0 +1,114 @@
+/** Import Bootstrap functions */
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: italic;
+}
+.page-loader {
+  position: fixed;
+  z-index: 999999999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(203deg, #0da0c5 0%, #29c4a9 100%);
+  transition: 1.2s all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.page-loader .loader-logo {
+  width: 400px;
+  height: 300px;
+  max-width: 70%;
+  max-height: 70%;
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  color: #fff;
+  transition: 1.2s all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.page-loader .loader {
+  position: absolute;
+  width: 80px;
+  top: 80%;
+  left: calc(50% - 40px);
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.page-loader .duo {
+  height: 20px;
+  width: 50px;
+  background: rgba(0, 0, 0, 0);
+  position: absolute;
+}
+.page-loader .duo, .page-loader .dot {
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.page-loader .duo1 {
+  left: 0;
+}
+.page-loader .duo2 {
+  left: 30px;
+}
+.page-loader .dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #fff;
+  position: absolute;
+}
+.page-loader .dot-a {
+  left: 0;
+}
+.page-loader .dot-b {
+  right: 0;
+}
+.page-loader .duo1 {
+  animation-name: spin;
+}
+.page-loader .duo2 {
+  animation-name: spin;
+  animation-direction: reverse;
+}
+.page-loader .duo2 .dot-b {
+  animation-name: onOff;
+}
+.page-loader .duo1 .dot-a {
+  opacity: 0;
+  animation-name: onOff;
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes onOff {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

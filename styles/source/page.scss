@@ -1,4 +1,4 @@
-@import "common/variables";
+@import 'common/variables';
 
 .main {
     > .title {
@@ -121,6 +121,7 @@
 
             &::placeholder {
                 text-transform: uppercase;
+                opacity: 1;
             }
 
             &:focus {

@@ -1,0 +1,149 @@
+Google_Service_YouTube_SearchResult Object
+(
+    [etag] => EJwXLWzsVDKQT5Y2u0JcgOoyc5M
+    [idType:protected] => Google_Service_YouTube_ResourceId
+    [idDataType:protected] => 
+    [kind] => youtube#searchResult
+    [snippetType:protected] => Google_Service_YouTube_SearchResultSnippet
+    [snippetDataType:protected] => 
+    [internal_gapi_mappings:protected] => Array
+        (
+        )
+
+    [modelData:protected] => Array
+        (
+        )
+
+    [processed:protected] => Array
+        (
+        )
+
+    [id] => Google_Service_YouTube_ResourceId Object
+        (
+            [channelId] => 
+            [kind] => youtube#video
+            [playlistId] => 
+            [videoId] => zAAfmUGDeCk
+            [internal_gapi_mappings:protected] => Array
+                (
+                )
+
+            [modelData:protected] => Array
+                (
+                )
+
+            [processed:protected] => Array
+                (
+                )
+
+        )
+
+    [snippet] => Google_Service_YouTube_SearchResultSnippet Object
+        (
+            [channelId] => UCIHdDJ0tjn_3j-FS7s_X1kQ
+            [channelTitle] => Valuetainment
+            [description] => In this video Patrick Bet-David shares 15 things school won't teach you. Subscribe for weekly videos http://bit.ly/2aPEwD4 Recommended video - Every ...
+            [liveBroadcastContent] => none
+            [publishedAt] => 2021-01-12T13:47:33Z
+            [thumbnailsType:protected] => Google_Service_YouTube_ThumbnailDetails
+            [thumbnailsDataType:protected] => 
+            [title] => 15 Things School Won’t Teach You
+            [internal_gapi_mappings:protected] => Array
+                (
+                )
+
+            [modelData:protected] => Array
+                (
+                    [publishTime] => 2021-01-12T13:47:33Z
+                )
+
+            [processed:protected] => Array
+                (
+                )
+
+            [thumbnails] => Google_Service_YouTube_ThumbnailDetails Object
+                (
+                    [defaultType:protected] => Google_Service_YouTube_Thumbnail
+                    [defaultDataType:protected] => 
+                    [highType:protected] => Google_Service_YouTube_Thumbnail
+                    [highDataType:protected] => 
+                    [maxresType:protected] => Google_Service_YouTube_Thumbnail
+                    [maxresDataType:protected] => 
+                    [mediumType:protected] => Google_Service_YouTube_Thumbnail
+                    [mediumDataType:protected] => 
+                    [standardType:protected] => Google_Service_YouTube_Thumbnail
+                    [standardDataType:protected] => 
+                    [internal_gapi_mappings:protected] => Array
+                        (
+                        )
+
+                    [modelData:protected] => Array
+                        (
+                        )
+
+                    [processed:protected] => Array
+                        (
+                        )
+
+                    [default] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 90
+                            [url] => https://i.ytimg.com/vi/zAAfmUGDeCk/default.jpg
+                            [width] => 120
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [medium] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 180
+                            [url] => https://i.ytimg.com/vi/zAAfmUGDeCk/mqdefault.jpg
+                            [width] => 320
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [high] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 360
+                            [url] => https://i.ytimg.com/vi/zAAfmUGDeCk/hqdefault.jpg
+                            [width] => 480
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+)

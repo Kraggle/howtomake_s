@@ -32,7 +32,7 @@ export default {
 					const hoverTabs = el => el.addClass('hovered').siblings('.hovered').removeClass('hovered');
 
 					// INFO:: This hovers the tab menus so the first tab displays each time you enter the menu
-					$('.primary-nav .with-tabs').off('mouseenter').on('mouseenter', function() {
+					$('.primary-nav').off('mouseenter').on('mouseenter', '.with-tabs.is-created', function() {
 						const el = $('.tab-list .tab-button:first-of-type', this);
 						hoverTabs(el);
 						showTab(el);
@@ -129,7 +129,7 @@ export default {
 		};
 		$.get(`${V.theme}/views/partials/header-mobile.html`, response => menu.mobile = $(response));
 
-		$('<img class="hidden-image" />').appendTo('body');
+		$('<img class="hidden-image" />').appendTo('.menu-back');
 
 		const switchTimer = timed();
 		const switchHeader = (isMobile) => {
@@ -161,7 +161,7 @@ export default {
 			if (!back.length) return;
 
 			setTimeout(() => {
-				const img = $('.lower .brand img'),
+				const img = $('.lower .brand .logo'),
 					logo = $('.page-loader .loader-logo'),
 					loader = $('.page-loader .loader');
 
@@ -187,7 +187,15 @@ export default {
 					back.css('opacity', 0);
 
 					setTimeout(() => back.remove(), 1200);
-				}, 900);
+
+					const id = window.location.href.match(/#[^?]+/);
+
+					if (id) {
+						$([document.documentElement, document.body]).animate({
+							scrollTop: $(id[0]).offset().top - 170
+						}, 800);
+					}
+				}, 750);
 			}, 250);
 		};
 
@@ -256,18 +264,25 @@ const load = {
 	// INFO:: This adds content to the channels menu
 	channels(isMobile = false) {
 		$('.nav .is-list:not(.is-created)').each(function() {
-			const cls = $(this).attr('class'),
+			const _me = $(this),
+				cls = _me.attr('class'),
 				type = (cls.match(/(?<=type-)([^ "]+)/) || [])[0],
 				tax = (cls.match(/(?<=tax-)([^ "]+)/) || [])[0];
-			$(this).data({ type, tax });
+			_me.data({ type, tax });
 
 			if (tax) {
-				$.getJSON(`${V.call}/get-categories.php`, {
-					taxonomy: tax
-				}, data => {
-					// console.log(data);
 
-					let box = $('<div class="list-wrap menu-box" />').appendTo($(this));
+				$.ajax({
+					url: V.ajax,
+					data: {
+						action: 'get_categories',
+						nonce: $('.banner').data('nonce'),
+						taxonomy: tax
+					}
+				}).done(function(data) {
+					data = JSON.parse(data.replace(/0$/, ''));
+
+					let box = $('<div class="list-wrap menu-box" />').appendTo(_me);
 					isMobile && (
 						box.removeClass('list-wrap'),
 						box = $('<div class="list-wrap" />').appendTo(box)
@@ -286,7 +301,7 @@ const load = {
 					}
 				});
 
-				$(this).addClass('is-created');
+				_me.addClass('is-created');
 			}
 		});
 	},
@@ -313,8 +328,14 @@ const load = {
 
 		loaders.html('<div class="load-ripple"><div></div><div></div></div>');
 
-		$.getJSON(`${V.call}/get-featured.php`, function(data) {
-			// console.log(data);
+		$.ajax({
+			url: V.ajax,
+			data: {
+				action: 'get_featured',
+				nonce: $('.banner').data('nonce')
+			}
+		}).done(function(data) {
+			data = JSON.parse(data.replace(/0$/, ''));
 
 			if (data.length) {
 
@@ -352,18 +373,24 @@ const load = {
 	tabs: {
 		desktop() {
 			$('.nav .with-tabs:not(.is-created)').each(function() {
-				const cls = $(this).attr('class'),
+				const _me = $(this),
+					cls = _me.attr('class'),
 					type = (cls.match(/(?<=type-)([^ "]+)/) || [])[0],
 					tax = (cls.match(/(?<=tax-)([^ "]+)/) || [])[0];
 				$(this).data({ type, tax });
 
 				if (tax) {
-					$.getJSON(`${V.call}/get-categories.php`, {
-						taxonomy: tax
-					}, data => {
-						// console.log(data);
+					$.ajax({
+						url: V.ajax,
+						data: {
+							action: 'get_categories',
+							nonce: $('.banner').data('nonce'),
+							taxonomy: tax
+						}
+					}).done(function(data) {
+						data = JSON.parse(data.replace(/0$/, ''));
 
-						$(this).append($(
+						_me.append($(
 							`<div class="tab-wrap menu-box">
 								<div class="tab-list"></div>
 								<div class="tab-box"></div>
@@ -372,14 +399,14 @@ const load = {
 
 						if (data.length) {
 							$.each(data, (i, cat) => {
-								$('.tab-list', this).append(
-									`<div category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
+								$('.tab-list', _me).append(
+									`<a href="${cat.link}" category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
 										<span class="tab-title">${cat.name}</span>
 										<i class="tab-icon"></i>
-									</div>`
+									</a>`
 								);
 
-								$('.tab-box', this).append(
+								$('.tab-box', _me).append(
 									`<div class="tab-category" category="${cat.slug}" data-page=0>
 										<a id="${ID()}" href="#" class="tab-post loader"></a>
 										<a id="${ID()}" href="#" class="tab-post loader"></a>
@@ -396,7 +423,7 @@ const load = {
 									</div>`
 								);
 
-								$(`.tab-category[category=${cat.slug}]`, this).on('click', 'div.tab-nav:not(.disabled)', function() {
+								$(`.tab-category[category=${cat.slug}]`, _me).on('click', 'div.tab-nav:not(.disabled)', function() {
 									load.content(
 										$(this).parents('.tab-wrap').find(`.tab-button[category=${$(this).attr('category')}]`),
 										$(this).hasClass('next') ? 1 : -1,
@@ -407,25 +434,31 @@ const load = {
 						}
 					});
 
-					$(this).addClass('is-created');
+					_me.addClass('is-created');
 				}
 			});
 		},
 
 		mobile() {
 			$('.nav .with-tabs:not(.is-created)').each(function() {
-				const cls = $(this).attr('class'),
+				const _me = $(this),
+					cls = _me.attr('class'),
 					type = (cls.match(/(?<=type-)([^ "]+)/) || [])[0],
 					tax = (cls.match(/(?<=tax-)([^ "]+)/) || [])[0];
-				$(this).data({ type, tax });
+				_me.data({ type, tax });
 
 				if (tax) {
-					$.getJSON(`${V.call}/get-categories.php`, {
-						taxonomy: tax
-					}, data => {
-						// console.log(data);
+					$.ajax({
+						url: V.ajax,
+						data: {
+							action: 'get_categories',
+							nonce: $('.banner').data('nonce'),
+							taxonomy: tax
+						}
+					}).done(function(data) {
+						data = JSON.parse(data.replace(/0$/, ''));
 
-						$(this).append($(
+						_me.append($(
 							`<div class="menu-box for-tabs">
 								<div class="tab-wrap"></div>
 							</div>`
@@ -433,7 +466,7 @@ const load = {
 
 						if (data.length) {
 							$.each(data, (i, cat) => {
-								$('.tab-wrap', this).append(
+								$('.tab-wrap', _me).append(
 									`<div category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
 										<span class="tab-title">${cat.name}</span>
 										<i class="tab-icon"></i>
@@ -458,7 +491,7 @@ const load = {
 									</div>`
 								);
 
-								$(`.tab-category[category=${cat.slug}]`, this).on('click', 'div.tab-nav:not(.disabled)', function() {
+								$(`.tab-category[category=${cat.slug}]`, _me).on('click', 'div.tab-nav:not(.disabled)', function() {
 									load.content(
 										$(this).parents('.tab-wrap').find(`.tab-button[category=${$(this).attr('category')}]`),
 										$(this).hasClass('next') ? 1 : -1,
@@ -469,7 +502,7 @@ const load = {
 						}
 					});
 
-					$(this).addClass('is-created');
+					_me.addClass('is-created');
 				}
 			});
 		}
@@ -497,13 +530,19 @@ const load = {
 
 			loaders.html('<div class="load-ripple"><div></div><div></div></div>');
 
-			$.getJSON(`${V.call}/get-posts.php`, {
-				termId,
-				category,
-				type,
-				page: page * 3,
-				getCount: !tab.data('hasCount')
-			}, function(data) {
+			$.ajax({
+				url: V.ajax,
+				data: {
+					action: 'get_posts',
+					nonce: $('.banner').data('nonce'),
+					termId,
+					category,
+					type,
+					page: page * 3,
+					getCount: !tab.data('hasCount')
+				}
+			}).done(function(data) {
+				data = JSON.parse(data.replace(/0$/, ''));
 
 				if (data.items.length) {
 
@@ -546,8 +585,15 @@ const load = {
 
 	// INFO:: This loads the trending posts
 	trending() {
-		$.getJSON(`${V.call}/get-trending.php`, function(data) {
-			// console.log(data);
+
+		$.ajax({
+			url: V.ajax,
+			data: {
+				action: 'get_trending',
+				nonce: $('.banner').data('nonce')
+			}
+		}).done(function(data) {
+			data = JSON.parse(data.replace(/0$/, ''));
 
 			$('.trending-wrap:not(.is-created)').append(`
 					<a id="${ID()}" href="#" class="trending-button disabled"></a>

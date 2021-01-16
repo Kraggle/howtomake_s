@@ -49,30 +49,23 @@ function htm_add_head_stuff() {
 			"query" => true,
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/main",
+					"name" => "htm_s-main",
 					"src" => "$uri/scripts/main.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/main",
+					"name" => "htm_s-main",
 					"src" => "$uri/styles/main.css"
 				]
 			]
 		],
 		"home" => (object) [
 			"query" => is_front_page(),
-			"scripts" => [
-				(object) [
-					"name" => "htm_s/home",
-					"src" => "$uri/scripts/home.js",
-					"module" => true
-				]
-			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/home",
+					"name" => "htm_s-home",
 					"src" => "$uri/styles/home.css"
 				]
 			]
@@ -81,14 +74,14 @@ function htm_add_head_stuff() {
 			"query" => $base === 'single.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/single",
+					"name" => "htm_s-single",
 					"src" => "$uri/scripts/single.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/single",
+					"name" => "htm_s-single",
 					"src" => "$uri/styles/single.css"
 				]
 			]
@@ -97,30 +90,30 @@ function htm_add_head_stuff() {
 			"query" => $base === 'category.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/category",
+					"name" => "htm_s-category",
 					"src" => "$uri/scripts/category.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/category",
+					"name" => "htm_s-category",
 					"src" => "$uri/styles/category.css"
 				]
 			]
 		],
 		"search" => (object) [
-			"query" => is_search(),
+			"query" => $base === 'page-search.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/search",
+					"name" => "htm_s-search",
 					"src" => "$uri/scripts/search.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/search",
+					"name" => "htm_s-search",
 					"src" => "$uri/styles/search.css"
 				]
 			]
@@ -129,14 +122,14 @@ function htm_add_head_stuff() {
 			"query" => $base === 'channel.php',
 			"scripts" => [
 				(object) [
-					"name" => "htm_s/channel",
+					"name" => "htm_s-channel",
 					"src" => "$uri/scripts/channel.js",
 					"module" => true
 				]
 			],
 			"styles" => [
 				(object) [
-					"name" => "htm_s/channel",
+					"name" => "htm_s-channel",
 					"src" => "$uri/styles/channel.css"
 				]
 			]
@@ -145,7 +138,7 @@ function htm_add_head_stuff() {
 			"query" => $base === 'page.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s/page",
+					"name" => "htm_s-page",
 					"src" => "$uri/styles/page.css"
 				]
 			]
@@ -154,7 +147,7 @@ function htm_add_head_stuff() {
 			"query" => $base === '404.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s/page",
+					"name" => "htm_s-page",
 					"src" => "$uri/styles/page.css"
 				]
 			]
@@ -163,7 +156,7 @@ function htm_add_head_stuff() {
 			"query" => $base === 'page-contact-us.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s/page",
+					"name" => "htm_s-page",
 					"src" => "$uri/styles/contact.css"
 				]
 			]
@@ -174,14 +167,8 @@ function htm_add_head_stuff() {
 		if (!$item->query) continue;
 
 		if ($item->scripts) {
-			foreach ($item->scripts as $script) {
-				printf(
-					'<script id="%1$s" src="%2$s" type="%3$s"></script>',
-					$script->name,
-					$script->src,
-					$script->module ? 'module' : 'text/javascript'
-				);
-			}
+			foreach ($item->scripts as $script)
+				wp_enqueue_script(($script->module ? 'module-' : '') . $script->name, $script->src);
 		}
 
 		if ($item->styles) {
@@ -190,6 +177,15 @@ function htm_add_head_stuff() {
 		}
 	}
 }
+
+function htm_script_as_module($tag, $handle, $src) {
+	if (preg_match('/^module-/', $handle)) {
+		$tag = '<script type="module" src="' . esc_url($src) . '" id="' . $handle . '"></script>';
+	}
+
+	return $tag;
+}
+add_filter('script_loader_tag', 'htm_script_as_module', 10, 3);
 
 /**
  * Retrieves the channel information for the current video and prints it.
@@ -317,4 +313,200 @@ function htm_s_echo_channel($channel, $key) {
 
 		return;
 	}
+}
+
+function load_template_part($template_name, $part_name = null) {
+	ob_start();
+	get_template_part($template_name, $part_name);
+	$var = ob_get_contents();
+	ob_end_clean();
+	return $var;
+}
+
+function get_font_awesome_icon($name, $type = 'regular') {
+	ob_start();
+	include(get_template_directory() . "/assets/fonts/font-awesome/$type/$name.svg");
+	$var = ob_get_contents();
+	ob_end_clean();
+	return $var;
+}
+
+
+function get_read_time($post = null) {
+	global $id;
+	if (!$post) $post = $id;
+	if (!$post) return;
+
+	$minutes = get_post_meta($post, 'read_time', true);
+
+	if (!$minutes) $minutes = set_read_time($post);
+
+	return $minutes;
+}
+
+function set_read_time($post = null) {
+	global $id;
+	if (!$post) $post = $id;
+	if (!$post) return;
+
+	$minutes = ceil(str_word_count(strip_tags(get_the_content(null, false, $post))) / 250);
+	add_post_meta($post, 'read_time', $minutes);
+	return $minutes;
+}
+
+function get_duration($post = null, $format = 'minutes') {
+	global $id;
+	if (!$post) $post = $id;
+	if (!$post || get_post_type($post) !== 'video') return 0;
+
+	$duration = get_post_meta($post, 'video_duration_raw', true);
+
+	if (!$duration) {
+		$yt = get_post_meta($post, 'youtube_video_id', true);
+
+		// video json data
+		$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$yt&key=" . K_YT_API_KEY);
+		$result = json_decode($json_result);
+
+		// video duration data
+		if (!count($result->items)) return 0;
+
+		$duration = $result->items[0]->contentDetails->duration;
+
+		if ($duration)
+			add_post_meta($post, 'video_duration_raw', $duration);
+		else
+			return 0;
+	}
+
+	$interval = new DateInterval($duration);
+
+	switch ($format) {
+		case 'minutes':
+			return ceil(($interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s) / 60);
+		default:
+			$hrs = $interval->days * 24 + $interval->h;
+			$min = $interval->i;
+			$sec = str_pad($interval->s, 2, '0', STR_PAD_LEFT);
+
+			return $hrs ? "$hrs:" . str_pad($min, 2, '0', STR_PAD_LEFT) . ":$sec" : "$min:$sec";
+	}
+}
+
+function get_attachment_image_by_slug($slug, $size = 'thumbnail') {
+	$args = array(
+		'post_type' => 'attachment',
+		'name' => sanitize_title($slug),
+		'posts_per_page' => 1,
+		'post_status' => 'inherit',
+	);
+	$_header = get_posts($args);
+	$header = $_header ? array_pop($_header) : null;
+	return $header ? wp_get_attachment_image($header->ID, $size) : '';
+}
+
+/**
+ * Create a more panel, used on the right side bar of the pages and posts
+ *
+ * @param string|function $content  A string containing the content of the panel or a function 
+ *                            that returns the string value.
+ * @param string          $title    The title you want for the panel. Default empty string.
+ * @param array           $args     An array of arguments. Default empty array.
+ * @return null           Echo the resulting panel if no errors, null otherwise.
+ */
+function do_more_panel($content, $title = '', $args = array()) {
+	if (!isset($content) || !$content) return null;
+
+	$type = 'default';
+	if (isset($args['type']))
+		$type = $args['type'];
+
+	if ($title) {
+		$title = '<h4 class="more-title">' . $title . '</h4>';
+	}
+
+	if (isset($args['classes'])) {
+		$classes = $args['classes'];
+		if (!is_array($classes))
+			$classes = explode(' ', $classes);
+	}
+
+	$classes[] = 'more-panel';
+
+	if ($type !== 'default')
+		$classes[] = "is-$type";
+
+	if (isset($args['background'])) {
+		$classes[] = 'bg-' . $args['background'];
+	} ?>
+
+	<div class="<?php echo implode(' ', $classes) ?>">
+		<?php if ($type == 'quote') { ?>
+			<i class="quote"><?php echo get_font_awesome_icon('quote-right', 'solid') ?></i>
+		<?php } ?>
+		<?php echo $title ?>
+		<div class="more-content">
+			<?php echo is_callable($content) ? $content() : $content ?>
+		</div>
+	</div>
+
+<?php }
+
+/**
+ * Used to remove divi shortcodes from pre existing posts and pages.
+ * Also removes the domain from any internal links. 
+ */
+add_action('the_post', function ($post_object) {
+
+	$post_object->post_content = preg_replace('/(\[.{0,2}et_pb[^]]+]|https{0,1}:.{2,4}how\w+.\w{3,4})/m', '', $post_object->post_content);
+
+	return $post_object;
+});
+
+
+function get_channel_logo($term_id) {
+	if (!$term_id) return;
+
+	$ytId = get_term_meta($term_id, 'yt_channel_id', true);
+	if (!$ytId) return;
+
+	// get the logo from the database
+	$imageId = get_term_meta($term_id, 'actual_logo', true);
+
+	if (!$imageId) {
+
+		$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=snippet&id=$id&key=" . K_YT_API_KEY);
+		$result = json_decode($json_result);
+
+		if ($result->items && count($result->items)) {
+			$thumb = $result->items[0]->snippet->thumbnails->high;
+
+			include_once(ROOT . 'wp-admin/includes/image.php');
+
+			$imageType = end(explode('/', getimagesize($thumb->url)['mime']));
+			$fileName = date('dmY') . (int) microtime(true) . '.' . $imageType;
+
+			$uploadFile = wp_upload_dir()['path'] . '/' . $fileName;
+			$saveFile = fopen($uploadFile, 'w');
+			fwrite($saveFile, file_get_contents($thumb->url));
+			fclose($saveFile);
+
+			$fileType = wp_check_filetype(basename($fileName), null);
+			$attachment = array(
+				'post_mime_type' => $fileType['type'],
+				'post_title' => $fileName,
+				'post_content' => '',
+				'post_status' => 'inherit'
+			);
+
+			$imageId = wp_insert_attachment($attachment, $uploadFile);
+			$fullSizePath = get_attached_file(get_post($imageId)->ID);
+			$attachData = wp_generate_attachment_metadata($imageId, $fullSizePath);
+			wp_update_attachment_metadata($imageId, $attachData);
+
+			add_term_meta($termId, 'actual_logo', $imageId);
+		}
+	}
+
+	return wp_get_attachment_image_url($imageId, 'medium');
 }

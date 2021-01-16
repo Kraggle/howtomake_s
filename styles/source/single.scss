@@ -1,4 +1,4 @@
-@import "common/variables";
+@import 'common/variables';
 
 .content {
     .main {
@@ -40,6 +40,7 @@
         overflow: hidden;
         border-radius: 20px;
         background-color: #fff;
+        max-height: 608px;
     }
 
     .wrapper {
@@ -68,7 +69,8 @@
             + h5,
             + h4,
             + h3,
-            + h2 {
+            + h2,
+            + h1 {
                 margin-top: 50px;
             }
         }
@@ -98,12 +100,17 @@
             font-size: 25px;
         }
 
+        h1 {
+            text-align: left;
+        }
+
+        h1,
         h2 {
-            font-size: 35px;
+            font-size: 30px;
             font-weight: 750;
         }
 
-        h2, h3, h4, h5, h6 {
+        h1, h2, h3, h4, h5, h6 {
             margin-bottom: 15px;
         }
 
@@ -150,25 +157,25 @@ h3.related-title {
     }
 
     @media (max-width: 1040px) {
-        .related-part[part="5"] {
+        .related-part[part='5'] {
             display: none;
         }
     }
 
     @media (max-width: 920px) {
-        .related-part[part="4"] {
+        .related-part[part='4'] {
             display: none;
         }
     }
 
     @media (max-width: 760px) {
-        .related-part[part="3"] {
+        .related-part[part='3'] {
             display: none;
         }
     }
 
     @media (max-width: 520px) {
-        .related-part[part="2"] {
+        .related-part[part='2'] {
             display: none;
         }
     }

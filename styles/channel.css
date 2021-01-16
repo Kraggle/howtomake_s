@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /** Import Bootstrap functions */
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 @font-face {
@@ -12,6 +13,19 @@
   font-weight: 200 900;
   font-style: italic;
 }
+@font-face {
+  font-family: "Font Awesome 5 Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url("../assets/fonts/font-awesome/fa-light-300.eot");
+  src: url("../assets/fonts/font-awesome/fa-light-300.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/font-awesome/fa-light-300.woff2") format("woff2"), url("../assets/fonts/font-awesome/fa-light-300.woff") format("woff"), url("../assets/fonts/font-awesome/fa-light-300.ttf") format("truetype"), url("../assets/fonts/font-awesome/fa-light-300.svg#fontawesome") format("svg");
+}
+.fal {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 300;
+}
+
 .list {
   position: relative;
   width: 100%;
@@ -44,6 +58,9 @@
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
   text-align: center;
   background-color: #fff;
+}
+.list .entry.loader {
+  padding-top: 100%;
 }
 .list .entry-image {
   display: block;
@@ -168,10 +185,10 @@
 }
 .gallery .gallery-more::after {
   position: absolute;
-  content: "5";
-  font-family: etmodules;
-  font-size: 18px;
-  margin-top: -3px;
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+  font-size: 12px;
+  margin-top: 2px;
   right: 20px;
   opacity: 0;
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
@@ -181,7 +198,7 @@
   padding-right: 42px;
 }
 .gallery .gallery-more:hover::after {
-  right: 14px;
+  right: 18px;
   opacity: 1;
 }
 .gallery .gallery-nav {
@@ -226,18 +243,21 @@
   flex-grow: 1;
 }
 .gallery .gallery-arrow {
-  font-family: etmodules;
+  font-family: "Font Awesome 5 Pro";
   pointer-events: none;
+  display: block;
+  width: 60px;
+  text-align: center;
 }
 .gallery .gallery-arrow::after {
-  content: "5";
+  content: "";
   font-size: 60px;
   position: relative;
   opacity: 0;
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gallery .gallery-arrow.left::after {
-  content: "4";
+  content: "";
   left: -40px;
 }
 .gallery .gallery-arrow.right::after {
@@ -303,10 +323,10 @@
 }
 .post-nav .nav-links a::after {
   position: absolute;
-  content: "5";
-  font-family: etmodules;
-  font-size: 18px;
-  margin-top: -3px;
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+  font-size: 12px;
+  margin-top: 3px;
   right: 20px;
   opacity: 0;
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
@@ -316,7 +336,7 @@
   padding-right: 42px;
 }
 .post-nav .nav-links a:hover::after {
-  right: 14px;
+  right: 18px;
   opacity: 1;
 }
 .post-nav .nav-previous {
@@ -326,7 +346,7 @@
   float: left;
 }
 .post-nav .nav-next a::after {
-  content: "4";
+  content: "";
   right: initial;
   left: 20px;
 }
@@ -335,7 +355,7 @@
   padding-left: 42px;
 }
 .post-nav .nav-next a:hover::after {
-  left: 14px;
+  left: 18px;
   opacity: 1;
 }
 .post-nav::after {

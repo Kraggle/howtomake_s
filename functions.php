@@ -1,8 +1,5 @@
 <?php
 
-global $htm__s_version;
-$htm__s_version = '0.1.09';
-
 /**
  * htm_s functions and definitions
  *
@@ -11,10 +8,15 @@ $htm__s_version = '0.1.09';
  * @package htm_s
  */
 
-if (!defined('_S_VERSION')) {
-	// Replace the version number of the theme on each release.
+// Replace the version number of the theme on each release.
+if (!defined('_S_VERSION'))
 	define('_S_VERSION', '1.0.0');
-}
+
+if (!defined('K_YT_API_KEY'))
+	define('K_YT_API_KEY', 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8');
+
+global $htm__s_version;
+$htm__s_version = '0.1.10';
 
 add_action('after_setup_theme', function () {
 	/**
@@ -135,7 +137,7 @@ array_map(function ($file) use ($htm_s_error) {
 	}
 }, [
 	'custom-header', 'template-tags', 'template-functions', 'customizer',
-	'custom-posts', 'shortcodes', 'other-functions', 'forms'
+	'custom-posts', 'shortcodes', 'other-functions', 'forms', 'ajax-calls'
 ]);
 
 /**
@@ -148,9 +150,9 @@ foreach ([
 ] as $type) {
 	add_filter("{$type}_template_hierarchy", function ($templates) {
 		if (in_array('category.php', $templates)) {
-			array_unshift($templates, 'category.php');
+			array_unshift($templates, 'page-search.php');
 		} elseif (in_array('taxonomy-video-category.php', $templates)) {
-			array_unshift($templates, 'category.php');
+			array_unshift($templates, 'page-search.php');
 		} elseif (in_array('front-page.php', $templates)) {
 			array_unshift($templates, 'page-home.php');
 		} elseif (in_array('taxonomy-video-channel.php', $templates)) {
@@ -160,7 +162,7 @@ foreach ([
 		$templates = array_map(function ($value) {
 			global $acceptedTemplates;
 			$acceptedTemplates[] = str_replace('.php', '', $value);
-			return ".\\views\\$value";
+			return "./views/$value";
 		}, $templates);
 
 		add_filter('body_class', function ($classes) {
@@ -174,14 +176,34 @@ foreach ([
 	});
 }
 
+// add_action('template_redirect', function () {
+
+// 	global $wp_query;
+// 	$query = $wp_query->query;
+
+// 	if (array_key_exists('video-category', $query)) {
+// 		$cat = $query['video-category'];
+
+// 		wp_safe_redirect(site_url("/search?type=video~$cat"));
+// 		exit();
+// 	} elseif (array_key_exists('category_name', $query)) {
+// 		$cat = $query['category_name'];
+
+// 		wp_safe_redirect(site_url("/search?type=post~$cat"));
+// 		exit();
+// 	}
+// });
+
+
+
 /**
  * Enqueue scripts and styles.
  */
 add_action('wp_enqueue_scripts', function () {
-	global $template;
+	// global $template;
 	// error_log('Using template: ' . basename($template));
 
-	// wp_enqueue_style('google_fonts', "//fonts.googleapis.com/css?family=Questrial", false, null);
+	wp_enqueue_style('page_loader', get_template_directory_uri() . "/styles/loader.css");
 	// wp_enqueue_script('greensock', "//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js", array(), null, true);
 
 	if (is_single() && comments_open() && get_option('thread_comments')) {
@@ -215,3 +237,6 @@ add_action('wp_enqueue_scripts', function () {
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/php/include/jetpack.php';
 }
+
+// Show Custom Fields on editor
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');

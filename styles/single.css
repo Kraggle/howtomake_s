@@ -43,6 +43,7 @@
   overflow: hidden;
   border-radius: 20px;
   background-color: #fff;
+  max-height: 608px;
 }
 .content .wrapper {
   display: flex;
@@ -67,27 +68,33 @@
 .content .wrapper a + h5,
 .content .wrapper a + h4,
 .content .wrapper a + h3,
-.content .wrapper a + h2, .content .wrapper p + h6,
+.content .wrapper a + h2,
+.content .wrapper a + h1, .content .wrapper p + h6,
 .content .wrapper p + h5,
 .content .wrapper p + h4,
 .content .wrapper p + h3,
-.content .wrapper p + h2, .content .wrapper ul + h6,
+.content .wrapper p + h2,
+.content .wrapper p + h1, .content .wrapper ul + h6,
 .content .wrapper ul + h5,
 .content .wrapper ul + h4,
 .content .wrapper ul + h3,
-.content .wrapper ul + h2, .content .wrapper ol + h6,
+.content .wrapper ul + h2,
+.content .wrapper ul + h1, .content .wrapper ol + h6,
 .content .wrapper ol + h5,
 .content .wrapper ol + h4,
 .content .wrapper ol + h3,
-.content .wrapper ol + h2, .content .wrapper div + h6,
+.content .wrapper ol + h2,
+.content .wrapper ol + h1, .content .wrapper div + h6,
 .content .wrapper div + h5,
 .content .wrapper div + h4,
 .content .wrapper div + h3,
-.content .wrapper div + h2, .content .wrapper noscript + h6,
+.content .wrapper div + h2,
+.content .wrapper div + h1, .content .wrapper noscript + h6,
 .content .wrapper noscript + h5,
 .content .wrapper noscript + h4,
 .content .wrapper noscript + h3,
-.content .wrapper noscript + h2 {
+.content .wrapper noscript + h2,
+.content .wrapper noscript + h1 {
   margin-top: 50px;
 }
 .content .wrapper ul + p, .content .wrapper ol + p {
@@ -108,11 +115,15 @@
 .content .wrapper h3 {
   font-size: 25px;
 }
+.content .wrapper h1 {
+  text-align: left;
+}
+.content .wrapper h1,
 .content .wrapper h2 {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 750;
 }
-.content .wrapper h2, .content .wrapper h3, .content .wrapper h4, .content .wrapper h5, .content .wrapper h6 {
+.content .wrapper h1, .content .wrapper h2, .content .wrapper h3, .content .wrapper h4, .content .wrapper h5, .content .wrapper h6 {
   margin-bottom: 15px;
 }
 .content .wrapper .image-wrap {

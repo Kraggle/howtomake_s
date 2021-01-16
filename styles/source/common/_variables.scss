@@ -34,57 +34,36 @@ $transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @mixin placeholder {
-    @include optional-at-root("::-webkit-input-placeholder") {
+    @include optional-at-root('::-webkit-input-placeholder') {
         @content;
     }
 
 
-    @include optional-at-root(":-moz-placeholder") {
+    @include optional-at-root(':-moz-placeholder') {
         @content;
     }
 
 
-    @include optional-at-root("::-moz-placeholder") {
+    @include optional-at-root('::-moz-placeholder') {
         @content;
     }
 
 
-    @include optional-at-root(":-ms-input-placeholder") {
+    @include optional-at-root(':-ms-input-placeholder') {
         @content;
     }
 }
 
 @font-face {
     font-family: 'Mulish';
-    src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf") format("truetype-variations");
+    src: url('../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf') format('truetype-variations');
     font-weight: 200 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mulish';
-    src: url("../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf") format("truetype-variations");
+    src: url('../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf') format('truetype-variations');
     font-weight: 200 900;
     font-style: italic;
 }
-
-// @font-face {
-//     font-family: 'Heebo';
-//     src: url("../assets/fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype-variations");
-//     font-weight: 100 900;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'Raleway';
-//     src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype-variations");
-//     font-weight: 100 900;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'Raleway';
-//     src: url("../assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf") format("truetype-variations");
-//     font-weight: 100 900;
-//     font-style: italic;
-// }
