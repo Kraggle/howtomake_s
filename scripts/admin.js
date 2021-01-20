@@ -38,7 +38,7 @@ $(() => {
 					if (!ids.length) {
 						$(this).removeClass('doMe');
 						$(`#${other}`).addClass('doMe');
-						doProgress(1, 1);
+						doProgress(10, 10);
 						return;
 					}
 
@@ -69,7 +69,6 @@ $(() => {
 			}
 		}
 	});
-
 });
 
 function doProgress(total, left) {
@@ -91,6 +90,8 @@ function ajax(action) {
 
 	} else if (typeof a[1] === 'function')
 		callback = a[1];
+
+	// console.log(data);
 
 	$.ajax({
 		url: V.ajax,

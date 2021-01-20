@@ -38,12 +38,33 @@
   object-fit: cover;
 }
 .content .video-wrap {
+  position: relative;
   margin-bottom: 50px;
   box-shadow: 0 2px 31px 5px black;
   overflow: hidden;
   border-radius: 20px;
   background-color: #fff;
   max-height: 608px;
+  padding-bottom: 56.297%;
+}
+@media (max-width: 500px) {
+  .content .video-wrap {
+    margin: 0 -20px 50px;
+    padding-bottom: 62.5%;
+  }
+}
+@media (max-width: 375px) {
+  .content .video-wrap {
+    margin: 0 -35px 50px;
+    padding-bottom: 69.867%;
+  }
+}
+.content .video-wrap iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
 .content .wrapper {
   display: flex;

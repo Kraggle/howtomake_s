@@ -79,13 +79,48 @@ add_action('after_setup_theme', function () {
 	 */
 	add_editor_style('./styles/main.css');
 
-	add_image_size('featured', 1080, 608, true);
-	add_image_size('post', 850);
-	add_image_size('result', 350, 197, true);
-	add_image_size('menu', 250, 141, true);
-	add_image_size('related', 150, 84, true);
-	add_image_size('channel', 120, 120, true);
-	add_image_size('tiny', 60, 60, true);
+	remove_image_size('1536x1536');
+	remove_image_size('2048x2048');
+
+	add_image_size_category('thumbnail', ['post-featured-images', 'video-featured-images', 'content-images'], 150);
+	add_image_size_category('medium', ['post-featured-images', 'video-featured-images', 'content-images'], 550);
+	add_image_size_category('medium_large', ['post-featured-images', 'video-featured-images', 'content-images'], 700);
+	add_image_size_category('large', ['post-featured-images', 'video-featured-images', 'content-images'], 1080);
+	add_image_size_category('featured', ['post-featured-images', 'video-featured-images'], 1080, 608, true);
+	add_image_size_category('result', ['post-featured-images', 'video-featured-images'], 350, 197, true);
+	add_image_size_category('menu', ['post-featured-images', 'video-featured-images'], 250, 141, true);
+	add_image_size_category('related', ['post-featured-images', 'video-featured-images'], 150, 84, true);
+	add_image_size_category('post', 'content-images', 850);
+	add_image_size_category('small', 'content-images', 350);
+	add_image_size_category('channel', 'video-channel-icons', 120, 120, true);
+	add_image_size_category('tiny', 'video-channel-icons', 60, 60, true);
+
+	// logger(get_all_image_sizes());
+
+	add_filter('image_size_names_choose', function ($sizes) {
+		return array_merge($sizes, array(
+			'post' => __('Content Images')
+		));
+	});
+
+	/**
+	 * Used to regenerate images when the category is changed. So we are only keeping 
+	 * a minimal amount of images in the uploads folder.
+	 */
+	add_action('set_object_terms', function ($object_id, $terms, $tt_ids, $taxonomy, $append, $old_tt_ids) {
+		if ($taxonomy == 'attachment_category')
+			generate_category_thumbnails($object_id);
+	}, 10, 6);
+
+	/**
+	 * Used when generating the new images to filter out the image sizes we don't want. 
+	 * This uses the categories added with add_image_size_catgory() matching with the
+	 * image categories.
+	 */
+	add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta, $attachment_id) {
+		// TODO: If attachment has no category, do all new_sizes!!
+		return get_image_sizes_for_attachment($attachment_id);
+	}, 10, 3);
 }, 20);
 
 /**

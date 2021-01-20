@@ -285,27 +285,33 @@ add_ajax_action('get_trending');
 
 /**
  * Used by How to Make - Media Editor to get the ids and quantity 
- * of the video featured images
+ * of the all media that does not have a category.
  * 
  * @return void 
  */
-function htm_get_post_content_media_category() {
+function htm_get_missing_category() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
 		exit('Well, that was wrong!');
 
 	global $wpdb;
 
-	$result = $wpdb->get_results(
+	$return = (object) [
+		'ids' => []
+	];
+
+	// Get the content images 
+	// ↓ ------------------ ↓
+	$contents = $wpdb->get_results(
 		"SELECT `ID`, `post_content` 
 		FROM `wp_posts`
-		WHERE `post_type` LIKE 'post'"
+		WHERE `post_type` IN ('post', 'page', 'video')"
 	);
 
 	// $break_at = 50;
 	// $break_on = 0;
 
 	$ids = [];
-	foreach ($result as $post) {
+	foreach ($contents as $post) {
 		// if ($break_at === $break_on) break;
 		// $break_on++;
 
@@ -315,8 +321,8 @@ function htm_get_post_content_media_category() {
 			foreach ($matches[0] as $match) {
 
 				preg_match_all('/wp-image-(\d+)/i', $match, $mID);
-				if ($mID[1]) {
-					$id = $mID[1];
+				if ($mID[1][0]) {
+					$id = $mID[1][0];
 				} else {
 					preg_match_all('/src="[^"]+\/(?=\d{4})([^"]+)/i', $match, $name);
 					if ($name[1][0]) {
@@ -326,6 +332,7 @@ function htm_get_post_content_media_category() {
 				}
 
 				$ids[] = (object) [
+					'type' => ['content-images'],
 					'parent' => $post->ID,
 					'id' => $id
 				];
@@ -334,8 +341,7 @@ function htm_get_post_content_media_category() {
 	}
 
 	$sIDS = list_ids($ids, 'id', 'string');
-
-	$result = $wpdb->get_results(
+	$contentIds = $wpdb->get_results(
 		"SELECT a.ID 
 		FROM `wp_posts` a
 		WHERE 
@@ -345,32 +351,189 @@ function htm_get_post_content_media_category() {
 				(SELECT b.object_id 
 				FROM `wp_terms` c, `wp_term_relationships` b
 				WHERE 
-					c.slug LIKE 'post-images' AND
+					c.slug LIKE 'content-images' AND
 					b.term_taxonomy_id = c.term_id))"
 	);
 
-	$nIDS = list_ids($result);
-	$return = (object) [
-		'ids' => []
-	];
+	$nIDS = list_ids($contentIds);
 	foreach ($ids as $id) {
 		if (in_array($id->id, $nIDS))
 			$return->ids[] = $id;
 	}
+	// ↑ ------------------ ↑
+	// Get the content images 
+
+	// Get featured post images 
+	// ↓ -------------------- ↓
+	$featuredIds = $wpdb->get_results(
+		"SELECT a.ID, b.ID AS 'parent'
+		FROM `wp_posts` a, `wp_posts` b, `wp_postmeta` c
+		WHERE 
+			b.post_type LIKE 'post' AND 
+			c.post_id = b.ID AND
+			c.meta_key LIKE '_thumbnail_id' AND
+			a.ID = c.meta_value AND (
+				a.post_parent = '' OR
+				a.ID NOT IN (
+					SELECT d.object_id 
+					FROM `wp_terms` e, `wp_term_relationships` d
+					WHERE 
+						e.slug LIKE 'post-featured-images' AND
+						d.term_taxonomy_id = e.term_id
+				)
+			)"
+	);
+
+	foreach ($featuredIds as $id) {
+		$i = array_search($id->ID, array_column($return->ids, 'id'));
+		if ($i) {
+			$return->ids[$i]->type[] = 'post-featured-images';
+			$return->ids[$i]->parent = $id->parent;
+		} else {
+			$return->ids[] = (object) [
+				'type' => ['post-featured-images'],
+				'parent' => $id->parent,
+				'id' => $id->ID
+			];
+		}
+	}
+	// ↑ -------------------- ↑
+	// Get featured post images 
+
+	// Get featured video images 
+	// ↓ --------------------- ↓
+	$videoIds = $wpdb->get_results(
+		"SELECT a.ID, b.ID AS 'parent'
+		FROM `wp_posts` a, `wp_posts` b, `wp_postmeta` c
+		WHERE 
+			b.post_type LIKE 'video' AND 
+			c.post_id = b.ID AND
+			c.meta_key LIKE '_thumbnail_id' AND
+			a.ID = c.meta_value AND (
+				a.post_parent = '' OR
+				a.ID NOT IN (
+					SELECT d.object_id 
+					FROM `wp_terms` e, `wp_term_relationships` d
+					WHERE 
+						e.slug LIKE 'video-featured-images' AND
+						d.term_taxonomy_id = e.term_id
+				)
+			)"
+	);
+
+	foreach ($videoIds as $id) {
+		$i = array_search($id->ID, array_column($return->ids, 'id'));
+		if ($i) {
+			$return->ids[$i]->type[] = 'video-featured-images';
+			$return->ids[$i]->parent = $id->parent;
+		} else {
+			$return->ids[] = (object) [
+				'type' => ['video-featured-images'],
+				'parent' => $id->parent,
+				'id' => $id->ID
+			];
+		}
+	}
+	// ↑ --------------------- ↑
+	// Get featured video images 
+
+	// Get channel images 
+	// ↓ -------------- ↓
+	$channelIds = $wpdb->get_results(
+		"SELECT b.ID
+		FROM `wp_term_taxonomy` a, `wp_posts` b, `wp_termmeta` c
+		WHERE 
+			c.meta_value = b.ID AND
+			c.meta_key LIKE 'actual_logo' AND
+			a.term_id = c.term_id AND 
+			b.ID NOT IN (
+				SELECT d.object_id 
+				FROM `wp_terms` e, `wp_term_relationships` d
+				WHERE 
+					e.slug LIKE 'video-channel-icons' AND
+					d.term_taxonomy_id = e.term_id
+			)"
+	);
+
+	foreach ($channelIds as $id) {
+		$i = array_search($id->ID, array_column($return->ids, 'id'));
+		if ($i) {
+			$return->ids[$i]->type[] = 'video-channel-icons';
+		} else {
+			$return->ids[] = (object) [
+				'type' => ['video-channel-icons'],
+				'id' => $id->ID
+			];
+		}
+	}
+	// ↑ -------------- ↑
+	// Get channel images 
+
+	// Get unused images 
+	// ↓ -------------- ↓
+	$unusedIds = $wpdb->get_results(
+		"SELECT a.ID
+		FROM `wp_posts` a
+		WHERE 
+			a.post_type LIKE 'attachment' AND
+			# Featured Images
+			a.ID NOT IN (
+				SELECT b.ID
+				FROM `wp_posts` b, `wp_posts` c, `wp_postmeta` d
+				WHERE (
+						c.post_type LIKE 'post' OR 
+						c.post_type LIKE 'video'
+					) AND 
+					d.post_id = c.ID AND
+					d.meta_key LIKE '_thumbnail_id' AND
+					b.ID = d.meta_value
+			) AND 
+			# Channel Images
+			a.ID NOT IN (
+				SELECT e.ID
+				FROM `wp_posts` e, `wp_term_taxonomy` f, `wp_termmeta` g
+				WHERE 
+					g.meta_value = e.ID AND
+					g.meta_key LIKE 'actual_logo' AND
+					f.term_id = g.term_id
+			) AND 
+			# Content Images
+			a.ID NOT IN ($sIDS) AND 
+			a.ID NOT IN (
+				SELECT i.object_id 
+				FROM `wp_terms` h, `wp_term_relationships` i
+				WHERE 
+					h.slug LIKE 'unused-images' AND
+					i.term_taxonomy_id = h.term_id
+			)"
+	);
+
+	foreach ($unusedIds as $id) {
+		$i = array_search($id->ID, array_column($return->ids, 'id'));
+		if ($i) {
+			logger("THIS IS AN ERROR! It shouldn't be in any existing arrays.");
+		} else {
+			$return->ids[] = (object) [
+				'type' => ['unused-images'],
+				'id' => $id->ID
+			];
+		}
+	}
+	// ↑ -------------- ↑
+	// Get unused images 
 
 	$return->count = count($return->ids);
 	echo json_encode($return);
 	// echo json_encode(['success' => true]);
 }
-add_ajax_action('get_post_content_media_category');
+add_ajax_action('get_missing_category');
 
 /**
- * Used by How to Make - Media Editor to set the video featured 
- * images categories
+ * Used by How to Make - Media Editor to set images categories
  * 
  * @return void 
  */
-function htm_set_post_content_media_category() {
+function htm_set_missing_category() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
 		exit('Well, that was wrong!');
 
@@ -378,67 +541,76 @@ function htm_set_post_content_media_category() {
 
 	$ids = $_REQUEST['data']['ids'];
 
-	$term_id = intval($wpdb->get_results("SELECT `term_id` FROM {$wpdb->prefix}terms
-		WHERE `slug` = 'post-images'")[0]->term_id);
+	$aTerms = $wpdb->get_results(
+		"SELECT a.term_id, b.slug
+		FROM `wp_term_taxonomy` a, `wp_terms` b
+		WHERE 
+			a.taxonomy LIKE 'attachment_category' AND
+			a.term_id = b.term_id"
+	);
+
+	$terms = (object) [];
+	foreach ($aTerms as $term) {
+		$slug = $term->slug;
+		$terms->$slug = intval($term->term_id);
+	}
 
 	foreach ($ids as $v) {
 		$id = intval($v['id']);
-		$pID = intval($v['parent']);
+		$pID = isset($v['parent']) ? intval($v['parent']) : null;
 
-		wp_update_post(array(
-			'ID' => $id,
-			'post_parent' => $pID
-		));
+		if ($pID) {
+			wp_update_post(array(
+				'ID' => $id,
+				'post_parent' => $pID
+			));
+		}
 
-		wp_set_object_terms($id, $term_id, 'attachment_category', true);
+		foreach ($v['type'] as $type) {
+			wp_set_object_terms($id, $terms->$type, 'attachment_category', $type == 'unused-images' ? false : true);
+		}
 	}
 
 	echo json_encode(['success' => true]);
 }
-add_ajax_action('set_post_content_media_category');
+add_ajax_action('set_missing_category');
 
 /**
  * Used by How to Make - Media Editor to get the ids and quantity 
- * of the video featured images
+ * of the media that is unused for deletion.
  * 
  * @return void 
  */
-function htm_get_video_featured_media_category() {
+function htm_get_media_to_delete() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
 		exit('Well, that was wrong!');
 
 	global $wpdb;
 
-	$return = (object) [
-		'ids' => $wpdb->get_results(
-			"SELECT a.ID 
-			FROM `wp_posts` a, `wp_posts` b
-			WHERE 
-				a.post_type LIKE 'attachment' AND 
-				a.post_parent = b.ID AND
-				b.post_type LIKE 'video' AND 
-				a.ID NOT IN
-					(SELECT d.object_id 
-					FROM `wp_terms` c, `wp_term_relationships` d
-					WHERE 
-						c.slug LIKE 'video-featured-images' AND
-						d.term_taxonomy_id = c.term_id)"
-		)
-	];
+	$ids = $wpdb->get_results(
+		"SELECT a.ID, c.slug
+		FROM `wp_posts` a, `wp_terms` c, `wp_term_relationships` d
+		WHERE 
+			c.slug LIKE 'unused-images' AND
+			d.term_taxonomy_id = c.term_id AND
+			d.object_id = a.ID"
+	);
 
-	$return->ids = list_ids($return->ids);
+	$return = (object) [
+		'ids' => list_ids($ids)
+	];
 	$return->count = count($return->ids);
 	echo json_encode($return);
+	// echo json_encode(['success' => true]);
 }
-add_ajax_action('get_video_featured_media_category');
+add_ajax_action('get_media_to_delete');
 
 /**
- * Used by How to Make - Media Editor to set the video featured 
- * images categories
+ * Used by How to Make - Media Editor to delete unused media
  * 
  * @return void 
  */
-function htm_set_video_featured_media_category() {
+function htm_set_media_to_delete() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
 		exit('Well, that was wrong!');
 
@@ -446,16 +618,13 @@ function htm_set_video_featured_media_category() {
 
 	$ids = $_REQUEST['data']['ids'];
 
-	$term_id = $wpdb->get_results("SELECT `term_id` FROM {$wpdb->prefix}terms
-		WHERE `slug` = 'video-featured-images'")[0]->term_id;
-
 	foreach ($ids as $id) {
-		wp_set_object_terms($id, intval($term_id), 'attachment_category');
+		wp_delete_attachment(intval($id), true);
 	}
 
 	echo json_encode(['success' => true]);
 }
-add_ajax_action('set_video_featured_media_category');
+add_ajax_action('set_media_to_delete');
 
 /**
  * Used by How to Make - Media Editor to get the missing authors 

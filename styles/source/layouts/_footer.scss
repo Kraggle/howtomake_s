@@ -38,7 +38,7 @@
         padding: 0 70px;
     }
 
-    .search-wrap {
+    .foot-search {
         grid-area: search;
     }
 
@@ -196,6 +196,25 @@
         .foot-login-wrap {
             justify-self: center;
             padding: 40px 0;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .foot-content {
+            max-width: calc(100% - 40px);
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 'logo' 'nav1' 'nav2' 'icons' 'login' 'copy' 'claim';
+            align-items: center;
+            justify-items: center;
+            color: #fff;
+            gap: 20px;
+            padding-top: 50px;
+        }
+
+        .foot-search-label,
+        .search-wrap {
+            display: none;
         }
     }
 }

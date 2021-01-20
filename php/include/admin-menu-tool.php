@@ -26,8 +26,8 @@ $menu_items = [
 	</div>
 
 	<div class="ks-setting-box">
-		<span class="ks-name">Missing Categories</span>
-		<span class="ks-desc">Adds categories to any media that does not have any.</span>
+		<span class="ks-name">Refresh Categories</span>
+		<span class="ks-desc">Correctly sets all categories to media. Adds unused images to 'Unused' category for deletion.</span>
 		<div class="flex row">
 			<label for="mcCount" class="ks-label">Quantity</label>
 			<input id="mcCount" class="ks-input" type="number" readonly />
@@ -37,33 +37,9 @@ $menu_items = [
 		<button id="setMC" class="ks-button" action="set_missing_category" other="getMC" repeat=10>Set Categories</button>
 	</div>
 
-	<!-- <div class="ks-setting-box">
-		<span class="ks-name">Featured Video Image</span>
-		<span class="ks-desc">Used to set the category of all Video Featured Images in bulk.</span>
-		<div class="flex row">
-			<label for="fviCount" class="ks-label">Quantity</label>
-			<input id="fviCount" class="ks-input" type="number" readonly />
-			<div class="spacer"></div>
-			<button id="getFVI" class="ks-button" action="get_video_featured_media_category" count="fviCount" other="setFVI">Get Quantity</button>
-		</div>
-		<button id="setFVI" class="ks-button" action="set_video_featured_media_category" other="getFVI" repeat=10>Set Categories</button>
-	</div> -->
-
-	<!-- <div class="ks-setting-box">
-		<span class="ks-name">Post Content Images</span>
-		<span class="ks-desc">Goes through all post content for media and adds the correct category and sets its parent if one does not exist.</span>
-		<div class="flex row">
-			<label for="pcCount" class="ks-label">Quantity</label>
-			<input id="pcCount" class="ks-input" type="number" readonly />
-			<div class="spacer"></div>
-			<button id="getPC" class="ks-button" action="get_post_content_media_category" count="pcCount" other="setPC">Get Quantity</button>
-		</div>
-		<button id="setPC" class="ks-button" action="set_post_content_media_category" other="getPC" repeat=10>Set Categories</button>
-	</div> -->
-
 	<div class="ks-setting-box">
 		<span class="ks-name">Delete Unused Media</span>
-		<span class="ks-desc">Delete all media that does not have a category. Be warned, this cannot be undone. Make a backup first.</span>
+		<span class="ks-desc">Delete all media that is not used anywhere on the site. Be warned, this cannot be undone. Make a backup first. Also, you can view what is to be deleted from 'Media' > 'Assistant' and filter by 'Unused'.</span>
 		<div class="flex row">
 			<label for="duCount" class="ks-label">Quantity</label>
 			<input id="duCount" class="ks-input" type="number" readonly />
@@ -71,6 +47,18 @@ $menu_items = [
 			<button id="getDU" class="ks-button" action="get_media_to_delete" count="duCount" other="setDU">Get Quantity</button>
 		</div>
 		<button id="setDU" class="ks-button red" action="set_media_to_delete" other="getDU" repeat=1>Delete Media</button>
+	</div>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Regenerate Thumbnails</span>
+		<span class="ks-desc">Goes through all image attachments, deletes unused image sizes and regenerates those that are missing. This also uses the category sizes, so you don't get loads of images that are never going to be used.</span>
+		<div class="flex row">
+			<label for="rtCount" class="ks-label">Quantity</label>
+			<input id="rtCount" class="ks-input" type="number" readonly />
+			<div class="spacer"></div>
+			<button id="getRT" class="ks-button" action="get_media_to_delete" count="rtCount" other="setRT">Get Quantity</button>
+		</div>
+		<button id="setRT" class="ks-button red" action="set_media_to_delete" other="getRT" repeat=1>Regenerate</button>
 	</div>
 <?php }
 	]

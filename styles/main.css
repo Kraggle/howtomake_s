@@ -1139,7 +1139,7 @@ body.admin-bar.scrolled .menu-back.open {
   line-height: 1.3em;
   padding: 0 70px;
 }
-.foot .search-wrap {
+.foot .foot-search {
   grid-area: search;
 }
 .foot .foot-logo {
@@ -1267,6 +1267,23 @@ body.admin-bar.scrolled .menu-back.open {
   .foot .foot-login-wrap {
     justify-self: center;
     padding: 40px 0;
+  }
+}
+@media (max-width: 400px) {
+  .foot .foot-content {
+    max-width: calc(100% - 40px);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "logo" "nav1" "nav2" "icons" "login" "copy" "claim";
+    align-items: center;
+    justify-items: center;
+    color: #fff;
+    gap: 20px;
+    padding-top: 50px;
+  }
+  .foot .foot-search-label,
+.foot .search-wrap {
+    display: none;
   }
 }
 

@@ -842,6 +842,7 @@ $drop-height: 40px;
         position: relative;
         flex-direction: column;
         width: 100%;
+        left: 0;
         display: block;
 
         &::before {
@@ -902,6 +903,10 @@ $drop-height: 40px;
     .toggle {
         margin: 10px;
         border-radius: 4px;
+    }
+
+    .results {
+        margin: -10px 10px 10px;
     }
 
     .which-box {

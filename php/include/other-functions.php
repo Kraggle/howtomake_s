@@ -49,11 +49,225 @@ function remove_emoji($text) {
  * @param array $object The object to be logged.
  * @return void 
  */
-function object_log($object) {
+function logger_object($object) {
 	if (!is_array($object))
 		return;
 
 	$fp = fopen('object.json', 'w');
 	fwrite($fp, json_encode($object));
 	fclose($fp);
+}
+
+function logger() {
+	$db = array_shift(debug_backtrace());
+	$line = $db['line'];
+	$file = $db['file'];
+
+	foreach (func_get_args() as $arg) {
+		error_log("[logger] $file:$line\n\t" . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg)));
+	}
+}
+
+function logger_print() {
+	$db = array_shift(debug_backtrace());
+	$line = $db['line'];
+	$file = $db['file'];
+
+	$args = func_get_args();
+	$l = count($args);
+
+	for ($i = 1; $i < $l; $i += 2) {
+		$name = $args[$i - 1];
+		$arg = $args[$i];
+		error_log("[logger] $file:$line\n\t$name: " . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg)));
+	}
+}
+
+/**
+ * Get all the registered image sizes along with their dimensions
+ *
+ * @global array $_wp_additional_image_sizes
+ *
+ * @link http://core.trac.wordpress.org/ticket/18947 Reference ticket
+ *
+ * @return array $image_sizes The image sizes
+ */
+function get_all_image_sizes() {
+	global $_wp_additional_image_sizes;
+
+	$default_image_sizes = get_intermediate_image_sizes();
+
+	foreach ($default_image_sizes as $size) {
+		$image_sizes[$size]['width'] = intval(get_option("{$size}_size_w"));
+		$image_sizes[$size]['height'] = intval(get_option("{$size}_size_h"));
+		$image_sizes[$size]['crop'] = get_option("{$size}_crop") ? get_option("{$size}_crop") : false;
+	}
+
+	if (isset($_wp_additional_image_sizes) && count($_wp_additional_image_sizes)) {
+		$image_sizes = array_merge($image_sizes, $_wp_additional_image_sizes);
+	}
+
+	return $image_sizes;
+}
+
+function generate_category_thumbnails($object_id) {
+
+	$image = get_post($object_id);
+	$upload_dir = wp_upload_dir();
+	$image_fullpath = get_attached_file($image->ID);
+
+	// Can't get the image path
+	if (false === $image_fullpath || strlen($image_fullpath) == 0) {
+
+		// Try getting the image path from url
+		if ((strrpos($image->guid, $upload_dir['baseurl']) !== false)) {
+			$image_fullpath = realpath($upload_dir['basedir'] . DIRECTORY_SEPARATOR . substr($image->guid, strlen($upload_dir['baseurl']), strlen($image->guid)));
+		}
+	}
+
+	// Image path incomplete
+	if ((strrpos($image_fullpath, $upload_dir['basedir']) === false))
+		$image_fullpath = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . $image_fullpath;
+
+	// Image doesn't exists
+	if (!file_exists($image_fullpath) || realpath($image_fullpath) === false) {
+
+		// Try getting the image path from url
+		if ((strrpos($image->guid, $upload_dir['baseurl']) !== false)) {
+			$image_fullpath = realpath($upload_dir['basedir'] . DIRECTORY_SEPARATOR . substr($image->guid, strlen($upload_dir['baseurl']), strlen($image->guid)));
+		}
+	}
+
+	update_attached_file($image->ID, $image_fullpath);
+
+	$file_info = pathinfo($image_fullpath);
+	$file_info['filename'] .= '-';
+
+	// Delete all unnecessary thumbnails
+	$files = [];
+	$path = opendir($file_info['dirname']);
+
+	if (false !== $path) {
+		while (false !== ($thumb = readdir($path))) {
+			if (!(strrpos($thumb, $file_info['filename']) === false)) {
+				$files[] = $thumb;
+			}
+		}
+		closedir($path);
+		sort($files);
+	}
+
+	$meta = to_object(wp_get_attachment_metadata($image->ID));
+	$sizes = get_image_sizes_for_attachment($object_id);
+
+	$stored = (object) [];
+	foreach ($meta->sizes as $size => $value) {
+		preg_match('/-(\d+x\d+)\./', $value->file, $matches);
+		if ($matches[1]) {
+			$dim = $matches[1];
+			if ($sizes[$size]) {
+				$stored->$dim = $size;
+			}
+		}
+	}
+
+	foreach ($files as $thumb) {
+		$thumb_path = $file_info['dirname'] . DIRECTORY_SEPARATOR . $thumb;
+		$thumb_info = pathinfo($thumb_path);
+		$valid_thumb = explode($file_info['filename'], $thumb_info['filename']);
+		if ($valid_thumb[0] == "") {
+
+			$dim = $valid_thumb[1];
+			if (!$stored->$dim) {
+				$dims = explode('x', $dim);
+				if (count($dims) == 2 && is_numeric($dims[0]) && is_numeric($dims[1])) {
+					unlink($thumb_path);
+				}
+			}
+		}
+	}
+
+	$metadata = wp_generate_attachment_metadata($image->ID, $image_fullpath);
+	wp_update_attachment_metadata($image->ID, $metadata);
+}
+
+function to_object($array) {
+	return json_decode(json_encode($array), false);
+}
+
+function get_image_sizes_for_attachment($object_id) {
+
+	$terms = wp_get_object_terms($object_id, 'attachment_category');
+	$category = [];
+	foreach ($terms as $term)
+		$category[] = $term->slug;
+
+	return get_image_sizes_for_category($category);
+}
+
+function get_image_sizes_for_category($category) {
+	$sizes = get_all_image_sizes();
+
+	if (!is_array($category))
+		$category = [$category];
+
+	$needed = [];
+	foreach ($sizes as $size => $value) {
+		foreach ($category as $cat) {
+			if (in_array($cat, $value['category'])) {
+				$needed[$size] = $value;
+				break;
+			}
+		}
+	}
+
+	return $needed;
+}
+
+/**
+ * Register a new image size with Category.
+ *
+ * @global array $_wp_additional_image_sizes Associative array of additional image sizes.
+ *
+ * @param string           $name     Image size identifier.
+ * @param int|array|string $category Can be the category slug, id, or an array of either.
+ * @param int              $width    Optional. Image width in pixels. Default 0.
+ * @param int              $height   Optional. Image height in pixels. Default 0.
+ * @param bool|array       $crop     Optional. Image cropping behavior. If false, the image will be scaled (default),
+ *                           If true, image will be cropped to the specified dimensions using center positions.
+ *                           If an array, the image will be cropped using the array to specify the crop location.
+ *                           Array values must be in the format: array( x_crop_position, y_crop_position ) where:
+ *                               - x_crop_position accepts: 'left', 'center', or 'right'.
+ *                               - y_crop_position accepts: 'top', 'center', or 'bottom'.
+ */
+function add_image_size_category($name, $category, $width = 0, $height = 0, $crop = false) {
+	global $_wp_additional_image_sizes, $wpdb;
+
+	if (!is_array($category))
+		$category = [$category];
+
+	$terms = $wpdb->get_results(
+		"SELECT a.term_id, b.slug
+	FROM `wp_term_taxonomy` a, `wp_terms` b
+	WHERE 
+		a.taxonomy LIKE 'attachment_category' AND
+		a.term_id = b.term_id"
+	);
+
+	$cats = [];
+	foreach ($category as $cat) {
+
+		$column = intval($cat) ? 'term_id' : 'slug';
+		$i = array_search($cat, array_column($terms, $column));
+
+		if ($i > -1)
+			$cats[] = $terms[$i]->slug;
+	}
+
+	$_wp_additional_image_sizes[$name] = array(
+		'width'    => absint($width),
+		'height'   => absint($height),
+		'crop'     => $crop,
+		'category' => $cats
+	);
 }
