@@ -8,9 +8,25 @@
 @import 'layouts/header';
 @import 'layouts/footer';
 
-// .et-db #et-boc .et-l .et_pb_section_video_bg {
-//     visibility: hidden !important;
-// }
+.admin-bar-show {
+    @include transition;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #000;
+    width: 32px;
+    line-height: 32px;
+    z-index: 99998;
+    text-align: center;
+    font-size: 23px;
+    cursor: pointer;
+
+    &::after {
+        font-family: 'Font Awesome 5 Brands';
+        content: fa-content($fa-var-wordpress);
+    }
+}
 
 .body-decor {
     height: 170px;

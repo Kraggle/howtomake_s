@@ -1158,47 +1158,47 @@ body {
         }
     }
 
-    &.admin-bar {
-        &.for-desktop .menu-box {
-            top: $sub-admin-top;
-        }
+    // &.admin-bar {
+    //     &.for-desktop .menu-box {
+    //         top: $sub-admin-top;
+    //     }
 
-        .for-mobile {
-            &.primary-nav {
-                top: 92px;
+    //     .for-mobile {
+    //         &.primary-nav {
+    //             top: 92px;
 
-                @media screen and (max-width: 782px) {
-                    top: 107px;
-                }
-            }
-        }
+    //             @media screen and (max-width: 782px) {
+    //                 top: 107px;
+    //             }
+    //         }
+    //     }
 
-        .banner {
-            margin-top: 32px;
+    //     .banner {
+    //         margin-top: 32px;
 
-            @media screen and (max-width: 782px) {
-                top: 15px;
-            }
+    //         @media screen and (max-width: 782px) {
+    //             top: 15px;
+    //         }
 
-            &.scrolled {
-                &:not(.for-mobile) {
-                    .menu-box {
-                        top: $sub-scroll-admin-top;
-                    }
-                }
-            }
-        }
+    //         &.scrolled {
+    //             &:not(.for-mobile) {
+    //                 .menu-box {
+    //                     top: $sub-scroll-admin-top;
+    //                 }
+    //             }
+    //         }
+    //     }
 
-        .menu-back.open {
-            top: $sub-admin-top;
-        }
+    //     .menu-back.open {
+    //         top: $sub-admin-top;
+    //     }
 
-        &.scrolled {
-            .menu-back.open {
-                top: $sub-scroll-admin-top;
-            }
-        }
-    }
+    //     &.scrolled {
+    //         .menu-back.open {
+    //             top: $sub-scroll-admin-top;
+    //         }
+    //     }
+    // }
 }
 
 .hidden-image {

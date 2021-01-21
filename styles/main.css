@@ -21,6 +21,14 @@
   src: url("../assets/fonts/font-awesome/fa-light-300.eot");
   src: url("../assets/fonts/font-awesome/fa-light-300.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/font-awesome/fa-light-300.woff2") format("woff2"), url("../assets/fonts/font-awesome/fa-light-300.woff") format("woff"), url("../assets/fonts/font-awesome/fa-light-300.ttf") format("truetype"), url("../assets/fonts/font-awesome/fa-light-300.svg#fontawesome") format("svg");
 }
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../assets/fonts/font-awesome/fa-brands-400.eot");
+  src: url("../assets/fonts/font-awesome/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/font-awesome/fa-brands-400.woff2") format("woff2"), url("../assets/fonts/font-awesome/fa-brands-400.woff") format("woff"), url("../assets/fonts/font-awesome/fa-brands-400.ttf") format("truetype"), url("../assets/fonts/font-awesome/fa-brands-400.svg#fontawesome") format("svg");
+}
 .fal {
   font-family: "Font Awesome 5 Pro";
   font-weight: 300;
@@ -53,14 +61,6 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Mulish", Helvetica, Arial, Lucida, sans-serif;
-}
-body.admin-bar {
-  padding-top: 32px;
-}
-@media screen and (max-width: 782px) {
-  body.admin-bar {
-    padding-top: 46px;
-  }
 }
 
 textarea,
@@ -1070,34 +1070,6 @@ body.scrolled:not(.for-mobile) .menu-back.open {
 body.scrolled:not(.for-mobile) .body-wrap {
   padding-top: 123px;
 }
-body.admin-bar.for-desktop .menu-box {
-  top: 156px;
-}
-body.admin-bar .for-mobile.primary-nav {
-  top: 92px;
-}
-@media screen and (max-width: 782px) {
-  body.admin-bar .for-mobile.primary-nav {
-    top: 107px;
-  }
-}
-body.admin-bar .banner {
-  margin-top: 32px;
-}
-@media screen and (max-width: 782px) {
-  body.admin-bar .banner {
-    top: 15px;
-  }
-}
-body.admin-bar .banner.scrolled:not(.for-mobile) .menu-box {
-  top: 87px;
-}
-body.admin-bar .menu-back.open {
-  top: 156px;
-}
-body.admin-bar.scrolled .menu-back.open {
-  top: 87px;
-}
 
 .hidden-image {
   position: absolute;
@@ -1285,6 +1257,24 @@ body.admin-bar.scrolled .menu-back.open {
 .foot .search-wrap {
     display: none;
   }
+}
+
+.admin-bar-show {
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: #000;
+  width: 32px;
+  line-height: 32px;
+  z-index: 99998;
+  text-align: center;
+  font-size: 23px;
+  cursor: pointer;
+}
+.admin-bar-show::after {
+  font-family: "Font Awesome 5 Brands";
+  content: "";
 }
 
 .body-decor {

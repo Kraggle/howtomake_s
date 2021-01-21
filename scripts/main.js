@@ -106,5 +106,12 @@ $(() => {
 	onResize();
 
 	$(window).on('resize', onResize);
+
+	const bar = $('#wpadminbar');
+
+	if (bar.length) {
+		bar.slideUp('slow');
+		$('<div class="admin-bar-show"></div>').on('click', () => bar.slideToggle('slow')).appendTo('.body-wrap');
+	}
 });
 

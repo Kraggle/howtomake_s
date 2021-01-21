@@ -21,6 +21,14 @@
   src: url("../assets/fonts/font-awesome/fa-light-300.eot");
   src: url("../assets/fonts/font-awesome/fa-light-300.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/font-awesome/fa-light-300.woff2") format("woff2"), url("../assets/fonts/font-awesome/fa-light-300.woff") format("woff"), url("../assets/fonts/font-awesome/fa-light-300.ttf") format("truetype"), url("../assets/fonts/font-awesome/fa-light-300.svg#fontawesome") format("svg");
 }
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../assets/fonts/font-awesome/fa-brands-400.eot");
+  src: url("../assets/fonts/font-awesome/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/font-awesome/fa-brands-400.woff2") format("woff2"), url("../assets/fonts/font-awesome/fa-brands-400.woff") format("woff"), url("../assets/fonts/font-awesome/fa-brands-400.ttf") format("truetype"), url("../assets/fonts/font-awesome/fa-brands-400.svg#fontawesome") format("svg");
+}
 .fal {
   font-family: "Font Awesome 5 Pro";
   font-weight: 300;
@@ -171,7 +179,7 @@
   align-content: center;
   align-items: center;
   max-width: 1080px;
-  width: calc(100vw - 80px);
+  width: calc(100vw - 350px);
   position: fixed;
   left: 300px;
   transform: translateX(0%);
@@ -188,6 +196,11 @@
   top: -20px;
   bottom: -20px;
   box-shadow: 0 4px 24px 0 rgba(13, 160, 197, 0), 0 12px 64px 0 rgba(13, 160, 197, 0);
+}
+@media (min-width: 1177px) and (max-width: 1273px), (min-width: 850px) and (max-width: 1003px) {
+  .query-vars :not(.fixed) .name {
+    display: none;
+  }
 }
 
 .name {
@@ -680,6 +693,7 @@
     margin-top: -25px;
     left: 50%;
     transform: translateX(-50%);
+    width: calc(100vw - 80px);
   }
   .query-vars.fixed::before {
     background-color: #0da0c5;
@@ -739,20 +753,12 @@
   body.scrolled.for-mobile .query-vars {
     margin-top: -38px;
   }
-  body.admin-bar .which-box {
-    top: 235px;
-    max-height: calc(100vh - 255px);
-  }
-  body.admin-bar .which-box.fixed {
-    top: 300px;
-    max-height: calc(100vh - 320px);
-  }
-  body.admin-bar.scrolled .which-box {
-    top: 178px;
-    max-height: calc(100vh - 198px);
-  }
-  body.admin-bar.scrolled .banner.for-desktop {
-    box-shadow: none;
+}
+@media (max-width: 1177px) {
+  .query-vars {
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 80px);
   }
 }
 @media (max-width: 850px) {
@@ -813,6 +819,7 @@
     width: 100%;
     left: 0;
     display: block;
+    transform: translateX(0);
   }
   .query-vars::before {
     top: -300px;
