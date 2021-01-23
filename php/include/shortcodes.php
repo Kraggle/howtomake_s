@@ -168,3 +168,104 @@ function htm_s_shotcode_more_panel() {
 	return $html;
 }
 add_shortcode('htm_more_side_panel', 'htm_s_shotcode_more_panel');
+
+function sitemap_item($id, $post_type, $type, $term = null) {
+	$type = $type === 'post';
+
+	ob_start(); ?>
+	<li class="list-item" id="<?php echo "{$post_type}_{$id}" ?>">
+		<a href="<?php echo $type ? get_the_permalink($id) : get_term_link($id) ?>" class="list-link" title="<?php echo $type ? get_the_title($id) : $term->name ?>">
+			<?php echo $type ? get_the_title($id) : $term->name ?>
+		</a>
+
+		<?php if ($type) {
+			$children = get_children([
+				'post_parent' 	 => $id,
+				'post_type'   	 => $post_type,
+				'posts_per_page' => '-1',
+				'post_status' 	 => 'publish',
+				'order'          => 'ASC',
+				'orderby'        => 'post_title'
+			]);
+
+			if (!empty($children)) { ?>
+				<ul class="section-sub-list">
+					<?php foreach ($children as $child) {
+						echo sitemap_item($child->ID, $post_type, $type);
+					} ?>
+				</ul>
+			<?php } ?>
+		<?php } ?>
+	</li>
+	<?php
+	$html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+}
+
+function htm_shortcode_sitemap() {
+
+	$post_types = get_post_types(array('public' => true), 'names', 'and');
+	$taxonomies = htm_get_taxonomies();
+
+	ob_start();
+
+	foreach ($post_types as $post_type) {
+		if (!get_option("htm_sitemap_include_$post_type")) continue;
+
+		$post_typeO = get_post_type_object($post_type);
+		query_posts([
+			'order' 			=> 'ASC',
+			'post_type' 		=> $post_type,
+			'posts_per_page' 	=> '-1',
+			'post_status' 		=> 'publish',
+			'orderby'			=> 'post_title',
+			'post_parent' 		=> 0
+		]);
+
+		if (have_posts()) { ?>
+
+			<div class="section-wrap">
+				<h3 class="section-head"><?php echo $post_typeO->label ?></h3>
+				<ul class="section-list">
+
+					<?php while (have_posts()) {
+						the_post();
+
+						echo sitemap_item(get_the_ID(), $post_type, 'post');
+					} ?>
+				</ul>
+			</div>
+			<?php }
+		wp_reset_query();
+	}
+
+	if ($taxonomies) {
+		foreach ($taxonomies as $taxonomy) {
+			$tax = get_taxonomy($taxonomy);
+			if (!get_option("htm_sitemap_include_{$tax->name}")) continue;
+
+			$terms = get_terms(array('taxonomy' => $taxonomy, 'orderby' => 'name', 'order' => 'ASC', 'hide_empty' => true));
+
+			if (!empty($terms)) { ?>
+				<div class="section-wrap">
+					<h3 class="section-head"><?php echo $tax->label ?></h3>
+					<ul class="section-list">
+
+						<?php foreach ($terms as $term) {
+
+							echo sitemap_item($term->term_id, $tax->label, 'taxonomy', $term);
+						} ?>
+					</ul>
+				</div>
+<?php }
+		}
+	}
+
+	$html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+}
+add_shortcode('htm_sitemap', 'htm_shortcode_sitemap');

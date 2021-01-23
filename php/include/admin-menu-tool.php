@@ -56,9 +56,66 @@ $menu_items = [
 			<label for="rtCount" class="ks-label">Quantity</label>
 			<input id="rtCount" class="ks-input" type="number" readonly />
 			<div class="spacer"></div>
-			<button id="getRT" class="ks-button" action="get_media_to_delete" count="rtCount" other="setRT">Get Quantity</button>
+			<button id="getRT" class="ks-button" action="get_regenerate_thumbnails" count="rtCount" other="setRT">Get Quantity</button>
 		</div>
-		<button id="setRT" class="ks-button red" action="set_media_to_delete" other="getRT" repeat=1>Regenerate</button>
+		<button id="setRT" class="ks-button" action="set_regenerate_thumbnails" other="getRT" repeat=1>Regenerate</button>
+	</div>
+<?php }
+	], (object) [
+		'name' => 'Page Settings',
+		'content' => function () { ?>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">HTML Sitemap</span>
+		<span class="ks-desc">Select which types you would like to generate in the HTML Sitemap.</span>
+		<div class="ks-setting-list">
+			<?php $post_types = get_post_types(array('public' => true), 'names', 'and');
+
+			foreach ($post_types  as $post_type) {
+				if ($post_type != 'attachment') {
+					$post_typeO = get_post_type_object($post_type);
+					$post_type_name = $post_typeO->label;
+					$include = "include_{$post_type}"; ?>
+
+					<div class="check-box">
+						<label for="<?php echo $include; ?>">
+							<?php htm_checkbox($include, get_option("htm_sitemap_$include")); ?>
+							<div>
+								<span class="ks-check-name"><?php echo $post_type_name; ?></span>
+								<p class="ks-help"><?php _e('Check to include', 'howtomake_s'); ?></p>
+							</div>
+						</label>
+					</div>
+				<?php }
+			}
+
+			// Add taxonomies 
+			$taxonomies = htm_get_taxonomies();
+
+			// If there are any taxonomies
+			if ($taxonomies) {
+
+				// Loop trough all
+				foreach ($taxonomies as $taxonomy) {
+
+					// Get information of current one
+					$tax = get_taxonomy($taxonomy);
+					$include = "include_{$tax->name}"; ?>
+
+					<div class="check-box">
+						<label for="<?php echo $include; ?>">
+							<?php htm_checkbox($include, get_option("htm_sitemap_$include")); ?>
+							<div>
+								<span class="ks-check-name"><?php echo $tax->label; ?></span>
+								<p class="ks-which">(<?php echo $tax->name; ?>)</p>
+								<p class="ks-help"><?php _e('Check to include', 'howtomake_s'); ?></p>
+							</div>
+						</label>
+					</div>
+			<?php }
+			} ?>
+		</div>
+		<button id="setSitemap" type="save" class="ks-button" action="set_sitemap_settings">Save</button>
 	</div>
 <?php }
 	]

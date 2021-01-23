@@ -8,9 +8,26 @@ $(() => {
 	$('.ks-button').on('click', function() {
 		const count = $(this).attr('count'),
 			action = $(this).attr('action'),
-			other = $(this).attr('other');
+			other = $(this).attr('other'),
+			type = $(this).attr('type');
 
-		if (count) {
+		if (type) {
+			if (!$(this).hasClass('doMe'))
+				return;
+
+			const inputs = {};
+			$(this).parents('.ks-setting-box').find('input').each(function() {
+				inputs[$(this).attr('name')] = $(this).is(':checked');
+			});
+
+			ajax(action, {
+				inputs
+			}, data => {
+				if (data.success)
+					$(this).removeClass('doMe');
+			});
+
+		} else if (count) {
 			ajax(action, data => {
 				$(`#${count}`).val(data.count);
 
@@ -69,11 +86,17 @@ $(() => {
 			}
 		}
 	});
+
+	$('input[type="checkbox"').on('change', function() {
+		$(this).parents('.ks-setting-box').find('.ks-button').addClass('doMe');
+	});
 });
 
 function doProgress(total, left) {
-	const current = total - left;
-	$('.ks-progress-back').css('width', `${current * 100 / total}%`);
+	const current = total - left - 1,
+		goto = current * 100 / total;
+	$('.ks-progress-back').css('width', `${goto}%`);
+	$('.ks-progress-number').text(`${goto.toFixed(3)}%`);
 }
 
 function ajax(action) {

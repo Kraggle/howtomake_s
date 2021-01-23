@@ -42,6 +42,7 @@ function htm_add_head_stuff() {
 	global $template;
 	$base = basename($template);
 
+	$path = get_template_directory();
 	$uri = get_template_directory_uri();
 
 	$links = (object) [
@@ -50,6 +51,7 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-main",
+					"path" => "$path/scripts/main.js",
 					"src" => "$uri/scripts/main.js",
 					"module" => true
 				]
@@ -57,6 +59,7 @@ function htm_add_head_stuff() {
 			"styles" => [
 				(object) [
 					"name" => "htm_s-main",
+					"path" => "$path/styles/main.css",
 					"src" => "$uri/styles/main.css"
 				]
 			]
@@ -66,6 +69,7 @@ function htm_add_head_stuff() {
 			"styles" => [
 				(object) [
 					"name" => "htm_s-home",
+					"path" => "$path/styles/home.css",
 					"src" => "$uri/styles/home.css"
 				]
 			]
@@ -75,6 +79,7 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-single",
+					"path" => "$path/scripts/single.js",
 					"src" => "$uri/scripts/single.js",
 					"module" => true
 				]
@@ -82,6 +87,7 @@ function htm_add_head_stuff() {
 			"styles" => [
 				(object) [
 					"name" => "htm_s-single",
+					"path" => "$path/styles/single.css",
 					"src" => "$uri/styles/single.css"
 				]
 			]
@@ -91,6 +97,7 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-category",
+					"path" => "$path/scripts/category.js",
 					"src" => "$uri/scripts/category.js",
 					"module" => true
 				]
@@ -98,6 +105,7 @@ function htm_add_head_stuff() {
 			"styles" => [
 				(object) [
 					"name" => "htm_s-category",
+					"path" => "$path/styles/category.css",
 					"src" => "$uri/styles/category.css"
 				]
 			]
@@ -107,6 +115,7 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-search",
+					"path" => "$path/scripts/search.js",
 					"src" => "$uri/scripts/search.js",
 					"module" => true
 				]
@@ -114,6 +123,7 @@ function htm_add_head_stuff() {
 			"styles" => [
 				(object) [
 					"name" => "htm_s-search",
+					"path" => "$path/styles/search.css",
 					"src" => "$uri/styles/search.css"
 				]
 			]
@@ -123,6 +133,7 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-channel",
+					"path" => "$path/scripts/channel.js",
 					"src" => "$uri/scripts/channel.js",
 					"module" => true
 				]
@@ -130,6 +141,7 @@ function htm_add_head_stuff() {
 			"styles" => [
 				(object) [
 					"name" => "htm_s-channel",
+					"path" => "$path/styles/channel.css",
 					"src" => "$uri/styles/channel.css"
 				]
 			]
@@ -139,6 +151,7 @@ function htm_add_head_stuff() {
 			"styles" => [
 				(object) [
 					"name" => "htm_s-page",
+					"path" => "$path/styles/page.css",
 					"src" => "$uri/styles/page.css"
 				]
 			]
@@ -147,7 +160,8 @@ function htm_add_head_stuff() {
 			"query" => $base === '404.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s-page",
+					"name" => "htm_s-404",
+					"path" => "$path/styles/page.css",
 					"src" => "$uri/styles/page.css"
 				]
 			]
@@ -156,7 +170,8 @@ function htm_add_head_stuff() {
 			"query" => $base === 'page-contact-us.php',
 			"styles" => [
 				(object) [
-					"name" => "htm_s-page",
+					"name" => "htm_s-contact",
+					"path" => "$path/styles/contact.css",
 					"src" => "$uri/styles/contact.css"
 				]
 			]
@@ -167,13 +182,21 @@ function htm_add_head_stuff() {
 		if (!$item->query) continue;
 
 		if ($item->scripts) {
-			foreach ($item->scripts as $script)
-				wp_enqueue_script(($script->module ? 'module-' : '') . $script->name, $script->src);
+			foreach ($item->scripts as $script) {
+				if (file_exists($script->path)) {
+					$ver = filemtime($script->path);
+					wp_enqueue_script(($script->module ? 'module-' : '') . $script->name, $script->src, [], $ver);
+				}
+			}
 		}
 
 		if ($item->styles) {
-			foreach ($item->styles as $style)
-				wp_enqueue_style($style->name, $style->src, false, null);
+			foreach ($item->styles as $style) {
+				if (file_exists($style->path)) {
+					$ver = filemtime($style->path);
+					wp_enqueue_style($style->name, $style->src, [], $ver);
+				}
+			}
 		}
 	}
 }
@@ -403,6 +426,18 @@ function get_attachment_image_by_slug($slug, $size = 'thumbnail') {
 	$_header = get_posts($args);
 	$header = $_header ? array_pop($_header) : null;
 	return $header ? wp_get_attachment_image($header->ID, $size) : '';
+}
+
+function get_attachment_image_url_by_slug($slug, $size = 'thumbnail') {
+	$args = array(
+		'post_type' => 'attachment',
+		'name' => sanitize_title($slug),
+		'posts_per_page' => 1,
+		'post_status' => 'inherit',
+	);
+	$_header = get_posts($args);
+	$header = $_header ? array_pop($_header) : null;
+	return $header ? wp_get_attachment_image_url($header->ID, $size) : '';
 }
 
 /**

@@ -82,7 +82,7 @@ add_action('after_setup_theme', function () {
 	remove_image_size('1536x1536');
 	remove_image_size('2048x2048');
 
-	add_image_size_category('thumbnail', ['post-featured-images', 'video-featured-images', 'content-images'], 150);
+	add_image_size_category('thumbnail', 'content-images', 150);
 	add_image_size_category('medium', ['post-featured-images', 'video-featured-images', 'content-images'], 550);
 	add_image_size_category('medium_large', ['post-featured-images', 'video-featured-images', 'content-images'], 700);
 	add_image_size_category('large', ['post-featured-images', 'video-featured-images', 'content-images'], 1080);
@@ -118,9 +118,20 @@ add_action('after_setup_theme', function () {
 	 * image categories.
 	 */
 	add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta, $attachment_id) {
-		// TODO: If attachment has no category, do all new_sizes!!
-		return get_image_sizes_for_attachment($attachment_id);
+		$terms = wp_get_object_terms($attachment_id, 'attachment_category');
+		return count($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
 	}, 10, 3);
+
+	$post_types = get_post_types(array('public' => true), 'names', 'and');
+	foreach ($post_types as $post_type)
+		if ($post_type != 'attachment')
+			add_option("htm_sitemap_include_$post_type", 1);
+
+	if ($taxonomies = htm_get_taxonomies())
+		foreach ($taxonomies as $taxonomy) {
+			$name = get_taxonomy($taxonomy)->name;
+			add_option("htm_sitemap_include_$name", 1);
+		}
 }, 20);
 
 /**

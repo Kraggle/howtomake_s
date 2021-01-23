@@ -53,7 +53,7 @@
 			<?php // INFO:: Icons 
 			?>
 			<div class="foot-icon-wrap">
-				<img src="<?php echo wp_get_attachment_image_url(6490, '') ?>" alt="Other Logos">
+				<img src="<?php echo get_attachment_image_url_by_slug('other-companies-logos', '') ?>" alt="Other Logos">
 			</div>
 
 			<?php // INFO:: Login 

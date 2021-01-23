@@ -1,5 +1,12 @@
 <?php
 
+define('FAILED_NONCE', json_encode([
+	'success' => false,
+	'message' => 'nonce missmatch'
+]));
+
+define('IS_DEBUG', true);
+
 /**
  * A simple function that adds the actions for the ajax calls.
  * Will only work if there is no different function for admin.
@@ -51,7 +58,7 @@ function get_image_id_by_filename($name) {
  */
 function htm_custom_search() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'custom_search_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	$query = $_REQUEST['query'] ?: array();
 	$query['post_status'] = 'publish';
@@ -89,7 +96,7 @@ add_ajax_action('custom_search');
  */
 function htm_get_posts() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'main_menu_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	global $wpdb;
 
@@ -147,7 +154,7 @@ add_ajax_action('get_posts');
  */
 function htm_get_categories() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'main_menu_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	$args = array(
 		'taxonomy' => $_REQUEST['taxonomy'],
@@ -173,7 +180,7 @@ add_ajax_action('get_categories');
  */
 function htm_get_featured() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'main_menu_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	global $wpdb;
 
@@ -225,7 +232,7 @@ add_ajax_action('get_featured');
  */
 function htm_get_trending() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'main_menu_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 
 	$return = [];
@@ -291,7 +298,7 @@ add_ajax_action('get_trending');
  */
 function htm_get_missing_category() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	global $wpdb;
 
@@ -499,12 +506,21 @@ function htm_get_missing_category() {
 			) AND 
 			# Content Images
 			a.ID NOT IN ($sIDS) AND 
+			# CSS Images
 			a.ID NOT IN (
 				SELECT i.object_id 
 				FROM `wp_terms` h, `wp_term_relationships` i
 				WHERE 
-					h.slug LIKE 'unused-images' AND
+					h.slug LIKE 'css-images' AND
 					i.term_taxonomy_id = h.term_id
+			) AND 
+			# Already set as unused
+			a.ID NOT IN (
+				SELECT k.object_id 
+				FROM `wp_terms` j, `wp_term_relationships` k
+				WHERE 
+					j.slug LIKE 'unused-images' AND
+					k.term_taxonomy_id = j.term_id
 			)"
 	);
 
@@ -535,7 +551,7 @@ add_ajax_action('get_missing_category');
  */
 function htm_set_missing_category() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	global $wpdb;
 
@@ -583,7 +599,7 @@ add_ajax_action('set_missing_category');
  */
 function htm_get_media_to_delete() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	global $wpdb;
 
@@ -601,7 +617,6 @@ function htm_get_media_to_delete() {
 	];
 	$return->count = count($return->ids);
 	echo json_encode($return);
-	// echo json_encode(['success' => true]);
 }
 add_ajax_action('get_media_to_delete');
 
@@ -612,9 +627,7 @@ add_ajax_action('get_media_to_delete');
  */
 function htm_set_media_to_delete() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
-		exit('Well, that was wrong!');
-
-	global $wpdb;
+		exit(FAILED_NONCE);
 
 	$ids = $_REQUEST['data']['ids'];
 
@@ -634,7 +647,7 @@ add_ajax_action('set_media_to_delete');
  */
 function htm_get_missing_authors() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	global $wpdb;
 
@@ -659,7 +672,7 @@ add_ajax_action('get_missing_authors');
  */
 function htm_set_missing_authors() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
-		exit('Well, that was wrong!');
+		exit(FAILED_NONCE);
 
 	global $wpdb;
 
@@ -691,3 +704,191 @@ function htm_set_missing_authors() {
 	echo json_encode($results);
 }
 add_ajax_action('set_missing_authors');
+
+
+/**
+ * Used by How to Make - Media Editor to set images categories
+ * 
+ * @return void 
+ */
+function htm_get_regenerate_thumbnails() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	global $wpdb;
+
+	$aTerms = $wpdb->get_results(
+		"SELECT a.term_id, b.slug
+		FROM `wp_term_taxonomy` a, `wp_terms` b
+		WHERE 
+			a.taxonomy LIKE 'attachment_category' AND
+			a.term_id = b.term_id"
+	);
+
+	$termIds = list_ids($aTerms, 'term_id', 'string');
+
+	$data = $wpdb->get_results(
+		"SELECT p.ID AS 'id', pm.meta_value AS 'meta', GROUP_CONCAT(t.slug SEPARATOR '|') AS 'category'
+		FROM `wp_posts` AS p, `wp_postmeta` AS pm, `wp_term_relationships` AS tr, `wp_terms` AS t
+		WHERE 
+			p.post_type = 'attachment' AND
+			pm.post_id = p.ID AND
+			pm.meta_key = '_wp_attachment_metadata' AND
+			tr.object_id = p.ID AND
+			tr.term_taxonomy_id IN ($termIds) AND 
+			t.term_id = tr.term_taxonomy_id
+		GROUP BY p.ID"
+	);
+
+	$upload_dir = wp_upload_dir()['basedir'] . '/';
+
+	$path_cache = (object) [];
+
+	$do_max = 5;
+	$do_now = 0;
+
+	$ids = [];
+	foreach ($data as $img) {
+		if (IS_DEBUG && $do_max === $do_now)
+			break;
+
+		$do = false;
+		$meta = to_object(maybe_unserialize($img->meta));
+
+		if (empty($meta)) return;
+
+		$sizes = get_image_sizes_for_category(explode('|', $img->category), $meta->width, $meta->height);
+		$msg = '';
+		$aMsg = (object) [
+			'dimensions' => [
+				'original_width' => $meta->width,
+				'original_height' => $meta->height
+			]
+		];
+
+		$mFiles = [];
+		foreach ($meta->sizes as $size)
+			$mFiles[] = $size->file;
+
+		// Checks if the meta data matches the required sizes in length 
+		if (length($sizes) != length($mFiles)) {
+			$do = true;
+			$msg = 'meta counts m|' . length($meta->sizes) . ':s|' . length($sizes);
+			$aMsg->META = [$meta->sizes, $sizes];
+		} else {
+
+			// Checks if the meta data and required sizes are a match
+			foreach ($sizes as $size) {
+				$width = preg_number_range($size['width']);
+				$height = $size['height'] ? preg_number_range($size['height']) : '\d+';
+				if (!length(preg_grep("/-{$size['width']}x{$height}/", $mFiles))) {
+					$do = true;
+					$msg = 'meta sizes missing';
+					$aMsg->META = [$meta->sizes, $sizes, "{$width}x{$height}"];
+					break;
+				}
+			}
+		}
+
+		// Checks the files in the directory with what is required
+		if (!$do && $file = realpath($upload_dir . $meta->file)) {
+			$info = pathinfo($file);
+			$path = $info['dirname'];
+
+			if (!$path_cache->$path)
+				$path_cache->$path = to_array(array_diff(scandir($path), ['.', '..']));
+
+			$name = $info['filename'] . '-';
+			$files = preg_grep("/^$name\d+x\d+\.\w+/i", $path_cache->$path);
+
+			// Checks if the length of the files to required files is correct
+			if (length($files) != length($sizes)) {
+				$do = true;
+				$msg = 'file counts f|' . length($files) . ':s|' . length($sizes);
+				$aMsg->FILES = [$meta->sizes, $sizes, $files];
+			} else {
+
+				// Checks if the files match the sizes in required sizes
+				foreach ($sizes as $size) {
+					$height = $size['height'] ?: '\d+';
+					if (!length(preg_grep("/-{$size['width']}x{$height}/", $files))) {
+						$do = true;
+						$msg = 'file missing';
+						$aMsg->FILES = [$meta->sizes, $sizes, $files];
+						break;
+					}
+				}
+			}
+		}
+
+		// Checks if the size names are a match with required sizes
+		if (!$do) {
+			$aSize = [];
+			foreach ($sizes as $key => $value)
+				$aSize[] = $key;
+
+			foreach ($meta->sizes as $key => $value) {
+				if (!in_array($key, $aSize)) {
+					$do = true;
+					$msg = 'missing size names';
+					$aMsg->MISSING = [$meta->sizes, $sizes];
+					break;
+				}
+			}
+		}
+
+		if ($do) {
+			$do_now++;
+			$ids[] = $img->id;
+			logger(
+				"$img->id of category $img->category because of $msg",
+				$aMsg
+			);
+		}
+	}
+
+	$return = (object) [
+		'ids' => $ids
+	];
+	$return->count = count($return->ids);
+	echo json_encode($return);
+}
+add_ajax_action('get_regenerate_thumbnails');
+
+/**
+ * Used by How to Make - Media Editor to set images categories
+ * 
+ * @return void 
+ */
+function htm_set_regenerate_thumbnails() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+
+	$ids = $_REQUEST['data']['ids'];
+
+	foreach ($ids as $id) {
+		generate_category_thumbnails(intval($id));
+	}
+
+	echo json_encode(['success' => true]);
+}
+add_ajax_action('set_regenerate_thumbnails');
+
+/**
+ * Used by How to Make - Page Settings to change sitemap settings
+ * 
+ * @return void 
+ */
+function htm_set_sitemap_settings() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$inputs = $_REQUEST['data']['inputs'];
+
+	foreach ($inputs as $key => $value)
+		update_option("htm_sitemap_$key", $value == 'true' ? 1 : 0);
+
+	echo json_encode(['success' => true]);
+}
+add_ajax_action('set_sitemap_settings');

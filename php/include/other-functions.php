@@ -54,21 +54,29 @@ function logger_object($object) {
 		return;
 
 	$fp = fopen('object.json', 'w');
-	fwrite($fp, json_encode($object));
+	fwrite($fp, json_encode($object, JSON_PRETTY_PRINT));
 	fclose($fp);
 }
 
 function logger() {
+	if (!IS_DEBUG) return;
+
 	$db = array_shift(debug_backtrace());
 	$line = $db['line'];
 	$file = $db['file'];
 
+	$msg = "$file:$line [logger]";
+
 	foreach (func_get_args() as $arg) {
-		error_log("[logger] $file:$line\n\t" . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg)));
+		$msg .= "\n" . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg, JSON_PRETTY_PRINT));
 	}
+
+	error_log($msg . "\n");
 }
 
 function logger_print() {
+	if (!IS_DEBUG) return;
+
 	$db = array_shift(debug_backtrace());
 	$line = $db['line'];
 	$file = $db['file'];
@@ -76,11 +84,15 @@ function logger_print() {
 	$args = func_get_args();
 	$l = count($args);
 
+	$msg = "$file:$line [logger]";
+
 	for ($i = 1; $i < $l; $i += 2) {
 		$name = $args[$i - 1];
 		$arg = $args[$i];
-		error_log("[logger] $file:$line\n\t$name: " . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg)));
+		$msg .= "\n$name: " . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg, JSON_PRETTY_PRINT));
 	}
+
+	error_log($msg . "\n");
 }
 
 /**
@@ -142,20 +154,13 @@ function generate_category_thumbnails($object_id) {
 
 	$file_info = pathinfo($image_fullpath);
 	$file_info['filename'] .= '-';
+	$name = $file_info['filename'];
 
-	// Delete all unnecessary thumbnails
 	$files = [];
-	$path = opendir($file_info['dirname']);
+	// logger($file_info);
+	$path = to_array(array_diff(scandir($file_info['dirname']), ['.', '..']));
 
-	if (false !== $path) {
-		while (false !== ($thumb = readdir($path))) {
-			if (!(strrpos($thumb, $file_info['filename']) === false)) {
-				$files[] = $thumb;
-			}
-		}
-		closedir($path);
-		sort($files);
-	}
+	$files = preg_grep("/^$name\d+x\d+\.\w+/i", $path);
 
 	$meta = to_object(wp_get_attachment_metadata($image->ID));
 	$sizes = get_image_sizes_for_attachment($object_id);
@@ -171,16 +176,28 @@ function generate_category_thumbnails($object_id) {
 		}
 	}
 
+	// logger($image_fullpath, $files);
+
 	foreach ($files as $thumb) {
 		$thumb_path = $file_info['dirname'] . DIRECTORY_SEPARATOR . $thumb;
 		$thumb_info = pathinfo($thumb_path);
-		$valid_thumb = explode($file_info['filename'], $thumb_info['filename']);
+		$valid_thumb = preg_split("/$name/i", $thumb_info['filename']);
+
+		// logger(
+		// 	'valid thumb: ' . ($valid_thumb[0] == "" ? 'yes' : 'no'),
+		// 	$valid_thumb,
+		// 	$file_info['filename'],
+		// 	$thumb_info['filename']
+		// );
+
 		if ($valid_thumb[0] == "") {
 
 			$dim = $valid_thumb[1];
 			if (!$stored->$dim) {
 				$dims = explode('x', $dim);
+				// logger("maybe deleting: $thumb");
 				if (count($dims) == 2 && is_numeric($dims[0]) && is_numeric($dims[1])) {
+					// logger("deleting: $thumb");
 					unlink($thumb_path);
 				}
 			}
@@ -195,6 +212,17 @@ function to_object($array) {
 	return json_decode(json_encode($array), false);
 }
 
+function to_array($array) {
+	return json_decode(json_encode($array), true);
+}
+
+function preg_number_range($number, $range = 1) {
+	$reg = [];
+	for ($i = 0 - $range; $i < $range + 1; $i++)
+		$reg[] = ($number + $i);
+	return '(' . implode('|', $reg) . ')';
+}
+
 function get_image_sizes_for_attachment($object_id) {
 
 	$terms = wp_get_object_terms($object_id, 'attachment_category');
@@ -202,10 +230,12 @@ function get_image_sizes_for_attachment($object_id) {
 	foreach ($terms as $term)
 		$category[] = $term->slug;
 
-	return get_image_sizes_for_category($category);
+	$meta = wp_get_attachment_metadata($object_id);
+
+	return get_image_sizes_for_category($category, $meta['width'], $meta['height']);
 }
 
-function get_image_sizes_for_category($category) {
+function get_image_sizes_for_category($category, $orig_w = 0, $orig_h = 0) {
 	$sizes = get_all_image_sizes();
 
 	if (!is_array($category))
@@ -214,10 +244,33 @@ function get_image_sizes_for_category($category) {
 	$needed = [];
 	foreach ($sizes as $size => $value) {
 		foreach ($category as $cat) {
-			if (in_array($cat, $value['category'])) {
-				$needed[$size] = $value;
-				break;
+			if (!in_array($cat, $value['category']))
+				continue;
+
+			$w = $value['width'];
+			$h = $value['height'];
+
+			if (!empty($orig_w) || !empty($orig_h)) {
+				if (empty($h)) {
+					if (absint($orig_w - $w) < 3)
+						break;
+					if ($orig_w <= $w)
+						break;
+				} elseif (empty($w)) {
+					if (absint($orig_h - $h) < 3)
+						break;
+					if ($orig_h <= $h)
+						break;
+				} else {
+					if (absint($orig_w - $w) < 3 && absint($orig_h - $h) < 3)
+						break;
+					if ($orig_w <= $w && $orig_h <= $h) {
+						break;
+					}
+				}
 			}
+			// logger_print('orig_w', $orig_w, 'orig_h', $orig_h, 'w', $w, 'h', $h);
+			$needed[$size] = $value;
 		}
 	}
 
@@ -270,4 +323,45 @@ function add_image_size_category($name, $category, $width = 0, $height = 0, $cro
 		'crop'     => $crop,
 		'category' => $cats
 	);
+}
+
+function length($obj) {
+	if (is_array($obj) || $obj instanceof Countable)
+		return count($obj);
+
+	if (is_object($obj)) {
+		$i = 0;
+		foreach ($obj as $k)
+			$i++;
+		return $i;
+	}
+
+	return 0;
+}
+
+
+// Get taxonomies
+function htm_get_taxonomies() {
+
+	// Global array
+	$taxes = array();
+
+	// Built in
+	$term_args = array('public' => true, '_builtin' => true); // Arguments
+	$taxonomies = get_taxonomies($term_args, 'names', 'and'); // Get taxonomies
+	foreach ($taxonomies as $taxonomy) array_push($taxes, $taxonomy); // Push to global array
+
+	// Not builtin
+	$term_args = array('public' => true, '_builtin' => false); // Arguments
+	$taxonomies = get_taxonomies($term_args, 'names', 'and'); // Get taxonomies
+	foreach ($taxonomies as $taxonomy) array_push($taxes, $taxonomy); // Push to global array
+
+	// Return global array
+	return $taxes;
+}
+
+function htm_checkbox($name, $checked = true) {
+	$input = "<input id='$name' name='$name' type='checkbox'" . ($checked ? ' checked />' : ' />');
+	$mark  = '<div class="check-mark"></div>';
+	echo "<div class='check-wrap'>{$input}{$mark}</div>";
 }
