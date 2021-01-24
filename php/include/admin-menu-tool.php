@@ -138,7 +138,12 @@ class HTM_Admin_Menu {
 	function init_menu() {
 		$this->dash = "{$this->slug}-dashboard";
 
-		wp_enqueue_script('module-htm-admin-js', get_template_directory_uri() . '/scripts/admin.js');
+		wp_enqueue_script(
+			'module-htm-admin-js',
+			get_template_directory_uri() . '/scripts/admin.js',
+			[],
+			filemtime(get_template_directory() . '/scripts/admin.js')
+		);
 		wp_enqueue_style('htm-admin-css', get_template_directory_uri() . '/styles/admin.css');
 
 		add_menu_page($this->name, $this->name, $this->capability, $this->dash, array($this, 'dashboard_page'), 'data:image/svg+xml,' . HTM_MENU_ICON);
