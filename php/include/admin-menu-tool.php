@@ -190,6 +190,7 @@ class HTM_Admin_Menu {
 				<div class="ks-progress">
 					<div class="ks-progress-back"></div>
 					<div class="ks-progress-number"></div>
+					<div class="ks-progress-time"></div>
 				</div>
 			</div>
 		</div>';

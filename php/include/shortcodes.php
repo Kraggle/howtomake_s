@@ -169,29 +169,35 @@ function htm_s_shotcode_more_panel() {
 }
 add_shortcode('htm_more_side_panel', 'htm_s_shotcode_more_panel');
 
-function sitemap_item($id, $post_type, $type, $term = null) {
+function sitemap_item($object, $post_type, $type = 'post') {
 	$type = $type === 'post';
+	$id   = $type ? $object->ID : $object->term_id;
+	$link = $type ? $object->link : get_term_link($object->term_id);
+	$name = $type ? $object->post_title : $object->name;
 
 	ob_start(); ?>
 	<li class="list-item" id="<?php echo "{$post_type}_{$id}" ?>">
-		<a href="<?php echo $type ? get_the_permalink($id) : get_term_link($id) ?>" class="list-link" title="<?php echo $type ? get_the_title($id) : $term->name ?>">
-			<?php echo $type ? get_the_title($id) : $term->name ?>
+		<a href="<?php echo $link ?>" class="list-link" title="<?php echo $name ?>">
+			<?php echo $name ?>
 		</a>
 
 		<?php if ($type) {
-			$children = get_children([
-				'post_parent' 	 => $id,
-				'post_type'   	 => $post_type,
-				'posts_per_page' => '-1',
-				'post_status' 	 => 'publish',
-				'order'          => 'ASC',
-				'orderby'        => 'post_title'
-			]);
+			$kids = get_results(
+				"SELECT p.ID, p.post_title, m.meta_value AS link
+				FROM wp_posts AS p, wp_postmeta AS m
+				WHERE 
+					p.post_type = '$post_type' AND
+					p.post_status = 'publish' AND
+					p.post_parent = $id AND
+					m.post_id = p.ID AND
+					m.meta_key = 'htm_permalink'
+				ORDER BY p.post_title ASC"
+			);
 
-			if (!empty($children)) { ?>
+			if (!empty($kids)) { ?>
 				<ul class="section-sub-list">
-					<?php foreach ($children as $child) {
-						echo sitemap_item($child->ID, $post_type, $type);
+					<?php foreach ($kids as $kid) {
+						echo sitemap_item($kid, $post_type, $type);
 					} ?>
 				</ul>
 			<?php } ?>
@@ -214,26 +220,27 @@ function htm_shortcode_sitemap() {
 	foreach ($post_types as $post_type) {
 		if (!get_option("htm_sitemap_include_$post_type")) continue;
 
-		$post_typeO = get_post_type_object($post_type);
-		query_posts([
-			'order' 			=> 'ASC',
-			'post_type' 		=> $post_type,
-			'posts_per_page' 	=> '-1',
-			'post_status' 		=> 'publish',
-			'orderby'			=> 'post_title',
-			'post_parent' 		=> 0
-		]);
+		$posts = get_results(
+			"SELECT p.ID, p.post_title, m.meta_value AS link
+			FROM wp_posts AS p, wp_postmeta AS m
+			WHERE 
+				p.post_type = '$post_type' AND
+				p.post_status = 'publish' AND
+				p.post_parent = 0 AND
+				m.post_id = p.ID AND
+				m.meta_key = 'htm_permalink'
+			ORDER BY p.post_title ASC"
+		);
 
-		if (have_posts()) { ?>
+		if (!empty($posts)) {
+			$type = get_post_type_object($post_type); ?>
 
 			<div class="section-wrap">
-				<h3 class="section-head"><?php echo $post_typeO->label ?></h3>
+				<h3 class="section-head"><?php echo $type->label ?></h3>
 				<ul class="section-list">
 
-					<?php while (have_posts()) {
-						the_post();
-
-						echo sitemap_item(get_the_ID(), $post_type, 'post');
+					<?php foreach ($posts as $post) {
+						echo sitemap_item($post, $post_type, 'post');
 					} ?>
 				</ul>
 			</div>
@@ -255,7 +262,7 @@ function htm_shortcode_sitemap() {
 
 						<?php foreach ($terms as $term) {
 
-							echo sitemap_item($term->term_id, $tax->label, 'taxonomy', $term);
+							echo sitemap_item($term, $tax->label, 'taxonomy');
 						} ?>
 					</ul>
 				</div>

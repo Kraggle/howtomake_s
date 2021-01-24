@@ -339,7 +339,6 @@ function length($obj) {
 	return 0;
 }
 
-
 // Get taxonomies
 function htm_get_taxonomies() {
 
@@ -364,4 +363,30 @@ function htm_checkbox($name, $checked = true) {
 	$input = "<input id='$name' name='$name' type='checkbox'" . ($checked ? ' checked />' : ' />');
 	$mark  = '<div class="check-mark"></div>';
 	echo "<div class='check-wrap'>{$input}{$mark}</div>";
+}
+
+function get_results(string $query) {
+	if (empty($query)) return [];
+	global $wpdb;
+	return $wpdb->get_results($query);
+}
+
+function htm_set_permalink($id, $link, $post) {
+
+	if (get_post_meta($id, 'htm_permalink', true))
+		update_post_meta($id, 'htm_permalink', $link);
+	else
+		add_post_meta($id, 'htm_permalink', $link);
+
+	$children = get_children([
+		'post_parent' 	 => $id,
+		'post_type'   	 => $post->post_type
+	]);
+
+	if (empty($children)) return;
+
+	foreach ($children as $child) {
+		$link = get_permalink($child->ID);
+		htm_set_permalink($child->ID, $link, $child);
+	}
 }

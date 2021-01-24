@@ -1111,7 +1111,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
   line-height: 1.3em;
   padding: 0 70px;
 }
-.foot .foot-search {
+.foot .search-wrap {
   grid-area: search;
 }
 .foot .foot-logo {

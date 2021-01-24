@@ -5,7 +5,7 @@ define('FAILED_NONCE', json_encode([
 	'message' => 'nonce missmatch'
 ]));
 
-define('IS_DEBUG', true);
+define('IS_DEBUG', false);
 
 /**
  * A simple function that adds the actions for the ajax calls.
@@ -30,8 +30,8 @@ function add_ajax_action($name) {
 function list_ids($a, $id = 'ID', $type = 'array') {
 	$ids = [];
 	foreach ($a as $value)
-		$ids[] = $value->$id;
-	return $type == 'array' ? $ids : implode(',', array_map('absint', $ids));
+		$ids[] = is_numeric($value->$id) ? intval($value->$id) : $value->$id;
+	return $type == 'array' ? $ids : implode(',', $ids);
 }
 
 function get_image_id_by_filename($name) {
@@ -758,11 +758,15 @@ function htm_get_regenerate_thumbnails() {
 		if (empty($meta)) return;
 
 		$sizes = get_image_sizes_for_category(explode('|', $img->category), $meta->width, $meta->height);
+		$aSizes = [];
+		foreach ($sizes as $size)
+			$aSizes[] = $size;
+
 		$msg = '';
 		$aMsg = (object) [
 			'dimensions' => [
-				'original_width' => $meta->width,
-				'original_height' => $meta->height
+				'original_width' => $oW = $meta->width,
+				'original_height' => $oH = $meta->height
 			]
 		];
 
@@ -778,14 +782,17 @@ function htm_get_regenerate_thumbnails() {
 		} else {
 
 			// Checks if the meta data and required sizes are a match
-			foreach ($sizes as $size) {
+			foreach ($sizes as $key => $size) {
 				$width = preg_number_range($size['width']);
 				$height = $size['height'] ? preg_number_range($size['height']) : '\d+';
 				if (!length(preg_grep("/-{$size['width']}x{$height}/", $mFiles))) {
-					$do = true;
-					$msg = 'meta sizes missing';
-					$aMsg->META = [$meta->sizes, $sizes, "{$width}x{$height}"];
-					break;
+
+					if ($size['crop'] && $oW < $size['width'] && !$meta->sizes->$key) {
+						$do = true;
+						$msg = 'meta sizes missing';
+						$aMsg->META = [$meta->sizes, $sizes, "{$width}x{$height}"];
+						break;
+					}
 				}
 			}
 		}
@@ -801,23 +808,49 @@ function htm_get_regenerate_thumbnails() {
 			$name = $info['filename'] . '-';
 			$files = preg_grep("/^$name\d+x\d+\.\w+/i", $path_cache->$path);
 
-			// Checks if the length of the files to required files is correct
-			if (length($files) != length($sizes)) {
-				$do = true;
-				$msg = 'file counts f|' . length($files) . ':s|' . length($sizes);
-				$aMsg->FILES = [$meta->sizes, $sizes, $files];
-			} else {
+			// Checks if the files match the sizes in required sizes
+			foreach ($meta->sizes as $size) {
+				if (!length(preg_grep("/-{$size->width}x{$size->height}/", $files))) {
+					$do = true;
+					$msg = 'file missing';
+					$aMsg->FILES = [$meta->sizes, $sizes, $files];
+					break;
+				}
+			}
 
-				// Checks if the files match the sizes in required sizes
-				foreach ($sizes as $size) {
-					$height = $size['height'] ?: '\d+';
-					if (!length(preg_grep("/-{$size['width']}x{$height}/", $files))) {
+			// Checks if the length of the files to required files is correct
+			if (!$do) {
+				foreach ($files as $file) {
+					preg_match('/-(\d+)x(\d+)\.\w+$/', $file, $dims);
+					$w = $dims[1];
+					$h = $dims[2];
+
+					$key = array_search($w, array_column($aSizes, 'width'));
+					if (!($key >= 0)) {
 						$do = true;
-						$msg = 'file missing';
-						$aMsg->FILES = [$meta->sizes, $sizes, $files];
 						break;
 					}
+
+					$sK = $aSizes[$key];
+					if ($sK['crop']) {
+						if ($sK['height'] != $h) {
+							$do = true;
+							break;
+						}
+					} else {
+						if ($sK['height'] != 0 && $sK['height'] != $h) {
+							$do = true;
+							break;
+						}
+					}
 				}
+
+				if ($do) {
+					$msg = 'extra files f|' . length($files) . ':s|' . length($sizes);
+					$aMsg->FILES = [$meta->sizes, $sizes, $files];
+				}
+
+				// return;
 			}
 		}
 
@@ -889,6 +922,56 @@ function htm_set_sitemap_settings() {
 	foreach ($inputs as $key => $value)
 		update_option("htm_sitemap_$key", $value == 'true' ? 1 : 0);
 
-	echo json_encode(['success' => true]);
+	$post_types = get_post_types(array('public' => true), 'names', 'and');
+
+	$types = [];
+	foreach ($post_types as $post_type) {
+		// logger("htm_sitemap_include_{$post_type}");
+		if ($post_type == 'attachment' || !get_option("htm_sitemap_include_{$post_type}")) continue;
+		$types[] = $post_type;
+	}
+	$types = "'" . implode("','", $types) . "'";
+
+	global $wpdb;
+	$ids = list_ids($wpdb->get_results(
+		"SELECT `ID` 
+		FROM `wp_posts`
+		WHERE 
+			`post_type` IN ($types) AND
+			`ID` NOT IN (
+				SELECT `post_id`
+				FROM `wp_postmeta`
+				WHERE `meta_key` LIKE 'htm_permalink'
+			)"
+	));
+
+	echo json_encode([
+		'success' => true,
+		'ids' => $ids,
+		'action' => 'set_permalinks',
+		'loop' => 5
+	]);
 }
 add_ajax_action('set_sitemap_settings');
+
+
+/**
+ * Used by How to Make - Page Settings to change sitemap settings
+ * 
+ * @return void 
+ */
+function htm_set_permalinks() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$ids = $_REQUEST['data']['ids'];
+
+	foreach ($ids as $id) {
+		$link = get_permalink($id);
+		$post = get_post($id);
+		htm_set_permalink($id, $link, $post);
+	}
+
+	echo json_encode(['success' => true]);
+}
+add_ajax_action('set_permalinks');

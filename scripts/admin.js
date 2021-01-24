@@ -3,6 +3,8 @@ import V from './custom/Paths.js';
 
 $(() => {
 
+	time.build($('.ks-progress-time'));
+
 	$('.ks-button[count]').addClass('doMe');
 
 	$('.ks-button').on('click', function() {
@@ -23,8 +25,40 @@ $(() => {
 			ajax(action, {
 				inputs
 			}, data => {
-				if (data.success)
+				if (data.success) {
 					$(this).removeClass('doMe');
+
+					if (data.action && data.ids && data.ids.length) {
+						const total = data.ids.length;
+
+						// console.log(data);
+
+						const loopCall = () => {
+							time.start();
+
+							if (!data.ids.length) {
+								$(this).removeClass('doMe');
+								$(`#${other}`).addClass('doMe');
+								doProgress(10, 10);
+								time.reset();
+								return;
+							}
+
+
+							ajax(data.action, {
+								ids: data.ids.splice(0, data.loop)
+							}, result => {
+								if (result.success) {
+									doProgress(total, data.ids.length);
+									time.left(data.ids.length).end();
+									loopCall();
+								}
+							});
+						};
+
+						loopCall();
+					}
+				}
 			});
 
 		} else if (count) {
@@ -52,10 +86,12 @@ $(() => {
 				const total = ids.length;
 
 				const loopCall = () => {
+					time.start();
 					if (!ids.length) {
 						$(this).removeClass('doMe');
 						$(`#${other}`).addClass('doMe');
 						doProgress(10, 10);
+						time.reset();
 						return;
 					}
 
@@ -65,8 +101,9 @@ $(() => {
 						if (data.success) {
 							$(`#${$(`#${other}`).attr('count')}`).val(ids.length);
 
-							loopCall();
 							doProgress(total, ids.length);
+							time.left(ids.length).end();
+							loopCall();
 						}
 					});
 				};
@@ -93,10 +130,10 @@ $(() => {
 });
 
 function doProgress(total, left) {
-	const current = total - left - 1,
+	const current = total - left,
 		goto = current * 100 / total;
 	$('.ks-progress-back').css('width', `${goto}%`);
-	$('.ks-progress-number').text(`${goto.toFixed(3)}%`);
+	$('.ks-progress-number').text(!goto ? '' : goto.toFixed(2) + '%');
 }
 
 function ajax(action) {
@@ -129,4 +166,70 @@ function ajax(action) {
 
 		callback(result);
 	});
+}
+
+const time = {
+	startTime: null,
+	endTime: null,
+	average: [],
+	element: null,
+	remain: 0,
+
+	build(element) {
+		this.element = element;
+		return this;
+	},
+
+	reset() {
+		this.average = [];
+		$(this.element).html('');
+		return this;
+	},
+
+	start() {
+		this.startTime = new Date();
+		return this;
+	},
+
+	end() {
+		this.endTime = new Date();
+		this.average.push(this.endTime - this.startTime);
+		this.update();
+		return this;
+	},
+
+	update() {
+		if (!this.element || this.average.length < 3) return;
+		const avg = (this.average.reduce((a, b) => a + b, 0) / this.average.length) || 0;
+		const remain = avg * this.remain;
+		console.log(this.element);
+		$(this.element).html(this.time(remain));
+	},
+
+	time(ms) {
+		let seconds = (ms / 1000).toFixed(0),
+			minutes = Math.floor(seconds / 60),
+			hours = "";
+		if (minutes > 59) {
+			hours = Math.floor(minutes / 60);
+			minutes = minutes - (hours * 60);
+			minutes = (minutes >= 10) ? minutes : "0" + minutes;
+		}
+
+		seconds = Math.floor(seconds % 60);
+
+		let result = hours ? `${hours} hours` : '';
+		if (minutes && seconds) result += ` ${minutes} minutes and ${seconds} seconds`;
+		else if (hours && seconds) result += ` and ${seconds} seconds`;
+		else if (hours && minutes) result += ` and ${minutes} minutes`;
+		else if (minutes) result += `${minutes} minutes`;
+		else if (seconds) result += `${seconds} seconds`;
+		result += ' estimated';
+		return result;
+	},
+
+	left(left) {
+		this.remain = left;
+		return this;
+	}
 }

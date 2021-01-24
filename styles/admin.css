@@ -182,6 +182,13 @@
   height: 100%;
   width: 0%;
 }
+.ks-progress .ks-progress-time {
+  color: #fff;
+  line-height: 30px;
+  font-size: 13px;
+  position: absolute;
+  right: 14px;
+}
 
 @media (max-width: 1700px) {
   .ks-box .ks-content {

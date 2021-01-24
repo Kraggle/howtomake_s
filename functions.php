@@ -234,26 +234,6 @@ foreach ([
 	});
 }
 
-// add_action('template_redirect', function () {
-
-// 	global $wp_query;
-// 	$query = $wp_query->query;
-
-// 	if (array_key_exists('video-category', $query)) {
-// 		$cat = $query['video-category'];
-
-// 		wp_safe_redirect(site_url("/search?type=video~$cat"));
-// 		exit();
-// 	} elseif (array_key_exists('category_name', $query)) {
-// 		$cat = $query['category_name'];
-
-// 		wp_safe_redirect(site_url("/search?type=post~$cat"));
-// 		exit();
-// 	}
-// });
-
-
-
 /**
  * Enqueue scripts and styles.
  */
@@ -270,26 +250,6 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
- * Implement the Custom Header feature.
- */
-// require get_template_directory() . '/php/include/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-// require get_template_directory() . '/php/include/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-// require get_template_directory() . '/php/include/template-functions.php';
-
-/**
- * Customizer additions.
- */
-// require get_template_directory() . '/php/include/customizer.php';
-
-/**
  * Load Jetpack compatibility file.
  */
 if (defined('JETPACK__VERSION')) {
@@ -298,3 +258,8 @@ if (defined('JETPACK__VERSION')) {
 
 // Show Custom Fields on editor
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+add_action('post_updated', function ($id, $post) {
+	$link = get_permalink($id);
+	htm_set_permalink($id, $link, $post);
+}, 20, 2);
