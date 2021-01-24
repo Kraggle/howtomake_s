@@ -202,7 +202,6 @@ const time = {
 		if (!this.element || this.average.length < 3) return;
 		const avg = (this.average.reduce((a, b) => a + b, 0) / this.average.length) || 0;
 		const remain = avg * this.remain;
-		console.log(this.element);
 		$(this.element).html(this.time(remain));
 	},
 
