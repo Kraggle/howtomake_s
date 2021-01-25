@@ -491,11 +491,11 @@ function do_more_panel($content, $title = '', $args = array()) {
  * Used to remove divi shortcodes from pre existing posts and pages.
  * Also removes the domain from any internal links. 
  */
-add_action('the_post', function ($post_object) {
+add_action('the_post', function ($post) {
 
-	$post_object->post_content = preg_replace('/(\[.{0,2}et_pb[^]]+]|https{0,1}:.{2,4}how\w+.\w{3,4})/m', '', $post_object->post_content);
+	$post->post_content = preg_replace('/(\[.{0,2}et_pb[^]]+]|https{0,1}:.{2,4}how\w+.\w{3,4})/', '', $post->post_content);
 
-	return $post_object;
+	return $post;
 });
 
 

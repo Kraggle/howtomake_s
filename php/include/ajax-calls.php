@@ -5,8 +5,6 @@ define('FAILED_NONCE', json_encode([
 	'message' => 'nonce missmatch'
 ]));
 
-define('IS_DEBUG', false);
-
 /**
  * A simple function that adds the actions for the ajax calls.
  * Will only work if there is no different function for admin.
