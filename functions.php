@@ -8,7 +8,7 @@
  * @package htm_s
  */
 
-define('IS_DEBUG', true);
+define('IS_DEBUG', false);
 
 // Replace the version number of the theme on each release.
 if (!defined('_S_VERSION'))
