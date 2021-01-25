@@ -34,7 +34,7 @@ $menu_items = [
 			<div class="spacer"></div>
 			<button id="getMC" class="ks-button" action="get_missing_category" count="mcCount" other="setMC">Get Quantity</button>
 		</div>
-		<button id="setMC" class="ks-button" action="set_missing_category" other="getMC" repeat=1>Set Categories</button>
+		<button id="setMC" class="ks-button" action="set_missing_category" other="getMC" repeat=10>Set Categories</button>
 	</div>
 
 	<div class="ks-setting-box">
