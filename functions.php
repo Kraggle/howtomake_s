@@ -20,6 +20,9 @@ if (!defined('K_YT_API_KEY'))
 global $htm__s_version;
 $htm__s_version = '0.1.10';
 
+global $refreshing_categories;
+$refreshing_categories = false;
+
 add_action('after_setup_theme', function () {
 	/**
 	 * Make theme available for translation.
@@ -110,7 +113,8 @@ add_action('after_setup_theme', function () {
 	 * a minimal amount of images in the uploads folder.
 	 */
 	add_action('set_object_terms', function ($object_id, $terms, $tt_ids, $taxonomy, $append, $old_tt_ids) {
-		if ($taxonomy == 'attachment_category')
+		global $refreshing_categories;
+		if (!$refreshing_categories && $taxonomy == 'attachment_category')
 			generate_category_thumbnails($object_id);
 	}, 10, 6);
 

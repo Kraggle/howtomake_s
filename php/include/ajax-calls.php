@@ -569,6 +569,9 @@ function htm_set_missing_category() {
 		$terms->$slug = intval($term->term_id);
 	}
 
+	global $refreshing_categories;
+	$refreshing_categories = true;
+
 	foreach ($ids as $v) {
 		$id = intval($v['id']);
 		$pID = isset($v['parent']) ? intval($v['parent']) : null;
@@ -580,10 +583,13 @@ function htm_set_missing_category() {
 			));
 		}
 
+
 		foreach ($v['type'] as $type) {
 			wp_set_object_terms($id, $terms->$type, 'attachment_category', $type == 'unused-images' ? false : true);
 		}
 	}
+
+	$refreshing_categories = false;
 
 	echo json_encode(['success' => true]);
 }
@@ -702,7 +708,6 @@ function htm_set_missing_authors() {
 	echo json_encode($results);
 }
 add_ajax_action('set_missing_authors');
-
 
 /**
  * Used by How to Make - Media Editor to set images categories
