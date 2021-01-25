@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class="subs-right">
-		<?php get_template_part('views/widgets/subscription-form'); ?>
+		<?php echo do_shortcode('[contact-form-7 id="5297" title="Home Newsletter"]'); ?>
 	</div>
 </div>
 

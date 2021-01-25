@@ -330,3 +330,37 @@ $dark-color: darken($main-color, 10%);
         opacity: .6;
     }
 }
+
+.ks-feed {
+    counter-reset: feed;
+    padding: 0 10px;
+    background-color: $color-main;
+    max-height: 84px;
+    position: relative;
+    overflow: hidden;
+
+    .ks-feed-text {
+        @include transition(300ms);
+
+        position: relative;
+    }
+
+    p {
+        margin: 0;
+        line-height: 1.1;
+        color: #fff;
+        padding: 7px 0 7px 25px;
+        position: relative;
+        opacity: 0.7;
+
+        &::before {
+            counter-increment: feed;
+            content: counter(feed) '.';
+            position: absolute;
+            left: -6px;
+            width: 25px;
+            text-align: right;
+            opacity: 0.4;
+        }
+    }
+}

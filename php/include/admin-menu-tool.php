@@ -191,6 +191,9 @@ class HTM_Admin_Menu {
 
 	function page_after() {
 		echo '</div>
+			<div class="ks-feed">
+				<div class="ks-feed-text"></div>
+			</div>
 			<div class="ks-footer">
 				<div class="ks-progress">
 					<div class="ks-progress-back"></div>

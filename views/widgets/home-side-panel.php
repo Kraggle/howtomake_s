@@ -12,8 +12,9 @@
 	// Sign up panel
 	do_more_panel(function () { ?>
 		<p>Get the latest tips and tricks to making money from home by subscribing here.</p>
-		<?php get_template_part('views/widgets/subscription-form') ?>
-	<?php }, 'Sign Up Here', [
+		<?php echo do_shortcode('[contact-form-7 id="5297" title="Home Newsletter"]'); //get_template_part('views/widgets/subscription-form') 
+		?>
+	<?php }, 'Newsletter', [
 		'type' => 'form',
 		'background' => 'gradient',
 		'classes' => 'center-text'

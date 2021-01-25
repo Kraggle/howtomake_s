@@ -204,14 +204,16 @@ h1 {
             font-weight: 500;
             opacity: 1;
         }
-
-        &:first-of-type {
-            margin-top: 43px;
-        }
     }
 
-    .subs-form {
-        button {
+    form {
+        p {
+            &:first-of-type {
+                margin-top: 43px;
+            }
+        }
+
+        input[type=submit] {
             display: block;
             width: 100%;
             line-height: 1.8em;
@@ -222,6 +224,7 @@ h1 {
             text-align: center;
             background-color: $color-button;
             border-radius: 4px;
+            cursor: pointer;
         }
     }
 }
@@ -461,9 +464,12 @@ h1 {
             form {
                 display: block;
                 padding: 0 20px 20px;
+
+                p {
+                    margin: 0;
+                }
             }
 
-            button,
             input {
                 background-color: rgba(#000, 0.1);
                 border-radius: 4px;
@@ -478,11 +484,15 @@ h1 {
                 }
             }
 
-            button {
+            input[type=submit] {
                 text-transform: uppercase;
                 margin-bottom: 0;
                 width: 100%;
                 cursor: pointer;
+            }
+
+            .ajax-loader {
+                display: none;
             }
         }
 

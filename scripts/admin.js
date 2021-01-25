@@ -4,6 +4,19 @@ import V from './custom/Paths.js';
 $(() => {
 
 	time.build($('.ks-progress-time'));
+	feed.build($('.ks-feed-text'));
+
+	feed.add('Some message to append to the log!');
+	feed.add('Another thing to just test it works.');
+	feed.add('We then want a really long line to see what it looks like when it flows past one single line of text maybe just a few more words and a really long one like rawrrr, lol!');
+
+	setTimeout(() => {
+		feed.add('A line that appears later and the first one should hide.');
+	}, 5000);
+
+	setTimeout(() => {
+		feed.add('Same again this should have hidden the first 2 lines.');
+	}, 10000);
 
 	$('.ks-button[count]').addClass('doMe');
 
@@ -167,6 +180,29 @@ function ajax(action) {
 		callback(result);
 	});
 }
+
+const feed = {
+	element: null,
+	count: 0,
+
+	build(element) {
+		this.element = element;
+	},
+
+	clear() {
+		if (!$(this.element).length) return;
+		$(this.element).html('');
+	},
+
+	add(msg) {
+		if (!$(this.element).length) return;
+		this.count++;
+		$(this.element).append(`<p>${msg}</p>`);
+		const h = $(this.element).outerHeight(true);
+		if (h > 84)
+			$(this.element).css('top', `-${h - 84}px`);
+	}
+};
 
 const time = {
 	startTime: null,

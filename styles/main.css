@@ -1434,10 +1434,10 @@ h1 {
   font-weight: 500;
   opacity: 1;
 }
-.subs-dialog input:first-of-type {
+.subs-dialog form p:first-of-type {
   margin-top: 43px;
 }
-.subs-dialog .subs-form button {
+.subs-dialog form input[type=submit] {
   display: block;
   width: 100%;
   line-height: 1.8em;
@@ -1448,6 +1448,7 @@ h1 {
   text-align: center;
   background-color: #29c4a9;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .more-panel {
@@ -1653,7 +1654,9 @@ h1 {
   display: block;
   padding: 0 20px 20px;
 }
-.more-side .more-panel.is-form button,
+.more-side .more-panel.is-form form p {
+  margin: 0;
+}
 .more-side .more-panel.is-form input {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -1661,17 +1664,19 @@ h1 {
   font-size: 16px;
   margin-bottom: 20px;
 }
-.more-side .more-panel.is-form button::placeholder,
 .more-side .more-panel.is-form input::placeholder {
   color: #ddd;
   text-transform: none;
   opacity: 1;
 }
-.more-side .more-panel.is-form button {
+.more-side .more-panel.is-form input[type=submit] {
   text-transform: uppercase;
   margin-bottom: 0;
   width: 100%;
   cursor: pointer;
+}
+.more-side .more-panel.is-form .ajax-loader {
+  display: none;
 }
 .more-side .more-panel.is-quote {
   padding-top: 20px;
