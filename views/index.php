@@ -19,6 +19,7 @@
 <?php get_template_part('views/partials/head') ?>
 
 <body <?php body_class('index') ?>>
+	<?php get_template_part('views/partials/body-top') ?>
 	<?php get_template_part('views/partials/loader') ?>
 	<div class="body-wrap">
 		<?php do_action('get_header') ?>
