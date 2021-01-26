@@ -19,9 +19,7 @@
 <?php get_template_part('views/partials/head') ?>
 
 <body <?php body_class('index') ?>>
-	<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T674ZX6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
+	<?php get_template_part('views/partials/body-top') ?>
 	<?php get_template_part('views/partials/loader') ?>
 	<div class="body-wrap">
 		<?php do_action('get_header') ?>
