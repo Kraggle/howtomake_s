@@ -16,15 +16,14 @@ Author: Kraggle
 
 			get_template_part('views/category/related', get_post_type());
 		} ?>
-	<?php } ?>
 
-	<div class="related-part" part="1"></div>
-	<div class="related-part" part="2"></div>
-	<div class="related-part" part="3"></div>
-	<div class="related-part" part="4"></div>
-	<div class="related-part" part="5"></div>
+		<div class="related-part" part="1"></div>
+		<div class="related-part" part="2"></div>
+		<div class="related-part" part="3"></div>
+		<div class="related-part" part="4"></div>
+		<div class="related-part" part="5"></div>
 
 	</div>
 
-	<?php
+<?php }
 // END

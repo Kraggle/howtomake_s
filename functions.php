@@ -8,7 +8,8 @@
  * @package htm_s
  */
 
-define('IS_DEBUG', true);
+define('IS_LIVE', $_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com');
+define('IS_DEBUG', IS_LIVE ? false : true);
 
 // Replace the version number of the theme on each release.
 if (!defined('_S_VERSION'))
@@ -257,3 +258,5 @@ add_action('post_updated', function ($id, $post) {
 	$link = get_permalink($id);
 	htm_set_permalink($id, $link, $post);
 }, 20, 2);
+
+logger($_SERVER['HTTP_HOST']);
