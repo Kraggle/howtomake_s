@@ -580,8 +580,9 @@ add_filter('the_content', function ($content) {
 			if ($get->id && $get->size) break;
 		}
 
-		if ($get->size != 'post') {
-			$meta = wp_get_attachment_metadata($get->id);
+		$meta = wp_get_attachment_metadata($get->id);
+
+		if ($get->size !== 'post') {
 
 			if (!$size = $meta['sizes']['post']) {
 
@@ -598,8 +599,6 @@ add_filter('the_content', function ($content) {
 				// foreach ($meta['sizes'] as $size => $value) {
 
 				// }
-
-				// logger($get);
 			} else {
 				$info = pathinfo($meta['file']);
 
@@ -613,7 +612,12 @@ add_filter('the_content', function ($content) {
 
 			pq($img)->removeClass($get->class)->addClass("size-{$get->size}")
 				->attr('src', "/wp-content/uploads/{$get->file}");
+		} else {
+			$get->width = $meta['sizes']['post']['width'];
+			$get->height = $meta['sizes']['post']['height'];
 		}
+
+		// logger($get);
 
 		pq($img)->attr('width', 'initial')->attr('height', 'initial');
 

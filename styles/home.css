@@ -114,6 +114,16 @@
     flex-direction: column;
   }
 }
+.content .wrapper .image-wrap {
+  position: relative;
+  margin: 20px 0;
+}
+.content .wrapper .image-wrap img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .content .wrapper a {
   color: #29c4a9;
 }
