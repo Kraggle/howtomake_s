@@ -134,7 +134,7 @@ function htm_get_posts() {
 			'id'    => $post->ID,
 			'title' => $post->post_title,
 			'readTime' => $type ? get_duration($post->ID) : get_read_time($post->ID),
-			'image' => parse_url(get_the_post_thumbnail_url($post->ID, 'medium'), PHP_URL_PATH),
+			'image' => parse_url(get_the_post_thumbnail_url($post->ID, 'menu'), PHP_URL_PATH),
 			'link'  => parse_url(get_permalink($post->ID), PHP_URL_PATH)
 		];
 
@@ -211,7 +211,7 @@ function htm_get_featured() {
 				'id'    => $post->ID,
 				'title' => $post->post_title,
 				'readTime' => get_read_time($post->ID),
-				'image' => parse_url(get_the_post_thumbnail_url($post->ID, 'medium'), PHP_URL_PATH),
+				'image' => parse_url(get_the_post_thumbnail_url($post->ID, 'menu'), PHP_URL_PATH),
 				'link'  => parse_url(get_permalink($post->ID), PHP_URL_PATH)
 			];
 

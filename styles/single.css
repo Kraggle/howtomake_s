@@ -78,6 +78,17 @@
     flex-direction: column;
   }
 }
+.content .wrapper .iframe-wrap {
+  position: relative;
+  padding-bottom: 56.297%;
+}
+.content .wrapper .iframe-wrap iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
 .content .wrapper a {
   color: #29c4a9;
 }

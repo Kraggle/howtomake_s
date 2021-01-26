@@ -543,5 +543,41 @@ function get_channel_logo($term_id) {
 		}
 	}
 
-	return wp_get_attachment_image_url($imageId, 'medium');
+	return wp_get_attachment_image_url($imageId, 'channel');
 }
+
+add_filter('the_content', function ($content) {
+	preg_match_all('/<img [^>]+>/i', $content, $imgs);
+
+	// logger('the_content');
+
+	$sizes = get_all_image_sizes();
+
+	foreach ($imgs[0] as $img) {
+		if (preg_match('/wp-image-(\d+)/i', $img, $id)) {
+			preg_match('/size-([^ \"]+)/i', $img, $size);
+
+			$size = !empty($size) ? $size[1] : false;
+			if ($size && $size[0] == 'size-post') continue;
+
+			$id = $id[1];
+			$meta = wp_get_attachment_metadata($id);
+
+			if ($meta['width'] < $sizes['post']['width']) continue;
+
+			if ($use = $meta['sizes']['post']) {
+				if ($size)
+					$new = preg_replace("/size-$size/", "size-post", $img);
+				else
+					$new = preg_replace('/class="/', 'class="size-post ', $img);
+				$new = preg_replace('/(src="[^"]+\/)[^"]+/', "$1{$use['file']}", $new);
+				$new = preg_replace('/width="\d+/', "width=\"{$use['width']}", $new);
+				$new = preg_replace('/height="\d+/', "height=\"{$use['height']}", $new);
+
+				$content = str_replace($img, $new, $content);
+			}
+		}
+	}
+
+	return $content;
+});

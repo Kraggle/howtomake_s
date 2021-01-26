@@ -8,7 +8,7 @@
  * @package htm_s
  */
 
-define('IS_DEBUG', false);
+define('IS_DEBUG', true);
 
 // Replace the version number of the theme on each release.
 if (!defined('_S_VERSION'))
@@ -141,18 +141,6 @@ add_action('after_setup_theme', function () {
 }, 20);
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-// function htm_s_content_width() {
-// 	$GLOBALS['content_width'] = apply_filters('htm_s_content_width', 640);
-// }
-// add_action('after_setup_theme', 'htm_s_content_width', 0);
-
-/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -178,7 +166,7 @@ add_action('widgets_init', function () {
  * @param string $title
  */
 $htm_s_error = function ($message, $subtitle = '', $title = '') {
-	$title = $title ?: __('HowToMake_S &rsaquo; Error', 'hmt_s');
+	$title = $title ?: __('howtomake_s &rsaquo; Error', 'htm_s');
 	$footer = '<a href="#"></a>';
 	$message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
 	wp_die($message, $title);
@@ -258,9 +246,9 @@ add_action('wp_enqueue_scripts', function () {
 /**
  * Load Jetpack compatibility file.
  */
-if (defined('JETPACK__VERSION')) {
-	require get_template_directory() . '/php/include/jetpack.php';
-}
+// if (defined('JETPACK__VERSION')) {
+// 	require get_template_directory() . '/php/include/jetpack.php';
+// }
 
 // Show Custom Fields on editor
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');

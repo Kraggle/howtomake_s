@@ -38,4 +38,12 @@ $(() => {
 			scrollTop: $(id).offset().top - 170
 		}, 800);
 	});
+
+	$('iframe').each(function() {
+		const p = $(this).parent();
+		if (p.hasClass('video-wrap')) return;
+		if (p.hasClass('content-wrap'))
+			$(this).wrap('<p class="iframe-wrap"></p>')
+		else p.addClass('iframe-wrap');
+	});
 });
