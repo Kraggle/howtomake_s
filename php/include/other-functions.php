@@ -390,3 +390,7 @@ function htm_set_permalink($id, $link, $post) {
 		htm_set_permalink($child->ID, $link, $child);
 	}
 }
+
+function get_php_library($file = '') {
+	return get_template_directory() . '/php/libraries/' . $file;
+}

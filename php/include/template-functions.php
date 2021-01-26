@@ -547,37 +547,102 @@ function get_channel_logo($term_id) {
 }
 
 add_filter('the_content', function ($content) {
-	preg_match_all('/<img [^>]+>/i', $content, $imgs);
+	require_once(get_php_library('phpQuery/phpQuery.php'));
 
-	// logger('the_content');
-
+	$doc = phpQuery::newDocument($content);
 	$sizes = get_all_image_sizes();
 
-	foreach ($imgs[0] as $img) {
-		if (preg_match('/wp-image-(\d+)/i', $img, $id)) {
-			preg_match('/size-([^ \"]+)/i', $img, $size);
+	// Set the content images to the biggest possible without go bigger then the max
+	foreach ($doc['img'] as $img) {
+		$img = pq($img);
+		if ($img->hasClass('emoji')) continue;
 
-			$size = !empty($size) ? $size[1] : false;
-			if ($size && $size[0] == 'size-post') continue;
-
-			$id = $id[1];
-			$meta = wp_get_attachment_metadata($id);
-
-			if ($meta['width'] < $sizes['post']['width']) continue;
-
-			if ($use = $meta['sizes']['post']) {
-				if ($size)
-					$new = preg_replace("/size-$size/", "size-post", $img);
-				else
-					$new = preg_replace('/class="/', 'class="size-post ', $img);
-				$new = preg_replace('/(src="[^"]+\/)[^"]+/', "$1{$use['file']}", $new);
-				$new = preg_replace('/width="\d+/', "width=\"{$use['width']}", $new);
-				$new = preg_replace('/height="\d+/', "height=\"{$use['height']}", $new);
-
-				$content = str_replace($img, $new, $content);
-			}
+		$wrap = $img->parent();
+		if (!$wrap->hasClass('image-wrap')) {
+			$img->wrap('<div class="image-wrap">');
+			$wrap = $img->parent();
 		}
+
+		$get = (object) [
+			'size' => 0,
+			'class' => 0,
+			'id' => 0
+		];
+		$classes = explode(' ', $img->attr('class'));
+		foreach ($classes as $class) {
+			if (preg_match('/wp-image-(\d+)/', $class, $id))
+				$get->id = intval($id[1]);
+			elseif (preg_match('/size-(\w+)/', $class, $size)) {
+				$get->class = $size[0];
+				$get->size = $size[1];
+			}
+
+			if ($get->id && $get->size) break;
+		}
+
+		if ($get->size != 'post') {
+			$meta = wp_get_attachment_metadata($get->id);
+
+			if (!$size = $meta['sizes']['post']) {
+
+				if ($meta['width'] < $sizes['post']['width']) {
+					$get = (object) array_merge((array) $get, [
+						'file' => $meta['file'],
+						'width' => $meta['width'],
+						'height' => $meta['height'],
+						'size' => 'full'
+					]);
+				}
+
+				// TODO: Find a post that the previous statement does not work
+				// foreach ($meta['sizes'] as $size => $value) {
+
+				// }
+
+				// logger($get);
+			} else {
+				$info = pathinfo($meta['file']);
+
+				$get = (object) array_merge((array) $get, [
+					'file' => $info['dirname'] . '/' . $size['file'],
+					'width' => $size['width'],
+					'height' => $size['height'],
+					'size' => 'post'
+				]);
+			}
+
+			pq($img)->removeClass($get->class)->addClass("size-{$get->size}")
+				->attr('src', "/wp-content/uploads/{$get->file}");
+		}
+
+		pq($img)->attr('width', 'initial')->attr('height', 'initial');
+
+		$height = $get->height / $get->width * 100;
+		pq($wrap)->attr('style', "padding-bottom: $height%");
 	}
 
+	// Change the page jump links to not include the page so it does not reload
+	$uri = preg_quote($_SERVER['REQUEST_URI'], '/');
+	foreach ($doc['a'] as $link) {
+		$href = pq($link)->attr('href');
+
+		if (preg_match("/$uri{0,1}(#.+)/", $href, $match))
+			pq($link)->attr('href', $match[1]);
+	}
+
+	// Wrap any iframe
+	foreach ($doc['iframe'] as $iframe) {
+		$wrap = pq($iframe)->parent();
+		if ($wrap->hasClass('video-wrap') || $wrap->hasClass('iframe-wrap')) continue;
+		if ($wrap->hasClass('content-wrap'))
+			pq($iframe)->wrap('<div class="iframe-wrap">');
+		else $wrap->addClass('iframe-wrap');
+	}
+
+	ob_start();
+	print $doc->htmlOuter();
+	$content = ob_get_contents();
+	ob_end_clean();
+
 	return $content;
-});
+}, 3);

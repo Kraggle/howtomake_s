@@ -258,5 +258,3 @@ add_action('post_updated', function ($id, $post) {
 	$link = get_permalink($id);
 	htm_set_permalink($id, $link, $post);
 }, 20, 2);
-
-logger($_SERVER['HTTP_HOST']);
