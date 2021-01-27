@@ -623,7 +623,7 @@ add_filter('the_content', function ($content) {
 			$get->height = $meta['sizes']['post']['height'];
 		}
 
-		pq($img)->attr('width', 'initial')->attr('height', 'initial');
+		// pq($img)->attr('width', 'initial')->attr('height', 'initial');
 		$height = $get->height / ($smaller ? 850 : $get->width) * 100;
 		pq($wrap)->attr('style', "padding-bottom: $height%");
 
