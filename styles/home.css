@@ -117,12 +117,19 @@
 .content .wrapper .image-wrap {
   position: relative;
   margin: 20px 0;
+  width: 100%;
 }
 .content .wrapper .image-wrap img {
   position: absolute;
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+}
+.content .wrapper .image-wrap .image-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .content .wrapper a {
   color: #29c4a9;
@@ -137,23 +144,29 @@
 .content .wrapper a + h6,
 .content .wrapper a + h5,
 .content .wrapper a + h4,
+.content .wrapper a + h3,
 .content .wrapper a + h2, .content .wrapper p + h6,
 .content .wrapper p + h5,
 .content .wrapper p + h4,
+.content .wrapper p + h3,
 .content .wrapper p + h2, .content .wrapper ul + h6,
 .content .wrapper ul + h5,
 .content .wrapper ul + h4,
+.content .wrapper ul + h3,
 .content .wrapper ul + h2, .content .wrapper ol + h6,
 .content .wrapper ol + h5,
 .content .wrapper ol + h4,
+.content .wrapper ol + h3,
 .content .wrapper ol + h2, .content .wrapper div + h6,
 .content .wrapper div + h5,
 .content .wrapper div + h4,
+.content .wrapper div + h3,
 .content .wrapper div + h2, .content .wrapper noscript + h6,
 .content .wrapper noscript + h5,
 .content .wrapper noscript + h4,
+.content .wrapper noscript + h3,
 .content .wrapper noscript + h2 {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 .content .wrapper ul, .content .wrapper ol {
   text-align: left;

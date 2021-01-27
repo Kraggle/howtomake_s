@@ -582,6 +582,8 @@ add_filter('the_content', function ($content) {
 
 		$meta = wp_get_attachment_metadata($get->id);
 
+		$smaller = false;
+
 		if ($get->size !== 'post') {
 
 			if (!$size = $meta['sizes']['post']) {
@@ -593,6 +595,10 @@ add_filter('the_content', function ($content) {
 						'height' => $meta['height'],
 						'size' => 'full'
 					]);
+
+					pq($img)->attr('style', "max-width: {$get->width}px;")->addClass('image-center');
+					pq($img)->parents('figure')->removeClass('aligncenter');
+					$smaller = true;
 				}
 
 				// TODO: Find a post that the previous statement does not work
@@ -617,12 +623,13 @@ add_filter('the_content', function ($content) {
 			$get->height = $meta['sizes']['post']['height'];
 		}
 
-		// logger($get);
-
 		pq($img)->attr('width', 'initial')->attr('height', 'initial');
-
-		$height = $get->height / $get->width * 100;
+		$height = $get->height / ($smaller ? 850 : $get->width) * 100;
 		pq($wrap)->attr('style', "padding-bottom: $height%");
+
+		if ($smaller) {
+			logger($get);
+		}
 	}
 
 	// Change the page jump links to not include the page so it does not reload
