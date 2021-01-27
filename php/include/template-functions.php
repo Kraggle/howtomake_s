@@ -510,13 +510,13 @@ function get_channel_logo($term_id) {
 
 	if (!$imageId) {
 
-		$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=snippet&id=$id&key=" . K_YT_API_KEY);
+		$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=snippet&id=$imageId&key=" . K_YT_API_KEY);
 		$result = json_decode($json_result);
 
 		if ($result->items && count($result->items)) {
 			$thumb = $result->items[0]->snippet->thumbnails->high;
 
-			include_once(ROOT . 'wp-admin/includes/image.php');
+			include_once(ABSPATH . 'wp-admin/includes/image.php');
 
 			$imageType = end(explode('/', getimagesize($thumb->url)['mime']));
 			$fileName = date('dmY') . (int) microtime(true) . '.' . $imageType;
@@ -626,10 +626,6 @@ add_filter('the_content', function ($content) {
 		// pq($img)->attr('width', 'initial')->attr('height', 'initial');
 		$height = $get->height / ($smaller ? 850 : $get->width) * 100;
 		pq($wrap)->attr('style', "padding-bottom: $height%");
-
-		if ($smaller) {
-			logger($get);
-		}
 	}
 
 	// Change the page jump links to not include the page so it does not reload
