@@ -4,6 +4,14 @@ import SVG from '../custom/SVGIcons.js';
 // import '../src/imgColor.js';
 import { clamp as $clamp } from '../src/clamp.js';
 
+const timer = {
+	category: 1500,
+	video: 1500,
+	channel: 1500,
+	featured: 1500,
+	trending: 1500
+};
+
 export default {
 
 	build() {
@@ -272,36 +280,39 @@ const load = {
 
 			if (tax) {
 
-				$.ajax({
-					url: V.ajax,
-					data: {
-						action: 'get_categories',
-						nonce: $('.banner').data('nonce'),
-						taxonomy: tax
-					}
-				}).done(function(data) {
-					data = JSON.parse(data.replace(/0$/, ''));
+				setTimeout(() => {
+					$.ajax({
+						url: V.ajax,
+						data: {
+							action: 'get_categories',
+							nonce: $('.banner').data('nonce'),
+							taxonomy: tax
+						}
+					}).done(function(data) {
+						data = JSON.parse(data.replace(/0$/, ''));
 
-					let box = $('<div class="list-wrap menu-box" />').appendTo(_me);
-					isMobile && (
-						box.removeClass('list-wrap'),
-						box = $('<div class="list-wrap" />').appendTo(box)
-					);
+						let box = $('<div class="list-wrap menu-box" />').appendTo(_me);
+						isMobile && (
+							box.removeClass('list-wrap'),
+							box = $('<div class="list-wrap" />').appendTo(box)
+						);
 
-					if (data.length) {
-						$.each(data, (i, cat) => {
-							box.append(
-								`<a href="${cat.link}" category="${cat.slug}" data-id="${cat.term_id}" class="list-button">
-										<img class="list-image" src="${cat.image}" />
-										<span class="list-count">${cat.count} Videos</span>
-										<span class="list-title">${cat.name}</span>
-									</a>`
-							);
-						});
-					}
-				});
+						if (data.length) {
+							$.each(data, (i, cat) => {
+								box.append(
+									`<a href="${cat.link}" category="${cat.slug}" data-id="${cat.term_id}" class="list-button">
+											<img class="list-image" src="${cat.image}" />
+											<span class="list-count">${cat.count} Videos</span>
+											<span class="list-title">${cat.name}</span>
+										</a>`
+								);
+							});
+						}
+					});
 
-				_me.addClass('is-created');
+					_me.addClass('is-created');
+					timer.channel = 0;
+				}, timer.channel);
 			}
 		});
 	},
@@ -328,45 +339,48 @@ const load = {
 
 		loaders.html('<div class="load-ripple"><div></div><div></div></div>');
 
-		$.ajax({
-			url: V.ajax,
-			data: {
-				action: 'get_featured',
-				nonce: $('.banner').data('nonce')
-			}
-		}).done(function(data) {
-			data = JSON.parse(data.replace(/0$/, ''));
+		setTimeout(() => {
+			$.ajax({
+				url: V.ajax,
+				data: {
+					action: 'get_featured',
+					nonce: $('.banner').data('nonce')
+				}
+			}).done(function(data) {
+				data = JSON.parse(data.replace(/0$/, ''));
 
-			if (data.length) {
+				if (data.length) {
 
-				$(loaders).each(function(i) {
-					const item = data[i];
+					$(loaders).each(function(i) {
+						const item = data[i];
 
-					$(this).attr('href', item ? item.link : '#').html(item ? `
-							<div class="thumb" style="background-image: url(${item.image})">
-								<div class="time">
-									<p>
-										<span class="number">${item.readTime}</span>
-										<span class="small"> min${item.readTime == 1 ? '' : 's'}</span>
-									</p>
+						$(this).attr('href', item ? item.link : '#').html(item ? `
+								<div class="thumb" style="background-image: url(${item.image})">
+									<div class="time">
+										<p>
+											<span class="number">${item.readTime}</span>
+											<span class="small"> min${item.readTime == 1 ? '' : 's'}</span>
+										</p>
+									</div>
 								</div>
-							</div>
-							<span class="title">${item.title}</span>` : ''
-					);
+								<span class="title">${item.title}</span>` : ''
+						);
 
-					if (item) {
-						// !!item.image.match(/\.jpg$/) &&
-						// 	$('.hidden-image').attr('src', item.image).imgColor(`#${$(this).attr('id')} .thumb`);
+						if (item) {
+							// !!item.image.match(/\.jpg$/) &&
+							// 	$('.hidden-image').attr('src', item.image).imgColor(`#${$(this).attr('id')} .thumb`);
 
-						const title = $('.title', this),
-							text = title.text();
-						$clamp(title.get(0), { clamp: 3 });
-						$(this).attr('title', text);
-					}
-				});
+							const title = $('.title', this),
+								text = title.text();
+							$clamp(title.get(0), { clamp: 3 });
+							$(this).attr('title', text);
+						}
+					});
 
-			} else $(loaders).html('');
-		});
+				} else $(loaders).html('');
+			});
+			timer.featured = 0;
+		}, timer.featured);
 	},
 
 	// INFO:: This adds the tabs to the menus
@@ -380,61 +394,65 @@ const load = {
 				$(this).data({ type, tax });
 
 				if (tax) {
-					$.ajax({
-						url: V.ajax,
-						data: {
-							action: 'get_categories',
-							nonce: $('.banner').data('nonce'),
-							taxonomy: tax
-						}
-					}).done(function(data) {
-						data = JSON.parse(data.replace(/0$/, ''));
+					setTimeout(() => {
 
-						_me.append($(
-							`<div class="tab-wrap menu-box">
-								<div class="tab-list"></div>
-								<div class="tab-box"></div>
-							</div>`
-						));
+						$.ajax({
+							url: V.ajax,
+							data: {
+								action: 'get_categories',
+								nonce: $('.banner').data('nonce'),
+								taxonomy: tax
+							}
+						}).done(function(data) {
+							data = JSON.parse(data.replace(/0$/, ''));
 
-						if (data.length) {
-							$.each(data, (i, cat) => {
-								$('.tab-list', _me).append(
-									`<a href="${cat.link}" category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
-										<span class="tab-title">${cat.name}</span>
-										<i class="tab-icon"></i>
-									</a>`
-								);
+							_me.append($(
+								`<div class="tab-wrap menu-box">
+									<div class="tab-list"></div>
+									<div class="tab-box"></div>
+								</div>`
+							));
 
-								$('.tab-box', _me).append(
-									`<div class="tab-category" category="${cat.slug}" data-page=0>
-										<a id="${ID()}" href="#" class="tab-post loader"></a>
-										<a id="${ID()}" href="#" class="tab-post loader"></a>
-										<a id="${ID()}" href="#" class="tab-post loader"></a>
-										<div class="tab-tub back">
-											<div class="tab-nav start disabled" action="start" category="${cat.slug}">${SVG.fast}</div>
-											<div class="tab-nav prev disabled" category="${cat.slug}">${SVG.arrow}</div>
-										</div>
-										<a href="${cat.link}" class="tab-nav all" category="${cat.slug}">${SVG.all}</a>
-										<div class="tab-tub forward">
-											<div class="tab-nav next disabled" category="${cat.slug}">${SVG.arrow}</div>
-											<div class="tab-nav end disabled" action="end" category="${cat.slug}">${SVG.fast}</div>
-										</div>
-									</div>`
-								);
-
-								$(`.tab-category[category=${cat.slug}]`, _me).on('click', 'div.tab-nav:not(.disabled)', function() {
-									load.content(
-										$(this).parents('.tab-wrap').find(`.tab-button[category=${$(this).attr('category')}]`),
-										$(this).hasClass('next') ? 1 : -1,
-										$(this).attr('action')
+							if (data.length) {
+								$.each(data, (i, cat) => {
+									$('.tab-list', _me).append(
+										`<a href="${cat.link}" category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
+											<span class="tab-title">${cat.name}</span>
+											<i class="tab-icon"></i>
+										</a>`
 									);
-								});
-							});
-						}
-					});
 
-					_me.addClass('is-created');
+									$('.tab-box', _me).append(
+										`<div class="tab-category" category="${cat.slug}" data-page=0>
+											<a id="${ID()}" href="#" class="tab-post loader"></a>
+											<a id="${ID()}" href="#" class="tab-post loader"></a>
+											<a id="${ID()}" href="#" class="tab-post loader"></a>
+											<div class="tab-tub back">
+												<div class="tab-nav start disabled" action="start" category="${cat.slug}">${SVG.fast}</div>
+												<div class="tab-nav prev disabled" category="${cat.slug}">${SVG.arrow}</div>
+											</div>
+											<a href="${cat.link}" class="tab-nav all" category="${cat.slug}">${SVG.all}</a>
+											<div class="tab-tub forward">
+												<div class="tab-nav next disabled" category="${cat.slug}">${SVG.arrow}</div>
+												<div class="tab-nav end disabled" action="end" category="${cat.slug}">${SVG.fast}</div>
+											</div>
+										</div>`
+									);
+
+									$(`.tab-category[category=${cat.slug}]`, _me).on('click', 'div.tab-nav:not(.disabled)', function() {
+										load.content(
+											$(this).parents('.tab-wrap').find(`.tab-button[category=${$(this).attr('category')}]`),
+											$(this).hasClass('next') ? 1 : -1,
+											$(this).attr('action')
+										);
+									});
+								});
+							}
+						});
+
+						_me.addClass('is-created');
+						timer[tax] = 0;
+					}, timer[tax]);
 				}
 			});
 		},
@@ -448,61 +466,66 @@ const load = {
 				_me.data({ type, tax });
 
 				if (tax) {
-					$.ajax({
-						url: V.ajax,
-						data: {
-							action: 'get_categories',
-							nonce: $('.banner').data('nonce'),
-							taxonomy: tax
-						}
-					}).done(function(data) {
-						data = JSON.parse(data.replace(/0$/, ''));
+					setTimeout(() => {
 
-						_me.append($(
-							`<div class="menu-box for-tabs">
-								<div class="tab-wrap"></div>
-							</div>`
-						));
+						$.ajax({
+							url: V.ajax,
+							data: {
+								action: 'get_categories',
+								nonce: $('.banner').data('nonce'),
+								taxonomy: tax
+							}
+						}).done(function(data) {
+							data = JSON.parse(data.replace(/0$/, ''));
 
-						if (data.length) {
-							$.each(data, (i, cat) => {
-								$('.tab-wrap', _me).append(
-									`<div category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
-										<span class="tab-title">${cat.name}</span>
-										<i class="tab-icon"></i>
-									</div>
-									<div class="tab-category" category="${cat.slug}" data-page=0>
-										<div class="tab-box">
-											<a id="${ID()}" href="#" class="tab-post loader"></a>
-											<a id="${ID()}" href="#" class="tab-post loader"></a>
-											<a id="${ID()}" href="#" class="tab-post loader"></a>
-											<div class="tab-flex">
-												<div class="tab-tub back">
-													<div class="tab-nav start disabled" action="start" category="${cat.slug}">${SVG.fast}</div>
-													<div class="tab-nav prev disabled" category="${cat.slug}">${SVG.arrow}</div>
-												</div>
-												<a href="${cat.link}" class="tab-nav all" category="${cat.slug}">${SVG.all}</a>
-												<div class="tab-tub forward">
-													<div class="tab-nav next disabled" category="${cat.slug}">${SVG.arrow}</div>
-													<div class="tab-nav end disabled" action="end" category="${cat.slug}">${SVG.fast}</div>
+							_me.append($(
+								`<div class="menu-box for-tabs">
+									<div class="tab-wrap"></div>
+								</div>`
+							));
+
+							if (data.length) {
+								$.each(data, (i, cat) => {
+									$('.tab-wrap', _me).append(
+										`<div category="${cat.slug}" data-id="${cat.term_id}" class="tab-button">
+											<span class="tab-title">${cat.name}</span>
+											<i class="tab-icon"></i>
+										</div>
+										<div class="tab-category" category="${cat.slug}" data-page=0>
+											<div class="tab-box">
+												<a id="${ID()}" href="#" class="tab-post loader"></a>
+												<a id="${ID()}" href="#" class="tab-post loader"></a>
+												<a id="${ID()}" href="#" class="tab-post loader"></a>
+												<div class="tab-flex">
+													<div class="tab-tub back">
+														<div class="tab-nav start disabled" action="start" category="${cat.slug}">${SVG.fast}</div>
+														<div class="tab-nav prev disabled" category="${cat.slug}">${SVG.arrow}</div>
+													</div>
+													<a href="${cat.link}" class="tab-nav all" category="${cat.slug}">${SVG.all}</a>
+													<div class="tab-tub forward">
+														<div class="tab-nav next disabled" category="${cat.slug}">${SVG.arrow}</div>
+														<div class="tab-nav end disabled" action="end" category="${cat.slug}">${SVG.fast}</div>
+													</div>
 												</div>
 											</div>
-										</div>
-									</div>`
-								);
-
-								$(`.tab-category[category=${cat.slug}]`, _me).on('click', 'div.tab-nav:not(.disabled)', function() {
-									load.content(
-										$(this).parents('.tab-wrap').find(`.tab-button[category=${$(this).attr('category')}]`),
-										$(this).hasClass('next') ? 1 : -1,
-										$(this).attr('action')
+										</div>`
 									);
-								});
-							});
-						}
-					});
 
-					_me.addClass('is-created');
+									$(`.tab-category[category=${cat.slug}]`, _me).on('click', 'div.tab-nav:not(.disabled)', function() {
+										load.content(
+											$(this).parents('.tab-wrap').find(`.tab-button[category=${$(this).attr('category')}]`),
+											$(this).hasClass('next') ? 1 : -1,
+											$(this).attr('action')
+										);
+									});
+								});
+							}
+						});
+
+						_me.addClass('is-created');
+
+						timer[tax] = 0;
+					}, timer[tax]);
 				}
 			});
 		}
@@ -586,38 +609,42 @@ const load = {
 	// INFO:: This loads the trending posts
 	trending() {
 
-		$.ajax({
-			url: V.ajax,
-			data: {
-				action: 'get_trending',
-				nonce: $('.banner').data('nonce')
-			}
-		}).done(function(data) {
-			data = JSON.parse(data.replace(/0$/, ''));
+		setTimeout(() => {
 
-			$('.trending-wrap:not(.is-created)').append(`
-					<a id="${ID()}" href="#" class="trending-button disabled"></a>
-					<a id="${ID()}" href="#" class="trending-button disabled"></a>
-					<a id="${ID()}" href="#" class="trending-button disabled"></a>
-					<a id="${ID()}" href="#" class="trending-button disabled"></a>
-				`).addClass('is-created');
+			$.ajax({
+				url: V.ajax,
+				data: {
+					action: 'get_trending',
+					nonce: $('.banner').data('nonce')
+				}
+			}).done(function(data) {
+				data = JSON.parse(data.replace(/0$/, ''));
 
-			$('.trending-wrap .trending-button').each(function(i) {
-				const item = data[i];
-				if (item) {
-					$(this).attr('href', item.link).text(item.title);
-				} else $(this).addClass('empty');
+				$('.trending-wrap:not(.is-created)').append(`
+						<a id="${ID()}" href="#" class="trending-button disabled"></a>
+						<a id="${ID()}" href="#" class="trending-button disabled"></a>
+						<a id="${ID()}" href="#" class="trending-button disabled"></a>
+						<a id="${ID()}" href="#" class="trending-button disabled"></a>
+					`).addClass('is-created');
+
+				$('.trending-wrap .trending-button').each(function(i) {
+					const item = data[i];
+					if (item) {
+						$(this).attr('href', item.link).text(item.title);
+					} else $(this).addClass('empty');
+				});
+
+				const enableOne = () => {
+					const els = $('.trending-wrap .trending-button.disabled:not(.empty)'),
+						i = Math.floor(Math.random() * els.length) + 1;
+					els.eq(i).removeClass('disabled').siblings().addClass('disabled');
+				};
+				enableOne();
+
+				setInterval(enableOne, 10000);
 			});
-
-			const enableOne = () => {
-				const els = $('.trending-wrap .trending-button.disabled:not(.empty)'),
-					i = Math.floor(Math.random() * els.length) + 1;
-				els.eq(i).removeClass('disabled').siblings().addClass('disabled');
-			};
-			enableOne();
-
-			setInterval(enableOne, 10000);
-		});
+			timer.trending = 0;
+		}, timer.trending);
 	}
 };
 
