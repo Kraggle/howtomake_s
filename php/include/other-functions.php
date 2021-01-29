@@ -551,3 +551,11 @@ if (!function_exists('get_slug_from_string')) {
 		return preg_replace('/-$/', '', substr(preg_replace('/-{1,}/', '-', strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $string))), 0, 55));
 	}
 }
+
+function get_status_code($url) {
+	$headers = @get_headers($url);
+	$headers = (is_array($headers)) ? implode("\n ", $headers) : $headers;
+
+	return $headers;
+	// return (bool) preg_match('#^HTTP/.*\s+[(200|301|302)]+\s#i', $headers);
+}

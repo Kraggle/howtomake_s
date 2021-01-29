@@ -75,7 +75,7 @@ function htm_add_head_stuff() {
 			]
 		],
 		"single" => (object) [
-			"query" => $base === 'single.php',
+			"query" => in_array($base, ['single.php', 'index.php']),
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-single",
