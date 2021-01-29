@@ -1006,6 +1006,13 @@ function htm_get_video_thumbnails() {
 	$json_file = wp_upload_dir()['basedir'] . '/yt-meta.json';
 	$yt_meta = file_exists($json_file) ? json_decode(file_get_contents($json_file), true) : [];
 
+	$nu_meta = [];
+	$ids = list_ids($posts);
+	foreach ($yt_meta as $key => $value)
+		if (in_array($key, $ids))
+			$nu_meta[$key] = $value;
+	$yt_meta = $nu_meta;
+
 	$get = [];
 	$got = [];
 	foreach ($posts as $post) {

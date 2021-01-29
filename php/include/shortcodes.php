@@ -175,6 +175,10 @@ function sitemap_item($object, $post_type, $type = 'post') {
 	$link = $type ? $object->link : get_term_link($object->term_id);
 	$name = $type ? $object->post_title : $object->name;
 
+	// !$type && logger(get_status_code($link));
+
+	// return;
+
 	ob_start(); ?>
 	<li class="list-item" id="<?php echo "{$post_type}_{$id}" ?>">
 		<a href="<?php echo $link ?>" class="list-link" title="<?php echo $name ?>">
@@ -183,14 +187,20 @@ function sitemap_item($object, $post_type, $type = 'post') {
 
 		<?php if ($type) {
 			$kids = get_results(
-				"SELECT p.ID, p.post_title, m.meta_value AS link
-				FROM wp_posts AS p, wp_postmeta AS m
-				WHERE 
-					p.post_type = '$post_type' AND
-					p.post_status = 'publish' AND
-					p.post_parent = $id AND
-					m.post_id = p.ID AND
-					m.meta_key = 'htm_permalink'
+				"SELECT
+					p.ID,
+					p.post_title,
+					m.meta_value AS link
+				FROM wp_postmeta m
+				INNER JOIN wp_posts p
+					ON m.post_id = p.ID
+				WHERE p.post_type = '$post_type'
+				AND p.post_status = 'publish'
+				AND p.post_parent = $id
+				AND m.meta_key = 'htm_permalink'
+				GROUP BY p.ID,
+						p.post_title,
+						m.meta_value
 				ORDER BY p.post_title ASC"
 			);
 
@@ -215,20 +225,34 @@ function htm_shortcode_sitemap() {
 	$post_types = get_post_types(array('public' => true), 'names', 'and');
 	$taxonomies = htm_get_taxonomies();
 
+	global $wpdb;
+	$wpdb->query(
+		"DELETE
+		FROM wp_postmeta
+		WHERE meta_key = 'htm_permalink'
+		AND meta_value LIKE '%-autosave-%'"
+	);
+
 	ob_start();
 
 	foreach ($post_types as $post_type) {
 		if (!get_option("htm_sitemap_include_$post_type")) continue;
 
 		$posts = get_results(
-			"SELECT p.ID, p.post_title, m.meta_value AS link
-			FROM wp_posts AS p, wp_postmeta AS m
-			WHERE 
-				p.post_type = '$post_type' AND
-				p.post_status = 'publish' AND
-				p.post_parent = 0 AND
-				m.post_id = p.ID AND
-				m.meta_key = 'htm_permalink'
+			"SELECT
+				p.ID,
+				p.post_title,
+				m.meta_value AS link
+			FROM wp_postmeta m
+			INNER JOIN wp_posts p
+				ON m.post_id = p.ID
+			WHERE p.post_type = '$post_type'
+			AND p.post_status = 'publish'
+			AND p.post_parent = 0
+			AND m.meta_key = 'htm_permalink'
+			GROUP BY p.ID,
+					p.post_title,
+					m.meta_value
 			ORDER BY p.post_title ASC"
 		);
 

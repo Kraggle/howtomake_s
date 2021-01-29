@@ -261,5 +261,7 @@ add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 
 add_action('post_updated', function ($id, $post) {
 	$link = get_permalink($id);
-	htm_set_permalink($id, $link, $post);
+
+	if (!preg_match('/-autosave-/', $link))
+		htm_set_permalink($id, $link, $post);
 }, 20, 2);

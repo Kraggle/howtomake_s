@@ -394,9 +394,13 @@ function get_results(string $query) {
 	return $wpdb->get_results($query);
 }
 
+function has_post_meta($id, $key) {
+	return !empty(get_post_meta($id, $key, true));
+}
+
 function htm_set_permalink($id, $link, $post) {
 
-	if (get_post_meta($id, 'htm_permalink', true))
+	if (has_post_meta($id, 'htm_permalink'))
 		update_post_meta($id, 'htm_permalink', $link);
 	else
 		add_post_meta($id, 'htm_permalink', $link);
@@ -556,6 +560,6 @@ function get_status_code($url) {
 	$headers = @get_headers($url);
 	$headers = (is_array($headers)) ? implode("\n ", $headers) : $headers;
 
-	return $headers;
-	// return (bool) preg_match('#^HTTP/.*\s+[(200|301|302)]+\s#i', $headers);
+	preg_match('#HTTP/.*\s+(\d{3})\s#i', $headers, $match);
+	return count($match) ? $match[1] : false;
 }
