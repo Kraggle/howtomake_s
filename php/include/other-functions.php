@@ -1,5 +1,7 @@
 <?php
 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/image.php');
+
 /**
  * This is used to run tasks only once the plugin version
  * changes or it is activated for the first time.
@@ -127,6 +129,9 @@ function get_all_image_sizes() {
 function generate_category_thumbnails($object_id) {
 
 	$image = get_post($object_id);
+
+	if (!$image) return false;
+
 	$upload_dir = wp_upload_dir();
 	$image_fullpath = get_attached_file($image->ID);
 
@@ -207,7 +212,7 @@ function generate_category_thumbnails($object_id) {
 	}
 
 	$metadata = wp_generate_attachment_metadata($image->ID, $image_fullpath);
-	// wp_update_attachment_metadata($image->ID, $metadata);
+	wp_update_attachment_metadata($image->ID, $metadata);
 }
 
 if (!function_exists('to_object')) {
@@ -454,8 +459,9 @@ function get_video_info_for_post($post) {
 	if (!$post) $post = $id;
 	if (!$post || get_post_type($post) !== 'video') return 0;
 
-	$info = get_video_info_for_ids(get_post_meta($post, 'youtube_video_id', true), true);
-	save_video_info_for_post($post, $info);
+	if ($info = get_video_info_for_ids(get_post_meta($post, 'youtube_video_id', true), true))
+		if (save_video_info_for_post($post, $info))
+			add_post_meta($id, 'htm_youtube_refreshed', true);
 }
 
 /**
@@ -473,7 +479,7 @@ function get_video_info_for_ids($ids, $single = false) {
 	$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=$ids&key=" . K_YT_API_KEY);
 	$result = json_decode($json_result);
 
-	return $single && count($result->items) ? $result->items[0] : $result;
+	return count($result->items) ? ($single ? $result->items[0] : $result) : false;
 }
 
 global $avoid_other_sizes;
@@ -484,7 +490,7 @@ function save_video_info_for_post($post, $info) {
 	$thumbs = $info->snippet->thumbnails;
 	$thumb = $thumbs->maxres ?: ($thumbs->standard ?: ($thumbs->high ?: ($thumbs->medium ?: $thumbs->default)));
 
-	$image = file_get_contents($thumb->url);
+	$image = @file_get_contents($thumb->url);
 	if (!$image) return false;
 
 	// remove old attachment if one exists

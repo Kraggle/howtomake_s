@@ -127,6 +127,14 @@ $(() => {
 				};
 
 				loopCall();
+
+				// setTimeout(() => {
+				// 	loopCall();
+				// }, 1000);
+
+				// setTimeout(() => {
+				// 	loopCall();
+				// }, 2000);
 			} else {
 
 				ajax(action, data => {
