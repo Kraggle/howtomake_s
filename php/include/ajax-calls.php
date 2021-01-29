@@ -1079,6 +1079,7 @@ function htm_set_video_thumbnails() {
 			if ($attachment_id = get_post_thumbnail_id($id))
 				wp_delete_attachment($attachment_id, true);
 			wp_delete_post($id, true);
+			unset($yt_meta[$id]);
 			$return->message[] = "Deleted post ID -> $id as the youtube ID no longer existed.";
 			continue;
 		}
