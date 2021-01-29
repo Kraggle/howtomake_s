@@ -2,7 +2,7 @@
 ?>
 
 <div id="g_<?php echo $id ?>" class="gallery-item<?php echo $args['i'] == 0 ? ' active' : '' ?>" index="<?php echo $args['i'] ?>">
-	<div class="gallery-image" style="background-image:url(<?php echo get_the_post_thumbnail_url(null, 'large') ?>)"></div>
+	<div class="gallery-image" style="background-image:url(<?php echo get_the_post_thumbnail_url(null, 'featured') ?>)"></div>
 	<div class="gallery-content">
 		<h2 class="gallery-title">
 			<?php echo get_the_title() ?>

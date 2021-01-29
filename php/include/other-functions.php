@@ -58,20 +58,22 @@ function logger_object($object) {
 	fclose($fp);
 }
 
-function logger() {
-	if (!IS_DEBUG) return;
+if (!function_exists('logger')) {
+	function logger() {
+		if (!IS_DEBUG) return;
 
-	$db = array_shift(debug_backtrace());
-	$line = $db['line'];
-	$file = $db['file'];
+		$db = array_shift(debug_backtrace());
+		$line = $db['line'];
+		$file = $db['file'];
 
-	$msg = "$file:$line [logger]";
+		$msg = "$file:$line [logger]";
 
-	foreach (func_get_args() as $arg) {
-		$msg .= "\n" . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg, JSON_PRETTY_PRINT));
+		foreach (func_get_args() as $arg) {
+			$msg .= "\n" . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg, JSON_PRETTY_PRINT));
+		}
+
+		error_log($msg . "\n");
 	}
-
-	error_log($msg . "\n");
 }
 
 function logger_print() {
@@ -205,15 +207,31 @@ function generate_category_thumbnails($object_id) {
 	}
 
 	$metadata = wp_generate_attachment_metadata($image->ID, $image_fullpath);
-	wp_update_attachment_metadata($image->ID, $metadata);
+	// wp_update_attachment_metadata($image->ID, $metadata);
 }
 
-function to_object($array) {
-	return json_decode(json_encode($array), false);
+if (!function_exists('to_object')) {
+	/**
+	 * Converts a multidimensional array to an object.
+	 * 
+	 * @param array   $array The array to convert.
+	 * @return object The converted array.
+	 */
+	function to_object($array) {
+		return json_decode(json_encode($array), false);
+	}
 }
 
-function to_array($array) {
-	return json_decode(json_encode($array), true);
+if (!function_exists('to_array')) {
+	/**
+	 * Converts an object to a multidimensional array.
+	 * 
+	 * @param object $object The object to convert.
+	 * @return array The converted object.
+	 */
+	function to_array($object) {
+		return json_decode(json_encode($object), true);
+	}
 }
 
 function preg_number_range($number, $range = 1) {
@@ -393,4 +411,137 @@ function htm_set_permalink($id, $link, $post) {
 
 function get_php_library($file = '') {
 	return get_template_directory() . '/php/libraries/' . $file;
+}
+
+/**
+ * Return the video thumbnail URL.
+ *
+ * @since 4.4.0
+ *
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object.  Default is global `$post`.
+ * @param string|array $size Optional. Registered image size to retrieve the source for or a flat
+ *                           array of height and width dimensions. Default 'post-thumbnail'.
+ * @return string|false Post thumbnail URL or false if no URL is available.
+ */
+function get_the_video_thumbnail_url($post = null, $size = 'post-thumbnail') {
+	if (!$post_thumbnail_id = get_post_thumbnail_id($post)) {
+
+		get_video_info_for_post($post);
+
+		if (!$post_thumbnail_id = get_post_thumbnail_id($post)) {
+			logger('Something went terribly wrong, there is no image on youtube!');
+			return false;
+		}
+	} else {
+
+		$path = get_post_meta($post_thumbnail_id, '_wp_attached_file', true);
+		if (!upload_file_exists($path)) {
+			get_video_info_for_post($post);
+
+			$post_thumbnail_id = get_post_thumbnail_id($post);
+		}
+	}
+
+	return wp_get_attachment_image_url($post_thumbnail_id, $size);
+}
+
+function upload_file_exists($path) {
+	return !$path ? false : file_exists(wp_upload_dir()['basedir'] . '/' . $path);
+}
+
+function get_video_info_for_post($post) {
+	global $id;
+	if (!$post) $post = $id;
+	if (!$post || get_post_type($post) !== 'video') return 0;
+
+	$info = get_video_info_for_ids(get_post_meta($post, 'youtube_video_id', true), true);
+	save_video_info_for_post($post, $info);
+}
+
+/**
+ * Pull video information from youtube api for upto 50 youtube ids.
+ * 
+ * @param string|string[] $ids    The youtube id(s)
+ * @param bool            $single (optional) True to return the first result. Default false.
+ * @return object		  The results from youtube api. 
+ */
+function get_video_info_for_ids($ids, $single = false) {
+	if (is_array($ids))
+		$ids = implode('%2C', $ids);
+
+	// video json data
+	$json_result = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=$ids&key=" . K_YT_API_KEY);
+	$result = json_decode($json_result);
+
+	return $single && count($result->items) ? $result->items[0] : $result;
+}
+
+global $avoid_other_sizes;
+$avoid_other_sizes = false;
+
+function save_video_info_for_post($post, $info) {
+	// $content = $info->snippet->description;
+	$thumbs = $info->snippet->thumbnails;
+	$thumb = $thumbs->maxres ?: ($thumbs->standard ?: ($thumbs->high ?: ($thumbs->medium ?: $thumbs->default)));
+
+	$image = file_get_contents($thumb->url);
+	if (!$image) return false;
+
+	// remove old attachment if one exists
+	if ($attachment_id = get_post_thumbnail_id($post))
+		wp_delete_attachment($attachment_id, true);
+
+	$finfo = new finfo(FILEINFO_MIME);
+	$mimeType = $finfo->buffer($image);
+
+	$fileExt = [
+		'image/png' => 'png',
+		'image/jpg' => 'jpg',
+		'image/jpeg' => 'jpg',
+		'image/jpeg' => 'jpeg',
+		'image/gif' => 'gif',
+		'image/svg' => 'svg'
+	];
+
+	$ext = $fileExt[$mimeType] ?: 'jpg';
+
+	$slug = get_slug_from_string($info->snippet->title);
+	$filename = $post . '-' . $slug . '.' . $ext;
+
+	$filePath = wp_upload_dir()['basedir'] . "/yt-thumb/$filename";
+
+	if (!file_exists($filePath))
+		file_put_contents($filePath, $image);
+
+	$mediaId = wp_insert_attachment([
+		'post_title' => wp_strip_all_tags($info->snippet->title),
+		'post_content' => '',
+		'post_mime_type' => $mimeType,
+		'post_status'    => 'inherit'
+	], $filePath, $post);
+
+	global $avoid_other_sizes;
+	$avoid_other_sizes = true;
+
+	// Generate the metadata for the attachment, and update the database record.
+	$attach_data = wp_generate_attachment_metadata($mediaId, $filePath);
+	wp_update_attachment_metadata($mediaId, $attach_data);
+	set_post_thumbnail($post, $mediaId);
+
+	$avoid_other_sizes = false;
+
+	wp_update_post(array(
+		'ID' => $mediaId,
+		'post_parent' => $post
+	));
+
+	wp_set_object_terms($mediaId, 'video-featured-images', 'attachment_category', true);
+
+	return true;
+}
+
+if (!function_exists('get_slug_from_string')) {
+	function get_slug_from_string($string) {
+		return preg_replace('/[^a-zA-Z0-9]+/', '-', $string);
+	}
 }

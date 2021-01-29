@@ -3,8 +3,8 @@ import V from './custom/Paths.js';
 
 $(() => {
 
-	// time.build($('.ks-progress-time'));
-	// feed.build($('.ks-feed-text'));
+	time.build($('.ks-progress-time'));
+	feed.build($('.ks-feed-text'));
 
 	// feed.add('Some message to append to the log!');
 	// feed.add('Another thing to just test it works.');
@@ -85,6 +85,9 @@ $(() => {
 
 				if (data.ids)
 					$(`#${other}`).data('ids', data.ids);
+
+				if (data.data)
+					$(`#${other}`).data('data', data.data);
 			});
 
 		} else {
@@ -92,7 +95,8 @@ $(() => {
 				return;
 
 			const loop = parseInt($(this).attr('repeat') || 0),
-				ids = $(this).data('ids');
+				ids = $(this).data('ids'),
+				dataRelay = $(this).data('data');
 
 			if (loop && ids.length) {
 
@@ -109,7 +113,8 @@ $(() => {
 					}
 
 					ajax(action, {
-						ids: ids.splice(0, loop)
+						ids: ids.splice(0, loop),
+						data: dataRelay
 					}, data => {
 						if (data.success) {
 							$(`#${$(`#${other}`).attr('count')}`).val(ids.length);
@@ -176,6 +181,14 @@ function ajax(action) {
 	}).done(result => {
 		result = JSON.parse(result.replace(/0$/, ''));
 		// console.log(result);
+
+		if (result.message) {
+			$.each(result.message, (i, v) => {
+				setTimeout(() => {
+					feed.add(v);
+				}, i * 250);
+			});
+		}
 
 		callback(result);
 	});
@@ -244,11 +257,10 @@ const time = {
 	time(ms) {
 		let seconds = (ms / 1000).toFixed(0),
 			minutes = Math.floor(seconds / 60),
-			hours = "";
+			hours = '';
 		if (minutes > 59) {
 			hours = Math.floor(minutes / 60);
 			minutes = minutes - (hours * 60);
-			minutes = (minutes >= 10) ? minutes : "0" + minutes;
 		}
 
 		seconds = Math.floor(seconds % 60);
@@ -267,4 +279,4 @@ const time = {
 		this.remain = left;
 		return this;
 	}
-}
+};

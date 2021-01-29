@@ -60,6 +60,18 @@ $menu_items = [
 		</div>
 		<button id="setRT" class="ks-button" action="set_regenerate_thumbnails" other="getRT" repeat=1>Regenerate</button>
 	</div>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Regenerate Video Thumbnails</span>
+		<span class="ks-desc">Goes through all video posts and ensures the attachment images both exist and are at the best posible resolution. It also deletes the old smaller sizes and regenerates the rest. This also uses the category sizes, so you don't get loads of images that are never going to be used.</span>
+		<div class="flex row">
+			<label for="vtCount" class="ks-label">Quantity</label>
+			<input id="vtCount" class="ks-input" type="number" readonly />
+			<div class="spacer"></div>
+			<button id="getVT" class="ks-button" action="get_video_thumbnails" count="vtCount" other="setVT">Get Quantity</button>
+		</div>
+		<button id="setVT" class="ks-button" action="set_video_thumbnails" other="getVT" repeat=1>Regenerate</button>
+	</div>
 <?php }
 	], (object) [
 		'name' => 'Page Settings',

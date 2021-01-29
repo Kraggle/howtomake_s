@@ -4,7 +4,7 @@
 <article id="l_<?php echo $id ?>" class="entry <?php echo get_post_type() ?>">
 
 	<a href="<?php echo get_permalink() ?>" class="entry-image <?php echo get_post_type() ?>">
-		<img alt="<?php the_title_attribute() ?>" src="<?php echo get_the_post_thumbnail_url(null, 'medium') ?>">
+		<img alt="<?php the_title_attribute() ?>" src="<?php echo get_the_post_thumbnail_url(null, 'result') ?>">
 	</a>
 
 	<h2 class="entry-title">

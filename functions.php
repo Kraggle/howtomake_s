@@ -9,7 +9,8 @@
  */
 
 define('IS_LIVE', $_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com');
-define('IS_DEBUG', IS_LIVE ? false : true);
+if (!defined('IS_DEBUG'))
+	define('IS_DEBUG', IS_LIVE ? false : true);
 
 // Replace the version number of the theme on each release.
 if (!defined('_S_VERSION'))
@@ -125,6 +126,10 @@ add_action('after_setup_theme', function () {
 	 * image categories.
 	 */
 	add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta, $attachment_id) {
+		global $avoid_other_sizes;
+		if ($avoid_other_sizes)
+			return array();
+
 		$terms = wp_get_object_terms($attachment_id, 'attachment_category');
 		return count($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
 	}, 10, 3);

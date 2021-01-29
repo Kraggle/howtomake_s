@@ -20,16 +20,17 @@ function add_ajax_action($name) {
 /**
  * Converts the returned SQL query into an array or string of ids.
  * 
- * @param array $a      The SQL result
- * @param string $id    The key of the id
- * @param string $type  The return type (array|string)
+ * @param array  $a         The SQL result
+ * @param string $id        The key of the id, default 'ID'
+ * @param string $type      The return type (array|string), default 'array'
+ * @param string $delimiter If $type is string, what to join with, default ','
  * @return array|string Depending on the value of $type
  */
-function list_ids($a, $id = 'ID', $type = 'array') {
+function list_ids($a, $id = 'ID', $type = 'array', $delimiter = ',') {
 	$ids = [];
 	foreach ($a as $value)
 		$ids[] = is_numeric($value->$id) ? intval($value->$id) : $value->$id;
-	return $type == 'array' ? $ids : implode(',', $ids);
+	return $type == 'array' ? $ids : implode($delimiter, $ids);
 }
 
 function get_image_id_by_filename($name) {
@@ -583,7 +584,6 @@ function htm_set_missing_category() {
 			));
 		}
 
-
 		foreach ($v['type'] as $type) {
 			wp_set_object_terms($id, $terms->$type, 'attachment_category', $type == 'unused-images' ? false : true);
 		}
@@ -957,7 +957,6 @@ function htm_set_sitemap_settings() {
 }
 add_ajax_action('set_sitemap_settings');
 
-
 /**
  * Used by How to Make - Page Settings to change sitemap settings
  * 
@@ -978,3 +977,122 @@ function htm_set_permalinks() {
 	echo json_encode(['success' => true]);
 }
 add_ajax_action('set_permalinks');
+
+/**
+ * Used by How to Make - Media Editor to get the video thumbnails that need regenerating
+ * 
+ * @return void 
+ */
+function htm_get_video_thumbnails() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	global $wpdb;
+
+	$posts = $wpdb->get_results(
+		"SELECT p.ID, pm.meta_value AS yt_id
+		FROM `wp_posts` As p, `wp_postmeta` AS pm 
+		WHERE 
+			p.post_type LIKE 'video' AND
+			p.ID = pm.post_id AND
+			pm.meta_key LIKE 'youtube_video_id' AND
+			p.ID NOT IN (
+				SELECT `post_id`
+				FROM `wp_postmeta`
+				WHERE `meta_key` LIKE 'htm_youtube_refreshed'
+			)"
+	);
+
+	$json_file = wp_upload_dir()['basedir'] . '/yt-meta.json';
+	$yt_meta = file_exists($json_file) ? json_decode(file_get_contents($json_file), true) : [];
+
+	$get = [];
+	$got = [];
+	foreach ($posts as $post) {
+		if ($yt_meta[$post->ID])
+			$got[] = $post;
+		else
+			$get[] = $post;
+	}
+
+	$blocks = array_chunk($get, 50);
+	foreach ($blocks as $block) {
+		$yt_ids = list_ids($block, 'yt_id');
+
+		$items = get_video_info_for_ids($yt_ids)->items;
+
+		foreach ($block as $post) {
+			$i = array_search($post->yt_id, array_column($items, 'id'));
+			if (is_numeric($i)) {
+				$item = $items[$i];
+				$yt_meta[$post->ID] = [
+					'id' => $item->id,
+					'snippet' => [
+						'thumbnails' => $item->snippet->thumbnails,
+						'title' => $item->snippet->title,
+					]
+				];
+			} else $yt_meta[$post->ID] = [
+				'delete' => $post->ID
+			];
+		}
+	}
+
+	file_put_contents($json_file, json_encode($yt_meta));
+
+	$ids = array_keys($yt_meta);
+	$return = (object) [
+		'ids' => $ids
+	];
+	$return->count = count($ids);
+	echo json_encode($return);
+}
+add_ajax_action('get_video_thumbnails');
+
+/**
+ * Used by How to Make - Media Editor to regenerate the video images from youtube data
+ * 
+ * @return void 
+ */
+function htm_set_video_thumbnails() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+	$ids = $_REQUEST['data']['ids'];
+
+	$json_file = wp_upload_dir()['basedir'] . '/yt-meta.json';
+
+	if (!file_exists($json_file)) {
+		$return->success = false;
+		$return->message[] = 'Failed to open the Youtube Metadata file.';
+		echo json_encode($return);
+		return;
+	}
+
+	$yt_meta = json_decode(file_get_contents($json_file), true);
+
+	foreach ($ids as $id) {
+		$meta = to_object($yt_meta[$id]);
+
+		if ($meta->delete) {
+			if ($attachment_id = get_post_thumbnail_id($id))
+				wp_delete_attachment($attachment_id, true);
+			wp_delete_post($id, true);
+			$return->message[] = "Deleted post ID -> $id as the youtube ID no longer existed.";
+			continue;
+		}
+
+		if (save_video_info_for_post($id, $meta)) {
+			unset($yt_meta[$id]);
+			add_post_meta($id, 'htm_youtube_refreshed', true);
+			$return->message[] = "Saved new images for post ID -> $id, deleted the old ones and set the category.";
+		} else $return->message[] = "Couldn't save the image for post ID -> $id.";
+	}
+
+	file_put_contents($json_file, json_encode($yt_meta));
+
+	$return->success = true;
+	echo json_encode($return);
+}
+add_ajax_action('set_video_thumbnails');
