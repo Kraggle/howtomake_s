@@ -548,6 +548,6 @@ function save_video_info_for_post($post, $info) {
 
 if (!function_exists('get_slug_from_string')) {
 	function get_slug_from_string($string) {
-		return preg_replace('/[^a-zA-Z0-9]+/', '-', $string);
+		return preg_replace('/-$/', '', substr(preg_replace('/-{1,}/', '-', strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $string))), 0, 55));
 	}
 }
