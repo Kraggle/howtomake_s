@@ -1091,7 +1091,7 @@ function htm_set_video_thumbnails() {
 			continue;
 		}
 
-		if (save_video_info_for_post($id, $meta)) {
+		if (save_video_image_for_post($id, $meta)) {
 			unset($yt_meta[$id]);
 			add_post_meta($id, 'htm_youtube_refreshed', true);
 			$return->message[] = "Saved new images for post ID -> $id, deleted the old ones and set the category.";

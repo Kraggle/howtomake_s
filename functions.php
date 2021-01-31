@@ -19,6 +19,13 @@ if (!defined('_S_VERSION'))
 if (!defined('K_YT_API_KEY'))
 	define('K_YT_API_KEY', 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8');
 
+if (!defined('K_YT_API_KEYS'))
+	define('K_YT_API_KEYS', [
+		'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
+		'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
+		'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
+	]);
+
 global $htm__s_version;
 $htm__s_version = '0.1.10';
 

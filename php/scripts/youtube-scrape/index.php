@@ -1,295 +1,278 @@
 <?php
+// INFO: A lot has changed in this scraper.
+// INFO:  - It now checks for dead links and duplicates
+// INFO:  - All options have been removed while running it as they are now automatic
+// INFO:  - The listSearch has been removed as that was quota hungry consuming 100 units each time
+// INFO:  - All new youtube calls only consume 1 unit for each call
+// INFO:  - There is now a few methods of skipping if the channel has already run today
+// INFO:  - There is a timer that will end the script before a timeout and resume the script again
 
-// http://localhost/youtube-scrape/?from=2019-01-01&to=2019-02-28&loop=1
-// /wp-content/themes/howtomake/youtube-scrape/?from=2019-01-01&loop=1
-// /wp-content/themes/howtomake/youtube-scrape/?from=2019-12-15&to=2019-12-30
-//
+$force = isset($_GET['force']) ? $_GET['force'] : false;
+
+?>
+
+<html>
+
+<head>
+	<title>Youtube Scraper - HTMMFH</title>
+
+	<style>
+		.logs pre {
+			line-height: 1.4;
+			font-size: 14px;
+			font-family: monospace;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="logs"></div>
+
+	<form method="GET" action="">
+		<input type="hidden" name="action" value="import" />
+		<?php $isChecked = $force ? 'checked' : '' ?>
+		<p>
+			<label>
+				<span>Force update: </span>
+				<input type="checkbox" name="force" <?php echo $isChecked ?> />
+			</label>
+		</p>
+		<p><input type="submit" value="Go" /></p>
+	</form>
+
+	<script type="module" src="index.js"></script>
+</body>
+
+</html>
+
+<?php
+
 $postAuthor = 1;
 $maxResults = 50; // max: 50
 
-// ------------------------------------------------------------------
+$maxTime = (ini_get('max_execution_time') - 20);
+$endAt = strtotime("+{$maxTime} seconds");
 
+// ------------------------------------------------------------------
 include('../../vendor/autoload.php');
 
 if (!defined('ABSPATH')) {
 	require_once("../../../../../../wp-load.php");
 }
 
+// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
+require_once(ABSPATH . 'wp-admin/includes/image.php');
+
 require_once __DIR__ . '/../../include/functions.php';
 
 // ================================== Settings End =======================================
 
-$wp_upload_dir = wp_upload_dir();
+if (!file_exists('./logs/'))
+	mkdir('./logs/');
 
-$uploadDir = $wp_upload_dir['basedir'] . '/yt-thumb';
-if (!file_exists($uploadDir)) wp_mkdir_p($uploadDir);
+$log = videoLogger::getInstance('./logs/log' . date('[d-M-Y H]') . '.txt');
 
-if (isset($_GET['action'])) {
-
-	switch ($_GET['action']) {
-		case 'import':
-			if (isset($_GET['from'])) {
-				$publishedAfter = $_GET['from'] . ' 00:00:00';
-				$publishedAfterObj = new DateTime($publishedAfter);
-			}
-			// else{
-			// 	$publishedAfter = file_get_contents('last-run.txt');
-			// 	$publishedAfter = trim($publishedAfter);
-			// 	if(!$publishedAfter)$publishedAfter = '2000-01-01 00:00:00';
-			// }
-
-			// $publishedBefore = null;
-			// $publishedBeforeObj = null;
-
-			if (isset($_GET['to'])) {
-				$publishedBefore = $_GET['to'] . ' 23:59:59';
-				$publishedBeforeObj = new DateTime($publishedBefore);
-			}
-			// else{
-			// 	$publishedBeforeObj = $publishedAfterObj->modify('+1month');
-			// }
-
-			//echo "Getting videos uploaded from <b>$publishedAfter</b>" . ($publishedBefore?' to <b>'.$publishedBefore.'</b>':'') . $nl;
-
-			// Get Channels
-			$channels = get_terms(['taxonomy' => 'video-channel', 'hide_empty' => false]);
-
-			$rows = [];
-			$videoIds = []; // Holds YT video ID => PostID relationship for grabbing further info
-
-			if (isset($_GET['channels'])) $channels = array_slice($channels, 0, $_GET['channels']);
-
-			foreach ($channels as $channel) {
-
-				echo $nl . $nl . "<b>" . $channel->name . ":</b>" . $nl;
-
-				$importerEnabled = get_field('importer_enabled', $channel, true);
-
-				// Skip unless importer is enabled
-				if (!$importerEnabled || !is_array($importerEnabled) || !$importerEnabled[0]) {
-					echo 'Skipping, importer disabled' . $nl;
-					continue;
-				}
-
-				$ytChannelId = get_field('yt_channel_id', $channel, true);
-				$videoCategories = get_field('video_categories', $channel, true);
-
-				// Get start date from Channel field
-				if (!isset($_GET['from'])) {
-					$importStart = get_field('imported_up_to', $channel, true);
-					$importStart = trim($importStart);
-
-					$importStartDate = empty($importStart) ? '2000-01-01' : $importStart;
-					$publishedAfterObj = new DateTime($importStartDate);
-
-					$publishedBeforeObj = clone $publishedAfterObj;
-					$publishedBeforeObj->modify('+1month');
-				}
-
-				$currentTime = new DateTime('now');
-
-				// Don't go past now
-				if ($publishedBeforeObj > $currentTime) $publishedBeforeObj = $currentTime;
-
-				$optParams = array(
-					'channelId' => $ytChannelId,
-					'maxResults' => $maxResults,
-					'order' => 'date',
-					'type' => 'video',
-					'publishedAfter' => $publishedAfterObj->format(DateTimeInterface::ATOM),
-					'publishedBefore' => $publishedBeforeObj->format(DateTimeInterface::ATOM),
-					'videoEmbeddable' => 'true'
-				);
-
-				try {
-					$results = getYoutubeService()->search->listSearch('snippet', $optParams);
-
-					// Used to batch calls to video>list
-
-					//var_dump($results);exit;
-					echo $publishedAfterObj->format("Y-m-d H:i:s") . " - " . $publishedBeforeObj->format("Y-m-d H:i:s") . " | Results: " . count($results->items) . $nl;
-
-					foreach ($results->items as $item) {
-						echo ' - ' . $item->id->videoId . " - " . $item->snippet->title;
-
-						$existingPost = get_page_by_title(wp_strip_all_tags($item->snippet->title), OBJECT, 'video');
-						if ($existingPost) {
-							//var_dump($existingPost);exit;
-						}
-						if (isset($_GET['delete']) && $_GET['delete'] == '1') {
-							wp_delete_post($existingPost->ID, true);
-						} else {
-							if ($existingPost) {
-								echo "[exists]" .  $nl;
-								continue;
-							}
-						}
-
-						$row = [
-							$item->snippet->channelId,
-							$item->id->videoId,
-							$item->snippet->publishedAt,
-
-							$item->snippet->title,
-							$item->snippet->description,
-							$item->snippet->publishedAt
-						];
-
-						if ($item->snippet->thumbnails) $row[] = $item->snippet->thumbnails->high->url;
-
-						$postdate = new DateTime($item->snippet->publishedAt);
-
-						$my_post = array(
-							'post_title'    => wp_strip_all_tags($item->snippet->title),
-							'post_content'  => $item->snippet->description,
-							'post_status'   => 'publish',
-							'post_author'   => $postAuthor,
-							'post_type'	  => 'video',
-							'post_date'     => $postdate->format('Y-m-d H:i:s'),
-						);
-
-						// Insert the post into the database
-						$postId = wp_insert_post($my_post);
-
-						echo "[added]" .  $nl;
-
-						if ($postId) {
-
-							update_field('youtube_video_id', $item->id->videoId, $postId);
-
-							// Assign to channel
-							wp_set_object_terms($postId, $channel->term_taxonomy_id, 'video-channel');
-
-							wp_set_object_terms($postId, $videoCategories, 'video-category');
-
-							// Add ID to array for getting extra YT data later
-							$videoIds[$item->id->videoId] = $postId;
-
-							// TODO: Get this to grab the largest size available and to set the image category
-							if (!$item->snippet->thumbnails || !$item->snippet->thumbnails->high->url) continue;
-
-							$image = file_get_contents($item->snippet->thumbnails->high->url);
-							if (!$image) continue;
-
-							$finfo = new finfo(FILEINFO_MIME);
-							$mimeType = $finfo->buffer($image);
-
-							$fileExt = [
-								'image/png' => 'png',
-								'image/jpg' => 'jpg',
-								'image/jpeg' => 'jpg',
-								'image/jpeg' => 'jpeg',
-								'image/gif' => 'gif',
-								'image/svg' => 'svg'
-							];
-
-							$ext = isset($fileExt[$mimeType]) ? $fileExt[$mimeType] : 'jpg';
-							if (!$ext) $ext = 'jpg';
-
-							$slug = get_slug_from_string($item->snippet->title, null, 'display');
-							$filename = $postId . '-' . $slug . '.' . $ext;
-
-							$filePath = $uploadDir . '/' . $filename;
-
-							if (!file_exists($filePath))
-								file_put_contents($filePath, $image);
-
-							$mediaId = wp_insert_attachment(['post_title' => wp_strip_all_tags($item->snippet->title), 'post_content' => '', 'post_mime_type' => $mimeType, 'post_status'    => 'inherit'], $filePath, $postId);
-
-							// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
-							require_once(ABSPATH . 'wp-admin/includes/image.php');
-
-							// Generate the metadata for the attachment, and update the database record.
-							$attach_data = wp_generate_attachment_metadata($mediaId, $filePath);
-							wp_update_attachment_metadata($mediaId, $attach_data);
-
-							set_post_thumbnail($postId, $mediaId);
-						}
-
-						$rows[] = $row;
-
-						file_put_contents('youtube-videos.txt', print_r($item, true));
-					} // EOF: foreach ($results->items as $item) {
-
-					// echo "<br><br>---------------------------------<br><br><pre>";
-					// var_dump($results);
-					// echo "</pre>";
-				} catch (Exception $e) {
-					echo 'Exception: ' . $e->getMessage();
-				}
-
-				// Save date to channel so that next call starts from there
-				update_field('imported_up_to', $publishedBeforeObj->format('Y-m-d H:i:s'), $channel);
-			} // foreach channels
-
-			// Get extra video data from Youtube
-			getExtraYoutubeInfo($videoIds);
-
-			// Write to CSV
-			// $fp = fopen('videos.csv', 'w');
-			// foreach($rows as $row){
-			// 	fputcsv($fp, $row);
-			// }
-			// fclose($fp);
-
-			//file_put_contents('last-run.txt', date('Y-m-d H:i:s'));
-			file_put_contents('last-run.txt', $publishedBeforeObj->format(DateTimeInterface::ATOM));
-
-			// Redirect to next month
-			if (isset($_GET['loop'])) {
-
-				$link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https://' : 'http://';
-				$link .= $_SERVER['HTTP_HOST'];
-				$url = parse_url($_SERVER['REQUEST_URI']);
-				$link .= $url['path'];
-
-				$link .= '?loop=1';
-
-				$publishedAfterObj = $publishedBeforeObj;
-				$link .= '&from=' . $publishedAfterObj->format('Y-m-d');
-				$link .= '&to=' . $publishedBeforeObj->modify('+1month')->format('Y-m-d');
-
-				echo '<meta http-equiv="refresh" content="5;URL=\'' . $link . '\'" />';
-			}
-			break;
-	} // EOF: switch($_GET['action']){
-} // EOF: if(isset($_GET['action'])){
-
-function get_slug_from_string($string) {
-	$result = preg_replace('/[^a-zA-Z0-9]+/', '-', $string);
-	return $result;
+if (!file_exists('running.json'))
+	file_put_contents('running.json', json_encode(['running' => false]));
+$is = json_decode(file_get_contents('running.json'));
+if ($is->running) {
+	$log->put('Either `running.json` has not updated or someone or something else is already running this script.');
+	exit;
 }
 
-?>
-<html>
+file_put_contents('running.json', json_encode(['running' => true]));
 
-<head>
-	<title></title>
-</head>
+$uploadDir = wp_upload_dir()['basedir'] . '/yt-thumb';
+if (!file_exists($uploadDir)) wp_mkdir_p($uploadDir);
 
-<body>
-	<form method="GET" action="">
-		<input type="hidden" name="action" value="import" />
-		<p><label><span>From: </span> <input type="text" name="from" value="<?php echo isset($_GET['from']) ? $_GET['from'] : date('Y-m-d', strtotime('-5 days', strtotime('now'))) ?>" /></label></p>
-		<p><label><span>To: </span> <input type="text" name="to" value="<?php echo isset($_GET['to']) ? $_GET['to'] : date('Y-m-d') ?>" /></label></p>
-		<p><label><span>Channels: </span>
-				<select name="channels">
-					<option <?php if (isset($_GET['channels']) && $_GET['channels'] == '1') echo 'selected'; ?> value="1">1</option>
-					<option <?php if (isset($_GET['channels']) && $_GET['channels'] == '3') echo 'selected'; ?> value="3">3</option>
+if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
-					<option <?php if (isset($_GET['channels']) && $_GET['channels'] == '5') echo 'selected'; ?> value="5">5</option>
-					<option <?php if (isset($_GET['channels']) && $_GET['channels'] == '10') echo 'selected'; ?> value="10">10</option>
-					<option <?php if (isset($_GET['channels']) && $_GET['channels'] == '100') echo 'selected'; ?> value="100">100</option>
-				</select></label></p>
+	global $wpdb;
 
-		<p><label><span>Delete Existing: </span> <input type="checkbox" name="delete" value="1" checked="<?php echo isset($_GET['checked']) ? $_GET['checked'] : '' ?>" /></label></p>
+	// Get Channels
+	$channels = get_terms(['taxonomy' => 'video-channel', 'hide_empty' => false]);
 
-		<p><input type="submit" value="Submit" /></p>
+	foreach ($channels as $channel) {
+		// INFO: This now checks if it was updated today already and skips if it was
+		$lastUpdate = get_term_meta($channel->term_id, 'yt_last_update', true) ?: date('Y-m-d', strtotime('-1 week'));
+		if (!$force && date('Y-m-d', strtotime('-1 days')) < $lastUpdate) {
+			$log->put("Skipping <b>{$channel->name}</b> as it was updated within the last day.");
+			continue;
+		}
 
-	</form>
-</body>
+		$log->put("<b>{$channel->name}</b>:");
 
-</html>
+		$importerEnabled = get_field('importer_enabled', $channel, true);
 
-<?php
-// END
+		// Skip unless importer is enabled
+		if (!$importerEnabled || !is_array($importerEnabled) || !$importerEnabled[0]) {
+			$log->put(indent() . "Skipping, importer disabled");
+			continue;
+		}
+
+		$ytChannelId = get_field('yt_channel_id', $channel, true);
+		$ytUploadsId = get_term_meta($channel->term_id, 'yt_uploads_id', true);
+
+		if (!$ytUploadsId) {
+			$response = getYoutubeService()->channels->listChannels('contentDetails', [
+				'id' => $ytChannelId
+			]);
+
+			$ytUploadsId = $response->items[0]->contentDetails->relatedPlaylists->uploads;
+			add_term_meta($channel->term_id, 'yt_uploads_id', $ytUploadsId, true);
+		}
+
+		$videoCategories = get_field('video_categories', $channel, true);
+
+		// INFO: This whole section will only run once every two days
+		// INFO: It checks for dead links and duplicate video posts
+		$lastRemoval = get_term_meta($channel->term_id, 'yt_last_removal', true) ?: date('Y-m-d', strtotime('-1 week'));
+		if ($force || date('Y-m-d', strtotime('-2 days')) > $lastRemoval) {
+			update_term_meta($channel->term_id, 'yt_last_removal', date('Y-m-d'), true);
+
+			$log->put(indent() . "It's been more than 2 days, so we're checking for dead links and duplicates");
+
+			// Get all youtube ids and post ids of existing channel videos
+			$posts = get_channel_video_ids($channel->term_id);
+
+			// This is here as there are a few videos that were duplicated and this is 
+			// probably the best place to remove them as we are already going through them.
+			$got_yt_ids = [];
+			$ids = [];
+			foreach ($posts as $post) {
+				if (in_array($post->yt_id, $got_yt_ids)) {
+					// delete the post as its a duplicate
+					wp_delete_post($post->post_id, true);
+					$log->put(indent(2) . "Deleting post {$post->post_id} as it was a duplicate!");
+					continue;
+				}
+				$got_yt_ids[] = $post->yt_id;
+				$ids[] = $post;
+			}
+
+			// This is here to remove any dead youtube links, it's the most cost effective way to do it.
+			$not_dead = [];
+			$chunks = array_chunk($got_yt_ids, 50);
+			foreach ($chunks as $chunk) {
+				try {
+					$response = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', [
+						'id' => implode(',', $chunk)
+					]);
+
+					$not_dead = array_merge($not_dead, $response->items);
+				} catch (Exception $e) {
+					$log->put('Exception: ' . $e->getMessage());
+				}
+			}
+
+			$json = [];
+			$have_yt_ids = [];
+			foreach ($not_dead as $video) {
+				$have_yt_ids[] = $video->id;
+
+				$json[] = (object) [
+					'id' => $video->id,
+					'snippet' => [
+						'description' => $video->snippet->description,
+						'publishedAt' => $video->snippet->publishedAt,
+						'tags' => $video->snippet->tags,
+						'title' => $video->snippet->title,
+						'thumbnails' => $video->snippet->thumbnails,
+					],
+					'contentDetails' => [
+						'duration' => $video->contentDetails->duration,
+					],
+					'statistics' => $video->statistics
+				];
+			}
+
+			if (!file_exists('./data/'))
+				mkdir('./data/');
+
+			// Save the data we pulled for future reference
+			file_put_contents("./data/$ytChannelId.json", json_encode($json));
+
+			foreach ($got_yt_ids as $yt_id) {
+				// The link no longer exists, delete the post
+				if (!in_array($yt_id, $have_yt_ids)) {
+					if (is_numeric($i = array_search($yt_id, $ids))) {
+						$post_id = $ids[$i]->post_id;
+						wp_delete_post($post_id, true);
+						$log->put(indent(2) . "Deleting post {$post->post_id} as it was a dead link!");
+					}
+				}
+			}
+		}
+
+		$posts = get_channel_video_ids($channel->term_id);
+
+		$nextPageToken = null;
+		$temp = [];
+		do {
+			$result = get_playlist_items($ytUploadsId, $nextPageToken);
+			$nextPageToken = $result->nextPageToken;
+			$temp = array_merge($temp, $result->items);
+		} while ($nextPageToken);
+
+		$items = [];
+		$yt_ids = list_ids($posts, 'yt_id');
+		foreach ($temp as $item) {
+			if (!in_array($item->snippet->resourceId->videoId, $yt_ids))
+				$items[] = $item;
+		}
+
+		$log->put(indent() . "We have: " . count($posts) . " and there are " . count($temp) . " in total.");
+		$log->put(indent() . "Results: " . count($items));
+
+		foreach ($items as $item) {
+			$snippet = $item->snippet;
+			$videoId = $snippet->resourceId->videoId;
+			$postdate = new DateTime($snippet->publishedAt);
+
+			// This has been added to clean up the title from the source
+			$snippet->title = friendly_title($snippet->title);
+
+			$log->put(indent(2) . "{$videoId} - {$snippet->title}");
+
+			// Insert the post into the database
+			$postId = wp_insert_post([
+				'post_title'   => $snippet->title,
+				'post_content' => remove_emoji($snippet->description),
+				'post_status'  => 'publish',
+				'post_author'  => $postAuthor,
+				'post_type'	   => 'video',
+				'post_date'    => $postdate->format('Y-m-d H:i:s')
+			]);
+
+			if ($postId) {
+				$log->put(indent(3) . "Video successfully added $postid");
+
+				update_field('youtube_video_id', $videoId, $postId);
+
+				// Assign to channel
+				wp_set_object_terms($postId, $channel->term_taxonomy_id, 'video-channel');
+				wp_set_object_terms($postId, $videoCategories, 'video-category');
+
+				// INFO: Updated this to get the largest available image size (Kraggle)
+				if (save_video_image_for_post($postId, $item))
+					$log->put(indent(3) . 'Successfully created the video thumbnails.');
+				else
+					$log->put(indent(3) . 'Creating the video thumbnails failed.');
+			} else
+				$log->put(indent(3) . 'Failed to add this video.');
+
+			file_put_contents('youtube-videos.txt', print_r($item, true));
+
+			if (time() >= $endAt) {
+				file_put_contents('running.json', json_encode(['running' => false]));
+				die(header("Location: ./index.php?action=import"));
+			}
+		}
+
+		update_term_meta($channel->term_id, 'yt_last_update', date('Y-m-d'), true);
+	}
+
+	getExtraYoutubeInfo();
+}
+
+file_put_contents('running.json', json_encode(['running' => false]));

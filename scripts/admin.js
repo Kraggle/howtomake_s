@@ -6,18 +6,6 @@ $(() => {
 	time.build($('.ks-progress-time'));
 	feed.build($('.ks-feed-text'));
 
-	// feed.add('Some message to append to the log!');
-	// feed.add('Another thing to just test it works.');
-	// feed.add('We then want a really long line to see what it looks like when it flows past one single line of text maybe just a few more words and a really long one like rawrrr, lol!');
-
-	// setTimeout(() => {
-	// 	feed.add('A line that appears later and the first one should hide.');
-	// }, 5000);
-
-	// setTimeout(() => {
-	// 	feed.add('Same again this should have hidden the first 2 lines.');
-	// }, 10000);
-
 	$('.ks-button[count]').addClass('doMe');
 
 	$('.ks-button').on('click', function() {
@@ -56,7 +44,6 @@ $(() => {
 								time.reset();
 								return;
 							}
-
 
 							ajax(data.action, {
 								ids: data.ids.splice(0, data.loop)

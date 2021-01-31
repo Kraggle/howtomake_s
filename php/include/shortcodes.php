@@ -175,10 +175,6 @@ function sitemap_item($object, $post_type, $type = 'post') {
 	$link = $type ? $object->link : get_term_link($object->term_id);
 	$name = $type ? $object->post_title : $object->name;
 
-	// !$type && logger(get_status_code($link));
-
-	// return;
-
 	ob_start(); ?>
 	<li class="list-item" id="<?php echo "{$post_type}_{$id}" ?>">
 		<a href="<?php echo $link ?>" class="list-link" title="<?php echo $name ?>">
@@ -200,11 +196,19 @@ function sitemap_item($object, $post_type, $type = 'post') {
 				AND m.meta_key = 'htm_permalink'
 				GROUP BY p.ID,
 						p.post_title,
-						m.meta_value
-				ORDER BY p.post_title ASC"
+						m.meta_value"
 			);
 
-			if (!empty($kids)) { ?>
+			if (!empty($kids)) {
+				foreach ($kids as $key => $post)
+					$kids[$key]->post_title = friendly_title($post->post_title);
+
+				uasort($kids, function ($a, $b) {
+					$aT = preg_replace('/^[^\w]+/', '', $a->post_title);
+					$bT = preg_replace('/^[^\w]+/', '', $b->post_title);
+					return strnatcasecmp($aT, $bT);
+				}); ?>
+
 				<ul class="section-sub-list">
 					<?php foreach ($kids as $kid) {
 						echo sitemap_item($kid, $post_type, $type);
@@ -252,11 +256,19 @@ function htm_shortcode_sitemap() {
 			AND m.meta_key = 'htm_permalink'
 			GROUP BY p.ID,
 					p.post_title,
-					m.meta_value
-			ORDER BY p.post_title ASC"
+					m.meta_value"
 		);
 
 		if (!empty($posts)) {
+			foreach ($posts as $key => $post)
+				$posts[$key]->post_title = friendly_title($post->post_title);
+
+			uasort($posts, function ($a, $b) {
+				$aT = preg_replace('/^[^\w]+/', '', $a->post_title);
+				$bT = preg_replace('/^[^\w]+/', '', $b->post_title);
+				return strnatcasecmp($aT, $bT);
+			});
+
 			$type = get_post_type_object($post_type); ?>
 
 			<div class="section-wrap">
