@@ -653,3 +653,6 @@ add_filter('the_content', function ($content) {
 
 	return $content;
 }, 3);
+
+// disable Gutenberg
+add_filter('use_block_editor_for_post', '__return_false', 10);
