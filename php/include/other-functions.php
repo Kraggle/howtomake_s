@@ -64,6 +64,8 @@ function remove_emoji($text) {
 	// Remove extra spaces
 	$text = preg_replace('/\s{2,}/u', ' ', $text);
 
+
+
 	return trim($text);
 }
 
@@ -104,6 +106,8 @@ function friendly_title($text) {
 		if (preg_match('/\w+|\&|\|/', $word))
 			$join[] = $word;
 	}
+
+
 
 	$text = implode(' ', $join);
 

@@ -85,6 +85,7 @@ function htm_custom_search() {
 	}
 
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('custom_search');
 
@@ -143,6 +144,7 @@ function htm_get_posts() {
 	}
 
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('get_posts');
 
@@ -169,6 +171,7 @@ function htm_get_categories() {
 	}
 
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('get_categories');
 
@@ -221,6 +224,7 @@ function htm_get_featured() {
 	}
 
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('get_featured');
 
@@ -286,6 +290,7 @@ function htm_get_trending() {
 	}
 
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('get_trending');
 
@@ -539,6 +544,7 @@ function htm_get_missing_category() {
 
 	$return->count = count($return->ids);
 	echo json_encode($return);
+	exit;
 	// echo json_encode(['success' => true]);
 }
 add_ajax_action('get_missing_category');
@@ -592,6 +598,7 @@ function htm_set_missing_category() {
 	$refreshing_categories = false;
 
 	echo json_encode(['success' => true]);
+	exit;
 }
 add_ajax_action('set_missing_category');
 
@@ -621,6 +628,7 @@ function htm_get_media_to_delete() {
 	];
 	$return->count = count($return->ids);
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('get_media_to_delete');
 
@@ -640,6 +648,7 @@ function htm_set_media_to_delete() {
 	}
 
 	echo json_encode(['success' => true]);
+	exit;
 }
 add_ajax_action('set_media_to_delete');
 
@@ -666,6 +675,7 @@ function htm_get_missing_authors() {
 	);
 
 	echo json_encode($results[0]);
+	exit;
 }
 add_ajax_action('get_missing_authors');
 
@@ -706,6 +716,7 @@ function htm_set_missing_authors() {
 	}
 
 	echo json_encode($results);
+	exit;
 }
 add_ajax_action('set_missing_authors');
 
@@ -888,6 +899,7 @@ function htm_get_regenerate_thumbnails() {
 	];
 	$return->count = count($return->ids);
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('get_regenerate_thumbnails');
 
@@ -908,6 +920,7 @@ function htm_set_regenerate_thumbnails() {
 	}
 
 	echo json_encode(['success' => true]);
+	exit;
 }
 add_ajax_action('set_regenerate_thumbnails');
 
@@ -954,6 +967,7 @@ function htm_set_sitemap_settings() {
 		'action' => 'set_permalinks',
 		'loop' => 5
 	]);
+	exit;
 }
 add_ajax_action('set_sitemap_settings');
 
@@ -975,6 +989,7 @@ function htm_set_permalinks() {
 	}
 
 	echo json_encode(['success' => true]);
+	exit;
 }
 add_ajax_action('set_permalinks');
 
@@ -1053,6 +1068,7 @@ function htm_get_video_thumbnails() {
 	];
 	$return->count = count($ids);
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('get_video_thumbnails');
 
@@ -1102,5 +1118,6 @@ function htm_set_video_thumbnails() {
 
 	$return->success = true;
 	echo json_encode($return);
+	exit;
 }
 add_ajax_action('set_video_thumbnails');
