@@ -26,8 +26,6 @@ $force = isset($_GET['force']) ? $_GET['force'] : false;
 </head>
 
 <body>
-	<div class="logs"></div>
-
 	<form method="GET" action="">
 		<input type="hidden" name="action" value="import" />
 		<?php $isChecked = $force ? 'checked' : '' ?>
@@ -37,9 +35,12 @@ $force = isset($_GET['force']) ? $_GET['force'] : false;
 				<input type="checkbox" name="force" <?php echo $isChecked ?> />
 			</label>
 		</p>
-		<p><input type="submit" value="Go" /></p>
+		<input type="submit" value="START UPDATE" />
 	</form>
+	<input id="kill-switch" type="button" value="KILL SCRIPT" style="position: fixed; top: 20px; right: 20px;" />
+	<input id="cancel-kill" type="button" value="CANCEL KILL" style="position: fixed; top: 50px; right: 20px;" />
 
+	<div class="logs"></div>
 	<script type="module" src="index.js"></script>
 </body>
 
@@ -77,6 +78,14 @@ if (!file_exists('running.json'))
 $is = json_decode(file_get_contents('running.json'));
 if ($is->running) {
 	$log->put('Either `running.json` has not updated or someone or something else is already running this script.');
+	exit;
+}
+
+if (!file_exists('kill-switch.json'))
+	file_put_contents('kill-switch.json', json_encode(['kill' => false]));
+$do = json_decode(file_get_contents('kill-switch.json'));
+if ($do->kill) {
+	$log->put('Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`');
 	exit;
 }
 
@@ -261,12 +270,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			} else
 				$log->put(indent(3) . 'Failed to add this video.');
 
-			file_put_contents('youtube-videos.txt', print_r($item, true));
+			// file_put_contents('youtube-videos.txt', print_r($item, true));
 
 			if (time() >= $endAt) {
 				file_put_contents('running.json', json_encode(['running' => false]));
 				die(header("Location: ./index.php?action=import"));
 			}
+
+			file_put_contents('running.json', json_encode(['running' => false]));
+			die(header("Location: ./index.php"));
 		}
 
 		update_term_meta($channel->term_id, 'yt_last_update', date('Y-m-d'), true);

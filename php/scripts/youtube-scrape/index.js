@@ -6,5 +6,23 @@ $(() => {
 			if (data.content)
 				$('.logs').html(`<pre>${data.content}</pre>`);
 		});
-	}, 1000);
+	}, 5000);
+
+	$('#kill-switch').on('click', function() {
+		$.ajax({
+			url: 'kill-switch.php',
+			data: {
+				kill: true
+			}
+		});
+	});
+
+	$('#cancel-kill').on('click', function() {
+		$.ajax({
+			url: 'kill-switch.php',
+			data: {
+				kill: false
+			}
+		});
+	});
 });
