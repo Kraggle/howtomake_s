@@ -1,0 +1,88 @@
+[01-Feb-2021 14:15:12] &raquo; <b>Ahrefs</b>:
+[01-Feb-2021 14:15:14] &raquo;  &raquo; We have: 193 and there are 189 in total.
+[01-Feb-2021 14:15:14] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:14] &raquo; <b>Andrei Jikh</b>:
+[01-Feb-2021 14:15:16] &raquo;  &raquo; We have: 214 and there are 207 in total.
+[01-Feb-2021 14:15:16] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:16] &raquo; <b>Beast of eCom</b>:
+[01-Feb-2021 14:15:16] &raquo;  &raquo; We have: 136 and there are 136 in total.
+[01-Feb-2021 14:15:16] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:16] &raquo; <b>Daily Motivation</b>:
+[01-Feb-2021 14:15:17] &raquo;  &raquo; We have: 169 and there are 169 in total.
+[01-Feb-2021 14:15:17] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:17] &raquo; <b>Dragons Den</b>:
+[01-Feb-2021 14:15:19] &raquo;  &raquo; We have: 363 and there are 363 in total.
+[01-Feb-2021 14:15:19] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:19] &raquo; <b>Gabriel St-Germain</b>:
+[01-Feb-2021 14:15:19] &raquo;  &raquo; We have: 28 and there are 24 in total.
+[01-Feb-2021 14:15:19] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:19] &raquo; <b>Graham Stephan</b>:
+[01-Feb-2021 14:15:23] &raquo;  &raquo; We have: 581 and there are 581 in total.
+[01-Feb-2021 14:15:23] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:23] &raquo; <b>Jack Kitchener</b>:
+[01-Feb-2021 14:15:24] &raquo;  &raquo; We have: 308 and there are 308 in total.
+[01-Feb-2021 14:15:24] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:24] &raquo; <b>Jared Goetz</b>:
+[01-Feb-2021 14:15:25] &raquo;  &raquo; We have: 21 and there are 20 in total.
+[01-Feb-2021 14:15:25] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:25] &raquo; <b>Kristin Stones</b>:
+[01-Feb-2021 14:15:25] &raquo;  &raquo; We have: 149 and there are 149 in total.
+[01-Feb-2021 14:15:25] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:15:25] &raquo; <b>Law of Attraction Coaching</b>:
+[01-Feb-2021 14:15:26] &raquo;  &raquo; We have: 97 and there are 98 in total.
+[01-Feb-2021 14:15:26] &raquo;  &raquo; Results: 2
+[01-Feb-2021 14:15:26] &raquo;  &raquo;  &raquo; dKi55OtZbx8 - DISCIPLINE or REGRET? Best Motivational Speech 2021
+[01-Feb-2021 14:15:27] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[01-Feb-2021 14:15:44] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[01-Feb-2021 14:15:44] &raquo;  &raquo;  &raquo; hb-4_psLHfU - 10 Minutes to Start Your Day Right! MORNING MOTIVATION | Motivational Speech 2021
+[01-Feb-2021 14:15:45] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[01-Feb-2021 14:16:00] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[01-Feb-2021 14:16:00] &raquo; <b>Robert Kiyosaki</b>:
+[01-Feb-2021 14:16:03] &raquo;  &raquo; We have: 563 and there are 562 in total.
+[01-Feb-2021 14:16:03] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:16:03] &raquo; <b>Shark Tank Australia</b>:
+[01-Feb-2021 14:16:04] &raquo;  &raquo; We have: 206 and there are 206 in total.
+[01-Feb-2021 14:16:04] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:16:04] &raquo; <b>Valuetainment</b>:
+[01-Feb-2021 14:16:11] &raquo;  &raquo; We have: 1483 and there are 1480 in total.
+[01-Feb-2021 14:16:11] &raquo;  &raquo; Results: 1
+[01-Feb-2021 14:16:11] &raquo;  &raquo;  &raquo; GTjsWoJB3is - For Those Who Fear Death & Aging
+[01-Feb-2021 14:16:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[01-Feb-2021 14:16:27] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[01-Feb-2021 14:16:27] &raquo; <b>Wholesale Ted</b>:
+[01-Feb-2021 14:16:28] &raquo;  &raquo; We have: 157 and there are 152 in total.
+[01-Feb-2021 14:16:28] &raquo;  &raquo; Results: 0
+[01-Feb-2021 14:16:29] &raquo; Getting extra youtube information!
+[01-Feb-2021 14:16:29] &raquo; There are 32 that still have missing info.
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Livestream Q&amp;A (eCom Blueprint Launch)
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling&#39;s mystery?
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Live Q&amp;A | Shopify Dropshipping
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: How To Make WINNERS Out Of &quot;Sh*tty&quot; Facebook Ads! | Jared Goetz
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Is Amazon FBA Private Labeling DEAD? How Can New Sellers Start Selling on Amazon
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: How to Pick Products that Make Over a MILLION DOLLARS in a YEAR with Aliexpress Dropshipping
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: How to Sell on Amazon as a BEGINNER (The 4-Step System to Selling on Amazon)
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: 3 Things Amazon Gurus DON&#039;T Tell You About Selling on Amazon FBA...
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: The Best Santa Claus an Entrepreneur Can Have
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: 5 Sales Triggers That Make Customers BUY &amp; Spend $$$ (Sales Psychology Hacks)
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: ? 5 Products That Will LOSE You Money If You Sell Them Online...
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: ? 5 Websites To Make FREE MONEY Online ? Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: ?? Ecom Is CRUSHING Coronavirus! Top 10 Products To Sell w/ Print On Demand &amp; Make Money w/ Covid-19
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode - Fed Negative Interest Rates
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: INTEREST RATES WENT NEGATIVE | GOODBYE SAVINGS
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Investing For Beginners - How Many Stocks Should You Buy?
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Why I Don’t Invest in Tesla (Investor Warning)
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS ? Best Motivational Speech
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: How I !@#$&amp; Learn
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Shopify Dropshipping Live Q&A
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[01-Feb-2021 14:16:30] &raquo;  &raquo; Adding extra information for: DISCIPLINE or REGRET? Best Motivational Speech 2021
+[01-Feb-2021 14:16:35] &raquo;  &raquo; Adding extra information for: 10 Minutes to Start Your Day Right! MORNING MOTIVATION | Motivational Speech 2021
+[01-Feb-2021 14:16:39] &raquo;  &raquo; Adding extra information for: For Those Who Fear Death & Aging

@@ -67,10 +67,10 @@ require_once __DIR__ . '/../../include/functions.php';
 
 // ================================== Settings End =======================================
 
-if (!file_exists('./logs/'))
-	mkdir('./logs/');
+if (!file_exists('./info/'))
+	mkdir('./info/');
 
-$log = videoLogger::getInstance('./logs/log' . date('[d-M-Y H]') . '.txt');
+$log = videoLogger::getInstance('./info/log' . date('[d-M-Y H]') . '.txt');
 
 if (!file_exists('running.json'))
 	file_put_contents('running.json', json_encode(['running' => false]));
