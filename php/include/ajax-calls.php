@@ -1,5 +1,7 @@
 <?php
 
+$outputLog = outputLogger::getInstance(get_template_directory() . '/logs/ajax-logs.txt');
+
 define('FAILED_NONCE', json_encode([
 	'success' => false,
 	'message' => 'nonce missmatch'
@@ -15,39 +17,6 @@ define('FAILED_NONCE', json_encode([
 function add_ajax_action($name) {
 	add_action("wp_ajax_{$name}", "htm_{$name}");
 	add_action("wp_ajax_nopriv_{$name}", "htm_{$name}");
-}
-
-/**
- * Converts the returned SQL query into an array or string of ids.
- * 
- * @param array  $a         The SQL result
- * @param string $id        The key of the id, default 'ID'
- * @param string $type      The return type (array|string), default 'array'
- * @param string $delimiter If $type is string, what to join with, default ','
- * @return array|string Depending on the value of $type
- */
-function list_ids($a, $id = 'ID', $type = 'array', $delimiter = ',') {
-	$ids = [];
-	foreach ($a as $value)
-		$ids[] = is_numeric($value->$id) ? intval($value->$id) : $value->$id;
-	return $type == 'array' ? $ids : implode($delimiter, $ids);
-}
-
-function get_image_id_by_filename($name) {
-	global $wpdb;
-
-	$results = $wpdb->get_results(
-		"SELECT `post_id`
-		FROM `wp_postmeta`
-		WHERE 
-			`meta_key` LIKE '_wp_attached_file' AND
-			`meta_value` LIKE '{$name}'"
-	);
-
-	if (count($results)) {
-		return $results[0]->post_id;
-	}
-	return null;
 }
 
 /**
@@ -887,10 +856,10 @@ function htm_get_regenerate_thumbnails() {
 		if ($do) {
 			$do_now++;
 			$ids[] = $img->id;
-			logger(
-				"$img->id of category $img->category because of $msg",
-				$aMsg
-			);
+			// logger(
+			// 	"$img->id of category $img->category because of $msg",
+			// 	$aMsg
+			// );
 		}
 	}
 
@@ -1121,3 +1090,165 @@ function htm_set_video_thumbnails() {
 	exit;
 }
 add_ajax_action('set_video_thumbnails');
+
+/**
+ * Used by How to Make - Video Editor
+ * 
+ * @return void 
+ */
+function htm_get_refresh_video_categories() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+
+	$return->ids = get_results(
+		"SELECT
+		p.id AS id,
+		p.post_title AS title,
+		GROUP_CONCAT(t.name) AS tags
+		FROM wp_term_relationships tr
+		INNER JOIN wp_posts p
+			ON tr.object_id = p.id
+		INNER JOIN wp_term_taxonomy tt
+			ON tt.term_taxonomy_id = tr.term_taxonomy_id
+		INNER JOIN wp_terms t
+			ON tt.term_id = t.term_id
+		WHERE p.post_type = 'video'
+		AND tt.taxonomy = 'post_tag'
+		AND p.id NOT IN (SELECT
+			pm.post_id
+		FROM wp_postmeta pm
+		WHERE pm.meta_key = 'tag_categories_set')
+		GROUP BY p.id,
+				p.post_title"
+	);
+
+
+	$return->count = count($return->ids);
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_refresh_video_categories');
+
+/**
+ * Used by How to Make - Video Editor 
+ * 
+ * @return void 
+ */
+function htm_set_refresh_video_categories() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+	$post = to_object($_REQUEST['data']['ids'][0]);
+
+	if ($new = set_video_categories_from_tags($post->id, $post->tags, $post->title))
+		$return->message[] = "<b>{$post->title}</b> Categories set to: " . concat_strings($new, 'name');
+	else
+		$return->message[] = "<s><b>{$post->title}</b></s> could not set categories from tags.";
+
+	$return->success = true;
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('set_refresh_video_categories');
+
+/**
+ * Used by How to Make - Video Editor
+ * 
+ * @return void 
+ */
+function htm_restart_refresh_video_categories() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+
+	get_results(
+		"DELETE FROM wp_postmeta WHERE meta_key = 'tag_categories_set'"
+	);
+
+	$return->message[] = 'You can now run Refresh Categories starting from scratch.';
+	$return->success = true;
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('restart_refresh_video_categories');
+
+/**
+ * Used by How to Make - Video Editor
+ * 
+ * @return void 
+ */
+function htm_untagged_refresh_video_categories() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+
+	get_results(
+		"DELETE FROM wp_postmeta WHERE meta_key = 'tag_categories_set' AND meta_value = ''"
+	);
+
+	$return->message[] = 'You can now run Refresh Categories to retry all that were uncategorised last time.';
+	$return->success = true;
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('untagged_refresh_video_categories');
+
+/**
+ * Used by How to Make - Video Editor
+ * 
+ * @return void 
+ */
+function htm_get_missing_durations() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+
+	$return->ids = get_results(
+		"SELECT
+		pm.post_id AS id,
+		pm.meta_value AS duration
+		FROM wp_postmeta pm
+		WHERE pm.meta_key = 'video_duration_raw'
+		AND pm.post_id NOT IN (SELECT
+			mp.post_id
+		FROM wp_postmeta mp
+		WHERE mp.meta_key = 'video_duration_seconds')"
+	);
+
+	$return->count = length($return->ids);
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_missing_durations');
+
+/**
+ * Used by How to Make - Video Editor 
+ * 
+ * @return void 
+ */
+function htm_set_missing_durations() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+	$ids = to_object($_REQUEST['data']['ids']);
+
+	foreach ($ids as $post) {
+		$di  = new DateInterval($post->duration);
+		$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
+
+		add_post_meta($post->id, 'video_duration_seconds', $sec, true);
+	}
+
+	$return->message[] = 'Added the duration in seconds for ' . length($ids) . ' videos.';
+	$return->success = true;
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('set_missing_durations');

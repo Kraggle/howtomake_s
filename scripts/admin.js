@@ -50,7 +50,7 @@ $(() => {
 							}, result => {
 								if (result.success) {
 									doProgress(total, data.ids.length);
-									time.left(data.ids.length).end();
+									time.left(data.ids.length, data.loop).end();
 									loopCall();
 								}
 							});
@@ -107,7 +107,7 @@ $(() => {
 							$(`#${$(`#${other}`).attr('count')}`).val(ids.length);
 
 							doProgress(total, ids.length);
-							time.left(ids.length).end();
+							time.left(ids.length, loop).end();
 							loopCall();
 						}
 					});
@@ -127,8 +127,10 @@ $(() => {
 				ajax(action, data => {
 
 					if (data.success) {
-						$(this).removeClass('doMe');
-						$(`#${other}`).addClass('doMe');
+						if (!$(this).hasClass('red')) {
+							$(this).removeClass('doMe');
+							$(`#${other}`).addClass('doMe');
+						}
 
 						$(`#${$(`#${other}`).attr('count')}`).val(data.count);
 					}
@@ -218,6 +220,7 @@ const time = {
 	average: [],
 	element: null,
 	remain: 0,
+	loop: 0,
 
 	build(element) {
 		this.element = element;
@@ -245,7 +248,7 @@ const time = {
 	update() {
 		if (!this.element || this.average.length < 3) return;
 		const avg = (this.average.reduce((a, b) => a + b, 0) / this.average.length) || 0;
-		const remain = avg * this.remain;
+		const remain = avg * (this.remain / this.loop);
 		$(this.element).html(this.time(remain));
 	},
 
@@ -270,8 +273,9 @@ const time = {
 		return result;
 	},
 
-	left(left) {
+	left(left, loop) {
 		this.remain = left;
+		this.loop = loop;
 		return this;
 	}
 };

@@ -27,7 +27,7 @@ if (!defined('K_YT_API_KEYS'))
 	]);
 
 global $htm__s_version;
-$htm__s_version = '0.1.10';
+$htm__s_version = '0.1.11';
 
 global $refreshing_categories;
 $refreshing_categories = false;
@@ -197,8 +197,8 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'custom-header', 'template-tags', 'template-functions', 'customizer',
-	'custom-posts', 'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool'
+	'custom-header', 'template-tags', 'template-functions', 'customizer', 'custom-posts',
+	'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
 ]);
 
 add_action('init', function () {

@@ -134,6 +134,16 @@
 .ks-box .ks-setting-box .ks-button.doMe:hover {
   background-color: #25af97;
 }
+.ks-box .ks-setting-box .ks-button.red {
+  background-color: #d29292;
+  color: #fff;
+}
+.ks-box .ks-setting-box .ks-button.red:hover {
+  background-color: #cb8080;
+}
+.ks-box .ks-setting-box > .ks-button:not(:last-child) {
+  margin-bottom: 10px;
+}
 .ks-box .ks-multi-input {
   background-color: #fff;
   padding: 3px;

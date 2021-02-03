@@ -73,6 +73,37 @@ $menu_items = [
 		<button id="setVT" class="ks-button" action="set_video_thumbnails" other="getVT" repeat=1>Regenerate</button>
 	</div>
 <?php }
+	],
+	(object) [
+		'name' => 'Video Editor',
+		'content' => function () { ?>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Refresh Categories</span>
+		<span class="ks-desc">This is used to set the video categories from the tags pulled from YouTube.</span>
+		<div class="flex row">
+			<label for="rcCount" class="ks-label">Quantity</label>
+			<input id="rcCount" class="ks-input" type="number" readonly />
+			<div class="spacer"></div>
+			<button id="getRC" class="ks-button" action="get_refresh_video_categories" count="rcCount" other="setRC">Get Quantity</button>
+		</div>
+		<button id="setRC" class="ks-button" action="set_refresh_video_categories" other="getRC" repeat=1>Refresh</button>
+		<button class="ks-button doMe red" action="untagged_refresh_video_categories">Force Restart Un-tagged</button>
+		<button class="ks-button doMe red" action="restart_refresh_video_categories">Force Restart All</button>
+	</div>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Missing Durations</span>
+		<span class="ks-desc">This sets the video metadata 'video_duration_seconds' for use in filtering and sorting by duration.</span>
+		<div class="flex row">
+			<label for="mdCount" class="ks-label">Quantity</label>
+			<input id="mdCount" class="ks-input" type="number" readonly />
+			<div class="spacer"></div>
+			<button id="getMD" class="ks-button" action="get_missing_durations" count="mdCount" other="setMD">Get Quantity</button>
+		</div>
+		<button id="setMD" class="ks-button" action="set_missing_durations" other="getMD" repeat=50>Update Durations</button>
+	</div>
+<?php }
 	], (object) [
 		'name' => 'Page Settings',
 		'content' => function () { ?>

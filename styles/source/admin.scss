@@ -149,6 +149,19 @@ $dark-color: darken($main-color, 10%);
                     background-color: darken($color-gradient, 5%);
                 }
             }
+
+            &.red {
+                background-color: #d29292;
+                color: #fff;
+
+                &:hover {
+                    background-color: darken(#d29292, 5%);
+                }
+            }
+        }
+
+        > .ks-button:not(:last-child) {
+            margin-bottom: 10px;
         }
     }
 

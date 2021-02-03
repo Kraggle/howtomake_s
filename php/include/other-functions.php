@@ -12,7 +12,6 @@ function htm_s_on_install() {
 	$path = parse_url(get_template_directory_uri(), PHP_URL_PATH);
 	$paths = array(
 		'theme' => $path,
-		'call' => "$path/php/getters",
 		'assets' => "$path/assets",
 		'images' => "$path/assets/images",
 		'fonts' => "$path/assets/fonts",
@@ -27,10 +26,11 @@ function htm_s_on_install() {
 	);
 	fclose($js);
 
-	global $htm__s_version;
+	global $htm__s_version, $wpdb;
+	$wpdb->query("DELETE FROM wp_postmeta WHERE meta_key = 'video_duration'");
+
 	add_option('htm__s_version', $htm__s_version);
 	update_option('htm__s_version', $htm__s_version);
-	error_log(get_site_option('htm__s_version'));
 }
 
 function htm_check_update() {
@@ -515,6 +515,10 @@ function get_php_library($file = '') {
 	return get_template_directory() . '/php/libraries/' . $file;
 }
 
+function get_php_includes($file = '') {
+	return get_template_directory() . '/php/include/' . $file;
+}
+
 /**
  * Return the video thumbnail URL.
  *
@@ -646,4 +650,183 @@ function get_status_code($url) {
 
 	preg_match('#HTTP/.*\s+(\d{3})\s#i', $headers, $match);
 	return count($match) ? $match[1] : false;
+}
+
+function random_string($length = 10) {
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$charactersLength = strlen($characters);
+	$randomString = '';
+	for ($i = 0; $i < $length; $i++) {
+		$randomString .= $characters[rand(0, $charactersLength - 1)];
+	}
+	return $randomString;
+}
+
+/**
+ * Converts the returned SQL query into an array or string of ids.
+ * 
+ * @param array  $array         The SQL result
+ * @param string $key       The key of the id, default 'ID'
+ * @param string $type      The return type (array|string), default 'array'
+ * @param string $delimiter If $type is string, what to join with, default ','
+ * @return array|string Depending on the value of $type
+ */
+function list_ids($array, $key = 'ID', $type = 'array', $delimiter = ',') {
+	$ids = [];
+	foreach ($array as $value)
+		$ids[] = is_numeric($value->$key) ? intval($value->$key) : $value->$key;
+	return $type == 'array' ? $ids : implode($delimiter, $ids);
+}
+
+function get_image_id_by_filename($name) {
+	global $wpdb;
+
+	$results = $wpdb->get_results(
+		"SELECT `post_id`
+		FROM `wp_postmeta`
+		WHERE 
+			`meta_key` LIKE '_wp_attached_file' AND
+			`meta_value` LIKE '{$name}'"
+	);
+
+	if (count($results)) {
+		return $results[0]->post_id;
+	}
+	return null;
+}
+
+/**
+ * Joins a array of strings or and assoc array with defined key to a human
+ * readable string. Used for outputting messages and content for diplay.
+ * 
+ * @param array  $array     The object to take the strings from.
+ * @param string $key       The key to use if assoc array.
+ * @param string $delimiter What to join them together with.
+ * @param string $last      What to put before the last entry.
+ * @return string The output string joined together. 
+ */
+function concat_strings($array, $key = null, $delimiter = ', ', $last = ' and ') {
+	if (!is_array($array) || !count($array))
+		return '';
+
+	if (count($array) == 1)
+		return $key ? to_object($array[0])->$key : $array[0];
+
+	$final = array_pop($array);
+	$final = $key ? to_object($final)->$key : $final;
+
+	$entries = [];
+	foreach ($array as $entry)
+		$entries[] = $key ? to_object($entry)->$key : $entry;
+
+	return implode($delimiter, $entries) . $last . $final;
+}
+
+class outputLogger {
+
+	private
+		$file,
+		$format;
+	private static $instance;
+
+	public function __construct($filename, $format = '[d-M-Y H:i:s]') {
+		$this->file = $filename;
+		$this->format = $format;
+
+		$path = pathinfo($filename);
+		if (!file_exists($path['dirname']))
+			mkdir($path['dirname']);
+
+		if (!file_exists($filename))
+			file_put_contents($this->file, '');
+	}
+
+	public static function getInstance($filename = '', $format = '[d-M-Y H:i:s]') {
+		return !isset(self::$instance) ?
+			self::$instance = new outputLogger($filename, $format) :
+			self::$instance;
+	}
+
+	public function put($insert) {
+		$timestamp = date($this->format);
+		file_put_contents($this->file, "$timestamp $insert\n", FILE_APPEND);
+
+		return $this;
+	}
+
+	public function get() {
+		$content = file_get_contents($this->file);
+		return $content;
+	}
+}
+
+/**
+ * Used to automatically set the video categories from the YouTube tags
+ * 
+ * @param int             $video_id    The video id
+ * @param string|string[] $video_tags  The tags from YouTube
+ * @param string          $video_title The video title
+ * @return false|array    If failed false, otherwise an array of the new categories
+ */
+function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
+
+	if (get_post_type($video_id) != 'video')
+		return false;
+
+	if (!is_array($video_tags))
+		$video_tags = explode(',', $video_tags);
+
+	if (empty($video_tags))
+		return false;
+
+	$cats = get_results(
+		"SELECT
+		t.term_id,
+		t.name,
+		tm.meta_value AS tags
+		FROM wp_terms t
+		INNER JOIN wp_term_taxonomy tt
+			ON t.term_id = tt.term_id
+		INNER JOIN wp_termmeta tm
+			ON tm.term_id = t.term_id
+		WHERE tt.taxonomy = 'video-category'
+		AND tm.meta_key = 'alternative_names'"
+	);
+
+	$new = [];
+	foreach ($cats as $cat) {
+		$tags = explode(',', $cat->tags);
+		$score = 0;
+
+		foreach ($tags as $tag) {
+			if ($matches = preg_grep("/{$tag}/i", $video_tags))
+				$score += length($matches);
+		}
+
+		$tags = implode('|', $tags);
+		preg_match("/({$tags})/i", $video_title, $matches);
+		if (count($matches))
+			$score += count($matches) - 1;
+
+		if ($score) {
+			$cat->score = $score;
+			$new[] = $cat;
+		}
+	}
+
+	if (length($new)) {
+		wp_set_object_terms($video_id, list_ids($new, 'term_id'), 'video-category');
+		add_post_meta($video_id, 'tag_categories_set', true, true);
+
+		return $new;
+	} else {
+		wp_update_post([
+			'ID'          => $video_id,
+			'post_status' => 'draft'
+		]);
+		wp_remove_object_terms($video_id, list_ids($cats, 'term_id'), 'video-category');
+		add_post_meta($video_id, 'tag_categories_set', false, true);
+
+		return false;
+	}
 }
