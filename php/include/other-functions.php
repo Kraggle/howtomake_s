@@ -266,12 +266,14 @@ function generate_category_thumbnails($object_id) {
 	$sizes = get_image_sizes_for_attachment($object_id);
 
 	$stored = (object) [];
-	foreach ($meta->sizes as $size => $value) {
-		preg_match('/-(\d+x\d+)\./', $value->file, $matches);
-		if ($matches[1]) {
-			$dim = $matches[1];
-			if ($sizes[$size]) {
-				$stored->$dim = $size;
+	if (is_countable($meta->sizes)) {
+		foreach ($meta->sizes as $size => $value) {
+			preg_match('/-(\d+x\d+)\./', $value->file, $matches);
+			if ($matches[1]) {
+				$dim = $matches[1];
+				if ($sizes[$size]) {
+					$stored->$dim = $size;
+				}
 			}
 		}
 	}
@@ -626,22 +628,18 @@ function save_video_image_for_post($post, $info) {
 		'post_mime_type' => $mimeType,
 		'post_status'    => 'inherit',
 		'post_parent'    => $post,
-		'post_author'    => 1
+		'post_author'    => 1,
+		'tax_input'		 => [
+			'attachment_category' => 14872
+		]
 	], $filePath, $post);
-
-	global $avoid_other_sizes;
-	$avoid_other_sizes = true;
 
 	// Generate the metadata for the attachment, and update the database record.
 	$attach_data = wp_generate_attachment_metadata($mediaId, $filePath);
 	wp_update_attachment_metadata($mediaId, $attach_data);
 	set_post_thumbnail($post, $mediaId);
 
-	$avoid_other_sizes = false;
-
-	wp_set_object_terms($mediaId, 'video-featured-images', 'attachment_category', true);
-
-	return true;
+	return $mediaId;
 }
 
 function get_status_code($url) {
@@ -805,8 +803,11 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 
 		$tags = implode('|', $tags);
 		preg_match("/({$tags})/i", $video_title, $matches);
-		if (count($matches))
-			$score += count($matches) - 1;
+		if (count($matches)) {
+			array_shift($matches);
+			$score += count($matches);
+			wp_set_post_tags($video_id, $matches, true);
+		}
 
 		if ($score) {
 			$cat->score = $score;

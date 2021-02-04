@@ -6,7 +6,7 @@ $(() => {
 			if (data.content)
 				$('.logs').html(`<pre>${data.content}</pre>`);
 		});
-	}, 5000);
+	}, 1000);
 
 	$('#kill-switch').on('click', function() {
 		$.ajax({

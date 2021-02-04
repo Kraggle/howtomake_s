@@ -123,6 +123,7 @@ add_action('after_setup_theme', function () {
 	 */
 	add_action('set_object_terms', function ($object_id, $terms, $tt_ids, $taxonomy, $append, $old_tt_ids) {
 		global $refreshing_categories;
+		// logger($refreshing_categories, $taxonomy);
 		if (!$refreshing_categories && $taxonomy == 'attachment_category')
 			generate_category_thumbnails($object_id);
 	}, 10, 6);
@@ -134,11 +135,12 @@ add_action('after_setup_theme', function () {
 	 */
 	add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta, $attachment_id) {
 		global $avoid_other_sizes;
+		// logger($avoid_other_sizes);
 		if ($avoid_other_sizes)
 			return array();
 
 		$terms = wp_get_object_terms($attachment_id, 'attachment_category');
-		return count($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
+		return length($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
 	}, 10, 3);
 
 	$post_types = get_post_types(array('public' => true), 'names', 'and');
