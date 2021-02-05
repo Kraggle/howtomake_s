@@ -17,7 +17,7 @@ logger('index.php has beed called, this should be rectified as soon as posible',
 
 ?>
 <!doctype html>
-<html <?php echo get_language_attributes() ?>>
+<html <?= get_language_attributes() ?>>
 <?php get_template_part('views/partials/head') ?>
 
 <body <?php body_class('index') ?>>

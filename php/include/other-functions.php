@@ -831,3 +831,35 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 		return false;
 	}
 }
+
+function get_search_categories() {
+
+	$taxes = get_terms([
+		'taxonomy' => 'category'
+	]);
+
+	$return = [];
+	foreach ($taxes as $tax) {
+		$return[$tax->slug] = [
+			'post' => $tax
+		];
+	}
+
+	$taxes = get_terms([
+		'taxonomy' => 'video-category'
+	]);
+
+	foreach ($taxes as $tax) {
+		if ($return[$tax->slug]) {
+			$return[$tax->slug]['video'] = $tax;
+		} else {
+			$return[$tax->slug] = [
+				'video' => $tax
+			];
+		}
+	}
+
+	ksort($return);
+
+	return to_object($return);
+}

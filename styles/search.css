@@ -550,6 +550,10 @@
 .check input:checked ~ .marker::after {
   opacity: 1;
 }
+.check input[enabled=false] ~ label {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
 
 .list {
   display: grid;

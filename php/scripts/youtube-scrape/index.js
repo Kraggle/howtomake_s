@@ -2,7 +2,12 @@ import { jQuery as $ } from '../../../scripts/src/jquery-3.5.1-min.js';
 
 $(() => {
 	setInterval(() => {
-		$.getJSON(`./info/latest-log.php?v=${makeID(10)}`, data => {
+		$.ajax({
+			url: './info/latest-log.php?v',
+			type: 'GET',
+			cache: false
+		}).done(function(data) {
+			data = JSON.parse(data);
 			if (data.content)
 				$('.logs').html(`<pre>${data.content}</pre>`);
 		});
@@ -10,29 +15,23 @@ $(() => {
 
 	$('#kill-switch').on('click', function() {
 		$.ajax({
-			url: 'kill-switch.php',
+			url: 'kill-switch.php?v',
+			type: 'GET',
 			data: {
 				kill: true
-			}
+			},
+			cache: false
 		});
 	});
 
 	$('#cancel-kill').on('click', function() {
 		$.ajax({
-			url: 'kill-switch.php',
+			url: 'kill-switch.php?v',
+			type: 'GET',
 			data: {
 				kill: false
-			}
+			},
+			cache: false
 		});
 	});
 });
-
-function makeID(length) {
-	let result = '';
-	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-		charactersLength = characters.length;
-	for (let i = 0; i < length; i++)
-		result += characters.charAt(Math.floor(Math.random() * charactersLength));
-
-	return result;
-}

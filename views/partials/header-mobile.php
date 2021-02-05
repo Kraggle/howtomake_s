@@ -2,7 +2,7 @@
 // HTML partial/header-mobile
 ?>
 
-<header class="banner for-mobile" data-nonce="<?php echo $nonce ?>">
+<header class="banner for-mobile" data-nonce="<?= $nonce ?>">
 	<div class="lower">
 		<div class="hamburger">
 			<span></span>
@@ -12,7 +12,7 @@
 
 		<div class="menu-spacer"></div>
 
-		<a class="brand" href="<?php echo esc_url(home_url('/')); ?>">
+		<a class="brand" href="<?= esc_url(home_url('/')); ?>">
 			<?php get_template_part('views/partials/logo') ?>
 		</a>
 

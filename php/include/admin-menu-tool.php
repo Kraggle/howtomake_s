@@ -121,10 +121,10 @@ $menu_items = [
 					$include = "include_{$post_type}"; ?>
 
 					<div class="check-box">
-						<label for="<?php echo $include; ?>">
+						<label for="<?= $include; ?>">
 							<?php htm_checkbox($include, get_option("htm_sitemap_$include")); ?>
 							<div>
-								<span class="ks-check-name"><?php echo $post_type_name; ?></span>
+								<span class="ks-check-name"><?= $post_type_name; ?></span>
 								<p class="ks-help"><?php _e('Check to include', 'howtomake_s'); ?></p>
 							</div>
 						</label>
@@ -146,11 +146,11 @@ $menu_items = [
 					$include = "include_{$tax->name}"; ?>
 
 					<div class="check-box">
-						<label for="<?php echo $include; ?>">
+						<label for="<?= $include; ?>">
 							<?php htm_checkbox($include, get_option("htm_sitemap_$include")); ?>
 							<div>
-								<span class="ks-check-name"><?php echo $tax->label; ?></span>
-								<p class="ks-which">(<?php echo $tax->name; ?>)</p>
+								<span class="ks-check-name"><?= $tax->label; ?></span>
+								<p class="ks-which">(<?= $tax->name; ?>)</p>
 								<p class="ks-help"><?php _e('Check to include', 'howtomake_s'); ?></p>
 							</div>
 						</label>

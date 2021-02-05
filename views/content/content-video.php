@@ -15,11 +15,11 @@ the_title('<h1 class="title">', '</h1>'); ?>
 	<span class="author">
 		<a title="Video by" href="<?php the_channel(null, 'link') ?>"><?php the_channel(null, 'name'); ?></a>
 	</span> |
-	<span class="date"><?php echo get_the_date() ?></span> |
+	<span class="date"><?= get_the_date() ?></span> |
 	<?php the_terms($id, 'video-category', '', ', ') ?>
 </p>
 
-<div id="v_<?php echo $id ?>" class="video-wrap">
+<div id="v_<?= $id ?>" class="video-wrap">
 	<iframe width="1080" height="608" src="https://www.youtube.com/embed/<?php the_field('youtube_video_id'); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
@@ -60,7 +60,7 @@ the_title('<h1 class="title">', '</h1>'); ?>
 				</div>
 				<div class="detail-box">
 					<h5 class="detail-head">Release Date</h5>
-					<span class="date"><?php echo get_the_date() ?></span>
+					<span class="date"><?= get_the_date() ?></span>
 				</div>
 				<div class="detail-box">
 					<h5 class="detail-head">Platform</h5>

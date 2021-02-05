@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class="subs-right">
-		<?php echo do_shortcode('[contact-form-7 id="5297" title="Home Newsletter"]'); ?>
+		<?= do_shortcode('[contact-form-7 id="5297" title="Home Newsletter"]'); ?>
 	</div>
 </div>
 

@@ -32,7 +32,7 @@ $force = isset($_GET['force']) ? $_GET['force'] : false;
 		<p>
 			<label>
 				<span>Force update: </span>
-				<input type="checkbox" name="force" <?php echo $isChecked ?> />
+				<input type="checkbox" name="force" <?= $isChecked ?> />
 			</label>
 		</p>
 		<input type="submit" value="START UPDATE" />
@@ -51,7 +51,7 @@ $force = isset($_GET['force']) ? $_GET['force'] : false;
 $postAuthor = 1;
 $maxResults = 50; // max: 50
 
-$maxTime = 120;
+$maxTime = 80;
 // $maxTime = (ini_get('max_execution_time') - 20);
 global $endAt;
 $endAt = strtotime("+{$maxTime} seconds");
@@ -80,7 +80,7 @@ if (!file_exists('running.json'))
 	file_put_contents('running.json', json_encode(['running' => false]));
 $is = json_decode(file_get_contents('running.json'));
 if ($is->running) {
-	$log->put('Either `running.json` has not updated or someone or something else is already running this script.');
+	$log->put('<span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>');
 	exit;
 }
 
@@ -88,7 +88,7 @@ if (!file_exists('kill-switch.json'))
 	file_put_contents('kill-switch.json', json_encode(['kill' => false]));
 $do = json_decode(file_get_contents('kill-switch.json'));
 if ($do->kill) {
-	$log->put('Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`');
+	$log->put('<span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>');
 	exit;
 }
 
@@ -98,6 +98,8 @@ $uploadDir = wp_upload_dir()['basedir'] . '/yt-thumb';
 if (!file_exists($uploadDir)) wp_mkdir_p($uploadDir);
 
 if (isset($_GET['action']) && $_GET['action'] === 'import') {
+
+	$log->put('Getting the channels and checking if they need updating.');
 
 	global $wpdb;
 
@@ -281,6 +283,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 	}
 
 	getExtraYoutubeInfo();
+} else {
+	$log->put('Click `START UPDATE` at the top of the page to manually run this task.');
 }
 
 file_put_contents('running.json', json_encode(['running' => false]));
@@ -291,16 +295,16 @@ function test_restart() {
 	$do = json_decode(file_get_contents('kill-switch.json'));
 	if ($do->kill) {
 		file_put_contents('running.json', json_encode(['running' => false]));
-		$log->put('Exited due to `KILL SWITCH` being pressed!');
+		$log->put('<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>');
 		exit;
 	}
 
 	$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
 
 	if (time() >= $endAt) {
-		$log->put('Restarting to save from script timout!');
+		$log->put('<span style="color:red">Restarting to save from script timout!</span>');
 		file_put_contents('running.json', json_encode(['running' => false]));
 		header("Location: index.php?action=import");
-		die();
+		exit;
 	}
 }

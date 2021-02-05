@@ -475,13 +475,13 @@ function do_more_panel($content, $title = '', $args = array()) {
 		$classes[] = 'bg-' . $args['background'];
 	} ?>
 
-	<div class="<?php echo implode(' ', $classes) ?>">
+	<div class="<?= implode(' ', $classes) ?>">
 		<?php if ($type == 'quote') { ?>
-			<i class="quote"><?php echo get_font_awesome_icon('quote-right', 'solid') ?></i>
+			<i class="quote"><?= get_font_awesome_icon('quote-right', 'solid') ?></i>
 		<?php } ?>
-		<?php echo $title ?>
+		<?= $title ?>
 		<div class="more-content">
-			<?php echo is_callable($content) ? $content() : $content ?>
+			<?= is_callable($content) ? $content() : $content ?>
 		</div>
 	</div>
 

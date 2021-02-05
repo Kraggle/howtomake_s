@@ -20,7 +20,7 @@ fclose($fw);
 
 <div class="menu-back"></div>
 
-<header class="banner for-desktop" data-nonce="<?php echo $nonce ?>">
+<header class="banner for-desktop" data-nonce="<?= $nonce ?>">
 	<div class="upper">
 		<div class="trending-box">
 			<span class="trending-label">TRENDING:</span>
@@ -48,7 +48,7 @@ fclose($fw);
 	</div>
 
 	<div class="lower">
-		<a class="brand" href="<?php echo esc_url(home_url('/')); ?>">
+		<a class="brand" href="<?= esc_url(home_url('/')); ?>">
 			<?php get_template_part('views/partials/logo') ?>
 		</a>
 
