@@ -1,0 +1,27 @@
+{
+    "name": "hayden/youtube-scrape",
+    "type": "project",
+    "require": {
+        "google/apiclient": "^2.4",
+        "electrolinux/phpquery": "^0.9.6"
+    },
+    "authors": [
+        {
+            "name": "Hayden Kibble",
+            "email": "kibblehayden@gmail.com"
+        }
+    ],
+    "extra": {
+        "google/apiclient-services": [
+            "YouTube"
+        ]
+    },
+    "scripts": {
+        "post-update-cmd": "Google\\Task\\Composer::cleanup"
+    },
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
+    }
+}

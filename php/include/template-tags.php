@@ -128,13 +128,13 @@ if (!function_exists('htm_s_post_thumbnail')) {
 		if (is_singular()) { ?>
 
 			<div class="featured-image">
-				<? the_post_thumbnail(); ?>
+				<?php the_post_thumbnail(); ?>
 			</div>
 
-		<? } else { ?>
+		<?php } else { ?>
 
-			<a class="featured-image" href="<? the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<? the_post_thumbnail(
+			<a class="featured-image" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+				<?php the_post_thumbnail(
 					'featured-image',
 					array(
 						'alt' => the_title_attribute(
@@ -145,7 +145,7 @@ if (!function_exists('htm_s_post_thumbnail')) {
 					)
 				); ?>
 			</a>
-<? }
+<?php }
 	}
 }
 

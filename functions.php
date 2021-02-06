@@ -1,8 +1,5 @@
 <?php
 
-global $htm__s_version;
-$htm__s_version = '0.1.09';
-
 /**
  * htm_s functions and definitions
  *
@@ -11,10 +8,29 @@ $htm__s_version = '0.1.09';
  * @package htm_s
  */
 
-if (!defined('_S_VERSION')) {
-	// Replace the version number of the theme on each release.
+define('IS_LIVE', $_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com');
+if (!defined('IS_DEBUG'))
+	define('IS_DEBUG', IS_LIVE ? false : true);
+
+// Replace the version number of the theme on each release.
+if (!defined('_S_VERSION'))
 	define('_S_VERSION', '1.0.0');
-}
+
+if (!defined('K_YT_API_KEY'))
+	define('K_YT_API_KEY', 'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8');
+
+if (!defined('K_YT_API_KEYS'))
+	define('K_YT_API_KEYS', [
+		'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
+		'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
+		'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
+	]);
+
+global $htm__s_version;
+$htm__s_version = '0.1.11';
+
+global $refreshing_categories;
+$refreshing_categories = false;
 
 add_action('after_setup_theme', function () {
 	/**
@@ -76,19 +92,68 @@ add_action('after_setup_theme', function () {
 	 * Use main stylesheet for visual editor
 	 */
 	add_editor_style('./styles/main.css');
-}, 20);
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-// function htm_s_content_width() {
-// 	$GLOBALS['content_width'] = apply_filters('htm_s_content_width', 640);
-// }
-// add_action('after_setup_theme', 'htm_s_content_width', 0);
+	remove_image_size('1536x1536');
+	remove_image_size('2048x2048');
+
+	add_image_size_category('thumbnail', 'content-images', 150);
+	add_image_size_category('medium', ['post-featured-images', 'video-featured-images', 'content-images'], 550);
+	add_image_size_category('medium_large', ['post-featured-images', 'video-featured-images', 'content-images'], 700);
+	add_image_size_category('large', ['post-featured-images', 'video-featured-images', 'content-images'], 1080);
+	add_image_size_category('featured', ['post-featured-images', 'video-featured-images'], 1080, 608, true);
+	add_image_size_category('result', ['post-featured-images', 'video-featured-images'], 350, 197, true);
+	add_image_size_category('menu', ['post-featured-images', 'video-featured-images'], 250, 141, true);
+	add_image_size_category('related', ['post-featured-images', 'video-featured-images'], 150, 84, true);
+	add_image_size_category('post', 'content-images', 850);
+	add_image_size_category('small', 'content-images', 350);
+	add_image_size_category('channel', 'video-channel-icons', 120, 120, true);
+	add_image_size_category('tiny', 'video-channel-icons', 60, 60, true);
+
+	// logger(get_all_image_sizes());
+
+	add_filter('image_size_names_choose', function ($sizes) {
+		return array_merge($sizes, array(
+			'post' => __('Content Images')
+		));
+	});
+
+	/**
+	 * Used to regenerate images when the category is changed. So we are only keeping 
+	 * a minimal amount of images in the uploads folder.
+	 */
+	add_action('set_object_terms', function ($object_id, $terms, $tt_ids, $taxonomy, $append, $old_tt_ids) {
+		global $refreshing_categories;
+		// logger($refreshing_categories, $taxonomy);
+		if (!$refreshing_categories && $taxonomy == 'attachment_category')
+			generate_category_thumbnails($object_id);
+	}, 10, 6);
+
+	/**
+	 * Used when generating the new images to filter out the image sizes we don't want. 
+	 * This uses the categories added with add_image_size_catgory() matching with the
+	 * image categories.
+	 */
+	add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta, $attachment_id) {
+		global $avoid_other_sizes;
+		// logger($avoid_other_sizes);
+		if ($avoid_other_sizes)
+			return array();
+
+		$terms = wp_get_object_terms($attachment_id, 'attachment_category');
+		return length($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
+	}, 10, 3);
+
+	$post_types = get_post_types(array('public' => true), 'names', 'and');
+	foreach ($post_types as $post_type)
+		if ($post_type != 'attachment')
+			add_option("htm_sitemap_include_$post_type", 1);
+
+	if ($taxonomies = htm_get_taxonomies())
+		foreach ($taxonomies as $taxonomy) {
+			$name = get_taxonomy($taxonomy)->name;
+			add_option("htm_sitemap_include_$name", 1);
+		}
+}, 20);
 
 /**
  * Register widget area.
@@ -116,7 +181,7 @@ add_action('widgets_init', function () {
  * @param string $title
  */
 $htm_s_error = function ($message, $subtitle = '', $title = '') {
-	$title = $title ?: __('HowToMake_S &rsaquo; Error', 'hmt_s');
+	$title = $title ?: __('howtomake_s &rsaquo; Error', 'htm_s');
 	$footer = '<a href="#"></a>';
 	$message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
 	wp_die($message, $title);
@@ -134,9 +199,13 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'custom-header', 'template-tags', 'template-functions', 'customizer',
-	'custom-posts', 'shortcodes', 'other-functions', 'forms'
+	'custom-header', 'template-tags', 'template-functions', 'customizer', 'custom-posts',
+	'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
 ]);
+
+add_action('init', function () {
+	new HTM_Admin_Menu();
+});
 
 /**
  * Template Hierarchy should search for .blade.php files
@@ -148,9 +217,9 @@ foreach ([
 ] as $type) {
 	add_filter("{$type}_template_hierarchy", function ($templates) {
 		if (in_array('category.php', $templates)) {
-			array_unshift($templates, 'category.php');
+			array_unshift($templates, 'page-search.php');
 		} elseif (in_array('taxonomy-video-category.php', $templates)) {
-			array_unshift($templates, 'category.php');
+			array_unshift($templates, 'page-search.php');
 		} elseif (in_array('front-page.php', $templates)) {
 			array_unshift($templates, 'page-home.php');
 		} elseif (in_array('taxonomy-video-channel.php', $templates)) {
@@ -178,7 +247,7 @@ foreach ([
  * Enqueue scripts and styles.
  */
 add_action('wp_enqueue_scripts', function () {
-	global $template;
+	// global $template;
 	// error_log('Using template: ' . basename($template));
 
 	wp_enqueue_style('page_loader', get_template_directory_uri() . "/styles/loader.css");
@@ -190,28 +259,18 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
- * Implement the Custom Header feature.
- */
-// require get_template_directory() . '/php/include/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-// require get_template_directory() . '/php/include/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-// require get_template_directory() . '/php/include/template-functions.php';
-
-/**
- * Customizer additions.
- */
-// require get_template_directory() . '/php/include/customizer.php';
-
-/**
  * Load Jetpack compatibility file.
  */
-if (defined('JETPACK__VERSION')) {
-	require get_template_directory() . '/php/include/jetpack.php';
-}
+// if (defined('JETPACK__VERSION')) {
+// 	require get_template_directory() . '/php/include/jetpack.php';
+// }
+
+// Show Custom Fields on editor
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+add_action('post_updated', function ($id, $post) {
+	$link = get_permalink($id);
+
+	if (!preg_match('/-autosave-/', $link))
+		htm_set_permalink($id, $link, $post);
+}, 20, 2);

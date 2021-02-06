@@ -1,14 +1,14 @@
-import { jQuery as $ } from './src/jquery3.4.1.js';
+import { jQuery as $ } from './src/jquery-3.5.1-min.js';
 import header from './partials/header.js';
 
 $(() => {
 	header.build();
 
 	$('a[href^="#"]').on('click', function(e) {
-		e.preventDefault();
 		const id = $(this).attr('href');
+		if (!id.match(/^#/) || id.length == 1 || !$(id).length) return;
 
-		if (id.length == 1 || !$(id).length) return;
+		e.preventDefault();
 
 		$([document.documentElement, document.body]).animate({
 			scrollTop: $(id).offset().top - 170
@@ -106,5 +106,12 @@ $(() => {
 	onResize();
 
 	$(window).on('resize', onResize);
+
+	const bar = $('#wpadminbar');
+
+	if (bar.length) {
+		bar.slideUp('slow');
+		$('<div class="admin-bar-show"></div>').on('click', () => bar.slideToggle('slow')).appendTo('.body-wrap');
+	}
 });
 

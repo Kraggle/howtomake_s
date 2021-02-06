@@ -1,4 +1,4 @@
-@import "common/variables";
+@import 'common/variables';
 
 .content {
     .main {
@@ -22,24 +22,43 @@
     .featured-image {
         position: relative;
         margin-bottom: 50px;
-        min-height: 200px;
+        padding-bottom: 56.25%;
 
         img {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
-
-            // box-shadow: 0 2px 31px 0 rgba(#000, 0.3);
-       
         }
     }
 
     .video-wrap {
+        position: relative;
         margin-bottom: 50px;
         box-shadow: 0 2px 31px 5px rgba(#000, 1);
         overflow: hidden;
         border-radius: 20px;
         background-color: #fff;
+        max-height: 608px;
+        padding-bottom: 56.297%;
+
+        @media (max-width: 500px) {
+            margin: 0 -20px 50px;
+            padding-bottom: 62.5%;
+        }
+
+        @media (max-width: 375px) {
+            margin: 0 -35px 50px;
+            padding-bottom: 69.867%;
+        }
+
+        iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
     }
 
     .wrapper {
@@ -52,6 +71,37 @@
 
         @media (max-width: 980px) {
             flex-direction: column;
+        }
+
+        .iframe-wrap {
+            position: relative;
+            padding-bottom: 56.297%;
+
+            iframe {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .image-wrap {
+            position: relative;
+            margin: 20px 0;
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .image-center {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
 
         a {
@@ -68,7 +118,8 @@
             + h5,
             + h4,
             + h3,
-            + h2 {
+            + h2,
+            + h1 {
                 margin-top: 50px;
             }
         }
@@ -92,30 +143,29 @@
             margin: 10px 20px;
             color: $color-text-blue;
             line-height: 1.7em;
+
+            > .image-wrap {
+                left: -20px;
+                width: calc(100% + 40px);
+            }
         }
 
         h3 {
             font-size: 25px;
         }
 
+        h1 {
+            text-align: left;
+        }
+
+        h1,
         h2 {
-            font-size: 35px;
+            font-size: 30px;
             font-weight: 750;
         }
 
-        h2, h3, h4, h5, h6 {
+        h1, h2, h3, h4, h5, h6 {
             margin-bottom: 15px;
-        }
-
-        .image-wrap {
-            position: relative;
-            margin: 20px 0;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
         }
 
         @media (max-width: 600px) {
@@ -150,25 +200,25 @@ h3.related-title {
     }
 
     @media (max-width: 1040px) {
-        .related-part[part="5"] {
+        .related-part[part='5'] {
             display: none;
         }
     }
 
     @media (max-width: 920px) {
-        .related-part[part="4"] {
+        .related-part[part='4'] {
             display: none;
         }
     }
 
     @media (max-width: 760px) {
-        .related-part[part="3"] {
+        .related-part[part='3'] {
             display: none;
         }
     }
 
     @media (max-width: 520px) {
-        .related-part[part="2"] {
+        .related-part[part='2'] {
             display: none;
         }
     }

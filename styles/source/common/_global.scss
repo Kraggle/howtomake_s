@@ -26,17 +26,23 @@ body {
     height: 100%;
     font-family: 'Mulish',Helvetica,Arial,Lucida,sans-serif;
 
-    &.admin-bar {
-        padding-top: 32px;
+    // &.admin-bar {
+    //     padding-top: 32px;
 
-        @media screen and (max-width: 782px) {
-            padding-top: 46px;
-        }
-    }
+    //     @media screen and (max-width: 782px) {
+    //         padding-top: 46px;
+    //     }
+    // }
 }
 
+textarea,
+button,
 input {
     font-family: 'Mulish',Helvetica,Arial,Lucida,sans-serif;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -25,10 +25,10 @@
 
             &::after {
                 position: absolute;
-                content: '\35';
-                font-family: etmodules;
-                font-size: 18px;
-                margin-top: -3px;
+                content: fa-content($fa-var-chevron-right);
+                font-family: 'Font Awesome 5 Pro';
+                font-size: 12px;
+                margin-top: 3px;
                 right: 20px;
                 opacity: 0;
                 transition: $transition;
@@ -39,7 +39,7 @@
                 padding-right: 42px;
 
                 &::after {
-                    right: 14px;
+                    right: 18px;
                     opacity: 1;
                 }
             }
@@ -55,7 +55,7 @@
 
         a {
             &::after {
-                content: '\34';
+                content: fa-content($fa-var-chevron-left);
                 right: initial;
                 left: 20px;
             }
@@ -65,7 +65,7 @@
                 padding-left: 42px;
 
                 &::after {
-                    left: 14px;
+                    left: 18px;
                     opacity: 1;
                 }
             }

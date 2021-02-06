@@ -1,4 +1,4 @@
-import { jQuery as $ } from '../src/jquery3.4.1.js';
+import { jQuery as $ } from '../src/jquery-3.5.1-min.js';
 
 export default {
 	build() {

@@ -10,17 +10,17 @@
 
 ?>
 
-<article <? post_class() ?>>
+<article <?php post_class() ?>>
 	<header>
-		<h2 class="entry-title"><a href="<? echo get_permalink() ?>"><? echo get_the_title() ?></a></h2>
-		<? if (get_post_type() === 'post') {
+		<h2 class="entry-title"><a href="<?= get_permalink() ?>"><?= get_the_title() ?></a></h2>
+		<?php if (get_post_type() === 'post') {
 			include(get_template_directory() . '/views/partials/entry-meta.php');
 		} ?>
 	</header>
 	<div class="entry-summary">
-		<? the_excerpt() ?>
+		<?php the_excerpt() ?>
 	</div>
 </article>
 
-<? 
+<?php 
 // END

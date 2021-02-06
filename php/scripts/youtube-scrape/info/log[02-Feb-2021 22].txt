@@ -1,0 +1,801 @@
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:04:21] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:04:23] &raquo;  &raquo; We have: 235 and there are 564 in total.
+[02-Feb-2021 22:04:23] &raquo;  &raquo; Results: 330
+[02-Feb-2021 22:04:23] &raquo;  &raquo;  &raquo; J64jUY2zRoA - Don't Chase Money, Chase Education Robert Kiyosaki
+[02-Feb-2021 22:04:24] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:04:41] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:04:41] &raquo;  &raquo;  &raquo; 6lrXeV53_6k - Dennis Gartman explains the one thing you should invest in TODAY | Listen NOW! Robert Kiyosaki
+[02-Feb-2021 22:04:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:04:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:04:58] &raquo;  &raquo;  &raquo; XFQMhdAUGOU - Habits That Can Make You Rich Robert Kiyosaki [Millennial Money]
+[02-Feb-2021 22:04:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:05:15] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:05:15] &raquo;  &raquo;  &raquo; 2MGNcZzpLVI - The Formula For Getting What You Want – Kim Kiyosaki & Anne Marie Smith Rich Dad Radio Show]
+[02-Feb-2021 22:05:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:05:31] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:05:31] &raquo;  &raquo;  &raquo; S0ohBcrcMMk - The #1 Most Important Skill You NEED To Be SUCCESSFUL -Robert Kiyosaki
+[02-Feb-2021 22:05:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:05:49] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:05:49] &raquo;  &raquo;  &raquo; FZc5QLIZA5E - Quit Your Job and Unlock Your True Talent Kim Kiyosaki and Cathy Heller [The Rich Dad Radio Show]
+[02-Feb-2021 22:05:50] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:06:06] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:06:06] &raquo;  &raquo;  &raquo; M7y8zcRPXqs - Retire Like A Millionaire WAKE UP! Don't Rely On Your Pension Robert Kiyosaki [Millennial Money]
+[02-Feb-2021 22:06:06] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:06:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:06:23] &raquo;  &raquo;  &raquo; A59IFiJyyDM - How To Invest In Real Estate Without Making These Mistakes Robert Kiyosaki [The Rich Dad Radio]
+[02-Feb-2021 22:06:23] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:06:39] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:06:39] &raquo;  &raquo;  &raquo; QPYSMsK7M0A - How To Make Money Like A Pro | DON'T Listen To Wall Street Robert Kiyosaki [Millennial Money]
+[02-Feb-2021 22:06:40] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:06:56] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:06:56] &raquo;  &raquo;  &raquo; xpY-wpjhuBE - Why The College System Is CORRUPT! Robert Kiyosaki [The Rich Dad Radio Show]
+[02-Feb-2021 22:06:57] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:07:13] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:07:13] &raquo;  &raquo;  &raquo; OTkww-NPjfs - How The Rich Make Their Money | Learn How to Build Your Wealth TODAY! Kim Kiyosaki
+[02-Feb-2021 22:07:13] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:07:30] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:07:30] &raquo;  &raquo;  &raquo; MIhK6ky9vOQ - How to Get Rich In The Next Market Crash | Take Action TODAY!!! -Robert Kiyosaki
+[02-Feb-2021 22:07:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:07:48] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:07:48] &raquo;  &raquo;  &raquo; fugY8gLuqsc - How Trust Changed My Company Robert Kiyosaki [The Rich Dad Radio Show]
+[02-Feb-2021 22:07:48] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:08:05] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:08:05] &raquo;  &raquo;  &raquo; -Xf9ahU5-y4 - How To Go From RAGS To RICHES | Become A MILLIONAIRE [Millennial Money]
+[02-Feb-2021 22:08:05] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:08:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:08:21] &raquo;  &raquo;  &raquo; wYQwDrc5w3g - How Your Money Has Become Dangerous Robert Kiyosaki The Rich Dad Radio Show
+[02-Feb-2021 22:08:22] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:08:39] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:08:39] &raquo;  &raquo;  &raquo; tZ6tvHViwdU - Learn To Invest Like Robert Kiyosaki With ZERO Risk
+[02-Feb-2021 22:08:39] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:08:55] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:08:55] &raquo;  &raquo;  &raquo; lyJYmdscsl4 - The Biggest Mistake In Banking History Repeats Today Robert Kiyosaki
+[02-Feb-2021 22:08:56] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:09:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:09:14] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:09:17] &raquo;  &raquo; We have: 252 and there are 564 in total.
+[02-Feb-2021 22:09:17] &raquo;  &raquo; Results: 313
+[02-Feb-2021 22:09:17] &raquo;  &raquo;  &raquo; qInHChTdkf8 - Robert Kiyosaki’s Proven Strategies for Creating Real Estate Gold
+[02-Feb-2021 22:09:17] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:09:34] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:09:34] &raquo;  &raquo;  &raquo; yR0B8Y31CIk - Fake Money Is Making You Poorer! Why Savers are LOSERS Robert Kiyosaki Millennial Money
+[02-Feb-2021 22:09:34] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:09:51] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:09:51] &raquo;  &raquo;  &raquo; tZ2Bxf-dPhU - This Threatens Your Wealth and RUINS Your Retirement Robert Kiyosaki The Rich Dad Radio Show
+[02-Feb-2021 22:09:52] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:10:09] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:10:09] &raquo;  &raquo;  &raquo; aaOratxkmuM - How To Live A Wealthy Life Robert Kiyosaki & Ryan Holiday [The Rich Dad Radio Show]
+[02-Feb-2021 22:10:09] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:10:26] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:10:26] &raquo;  &raquo;  &raquo; F7e7XRwLNCc - How To Make Money Online Brian Rose and Robert Kiyosaki [The Rich Dad Radio Show]
+[02-Feb-2021 22:10:27] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:10:44] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:10:44] &raquo;  &raquo;  &raquo; rX6lDLVYTOE - Why The Rich Go Broke Robert Kiyosaki [The Rich Dad Radio Show]
+[02-Feb-2021 22:10:44] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:11:01] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:11:01] &raquo;  &raquo;  &raquo; ae_DD0jykW8 - David Goggins on the War Against Political Correctness Robert Kiyosaki [The Rich Dad Radio Show]
+[02-Feb-2021 22:11:01] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:11:18] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:11:18] &raquo;  &raquo;  &raquo; KRBfMqTqMQc - If You Can Do This You’ll ALWAYS have MONEY | START NOW!! Robert Kiyosaki [Millennial Money]
+[02-Feb-2021 22:11:19] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:11:36] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:11:36] &raquo;  &raquo;  &raquo; iscb3jixu-E - Get Rich With Real Estate | Start TODAY!! -Robert Kiyosaki [Rich Dad Radio Show]
+[02-Feb-2021 22:11:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:11:53] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:11:53] &raquo;  &raquo;  &raquo; 6Kvz44VnvSE - From Addict to Millionaire, Mike Lindell's Story Robert Kiyosaki
+[02-Feb-2021 22:11:53] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:12:00] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:12:00] &raquo;  &raquo;  &raquo; qZQtNu6EbQ4 - The Drive Behind A Millionaire Robert Kiyosaki [Millennial Money]
+[02-Feb-2021 22:12:00] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:12:16] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:12:16] &raquo;  &raquo;  &raquo; p5eN8vmTUFo - How To Run A Business Successfully Robert Kiyosaki [FULL Radio Show]
+[02-Feb-2021 22:12:17] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:12:34] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:12:34] &raquo;  &raquo;  &raquo; SwWaUvvMIFY - CHANGE YOUR LIFE BEFORE BREAKFAST WITH ROBERT KIYOSAKI
+[02-Feb-2021 22:12:35] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:12:50] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:12:50] &raquo;  &raquo;  &raquo; xgXrFOMVXdQ - What Are You Investing For? Cash Flow or Capital Gains? Robert Kiyosaki
+[02-Feb-2021 22:12:50] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:12:59] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:12:59] &raquo;  &raquo;  &raquo; uNaWooUqpp4 - How To Achieve Success Despite the School System Robert Kiyosaki
+[02-Feb-2021 22:13:00] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:13:17] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:13:17] &raquo;  &raquo;  &raquo; uSzbHzKkk_Y - Why You Should Take More Risks in Life and Money Robert Kiyosaki [Millennial Money]
+[02-Feb-2021 22:13:17] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:13:34] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:13:34] &raquo;  &raquo;  &raquo; 7_15RfVrxec - What Type of Real Estate the Rich Invest In Robert Kiyosaki [FULL Radio Show]
+[02-Feb-2021 22:13:34] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:13:50] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:13:50] &raquo;  &raquo;  &raquo; LLsQOLg_n08 - How To Buy Your First Investment Property Robert Kiyosaki
+[02-Feb-2021 22:13:51] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:14:07] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:14:08] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:14:11] &raquo;  &raquo; We have: 270 and there are 564 in total.
+[02-Feb-2021 22:14:11] &raquo;  &raquo; Results: 295
+[02-Feb-2021 22:14:11] &raquo;  &raquo;  &raquo; 9m3PaKZLwys - Horst Schulze Explains the #1 Asset for an Entrepreneur- Robert Kiyosaki [The Rich Dad Radio Show]
+[02-Feb-2021 22:14:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:14:18] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:14:18] &raquo;  &raquo;  &raquo; auBLUxQvNtQ - You are NOT Stupid Robert Kiyosaki [Millennial Money]
+[02-Feb-2021 22:14:18] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:14:35] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:14:35] &raquo;  &raquo;  &raquo; HiZsZPAVUSY - How To Survive The Aftermath? Robert Kiyosaki and Jim Rickards [Full Radio Show]
+[02-Feb-2021 22:14:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:14:53] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:14:53] &raquo;  &raquo;  &raquo; 9s8cj3Nt6g4 - In GOLD We Trust Robert Kiyosaki [Full Radio Show]
+[02-Feb-2021 22:14:53] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:15:11] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:15:11] &raquo;  &raquo;  &raquo; 49Qj8Dwc8TU - Higher Education Is A Financial Liability (WEIRD MONEY)
+[02-Feb-2021 22:15:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:15:28] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:15:28] &raquo;  &raquo;  &raquo; o8kmjvoMDbU - Our Economic Future -Robert Kiyosaki (FULL RADIO SHOW)
+[02-Feb-2021 22:15:28] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:15:45] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:15:45] &raquo;  &raquo;  &raquo; cBHpXL3sdIY - The Secret Formula to Financial Freedom Kim Kiyosaki (Millennial Money)
+[02-Feb-2021 22:15:45] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:16:03] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:16:03] &raquo;  &raquo;  &raquo; 2GEZ3TJMjps - Bring Your Product To The Market Kim Kiyosaki (Full Radio Show)
+[02-Feb-2021 22:16:03] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:16:20] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:16:20] &raquo;  &raquo;  &raquo; vvB5psbbuG8 - How Stars Can Help You Invest Weird Money
+[02-Feb-2021 22:16:20] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:16:38] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:16:38] &raquo;  &raquo;  &raquo; 5wn2ea5uprA - [FULL VIDEO] China Trade Deal Rich Dad Radio Show
+[02-Feb-2021 22:16:39] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:16:57] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:16:57] &raquo;  &raquo;  &raquo; jXGPrkq434A - Robert Kiyosaki's Formula To Get Rich Millennial Money
+[02-Feb-2021 22:16:57] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:17:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:17:14] &raquo;  &raquo;  &raquo; 5k5F4b8Px-s - Big Pharma, Medical Bankruptcies, And The Almighty Dollar -Robert Kiyosaki
+[02-Feb-2021 22:17:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:17:32] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:17:32] &raquo;  &raquo;  &raquo; zbNkAyxWspY - How To Profit From Your Own Death -Weird Money
+[02-Feb-2021 22:17:33] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:17:50] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:17:50] &raquo;  &raquo;  &raquo; u_et9up2694 - The Truth About Socialism and Why I'm A Capitalist -Robert Kiyosaki (Millennial Money)
+[02-Feb-2021 22:17:50] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:18:07] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:18:07] &raquo;  &raquo;  &raquo; e0bYRPS0p2A - How To Invest With LESS RISK -Robert Kiyosaki
+[02-Feb-2021 22:18:08] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:18:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:18:25] &raquo;  &raquo;  &raquo; u_IHzgr8gcM - How To Protect Yourself From Cyber Thieves: Identity Theft, Cyber Security, and Fake News
+[02-Feb-2021 22:18:25] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:18:42] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:18:42] &raquo;  &raquo;  &raquo; fjqTT9Ea6qM - Why Robert Kiyosaki buys Gold and Silver -Robert Kiyosaki
+[02-Feb-2021 22:18:42] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:18:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:18:59] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:19:01] &raquo;  &raquo; We have: 287 and there are 564 in total.
+[02-Feb-2021 22:19:01] &raquo;  &raquo; Results: 278
+[02-Feb-2021 22:19:01] &raquo;  &raquo;  &raquo; k50JH8csKe8 - Find REAL Teachers NOT FAKE Teachers -Robert Kiyosaki
+[02-Feb-2021 22:19:02] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:19:18] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:19:18] &raquo;  &raquo;  &raquo; hEXia0gzRVY - How To Invest With NO MONEY Down: Turn $0 Into Infinite Returns -Robert Kiyosaki (Millennial Money)
+[02-Feb-2021 22:19:19] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:19:36] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:19:36] &raquo;  &raquo;  &raquo; mA7vVBo8v9M - Find Out Why Self-Help Is An illusion -Robert Kiyosaki and Mark Manson
+[02-Feb-2021 22:19:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:19:54] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:19:54] &raquo;  &raquo;  &raquo; c1rTk4Rh5oc - How To Make Money As A Kid (FREE EBOOK) -Robert Kiyosaki
+[02-Feb-2021 22:19:54] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:20:11] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:20:11] &raquo;  &raquo;  &raquo; BAxw0aT-p6M - Differences Between Men and Women In Business Millennial Money with Kim Kiyosaki
+[02-Feb-2021 22:20:12] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:20:29] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:20:29] &raquo;  &raquo;  &raquo; TJ4XbbXbVls - Get Rich With Instagram -Robert Kiyosaki
+[02-Feb-2021 22:20:29] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:20:46] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:20:46] &raquo;  &raquo;  &raquo; zuVvWx4LZ2Y - Corruption Crisis: Serious Financial Trouble Is Coming -Robert Kiyosaki
+[02-Feb-2021 22:20:46] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:21:02] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:21:02] &raquo;  &raquo;  &raquo; 9iV55N2nuJY - How The Economy Works For DUMMIES: Global Economics 101 -Robert Kiyosaki
+[02-Feb-2021 22:21:03] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:21:19] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:21:19] &raquo;  &raquo;  &raquo; PA2OpiPzRu4 - The Biggest Crash In The World Is Coming... Are You Ready? -Robert Kiyosaki
+[02-Feb-2021 22:21:19] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:21:36] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:21:36] &raquo;  &raquo;  &raquo; WCixpLsB0Ro - KEEP THEM POOR: What The RICH Are HIDING From You -Robert Kiyosaki
+[02-Feb-2021 22:21:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:21:55] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:21:55] &raquo;  &raquo;  &raquo; gptvalvLcD4 - Going Small May Be the Path To Success For Your Business—Robert Kiyosaki
+[02-Feb-2021 22:21:55] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:22:12] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:22:12] &raquo;  &raquo;  &raquo; BhyGSklRUQY - Get Rich By Staying Small: Guide To A Successful Business -Robert Kiyosaki
+[02-Feb-2021 22:22:13] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:22:31] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:22:31] &raquo;  &raquo;  &raquo; TLxCK-B90jo - Health, Wealth and Happiness: Personal & Financial Spring Cleaning -Robert Kiyosaki
+[02-Feb-2021 22:22:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:22:48] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:22:48] &raquo;  &raquo;  &raquo; KWG2b-36JLc - The truth about money, banking and government Robert Kiyosaki
+[02-Feb-2021 22:22:49] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:23:04] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:23:04] &raquo;  &raquo;  &raquo; nXW368sMsfc - Trump’s Report Card: The Good & The Bad -Robert Kiyosaki
+[02-Feb-2021 22:23:04] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:23:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:23:21] &raquo;  &raquo;  &raquo; b5zpTBFMN0M - What Leadership Means -Robert Kiyosaki
+[02-Feb-2021 22:23:21] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:23:31] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:23:31] &raquo;  &raquo;  &raquo; QVdZaEJlyDc - The Pension Crisis Affects Your Retirement & Wealth—Robert Kiyosaki with Ted Siedle
+[02-Feb-2021 22:23:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:23:48] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:23:48] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:23:51] &raquo;  &raquo; We have: 304 and there are 564 in total.
+[02-Feb-2021 22:23:51] &raquo;  &raquo; Results: 261
+[02-Feb-2021 22:23:51] &raquo;  &raquo;  &raquo; z1u1ABpPaA8 - The CASHFLOW Board Game by Rich Dad
+[02-Feb-2021 22:23:51] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:24:07] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:24:07] &raquo;  &raquo;  &raquo; b7ZIrhnGHO0 - Use the B-I Triangle for Business Success -Robert Kiyosaki
+[02-Feb-2021 22:24:08] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:24:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:24:23] &raquo;  &raquo;  &raquo; sBj4BPCU3LM - Robert Kiyosaki: The Millionaire Mindset
+[02-Feb-2021 22:24:23] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:24:40] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:24:40] &raquo;  &raquo;  &raquo; OOZ5PgD2fuM - HOW TO PROFIT FROM A CRASHING STOCK MARKET -Robert Kiyosaki
+[02-Feb-2021 22:24:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:24:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:24:58] &raquo;  &raquo;  &raquo; TJzhkWJSXcM - THIS IS ZUCKED UP!!! -Robert Kiyosaki
+[02-Feb-2021 22:24:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:25:15] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:25:15] &raquo;  &raquo;  &raquo; Kgt9lAbo-Fs - FACEBOOK CATASTROPHE: Former Advisor Speaks Robert Kiyosaki #FacebookDown
+[02-Feb-2021 22:25:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:25:32] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:25:32] &raquo;  &raquo;  &raquo; CtkYB1iwoYY - Get RICH In The Next Market Crash—Robert Kiyosaki
+[02-Feb-2021 22:25:32] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:25:49] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:25:49] &raquo;  &raquo;  &raquo; 1uh8qzGpNKk - How To Raise Capital: Startup Funding Explained -Robert Kiyosaki
+[02-Feb-2021 22:25:49] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:26:06] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:26:06] &raquo;  &raquo;  &raquo; ymiqgSAllNw - Real Estate Investing With No Money Robert Kiyosaki
+[02-Feb-2021 22:26:07] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:26:24] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:26:24] &raquo;  &raquo;  &raquo; Xk-YF59HsYc - FIND OUT WHY OUR POLITICAL LEADERS ARE PUSHING SOCIALISM Robert Kiyosaki
+[02-Feb-2021 22:26:24] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:26:41] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:26:41] &raquo;  &raquo;  &raquo; l5Fr60KJF8I - CENTRAL BANKS CREATE INCOME INEQUALITY- Robert Kiyosaki
+[02-Feb-2021 22:26:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:26:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:26:58] &raquo;  &raquo;  &raquo; pbJVte7mkJs - How Rich People Avoid Paying Taxes -Robert Kiyosaki
+[02-Feb-2021 22:26:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:27:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:27:14] &raquo;  &raquo;  &raquo; zekCt5ExGzY - FIND OUT HOW TO SAVE MONEY UNDER THE NEW TAX CODE—Robert Kiyosaki
+[02-Feb-2021 22:27:14] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:27:30] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:27:30] &raquo;  &raquo;  &raquo; FdTcATcPuAg - FIND OUT HOW TO NAVIGATE THE TUMULTUOUS STOCK MARKET—Robert Kiyosaki featuring Bert Dohmen
+[02-Feb-2021 22:27:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:27:47] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:27:47] &raquo;  &raquo;  &raquo; fY4OKy54Yfs - Tax LOOPHOLES The Rich Don't Want You To Know -Robert Kiyosaki
+[02-Feb-2021 22:27:48] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:28:04] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:28:04] &raquo;  &raquo;  &raquo; NvAJ7t6kyIw - THE FED MAY BE TRIGGERING A MASSIVE RECESSION—Robert & Kim Kiyosaki featuring...
+[02-Feb-2021 22:28:05] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:28:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:28:21] &raquo;  &raquo;  &raquo; vI1EqU8QTQk - FIND OUT HOW TO FINISH & SUCCEED – Robert & Kim Kiyosaki featuring Jon Acuff
+[02-Feb-2021 22:28:21] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:28:37] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:28:38] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:28:40] &raquo;  &raquo; We have: 321 and there are 564 in total.
+[02-Feb-2021 22:28:40] &raquo;  &raquo; Results: 244
+[02-Feb-2021 22:28:40] &raquo;  &raquo;  &raquo; oSjZM8UZx5c - Someday You'll Lose Everything -Robert Kiyosaki
+[02-Feb-2021 22:28:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:28:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:28:58] &raquo;  &raquo;  &raquo; YnH9OdqHvyY - FIND OUT HOW TO TURN AN IDEA INTO A SUCCESSFUL BUSINESS with Kim Kiyosaki featuring Marie Forleo
+[02-Feb-2021 22:28:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:29:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:29:14] &raquo;  &raquo;  &raquo; XkN0ggndIhs - FIND OUT WHAT THE #1 FINANCIAL CRISIS IS – Robert & Kim Kiyosaki featuring John MacGregor
+[02-Feb-2021 22:29:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:29:32] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:29:32] &raquo;  &raquo;  &raquo; dCmeoSGEIgU - MAKE MONEY WITH NO MONEY WITH ROBERT KIYOSAKI, RICH DAD POOR DAD -Robert Kiyosaki
+[02-Feb-2021 22:29:32] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:29:49] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:29:49] &raquo;  &raquo;  &raquo; gGnA6uT_Hgs - FIND OUT HOW GEN Z IMPACTS BUSINESS & YOUR WEALTH—Kim Kiyosaki featuring Jason Dorsey
+[02-Feb-2021 22:29:49] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:30:06] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:30:06] &raquo;  &raquo;  &raquo; bOuConfqc6k - FIND OUT HOW TO CUT THE BULL FROM YOUR BUSINESS—Robert & Kim Kiyosaki featuring Jon Taffer
+[02-Feb-2021 22:30:06] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:30:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:30:23] &raquo;  &raquo;  &raquo; l7nicT9nWys - MILLENNIALS, QUIT YOUR B*TCHIN' ROBERT KIYOSAKI, RICH DAD POOR DAD
+[02-Feb-2021 22:30:24] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:30:40] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:30:40] &raquo;  &raquo;  &raquo; _7XL7lfehfI - FIND OUT THE FINANCIAL RISK OF CODDLING YOUR CHILDREN—Robert Kiyosaki featuring Greg Lukianoff...
+[02-Feb-2021 22:30:40] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:30:56] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:30:56] &raquo;  &raquo;  &raquo; CUuFvzIrk1w - I WOULD NEVER INVEST IN A 401(k) -ROBERT KIYOSAKI, RICH DAD POOR DAD
+[02-Feb-2021 22:30:56] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:31:12] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:31:12] &raquo;  &raquo;  &raquo; fHCBQ4rjP8g - FIND OUT IF REAL ESTATE WILL REPEAT THE 2007 CRASH – Robert and Kim Kiyosaki featuring Ken McElroy
+[02-Feb-2021 22:31:13] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:31:29] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:31:29] &raquo;  &raquo;  &raquo; EtHbymgRqPI - FIND OUT HOW GLOBAL UNREST IS TRACED DIRECTLY TO CENTRAL BANKS—Robert & Kim Kiyosaki featuring...
+[02-Feb-2021 22:31:29] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:31:45] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:31:45] &raquo;  &raquo;  &raquo; DKTekVFMmvw - FIND OUT THE 3 BIGGEST THREATS TO THE ECONOMY—Robert and Kim Kiyosaki featuring Richard Duncan
+[02-Feb-2021 22:31:46] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:32:02] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:32:02] &raquo;  &raquo;  &raquo; AgaOGwdM_g0 - FINALLY RELEASED CHAPTER 10 OF FAKE
+[02-Feb-2021 22:32:02] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:32:09] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:32:09] &raquo;  &raquo;  &raquo; FKPWEylmuoE - FIND OUT WHY “THE SWAMP” WILL NEVER BE DRAINED—Robert & Kim Kiyosaki featuring David Stockman
+[02-Feb-2021 22:32:09] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:32:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:32:25] &raquo;  &raquo;  &raquo; XpZZ5cYiV50 - FIND OUT WHAT CHINA THINKS OF TRUMP’S TRADE WAR—Robert & Kim Kiyosaki featuring Kevin Massengill
+[02-Feb-2021 22:32:25] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:32:42] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:32:42] &raquo;  &raquo;  &raquo; bcxnwI_J_U0 - FIND OUT HOW TO FIND YOUR PURPOSE IN LIFE – Robert & Kim Kiyosaki featuring Steven Pressfield
+[02-Feb-2021 22:32:42] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:32:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:32:58] &raquo;  &raquo;  &raquo; SSc1oYNv9Ss - FIND OUT HOW CHINA IMPACTS AMERICA’S ECONOMY – Robert Kiyosaki featuring Richard Duncan
+[02-Feb-2021 22:32:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:33:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:33:14] &raquo;  &raquo;  &raquo; KZpddMAPnY4 - CHAPTER 7 IS FINALLY RELEASED -Robert Kiyosaki
+[02-Feb-2021 22:33:14] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:33:29] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:33:29] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:33:32] &raquo;  &raquo; We have: 339 and there are 564 in total.
+[02-Feb-2021 22:33:32] &raquo;  &raquo; Results: 226
+[02-Feb-2021 22:33:32] &raquo;  &raquo;  &raquo; ujnt7uPWrkk - FIND OUT HOW BONDS IMPACT TRUMP’S TRADE WARS—Robert & Kim Kiyosaki, featuring Mohamed El-Erian
+[02-Feb-2021 22:33:32] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:33:48] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:33:48] &raquo;  &raquo;  &raquo; skZZaMW4dsY - Why I wrote my new book, FAKE — Fake Money, Fake Teachers, Fake Assets Robert Kiyosaki
+[02-Feb-2021 22:33:48] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:34:03] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:34:03] &raquo;  &raquo;  &raquo; -7RS-eP6DQI - CHAPTER 6 OF MY NEW BOOK FAKE IS RELEASED!
+[02-Feb-2021 22:34:03] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:34:18] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:34:18] &raquo;  &raquo;  &raquo; SgRVPPVHNoY - FIND OUT WHAT TO DO AFTER A FINANCIAL COLLAPSE—Robert & Kim Kiyosaki featuring Ron Paul
+[02-Feb-2021 22:34:19] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:34:34] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:34:34] &raquo;  &raquo;  &raquo; o7Prv1vj8_4 - FIND OUT HOW THE BANKING SYSTEM RIPS YOU OFF—Robert & Kim Kiyosaki with Tom Wright
+[02-Feb-2021 22:34:34] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:34:51] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:34:51] &raquo;  &raquo;  &raquo; ZUi5vDWbjIg - FAKE: CHAPTER 5
+[02-Feb-2021 22:34:51] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:35:06] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:35:06] &raquo;  &raquo;  &raquo; VEIlV_6WFmg - FIND OUT WHY THE STOCK MARKET IS SOARING & WHY IT WILL CRASH—Robert and Kim Kiyosaki, Bert Dohmen
+[02-Feb-2021 22:35:07] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:35:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:35:23] &raquo;  &raquo;  &raquo; xsWcpVQsjsA - FIND OUT HOW ENTREPRENEURS SUCCEED Robert Kiyosaki, JT Marino & Aaron Pool
+[02-Feb-2021 22:35:23] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:35:40] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:35:40] &raquo;  &raquo;  &raquo; vKZjOqJzEFM - FIND OUT HOW TO BUILD A SUCCESSFUL BUSINESS TEAM Robert Kiyosaki, Andy Tanner & Garrett Sutton
+[02-Feb-2021 22:35:40] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:35:55] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:35:55] &raquo;  &raquo;  &raquo; 4A9hXj_-BKY - FIND HOW SECRET SOCIETIES CONTROL YOUR WEALTH
+[02-Feb-2021 22:35:56] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:36:11] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:36:11] &raquo;  &raquo;  &raquo; _zuVvShYNwI - YOUR CAR IS A HORSE -RECORDED IN 2016
+[02-Feb-2021 22:36:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:36:28] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:36:28] &raquo;  &raquo;  &raquo; MmhtCPtSXIc - THE INVISIBLE ENEMY recorded 2016
+[02-Feb-2021 22:36:28] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:36:43] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:36:43] &raquo;  &raquo;  &raquo; I-1sI0AkyZU - GOLDEN RULES recorded 2016
+[02-Feb-2021 22:36:43] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:36:59] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:36:59] &raquo;  &raquo;  &raquo; LhM5MGZDzCc - EAST MEETS WEST
+[02-Feb-2021 22:36:59] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:37:15] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:37:15] &raquo;  &raquo;  &raquo; KX3LhOArLfs - FAKE MONEY, FAKE TEACHERS, FAKE ASSETS with Robert Kiyosaki
+[02-Feb-2021 22:37:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:37:24] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:37:24] &raquo;  &raquo;  &raquo; azoAa-EvBKo - FIND OUT HOW TO PAY LESS TAXES UNDER TRUMP’S NEW TAX CODE Robert Kiyosaki, Tom Wheelwright
+[02-Feb-2021 22:37:25] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:37:41] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:37:41] &raquo;  &raquo;  &raquo; Xe__fo5ytYc - HARD KNOCKS
+[02-Feb-2021 22:37:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:37:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:37:58] &raquo;  &raquo;  &raquo; ivV5s47NP8k - FIND OUT IF YOU HAVE THE PERSONALITY OF AN ENTREPRENEUR—Robert Kiyosaki, Gretchen Rubin
+[02-Feb-2021 22:37:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:38:13] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:38:15] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:38:18] &raquo;  &raquo; We have: 357 and there are 564 in total.
+[02-Feb-2021 22:38:18] &raquo;  &raquo; Results: 208
+[02-Feb-2021 22:38:18] &raquo;  &raquo;  &raquo; uUUK_afs5uI - TURN YOUR PROBLEM INTO A BUSINESS
+[02-Feb-2021 22:38:18] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:38:33] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:38:33] &raquo;  &raquo;  &raquo; dpmkXK7nOe4 - FIND MEANING, FIND SUCCESS
+[02-Feb-2021 22:38:33] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:38:49] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:38:49] &raquo;  &raquo;  &raquo; gJXB9esrq_U - Investing In The four quarters Of Life -Robert Kiyosaki
+[02-Feb-2021 22:38:49] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:39:05] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:39:05] &raquo;  &raquo;  &raquo; P32VrjpcsEI - FIND OUT WHAT’S FAKE & WHAT’S REAL – Robert Kiyosaki, Brien Lundin, Chris Blasi
+[02-Feb-2021 22:39:05] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:39:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:39:21] &raquo;  &raquo;  &raquo; gkqG2rjQHOU - SCALE, MARKET, SOLVE
+[02-Feb-2021 22:39:21] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:39:37] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:39:37] &raquo;  &raquo;  &raquo; S9lBYygRy5s - FIND OUT WHY THE AMERICAN DREAM IS UNDER THREAT—Robert Kiyosaki, Ken Langone
+[02-Feb-2021 22:39:37] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:39:54] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:39:54] &raquo;  &raquo;  &raquo; VAsJcIgAEHc - USEFUL IDIOTS recorded 2016
+[02-Feb-2021 22:39:54] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:40:10] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:40:10] &raquo;  &raquo;  &raquo; kT_EBFIcuEk - Retirement Gone Overnight? with Robert Kiyosaki and James Rickards
+[02-Feb-2021 22:40:10] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:40:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:40:25] &raquo;  &raquo;  &raquo; XxufiFOVQq4 - FIND OUT WHAT TO TEACH YOUR KIDS ABOUT MONEY—Robert Kiyosaki, Andy, Marcy, Zach & David Tanner
+[02-Feb-2021 22:40:25] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:40:41] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:40:41] &raquo;  &raquo;  &raquo; tYgr-YSbVyo - The Broken Rule of 72 recorded 2016
+[02-Feb-2021 22:40:42] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:40:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:40:58] &raquo;  &raquo;  &raquo; KGWDNb9zz2s - Now is the time to make a critical choice, FREE DOWNLOAD Robert Kiyosaki
+[02-Feb-2021 22:40:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:41:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:41:14] &raquo;  &raquo;  &raquo; R_fCa4ubj88 - LESS THAN PERFECT CREDIT SCORE? -with Robert Kiyosaki
+[02-Feb-2021 22:41:14] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:41:27] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:41:27] &raquo;  &raquo;  &raquo; vqgkDuZksak - FIND OUT HOW TRUMP’S TRADE WAR AFFECTS YOUR WEALTH Robert Kiyosaki, Dr. Alexander Elder
+[02-Feb-2021 22:41:28] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:41:44] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:41:44] &raquo;  &raquo;  &raquo; 4NRd7pft9SA - Three Sides of The Coin recorded 2016
+[02-Feb-2021 22:41:44] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:41:59] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:41:59] &raquo;  &raquo;  &raquo; 08unK0hlPII - FIND OUT THE CAUSE OF INCOME INEQUALITY AND HOW IT IMPACTS YOU—Robert Kiyosaki, Steven Brill
+[02-Feb-2021 22:41:59] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:42:15] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:42:15] &raquo;  &raquo;  &raquo; upveAtzMoOA - Business Battlefield recorded 2016
+[02-Feb-2021 22:42:16] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:42:31] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:42:31] &raquo;  &raquo;  &raquo; 4Dvmzkc_C74 - FIND OUT HOW FINANCIAL EDUCATION SETS YOU FREE- Robert Kiyosaki, Len and Leanna Giancola, Will...
+[02-Feb-2021 22:42:32] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:42:48] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:42:48] &raquo;  &raquo;  &raquo; r7pYWfTuL64 - No Crystal Ball recorded 2016
+[02-Feb-2021 22:42:48] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:43:04] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:43:05] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:43:08] &raquo;  &raquo; We have: 375 and there are 564 in total.
+[02-Feb-2021 22:43:08] &raquo;  &raquo; Results: 190
+[02-Feb-2021 22:43:08] &raquo;  &raquo;  &raquo; SklSmb5U0y8 - FIND OUT WHY GENEROSITY IS GOOD FOR BUSINESS-Robert Kiyosaki, John Ruhlin
+[02-Feb-2021 22:43:08] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:43:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:43:23] &raquo;  &raquo;  &raquo; VtsNvs4BG2U - The Northwest Spiral recorded 2016
+[02-Feb-2021 22:43:24] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:43:39] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:43:39] &raquo;  &raquo;  &raquo; xDa2IMz_69o - SCHOOLS DIVIDE AND CONQUER -ROBERT KIYOSAKI
+[02-Feb-2021 22:43:40] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:43:47] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:43:47] &raquo;  &raquo;  &raquo; lIL6jpgKFoc - FIND OUT HOW TO BUILD A BUSINESS-Kim Kiyosaki, Sangeeta Badal
+[02-Feb-2021 22:43:47] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:44:04] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:44:04] &raquo;  &raquo;  &raquo; 6MnF7S7LP00 - SCHOOL IS SCREWING YOU OVER Robert Kiyosaki
+[02-Feb-2021 22:44:04] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:44:19] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:44:19] &raquo;  &raquo;  &raquo; ka9WTWaez3I - Failure Is The Path
+[02-Feb-2021 22:44:20] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:44:36] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:44:36] &raquo;  &raquo;  &raquo; rmKKQY3rSx4 - How to Manage Your Money with Robert Kiyosaki
+[02-Feb-2021 22:44:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:44:51] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:44:51] &raquo;  &raquo;  &raquo; FO-1RzLXEhU - FIND OUT HOW CENTRAL BANKS RIG THE ECONOMY-Robert Kiyosaki, Nomi Prins
+[02-Feb-2021 22:44:51] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:45:07] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:45:07] &raquo;  &raquo;  &raquo; T7eh5JgmCZM - The Five Year Plan RECORDED 2016
+[02-Feb-2021 22:45:07] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:45:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:45:23] &raquo;  &raquo;  &raquo; RVsAyipB-v4 - FIND OUT HOW ENTREPRENEURS SUCCESSFULLY COMMUNICATE- Robert Kiyosaki, Carmine Gallo
+[02-Feb-2021 22:45:24] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:45:40] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:45:40] &raquo;  &raquo;  &raquo; KyVIYGx8jgQ - LIKE TRUMP, I DON'T PAY TAXES EITHER ROBERT KIYOSAKI, Rich Dad Poor Dad
+[02-Feb-2021 22:45:40] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:45:55] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:45:55] &raquo;  &raquo;  &raquo; c_gIwkvvD_I - How to Buy Your First Investment Property FREE DOWNLOAD Robert Kiyosaki
+[02-Feb-2021 22:45:55] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:46:10] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:46:10] &raquo;  &raquo;  &raquo; VgZZnG7US14 - Makers and Takers recorded 2016
+[02-Feb-2021 22:46:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:46:27] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:46:27] &raquo;  &raquo;  &raquo; akkhcVrV4Hw - FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[02-Feb-2021 22:46:28] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:46:44] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:46:44] &raquo;  &raquo;  &raquo; nxQHsrE9wkg - The T-Junction recorded 2016
+[02-Feb-2021 22:46:44] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:47:01] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:47:01] &raquo;  &raquo;  &raquo; vD-s1Wwxobo - FIND OUT HOW CYBER-CURRENCY IS CHANGING THE WORLD AND HOW YOU CAN PROSPER FROM IT Robert...
+[02-Feb-2021 22:47:01] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:47:18] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:47:18] &raquo;  &raquo;  &raquo; wTWYD4qFIRA - THE FUTURE OF OUR ECONOMY -ROBERT KIYOSAKI
+[02-Feb-2021 22:47:18] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:47:33] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:47:33] &raquo;  &raquo;  &raquo; Zju0ijk5GGc - HOW TO FIND TRUTH IN AN AGE OF FAKE NEWS & FAKE TEACHERS, Featuring: Robert Kiyosaki and Ryan...
+[02-Feb-2021 22:47:34] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:47:50] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:47:50] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:47:53] &raquo;  &raquo; We have: 393 and there are 564 in total.
+[02-Feb-2021 22:47:53] &raquo;  &raquo; Results: 172
+[02-Feb-2021 22:47:53] &raquo;  &raquo;  &raquo; AVy_BDQmP8M - Doing WELL By Doing GOOD recorded 2016
+[02-Feb-2021 22:47:53] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:48:10] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:48:10] &raquo;  &raquo;  &raquo; ywgKrlU7lw4 - THE WAR ON PRIVACY & HOW YOU CAN PROTECT YOURSELF ROBERT KIYOSAKI, JENNIFER GRANICK & ROBB LECOUNT
+[02-Feb-2021 22:48:10] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:48:26] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:48:26] &raquo;  &raquo;  &raquo; D8zTCsfhhd8 - THIS IS KEEPING YOU POOR -ROBERT KIYOSAKI
+[02-Feb-2021 22:48:26] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:48:41] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:48:41] &raquo;  &raquo;  &raquo; ZuQ47X6r_HM - Stocking Up recorded 2016 legacy show
+[02-Feb-2021 22:48:42] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:48:59] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:48:59] &raquo;  &raquo;  &raquo; kqBGFiLWE0k - FIND OUT HOW TO PREDICT THE FUTURE—Robert Kiyosaki, Jim Rickards
+[02-Feb-2021 22:48:59] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:49:15] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:49:15] &raquo;  &raquo;  &raquo; _AgrwpBT9QY - ORIGINALS recorded 2016
+[02-Feb-2021 22:49:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:49:31] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:49:31] &raquo;  &raquo;  &raquo; 5uhG5Ze6pgU - LEARN THE LANGUAGE OF MONEY & RAISE CAPITAL with Robert Kiyosaki, Kathleen Burns Kingsbury,...
+[02-Feb-2021 22:49:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:49:47] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:49:47] &raquo;  &raquo;  &raquo; CRq6sjpo9iU - IS RICH DAD REAL OR FAKE?
+[02-Feb-2021 22:49:48] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:50:04] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:50:04] &raquo;  &raquo;  &raquo; E7aNCkKF-PQ - GETTING A JOB IS FOR LOSERS ROBERT KIYOSAKI, RICH DAD POOR DAD
+[02-Feb-2021 22:50:05] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:50:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:50:21] &raquo;  &raquo;  &raquo; P7Myiw0Ge8Q - LEARN THE ART OF PERSUASION & INFLUENCE
+[02-Feb-2021 22:50:21] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:50:37] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:50:37] &raquo;  &raquo;  &raquo; 7IBnt4JYyIs - International Errorism recorded 2016
+[02-Feb-2021 22:50:38] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:50:54] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:50:54] &raquo;  &raquo;  &raquo; TwgdIriH5d0 - FIND OUT HOW BLOCKCHAIN IS CHANGING THE WORLD – Robert Kiyosaki, Jeff Wang, Joel Flint, Rob...
+[02-Feb-2021 22:50:54] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:51:11] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:51:11] &raquo;  &raquo;  &raquo; 6uZRBG1r5u4 - Getting Sidelined recorded 2016
+[02-Feb-2021 22:51:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:51:28] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:51:28] &raquo;  &raquo;  &raquo; BGd22H0Kiqk - FIND OUT HOW TO TAKE YOUR BUSINESS FROM SMALL TO BIG—Robert Kiyosaki, Greg McKeown, Blair Singer
+[02-Feb-2021 22:51:28] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:51:45] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:51:45] &raquo;  &raquo;  &raquo; MHQHV0MQs18 - The Quick and The Dead RECORDED 2016 legacy show
+[02-Feb-2021 22:51:45] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:52:01] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:52:01] &raquo;  &raquo;  &raquo; A8vD_XO0vUU - HOW TO CONVERT A LIABILITY INTO AN ASSET ROBERT KIYOSAKI, Rich Dad Poor Dad
+[02-Feb-2021 22:52:02] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:52:17] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:52:17] &raquo;  &raquo;  &raquo; wBFttL7Ad1E - FIND OUT WHAT IT TAKES TO BE A SUCCESSFUL REAL ESTATE INVESTOR – Robert Kiyosaki, Ken McElroy
+[02-Feb-2021 22:52:17] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:52:33] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:52:34] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:52:37] &raquo;  &raquo; We have: 410 and there are 564 in total.
+[02-Feb-2021 22:52:37] &raquo;  &raquo; Results: 155
+[02-Feb-2021 22:52:37] &raquo;  &raquo;  &raquo; Vv_xoIgNST8 - A Higher Standard RECORDED 2016 legacy show
+[02-Feb-2021 22:52:37] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:52:53] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:52:53] &raquo;  &raquo;  &raquo; QEB0eHKgN-U - FIND OUT WHY GROUP THINK IS BAD FOR BUSINESS & HOW YOU CAN AVOID IT – Kim Kiyosaki, Sallie...
+[02-Feb-2021 22:52:53] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:53:10] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:53:10] &raquo;  &raquo;  &raquo; 1UADg1ciX38 - Info-Preneurship RECORDED 2016 legacy show
+[02-Feb-2021 22:53:10] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:53:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:53:25] &raquo;  &raquo;  &raquo; 1K19P089lDg - FIND OUT WHY MONEY DOES NOT MAKE YOU RICH – Robert Kiyosaki, Rod Smith, Ryan Broyles & Chris...
+[02-Feb-2021 22:53:26] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:53:42] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:53:42] &raquo;  &raquo;  &raquo; Q4mJNnmySag - Smoke and Mirrors RECORDED 2016 LEGACY SHOW
+[02-Feb-2021 22:53:42] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:53:58] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:53:58] &raquo;  &raquo;  &raquo; BNAbi5Su9qc - FIND OUT WHAT TO DO IF THE ECONOMY COLLAPSES – Robert Kiyosaki & Doug Casey
+[02-Feb-2021 22:53:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:54:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:54:14] &raquo;  &raquo;  &raquo; s7nO19BKNDA - THE BIGGEST MISTAKE YOUNG PEOPLE MAKE ROBERT KIYOSAKI
+[02-Feb-2021 22:54:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:54:30] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:54:30] &raquo;  &raquo;  &raquo; fpAz_tF4ol4 - Buy, Borrow, Die recorded 2016 legacy show
+[02-Feb-2021 22:54:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:54:46] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:54:46] &raquo;  &raquo;  &raquo; q6_HV0aP2yo - INVESTING IN REAL ESTATE -ROBERT KIYOSAKI
+[02-Feb-2021 22:54:47] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:54:54] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:54:54] &raquo;  &raquo;  &raquo; q6OnwLLF7O8 - FIND OUT HOW THE NEW TAX CODE AFFECTS YOUR WEALTH & BUSINESS—Robert Kiyosaki, Tom Wheelwright,...
+[02-Feb-2021 22:54:54] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:55:11] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:55:11] &raquo;  &raquo;  &raquo; 4eFLKHUTCbY - CASHFLOW INSTRUCTIONAL VIDEO LOANS & PAYING OFF DEBT
+[02-Feb-2021 22:55:12] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:55:18] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:55:18] &raquo;  &raquo;  &raquo; 7KO_N2svDBc - The Landslide RECORDED 2016 legacy show
+[02-Feb-2021 22:55:19] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:55:35] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:55:35] &raquo;  &raquo;  &raquo; zKjBh8-KqGE - FIND OUT THE BEST TIME FOR YOU TO SUCCEED – Robert Kiyosaki & Daniel Pink
+[02-Feb-2021 22:55:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:55:52] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:55:52] &raquo;  &raquo;  &raquo; dN5qHjnd_xk - HOW DEBT CAN GENERATE INCOME -ROBERT KIYOSAKI
+[02-Feb-2021 22:55:52] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:56:07] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:56:07] &raquo;  &raquo;  &raquo; ZVjIuMY24n0 - HEAR WHAT THE TREASURES AND TRAPS ARE FOR INVESTORS IN 2018 – Robert Kiyosaki, Bert Dohmen
+[02-Feb-2021 22:56:08] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:56:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:56:25] &raquo;  &raquo;  &raquo; c8CLPRRmsrM - Passionate Politics- recorded 2016 LEGACY SHOW
+[02-Feb-2021 22:56:25] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:56:41] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:56:41] &raquo;  &raquo;  &raquo; NC3YAHa4lgo - STOP IMPERSONATING ME!!! Public Service Announcement with Robert Kiyosaki
+[02-Feb-2021 22:56:42] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:56:57] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:56:57] &raquo;  &raquo;  &raquo; 5wKaky824j4 - DO YOU WANT ACHIEVEMENT, HAPPINESS AND WELL-BEING?- Robert Kiyosaki, Shawn Achor
+[02-Feb-2021 22:56:58] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:57:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Feb-2021 22:57:15] &raquo; <b>Robert Kiyosaki</b>:
+[02-Feb-2021 22:57:18] &raquo;  &raquo; We have: 428 and there are 564 in total.
+[02-Feb-2021 22:57:18] &raquo;  &raquo; Results: 137
+[02-Feb-2021 22:57:18] &raquo;  &raquo;  &raquo; _heHAlTGh6M - CASHFLOW INSTRUCTIONAL VIDEO: BUYING & SELLING STOCKS
+[02-Feb-2021 22:57:18] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:57:33] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:57:33] &raquo;  &raquo;  &raquo; xDO1hpelfrs - THE SURVIVAL OF THE FITTEST -ROBERT KIYOSAKI/ RICH DAD POOR DAD
+[02-Feb-2021 22:57:34] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:57:48] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:57:48] &raquo;  &raquo;  &raquo; Y8nhl5IPvJ0 - The Wall Street Hijack LEGACY SHOW recorded 2016
+[02-Feb-2021 22:57:49] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:58:05] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:58:05] &raquo;  &raquo;  &raquo; g6XTyJRbEmA - BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[02-Feb-2021 22:58:06] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:58:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:58:21] &raquo;  &raquo;  &raquo; L86l-DlGhtI - CASHFLOW INSTRUCTIONAL VIDEOS: SELLING REAL ESTATE INVESTMENT
+[02-Feb-2021 22:58:22] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:58:36] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:58:36] &raquo;  &raquo;  &raquo; unxILy_pJDI - Broker Than You LEGACY SHOW recorded 2016
+[02-Feb-2021 22:58:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:58:52] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:58:52] &raquo;  &raquo;  &raquo; 7EhDNIgYZbg - Why Investing Isn't Risky -Robert Kiyosaki
+[02-Feb-2021 22:58:52] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:59:08] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:59:08] &raquo;  &raquo;  &raquo; FjiyJoW3aLU - FIND OUT WHY BITCOIN IS A JOKE & THE STOCK MARKET WILL CONTINUE RISING – Robert Kiyosaki,...
+[02-Feb-2021 22:59:08] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:59:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:59:25] &raquo;  &raquo;  &raquo; SOelLblWpzU - CASHFLOW INSTRUCTIONAL: BUYING REAL ESTATE INVESTMENT Robert Kiyosaki
+[02-Feb-2021 22:59:25] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:59:40] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:59:40] &raquo;  &raquo;  &raquo; 9zFR9i4Y22c - I’m Offended! LEGACY SHOW recorded 2016
+[02-Feb-2021 22:59:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 22:59:56] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 22:59:56] &raquo;  &raquo;  &raquo; QU8F2Omn2ro - Hear Why The Path To Wealth Starts With Giving – Robert Kiyosaki, Darren Weeks, Frank Hopkins, Jr.
+[02-Feb-2021 22:59:56] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:00:13] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 23:00:13] &raquo;  &raquo;  &raquo; DkB4280CTJ4 - CASHFLOW INSTRUCTIONS: RAT RACE CARDS AND SPACES
+[02-Feb-2021 23:00:13] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:00:30] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 23:00:30] &raquo;  &raquo;  &raquo; M1BU3u23nZc - Dr. Rahda Gopalan
+[02-Feb-2021 23:00:30] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:00:46] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 23:00:46] &raquo;  &raquo;  &raquo; kSKFnMHbWU8 - HEAR ABOUT BITCOIN, GOLD & CASH, AND HOW THEY CAN HELP & HURT YOUR WEALTH – Robert Kiyosaki,...
+[02-Feb-2021 23:00:46] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:01:02] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 23:01:02] &raquo;  &raquo;  &raquo; EhiS3ryq_Yk - CASHFLOW GAME INSTRUCTIONS: PROFESSION CARDS & FINANCIAL STATEMENTS
+[02-Feb-2021 23:01:03] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:01:19] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 23:01:19] &raquo;  &raquo;  &raquo; Yw2Ob6uzyZ4 - Evaporation Nation
+[02-Feb-2021 23:01:20] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:01:35] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 23:01:35] &raquo;  &raquo;  &raquo; QBtkptdbbGQ - CASHFLOW GAME INSTRUCTIONS: GAME SET UP Robert Kiyosaki
+[02-Feb-2021 23:01:36] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:01:52] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
+[02-Feb-2021 23:01:52] &raquo;  &raquo;  &raquo; WwjyFMndjxc - FIND OUT HOW THE NEW TAX PLAN AFFECTS YOU – Robert Kiyosaki
+[02-Feb-2021 23:01:52] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added 
+[02-Feb-2021 23:02:08] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails.
