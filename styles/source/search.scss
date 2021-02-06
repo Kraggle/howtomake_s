@@ -466,6 +466,13 @@ $drop-height: 40px;
                 }
             }
         }
+
+        &[enabled=false] {
+            ~ label {
+                opacity: 0.5;
+                text-decoration: line-through;
+            }
+        }
     }
 }
 

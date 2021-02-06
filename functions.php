@@ -27,7 +27,7 @@ if (!defined('K_YT_API_KEYS'))
 	]);
 
 global $htm__s_version;
-$htm__s_version = '0.1.10';
+$htm__s_version = '0.1.11';
 
 global $refreshing_categories;
 $refreshing_categories = false;
@@ -123,6 +123,7 @@ add_action('after_setup_theme', function () {
 	 */
 	add_action('set_object_terms', function ($object_id, $terms, $tt_ids, $taxonomy, $append, $old_tt_ids) {
 		global $refreshing_categories;
+		// logger($refreshing_categories, $taxonomy);
 		if (!$refreshing_categories && $taxonomy == 'attachment_category')
 			generate_category_thumbnails($object_id);
 	}, 10, 6);
@@ -134,11 +135,12 @@ add_action('after_setup_theme', function () {
 	 */
 	add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta, $attachment_id) {
 		global $avoid_other_sizes;
+		// logger($avoid_other_sizes);
 		if ($avoid_other_sizes)
 			return array();
 
 		$terms = wp_get_object_terms($attachment_id, 'attachment_category');
-		return count($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
+		return length($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
 	}, 10, 3);
 
 	$post_types = get_post_types(array('public' => true), 'names', 'and');
@@ -197,8 +199,8 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'custom-header', 'template-tags', 'template-functions', 'customizer',
-	'custom-posts', 'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool'
+	'custom-header', 'template-tags', 'template-functions', 'customizer', 'custom-posts',
+	'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
 ]);
 
 add_action('init', function () {

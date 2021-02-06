@@ -155,7 +155,7 @@ function htm_s_shotcode_more_panel() {
 
 			if ($latest) {
 				foreach ($latest as $post) { ?>
-					<a href="<?php echo get_permalink($post) ?>"><?php echo $post->post_title ?></a>
+					<a href="<?= get_permalink($post) ?>"><?= $post->post_title ?></a>
 		<?php }
 			}
 		}, 'Latest'); ?>
@@ -176,9 +176,9 @@ function sitemap_item($object, $post_type, $type = 'post') {
 	$name = $type ? $object->post_title : $object->name;
 
 	ob_start(); ?>
-	<li class="list-item" id="<?php echo "{$post_type}_{$id}" ?>">
-		<a href="<?php echo $link ?>" class="list-link" title="<?php echo $name ?>">
-			<?php echo $name ?>
+	<li class="list-item" id="<?= "{$post_type}_{$id}" ?>">
+		<a href="<?= $link ?>" class="list-link" title="<?= $name ?>">
+			<?= $name ?>
 		</a>
 
 		<?php if ($type) {
@@ -272,7 +272,7 @@ function htm_shortcode_sitemap() {
 			$type = get_post_type_object($post_type); ?>
 
 			<div class="section-wrap">
-				<h3 class="section-head"><?php echo $type->label ?></h3>
+				<h3 class="section-head"><?= $type->label ?></h3>
 				<ul class="section-list">
 
 					<?php foreach ($posts as $post) {
@@ -293,7 +293,7 @@ function htm_shortcode_sitemap() {
 
 			if (!empty($terms)) { ?>
 				<div class="section-wrap">
-					<h3 class="section-head"><?php echo $tax->label ?></h3>
+					<h3 class="section-head"><?= $tax->label ?></h3>
 					<ul class="section-list">
 
 						<?php foreach ($terms as $term) {

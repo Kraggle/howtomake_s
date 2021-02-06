@@ -21,7 +21,7 @@
 
 	</div>
 
-	<?php echo do_shortcode('[htm_more_side_panel]') ?>
+	<?= do_shortcode('[htm_more_side_panel]') ?>
 </div>
 
 <?php 

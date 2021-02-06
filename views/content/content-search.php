@@ -12,7 +12,7 @@
 
 <article <?php post_class() ?>>
 	<header>
-		<h2 class="entry-title"><a href="<?php echo get_permalink() ?>"><?php echo get_the_title() ?></a></h2>
+		<h2 class="entry-title"><a href="<?= get_permalink() ?>"><?= get_the_title() ?></a></h2>
 		<?php if (get_post_type() === 'post') {
 			include(get_template_directory() . '/views/partials/entry-meta.php');
 		} ?>

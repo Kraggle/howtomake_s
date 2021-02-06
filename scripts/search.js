@@ -93,10 +93,14 @@ $(() => {
 		$('input', this).prependTo($(this));
 
 		const disableOnCheck = function() {
-			const _me = $(`.checks[data-name="${data.disable}"]`),
-				on = $(this).is(':checked');
-			_me.attr('enabled', on);
-			$('input', _me).attr('enabled', on).prop('checked', on);
+			let _ins = $(`input[disable="${data.disable}"]`);
+			const on = $(this).is(':checked');
+			_ins.attr('enabled', on).prop('checked', on);
+
+			if (on) {
+				_ins = $(`input[disable*="${data.disable}"]`);
+				_ins.prop('checked', on);
+			}
 		};
 
 		if (data.disable) {
@@ -206,8 +210,7 @@ function getSearchResults(reset = false) {
 
 	loadingMore = true;
 
-	if (reset)
-		$('.list article.entry').remove();
+	reset && $('.list article.entry').remove();
 
 	offset = $('.list .entry').length;
 
@@ -228,21 +231,32 @@ function getSearchResults(reset = false) {
 		offset
 	};
 
+	const active = {},
+		aTerms = {};
 	$('.type-box input:checked').each(function() {
+		active[$(this).attr('name')] = true;
+		aTerms[$(this).attr('taxonomy')] = [];
 		query.post_type.push($(this).attr('name'));
 	});
 
-	const _cats = $('.cat-wrap[enabled="true"]');
-	if (_cats.length > 1) query.tax_query = { relation: 'OR' };
-	_cats.each(function(i) {
-		query.tax_query[i] = {
-			taxonomy: $(this).attr('tax'),
-			field: 'slug',
-			terms: []
-		};
-		$('input:checked', this).each(function() {
-			query.tax_query[i].terms.push($(this).attr('name'));
+	const _terms = $('.cat-wrap input[enabled="true"]:checked');
+	_terms.each(function() {
+		const data = $(this).data('object');
+		$.each(data, (type, tax) => {
+			if (!active[type]) return;
+			aTerms[tax.taxonomy].push(tax.slug);
 		});
+	});
+
+	if (Object.keys(aTerms).length > 1) query.tax_query = { relation: 'OR' };
+	let i = 0;
+	$.each(aTerms, (taxonomy, terms) => {
+		query.tax_query[i] = {
+			taxonomy,
+			field: 'slug',
+			terms
+		};
+		i++;
 	});
 
 	// console.log(query);

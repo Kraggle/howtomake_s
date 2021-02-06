@@ -51,7 +51,7 @@ function getYoutubeService() {
  */
 function getExtraYoutubeInfo(array $features = null) {
 
-	$log = videoLogger::getInstance();
+	global $log;
 
 	$videos = get_results(
 		"SELECT
@@ -62,6 +62,7 @@ function getExtraYoutubeInfo(array $features = null) {
 		INNER JOIN wp_postmeta m
 			ON p.ID = m.post_id
 		WHERE p.post_type = 'video'
+		AND p.post_status = 'publish'
 		AND m.meta_key = 'youtube_video_id'
 		AND (p.ID NOT IN (SELECT
 			tr.object_id
@@ -104,12 +105,20 @@ function getExtraYoutubeInfo(array $features = null) {
 				$log->put(indent() . "Adding extra information for: {$post->title}");
 
 				// Attach keywords as tags to post
-				if (is_null($features) || in_array('keywords', $features))
+				if (is_null($features) || in_array('keywords', $features)) {
 					wp_set_post_tags($post->id, $item->snippet->tags, true);
+					set_video_categories_from_tags($post->id, $item->snippet->tags, $post->title);
+				}
 
 				// Video Duration
-				if (is_null($features) || in_array('duration', $features))
-					update_post_meta($post->id, 'video_duration_raw', $item->contentDetails->duration); // ISO_8601 Format
+				if (is_null($features) || in_array('duration', $features)) {
+					// ISO_8601 Format
+					update_post_meta($post->id, 'video_duration_raw', $item->contentDetails->duration);
+
+					$di  = new DateInterval($item->contentDetails->duration);
+					$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
+					add_post_meta($post->id, 'video_duration_seconds', $sec, true);
+				}
 
 				// INFO: Added this to grab images, buy only if it's in features
 				// Video Featured Image
@@ -117,8 +126,10 @@ function getExtraYoutubeInfo(array $features = null) {
 					save_video_image_for_post($post->id, $item);
 			}
 		} catch (Exception $e) {
-			echo 'Exception: ' . $e->getMessage();
+			$log->put('Exception: ' . $e->getMessage());
 		}
+
+		test_restart();
 	}
 }
 

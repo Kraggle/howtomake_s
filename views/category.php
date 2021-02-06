@@ -15,7 +15,7 @@
 
 ?>
 <!doctype html>
-<html <?php echo get_language_attributes() ?>>
+<html <?= get_language_attributes() ?>>
 <?php get_template_part('views/partials/head') ?>
 
 <body <?php body_class() ?>>
@@ -30,7 +30,7 @@
 			<div class="content">
 				<main class="main">
 
-					<h1 class="page-title"><?php echo single_cat_title() ?></h1>
+					<h1 class="page-title"><?= single_cat_title() ?></h1>
 
 					<div class="gallery">
 						<?php $j = 0;
@@ -51,7 +51,7 @@
 						if ($j) { ?>
 							<div class="gallery-nav">
 								<?php for ($i = 0; $i < $j; $i++) { ?>
-									<div btn=<?php echo 'g_' . $ids[$i] ?> class="gallery-btn<?php echo $i == 0 ? ' active' : '' ?>" index=<?php echo $i ?>></div>
+									<div btn=<?= 'g_' . $ids[$i] ?> class="gallery-btn<?= $i == 0 ? ' active' : '' ?>" index=<?= $i ?>></div>
 								<?php } ?>
 							</div>
 						<?php } ?>

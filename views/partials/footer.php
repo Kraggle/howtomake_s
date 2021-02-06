@@ -53,7 +53,7 @@
 			<?php // INFO:: Icons 
 			?>
 			<div class="foot-icon-wrap">
-				<img src="<?php echo get_attachment_image_url_by_slug('other-companies-logos', '') ?>" alt="Other Logos">
+				<img src="<?= get_attachment_image_url_by_slug('other-companies-logos', '') ?>" alt="Other Logos">
 			</div>
 
 			<?php // INFO:: Login 
@@ -65,8 +65,8 @@
 
 					<?php $user = wp_get_current_user() ?>
 					<span class="in-as">Logged in as: </span>
-					<span class="user-name"><?php echo $user->display_name ?></span>
-					<a href="<?php echo wp_logout_url(get_permalink()) ?>" class="log-out">Log Out</a>
+					<span class="user-name"><?= $user->display_name ?></span>
+					<a href="<?= wp_logout_url(get_permalink()) ?>" class="log-out">Log Out</a>
 
 					<?php // TODO:: Add members page buttons 
 					?>

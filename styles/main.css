@@ -1080,7 +1080,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
   height: 100px;
   width: 100%;
   position: relative;
-  top: -1px;
+  top: -3px;
 }
 .foot .foot-wrap {
   background-image: linear-gradient(180deg, #0da0c5 0%, #29c4a9 35%, #29c4a9 100%);

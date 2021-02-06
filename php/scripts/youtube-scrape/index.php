@@ -26,20 +26,21 @@ $force = isset($_GET['force']) ? $_GET['force'] : false;
 </head>
 
 <body>
-	<div class="logs"></div>
-
 	<form method="GET" action="">
 		<input type="hidden" name="action" value="import" />
 		<?php $isChecked = $force ? 'checked' : '' ?>
 		<p>
 			<label>
 				<span>Force update: </span>
-				<input type="checkbox" name="force" <?php echo $isChecked ?> />
+				<input type="checkbox" name="force" <?= $isChecked ?> />
 			</label>
 		</p>
-		<p><input type="submit" value="Go" /></p>
+		<input type="submit" value="START UPDATE" />
 	</form>
+	<input id="kill-switch" type="button" value="KILL SCRIPT" style="position: fixed; top: 20px; right: 20px;" />
+	<input id="cancel-kill" type="button" value="CANCEL KILL" style="position: fixed; top: 50px; right: 20px;" />
 
+	<div class="logs"></div>
 	<script type="module" src="index.js"></script>
 </body>
 
@@ -50,7 +51,9 @@ $force = isset($_GET['force']) ? $_GET['force'] : false;
 $postAuthor = 1;
 $maxResults = 50; // max: 50
 
-$maxTime = (ini_get('max_execution_time') - 20);
+$maxTime = 80;
+// $maxTime = (ini_get('max_execution_time') - 20);
+global $endAt;
 $endAt = strtotime("+{$maxTime} seconds");
 
 // ------------------------------------------------------------------
@@ -67,16 +70,25 @@ require_once __DIR__ . '/../../include/functions.php';
 
 // ================================== Settings End =======================================
 
-if (!file_exists('./logs/'))
-	mkdir('./logs/');
+if (!file_exists('./info/'))
+	mkdir('./info/');
 
-$log = videoLogger::getInstance('./logs/log' . date('[d-M-Y H]') . '.txt');
+global $log;
+$log = videoLogger::getInstance('./info/log' . date('[d-M-Y H]') . '.txt');
 
 if (!file_exists('running.json'))
 	file_put_contents('running.json', json_encode(['running' => false]));
 $is = json_decode(file_get_contents('running.json'));
 if ($is->running) {
-	$log->put('Either `running.json` has not updated or someone or something else is already running this script.');
+	$log->put('<span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>');
+	exit;
+}
+
+if (!file_exists('kill-switch.json'))
+	file_put_contents('kill-switch.json', json_encode(['kill' => false]));
+$do = json_decode(file_get_contents('kill-switch.json'));
+if ($do->kill) {
+	$log->put('<span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>');
 	exit;
 }
 
@@ -86,6 +98,8 @@ $uploadDir = wp_upload_dir()['basedir'] . '/yt-thumb';
 if (!file_exists($uploadDir)) wp_mkdir_p($uploadDir);
 
 if (isset($_GET['action']) && $_GET['action'] === 'import') {
+
+	$log->put('Getting the channels and checking if they need updating.');
 
 	global $wpdb;
 
@@ -170,27 +184,27 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			foreach ($not_dead as $video) {
 				$have_yt_ids[] = $video->id;
 
-				$json[] = (object) [
-					'id' => $video->id,
-					'snippet' => [
-						'description' => $video->snippet->description,
-						'publishedAt' => $video->snippet->publishedAt,
-						'tags' => $video->snippet->tags,
-						'title' => $video->snippet->title,
-						'thumbnails' => $video->snippet->thumbnails,
-					],
-					'contentDetails' => [
-						'duration' => $video->contentDetails->duration,
-					],
-					'statistics' => $video->statistics
-				];
+				// $json[] = (object) [
+				// 	'id' => $video->id,
+				// 	'snippet' => [
+				// 		'description' => $video->snippet->description,
+				// 		'publishedAt' => $video->snippet->publishedAt,
+				// 		'tags' => $video->snippet->tags,
+				// 		'title' => $video->snippet->title,
+				// 		'thumbnails' => $video->snippet->thumbnails,
+				// 	],
+				// 	'contentDetails' => [
+				// 		'duration' => $video->contentDetails->duration,
+				// 	],
+				// 	'statistics' => $video->statistics
+				// ];
 			}
 
-			if (!file_exists('./data/'))
-				mkdir('./data/');
+			// if (!file_exists('./data/'))
+			// 	mkdir('./data/');
 
 			// Save the data we pulled for future reference
-			file_put_contents("./data/$ytChannelId.json", json_encode($json));
+			// file_put_contents("./data/$ytChannelId.json", json_encode($json));
 
 			foreach ($got_yt_ids as $yt_id) {
 				// The link no longer exists, delete the post
@@ -245,7 +259,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			]);
 
 			if ($postId) {
-				$log->put(indent(3) . "Video successfully added $postid");
+				$log->put(indent(3) . "Video successfully added @ " . strval($postId));
 
 				update_field('youtube_video_id', $videoId, $postId);
 
@@ -254,25 +268,43 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 				wp_set_object_terms($postId, $videoCategories, 'video-category');
 
 				// INFO: Updated this to get the largest available image size (Kraggle)
-				if (save_video_image_for_post($postId, $item))
-					$log->put(indent(3) . 'Successfully created the video thumbnails.');
+				if ($imgId = save_video_image_for_post($postId, $item))
+					$log->put(indent(3) . 'Successfully created the video thumbnails @ ' . strval($imgId));
 				else
 					$log->put(indent(3) . 'Creating the video thumbnails failed.');
 			} else
 				$log->put(indent(3) . 'Failed to add this video.');
 
-			file_put_contents('youtube-videos.txt', print_r($item, true));
-
-			if (time() >= $endAt) {
-				file_put_contents('running.json', json_encode(['running' => false]));
-				die(header("Location: ./index.php?action=import"));
-			}
+			test_restart();
 		}
 
-		update_term_meta($channel->term_id, 'yt_last_update', date('Y-m-d'), true);
+		$log->put(indent() . 'Finished channel update, setting last update to ' . date('Y-m-d'));
+		update_term_meta($channel->term_id, 'yt_last_update', date('Y-m-d'));
 	}
 
 	getExtraYoutubeInfo();
+} else {
+	$log->put('Click `START UPDATE` at the top of the page to manually run this task.');
 }
 
 file_put_contents('running.json', json_encode(['running' => false]));
+
+function test_restart() {
+	global $endAt, $log;
+
+	$do = json_decode(file_get_contents('kill-switch.json'));
+	if ($do->kill) {
+		file_put_contents('running.json', json_encode(['running' => false]));
+		$log->put('<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>');
+		exit;
+	}
+
+	$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
+
+	if (time() >= $endAt) {
+		$log->put('<span style="color:red">Restarting to save from script timout!</span>');
+		file_put_contents('running.json', json_encode(['running' => false]));
+		header("Location: index.php?action=import");
+		exit;
+	}
+}
