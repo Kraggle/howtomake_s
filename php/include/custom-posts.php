@@ -39,7 +39,7 @@ add_action(
 				'map_meta_cap'        => true,
 				'capabilities'        => ['edit_posts'],
 				'yarpp_support'       => true,
-				'taxonomies' 		  => ['post_tag','video-channel','video-category']
+				'taxonomies' 		  => ['post_tag','video-channel','video-category', 'category']
 			]
 		);
 

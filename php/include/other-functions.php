@@ -647,3 +647,17 @@ function get_status_code($url) {
 	preg_match('#HTTP/.*\s+(\d{3})\s#i', $headers, $match);
 	return count($match) ? $match[1] : false;
 }
+
+/*
+ * Define custom user roles (for Free, Premium members)
+ * Make sure this matches the dashboard
+ * Uses the version option to ensure only runs once.
+ */
+function htm__update_custom_roles() {
+    if ( get_option( 'custom_roles_version' ) < 1 ) {
+        add_role( 'free_member', 'Free Member', array( get_role( 'subscriber' )->capabilities ) );
+        add_role( 'premium_member', 'Premium Member', array( get_role( 'subscriber' )->capabilities ) );
+        update_option( 'custom_roles_version', 1 );
+    }
+}
+add_action( 'init', 'htm__update_custom_roles' );
