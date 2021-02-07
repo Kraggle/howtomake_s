@@ -249,14 +249,14 @@ function getSearchResults(reset = false) {
 	});
 
 	if (Object.keys(aTerms).length > 1) query.tax_query = { relation: 'OR' };
-	let i = 0;
+	let j = 0;
 	$.each(aTerms, (taxonomy, terms) => {
-		query.tax_query[i] = {
+		query.tax_query[j] = {
 			taxonomy,
 			field: 'slug',
 			terms
 		};
-		i++;
+		j++;
 	});
 
 	// console.log(query);

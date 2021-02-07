@@ -642,13 +642,13 @@ function save_video_image_for_post($post, $info) {
 	return $mediaId;
 }
 
-function get_status_code($url) {
-	$headers = @get_headers($url);
-	$headers = (is_array($headers)) ? implode("\n ", $headers) : $headers;
+// function get_status_code($url) {
+// 	$headers = @get_headers($url);
+// 	$headers = (is_array($headers)) ? implode("\n ", $headers) : $headers;
 
-	preg_match('#HTTP/.*\s+(\d{3})\s#i', $headers, $match);
-	return count($match) ? $match[1] : false;
-}
+// 	preg_match('#HTTP/.*\s+(\d{3})\s#i', $headers, $match);
+// 	return count($match) ? $match[1] : false;
+// }
 
 
 
@@ -722,6 +722,13 @@ function concat_strings($array, $key = null, $delimiter = ', ', $last = ' and ')
 	return implode($delimiter, $entries) . $last . $final;
 }
 
+// TODO: Make this work having different instances for each filename input.
+/**
+ * This, like error_log, outputs whatever you tell it to to a file of your choosing.
+ * 
+ * @param string $filename This is the path and filename of the file you want to log to.
+ * @param string $format   This is the format of the date of each string output to the log.
+ */
 class outputLogger {
 
 	private
@@ -793,8 +800,19 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 		AND tm.meta_key = 'alternative_names'"
 	);
 
+	// The videos channel
+	$terms = get_the_terms($video_id, 'video-channel');
+
 	$new = [];
 	foreach ($cats as $cat) {
+		// The channel(s) to exclude
+		$excludes = get_term_meta($cat->term_id, 'exclude_channels', true);
+		// Check if is being excluded
+		if (in_object($excludes, $terms, 'term_id')) {
+			// If it is, skip adding it
+			continue;
+		}
+
 		$tags = explode(',', $cat->tags);
 		$score = 0;
 
@@ -832,6 +850,22 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 
 		return false;
 	}
+}
+
+function in_object($needle, $haystack, $key) {
+	if (empty($needle)) return [];
+
+	if (!is_array($needle))
+		$needle = [$needle];
+
+	if (!is_array($haystack))
+		$haystack = [$haystack];
+
+	$return = [];
+	foreach ($needle as $n)
+		$return = array_merge($return, array_keys(array_column($haystack, $key), $n));
+
+	return $return;
 }
 
 function get_search_categories() {
