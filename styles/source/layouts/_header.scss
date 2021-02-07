@@ -263,7 +263,7 @@ $sub-scroll-pad: 39px;
             display: grid;
             grid-template-columns: 200px 1fr;
             column-gap: 40px;
-            height: 351px;
+            min-height: 351px;
         }
 
         .tab-list {

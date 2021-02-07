@@ -85,6 +85,15 @@ $(() => {
 				ids = $(this).data('ids'),
 				dataRelay = $(this).data('data');
 
+			let get = $(this).attr('get');
+			if (get) {
+				$(this).parents('.ks-setting-box').find(get).each(function() {
+					if ($.type(get) != 'array') get = [];
+					if ($(this).is(':checked'))
+						get.push($(this).attr('name').replace(/^_/, ''));
+				});
+			}
+
 			if (loop && ids.length) {
 
 				const total = ids.length;
@@ -101,7 +110,8 @@ $(() => {
 
 					ajax(action, {
 						ids: ids.splice(0, loop),
-						data: dataRelay
+						data: dataRelay,
+						get
 					}, data => {
 						if (data.success) {
 							$(`#${$(`#${other}`).attr('count')}`).val(ids.length);
@@ -114,14 +124,6 @@ $(() => {
 				};
 
 				loopCall();
-
-				// setTimeout(() => {
-				// 	loopCall();
-				// }, 1000);
-
-				// setTimeout(() => {
-				// 	loopCall();
-				// }, 2000);
 			} else {
 
 				ajax(action, data => {
@@ -170,6 +172,7 @@ function ajax(action) {
 
 	$.ajax({
 		url: V.ajax,
+		type: 'POST',
 		data: {
 			action,
 			nonce: $('.ks-box').data('nonce'),

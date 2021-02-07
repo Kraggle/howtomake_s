@@ -120,8 +120,54 @@ $dark-color: darken($main-color, 10%);
             }
         }
 
+        .grid {
+            display: grid;
+            gap: 10px;
+
+            &.two {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            &.three {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         .ks-label {
             color: #fff;
+        }
+
+        .check-list {
+            margin-bottom: 10px;
+
+            .check-box {
+                position: relative;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 0;
+                }
+            }
+
+            label {
+                * {
+                    margin: 0;
+                }
+            }
+
+            .ks-check-name {
+                font-weight: 600;
+                font-size: 15px;
+                color: #fff;
+            }
+
+            .ks-help {
+                color: #fff;
+                font-size: 11px;
+                opacity: .6;
+            }
         }
 
         .ks-button {

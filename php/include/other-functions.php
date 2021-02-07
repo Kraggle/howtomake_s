@@ -521,6 +521,10 @@ function get_php_includes($file = '') {
 	return get_template_directory() . '/php/include/' . $file;
 }
 
+function get_php_vendor($file = '') {
+	return get_template_directory() . '/php/vendor/' . $file;
+}
+
 /**
  * Return the video thumbnail URL.
  *
@@ -673,8 +677,10 @@ function random_string($length = 10) {
  */
 function list_ids($array, $key = 'ID', $type = 'array', $delimiter = ',') {
 	$ids = [];
-	foreach ($array as $value)
+	foreach ($array as $value) {
+		$value = to_object($value);
 		$ids[] = is_numeric($value->$key) ? intval($value->$key) : $value->$key;
+	}
 	return $type == 'array' ? $ids : implode($delimiter, $ids);
 }
 
@@ -906,10 +912,133 @@ function get_search_categories() {
  * Uses the version option to ensure only runs once.
  */
 function htm__update_custom_roles() {
-    if ( get_option( 'custom_roles_version' ) < 1 ) {
-        add_role( 'free_member', 'Free Member', array( get_role( 'subscriber' )->capabilities ) );
-        add_role( 'premium_member', 'Premium Member', array( get_role( 'subscriber' )->capabilities ) );
-        update_option( 'custom_roles_version', 1 );
-    }
+	if (get_option('custom_roles_version') < 1) {
+		add_role('free_member', 'Free Member', array(get_role('subscriber')->capabilities));
+		add_role('premium_member', 'Premium Member', array(get_role('subscriber')->capabilities));
+		update_option('custom_roles_version', 1);
+	}
 }
-add_action( 'init', 'htm__update_custom_roles' );
+add_action('init', 'htm__update_custom_roles');
+
+include_once(get_php_vendor('autoload.php'));
+
+function getYoutubeService() {
+	// INFO: Changed this to try the API key before resuming, as with 3 
+	// INFO: API keys we can triple the quota in a day 
+
+	/* cSpell:disable */
+	$appName = 'Youtube Scraper';
+	$apiKeys = [ // Youtube API Keys
+		'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
+		'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
+		'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
+	];
+	/* cSpell:enable */
+
+	// Google API init
+	$client = new Google_Client();
+	$client->setApplicationName($appName);
+
+	foreach ($apiKeys as $key) {
+
+		$client->setDeveloperKey($key);
+		$service = new Google_Service_YouTube($client);
+
+		try {
+			$results = $service->i18nRegions->listI18nRegions('id');
+
+			if ($results)
+				break;
+		} catch (Exception $e) {
+			videoLogger::getInstance()->put('Exception: ' . $e->getMessage());
+		}
+	}
+
+	return $service;
+}
+
+/**
+ * This runs from the How to Make - Video Editor menu, it will get all selected 
+ * information for every video that is fed in. 
+ * 
+ * $features can include: keywords, duration, image, title, slug, description, excerpt
+ *
+ * @param array $videos   An array of objects containing post id, title and yt_id
+ * @param array $features An array of features to save, all if null. default: null
+ * @return void
+ */
+function refresh_youtube_data(array $videos, array $features = null) {
+
+	$videoIds = list_ids($videos, 'yt_id');
+
+	if (!count($videoIds))
+		return;
+
+	// Process in batches to reduce API calls. 50 is Youtube's pagination limit.
+	$chunkedVideoIDs = array_chunk($videoIds, 50, true);
+
+	foreach ($chunkedVideoIDs as $ids) {
+
+		// Get more information for the videos
+		$optParams = array(
+			'id' => implode(',', $ids),
+		);
+
+		try {
+			$results = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', $optParams);
+
+			foreach ($results->items as $item) {
+				$i = array_search($item->id, array_column($videos, 'yt_id'));
+				if (!is_numeric($i)) continue; // Skip if video ID not in list, shouldn't happen
+				$post = to_object($videos[$i]);
+
+				// Attach keywords as tags to post
+				if (is_null($features) || in_array('keywords', $features)) {
+					wp_set_post_tags($post->id, $item->snippet->tags, true);
+					set_video_categories_from_tags($post->id, $item->snippet->tags, $post->title);
+				}
+
+				// Video Duration
+				if (is_null($features) || in_array('duration', $features)) {
+					// ISO_8601 Format
+					update_post_meta($post->id, 'video_duration_raw', $item->contentDetails->duration);
+
+					$di  = new DateInterval($item->contentDetails->duration);
+					$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
+					add_post_meta($post->id, 'video_duration_seconds', $sec, true);
+				}
+
+				// Video Featured Image (only works if included in features)
+				if (is_array($features) && in_array('image', $features))
+					save_video_image_for_post($post->id, $item);
+
+				// Video Title
+				if (is_null($features) || in_array('title', $features))
+					wp_update_post([
+						'ID' => $post->id,
+						'post_title' => friendly_title($item->snippet->title)
+					]);
+
+				// The slug [permalink] of the video (only works if included in features)
+				if (is_array($features) && in_array('slug', $features)) {
+					// action
+				}
+
+				// Video Description
+				if (is_null($features) || in_array('description', $features))
+					wp_update_post([
+						'ID' => $post->id,
+						'post_content' => format_youtube_description($item->snippet->description)
+					]);
+
+				add_post_meta($post->id, 'htm_youtube_extra', true);
+			}
+		} catch (Exception $e) {
+			logger('Exception: ' . $e->getMessage());
+		}
+	}
+}
+
+function format_youtube_description($desc) {
+	return '<p>' . implode('</p><p>', preg_split('/\n{1,}/', $desc)) . '</p>';
+}

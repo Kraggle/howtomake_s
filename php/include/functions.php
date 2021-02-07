@@ -10,37 +10,40 @@ function indent($count = 1, $symbol = ' &raquo; ') {
 	return $indent;
 }
 
-function getYoutubeService() {
-	// INFO: Changed this to try the API key before resuming, as with 3 
-	// INFO: API keys we can triple the quota in a day 
+if (!function_exists('getYoutubeService')) {
 
-	$appName = 'Youtube Scraper';
-	$apiKeys = [ // Youtube API Keys
-		'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
-		'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
-		'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
-	];
+	function getYoutubeService() {
+		// INFO: Changed this to try the API key before resuming, as with 3 
+		// INFO: API keys we can triple the quota in a day 
 
-	// Google API init
-	$client = new Google_Client();
-	$client->setApplicationName($appName);
+		$appName = 'Youtube Scraper';
+		$apiKeys = [ // Youtube API Keys
+			'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
+			'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
+			'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
+		];
 
-	foreach ($apiKeys as $key) {
+		// Google API init
+		$client = new Google_Client();
+		$client->setApplicationName($appName);
 
-		$client->setDeveloperKey($key);
-		$service = new Google_Service_YouTube($client);
+		foreach ($apiKeys as $key) {
 
-		try {
-			$results = $service->i18nRegions->listI18nRegions('id');
+			$client->setDeveloperKey($key);
+			$service = new Google_Service_YouTube($client);
 
-			if ($results)
-				break;
-		} catch (Exception $e) {
-			videoLogger::getInstance()->put('Exception: ' . $e->getMessage());
+			try {
+				$results = $service->i18nRegions->listI18nRegions('id');
+
+				if ($results)
+					break;
+			} catch (Exception $e) {
+				videoLogger::getInstance()->put('Exception: ' . $e->getMessage());
+			}
 		}
-	}
 
-	return $service;
+		return $service;
+	}
 }
 
 /**

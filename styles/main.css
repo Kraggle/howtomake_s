@@ -387,7 +387,7 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
   display: grid;
   grid-template-columns: 200px 1fr;
   column-gap: 40px;
-  height: 351px;
+  min-height: 351px;
 }
 .primary-nav.for-desktop .tab-list {
   display: flex;

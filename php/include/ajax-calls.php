@@ -1252,3 +1252,76 @@ function htm_set_missing_durations() {
 	exit;
 }
 add_ajax_action('set_missing_durations');
+
+/**
+ * Used by How to Make - Video Editor 
+ * 
+ * @return void 
+ */
+function htm_get_youtube_data() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+
+	$ids = get_videos_for_youtube_extra();
+
+	$count = count($ids);
+	if (!$count) {
+		get_results(
+			"DELETE 
+			FROM wp_postmeta 
+			WHERE meta_key = 'htm_youtube_extra'"
+		);
+
+		$ids = get_videos_for_youtube_extra();
+		$count = count($ids);
+		$return->message[] = 'This is starting from the beginning.';
+	} else
+		$return->message[] = 'This is continuing from where it left off.';
+
+	$return->ids = $ids;
+	$return->count = $count;
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_youtube_data');
+
+function get_videos_for_youtube_extra() {
+	return  get_results(
+		"SELECT
+		p.ID AS id,
+		p.post_title AS title,
+		pm.meta_value AS yt_id
+		FROM `wp_posts` AS p,
+			`wp_postmeta` AS pm
+		WHERE p.post_type LIKE 'video'
+		AND p.ID = pm.post_id
+		AND pm.meta_key LIKE 'youtube_video_id'
+		AND p.ID NOT IN (SELECT
+			`post_id`
+		FROM `wp_postmeta`
+		WHERE `meta_key` LIKE 'htm_youtube_extra')"
+	);
+}
+
+/**
+ * Used by How to Make - Video Editor 
+ * 
+ * @return void 
+ */
+function htm_set_youtube_data() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+	$ids = $_REQUEST['data']['ids'];
+	$features = $_REQUEST['data']['get'];
+
+	refresh_youtube_data($ids, $features);
+
+	$return->success = true;
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('set_youtube_data');
