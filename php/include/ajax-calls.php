@@ -1316,12 +1316,47 @@ function htm_set_youtube_data() {
 
 	$return = (object) ['message' => []];
 	$ids = $_REQUEST['data']['ids'];
-	$features = $_REQUEST['data']['get'];
 
-	refresh_youtube_data($ids, $features);
+	$items = get_youtube_data($ids);
 
-	$return->success = true;
+	if (count($items)) {
+		$return->double = true;
+		$return->ids = $items;
+		$return->action = 'put_youtube_data';
+		$return->loop = 1;
+	} else {
+		$return->message[] = 'Something went wrong getting the YouTube data!';
+		$return->success = false;
+	}
+
 	echo json_encode($return);
 	exit;
 }
 add_ajax_action('set_youtube_data');
+
+/**
+ * Used by How to Make - Video Editor 
+ * 
+ * @return void 
+ */
+function htm_put_youtube_data() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) ['message' => []];
+	$ids = $_REQUEST['data']['ids'];
+	$features = $_REQUEST['data']['get'];
+
+	$msg = refresh_youtube_data($ids, $features);
+	if ($msg) {
+		$return->success = true;
+		$return->message[] = $msg;
+	} else {
+		$return->success = false;
+		$return->message[] = 'Something went wrong refreshing the YouTube data!';
+	}
+
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('put_youtube_data');

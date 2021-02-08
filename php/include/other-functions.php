@@ -967,12 +967,76 @@ function getYoutubeService() {
  * @param array $features An array of features to save, all if null. default: null
  * @return void
  */
-function refresh_youtube_data(array $videos, array $features = null) {
+function refresh_youtube_data(array $items, array $features = null) {
+
+	if (!count($items))
+		return false;
+
+	foreach ($items as $item) {
+		$item = to_object($item);
+		$title = friendly_title($item->snippet->title);
+		$args = [
+			'ID' => $item->post_id
+		];
+
+		// Attach keywords as tags to post
+		if (is_null($features) || in_array('keywords', $features)) {
+			wp_set_post_tags($item->post_id, $item->snippet->tags, true);
+			set_video_categories_from_tags($item->post_id, $item->snippet->tags, $title);
+		}
+
+		// Video Duration
+		if (is_null($features) || in_array('duration', $features)) {
+			// ISO_8601 Format
+			update_post_meta($item->post_id, 'video_duration_raw', $item->contentDetails->duration);
+
+			$di  = new DateInterval($item->contentDetails->duration);
+			$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
+			add_post_meta($item->post_id, 'video_duration_seconds', $sec, true);
+		}
+
+		// Video Featured Image (only works if included in features)
+		if (is_array($features) && in_array('image', $features))
+			save_video_image_for_post($item->post_id, $item);
+
+		// Video Title
+		if (is_null($features) || in_array('title', $features))
+			$args['post_title'] = $title;
+
+		// The slug [permalink] of the video (only works if included in features)
+		if (is_array($features) && in_array('slug', $features)) {
+			// action
+		}
+
+		// Video Description
+		if (is_null($features) || in_array('description', $features))
+			$args['post_content'] = format_youtube_description($item->snippet->description);
+
+		if (length($args) > 1)
+			wp_update_post($args);
+
+		add_post_meta($item->post_id, 'htm_youtube_extra', true);
+
+		return 'Refreshed ' . concat_strings($features) . " for $title @ {$item->post_id}";
+	}
+}
+
+/**
+ * This runs from the How to Make - Video Editor menu, it will get all selected 
+ * information for every video that is fed in. 
+ * 
+ * $features can include: keywords, duration, image, title, slug, description, excerpt
+ *
+ * @param array $videos   An array of objects containing post id, title and yt_id
+ * @param array $features An array of features to save, all if null. default: null
+ * @return void
+ */
+function get_youtube_data(array $videos) {
 
 	$videoIds = list_ids($videos, 'yt_id');
 
 	if (!count($videoIds))
-		return;
+		return false;
 
 	// Process in batches to reduce API calls. 50 is Youtube's pagination limit.
 	$chunkedVideoIDs = array_chunk($videoIds, 50, true);
@@ -987,54 +1051,19 @@ function refresh_youtube_data(array $videos, array $features = null) {
 		try {
 			$results = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', $optParams);
 
-			foreach ($results->items as $item) {
+			$items = $results->items;
+			foreach ($items as $key => $item) {
 				$i = array_search($item->id, array_column($videos, 'yt_id'));
 				if (!is_numeric($i)) continue; // Skip if video ID not in list, shouldn't happen
 				$post = to_object($videos[$i]);
-
-				// Attach keywords as tags to post
-				if (is_null($features) || in_array('keywords', $features)) {
-					wp_set_post_tags($post->id, $item->snippet->tags, true);
-					set_video_categories_from_tags($post->id, $item->snippet->tags, $post->title);
-				}
-
-				// Video Duration
-				if (is_null($features) || in_array('duration', $features)) {
-					// ISO_8601 Format
-					update_post_meta($post->id, 'video_duration_raw', $item->contentDetails->duration);
-
-					$di  = new DateInterval($item->contentDetails->duration);
-					$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
-					add_post_meta($post->id, 'video_duration_seconds', $sec, true);
-				}
-
-				// Video Featured Image (only works if included in features)
-				if (is_array($features) && in_array('image', $features))
-					save_video_image_for_post($post->id, $item);
-
-				// Video Title
-				if (is_null($features) || in_array('title', $features))
-					wp_update_post([
-						'ID' => $post->id,
-						'post_title' => friendly_title($item->snippet->title)
-					]);
-
-				// The slug [permalink] of the video (only works if included in features)
-				if (is_array($features) && in_array('slug', $features)) {
-					// action
-				}
-
-				// Video Description
-				if (is_null($features) || in_array('description', $features))
-					wp_update_post([
-						'ID' => $post->id,
-						'post_content' => format_youtube_description($item->snippet->description)
-					]);
-
-				add_post_meta($post->id, 'htm_youtube_extra', true);
+				$items[$key]->post_id = $post->id;
 			}
+
+			return $items;
 		} catch (Exception $e) {
 			logger('Exception: ' . $e->getMessage());
+
+			return false;
 		}
 	}
 }

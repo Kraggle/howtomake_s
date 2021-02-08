@@ -154,7 +154,7 @@ $menu_items = [
 				</div>
 			<?php } ?>
 		</div>
-		<button id="setYD" class="ks-button" action="set_youtube_data" other="getYD" get=".check-list input" repeat=50>Refresh</button>
+		<button id="setYD" class="ks-button" action="set_youtube_data" other="getYD" get=".check-list input" repeat=50 isDouble=true>Refresh</button>
 	</div>
 <?php }
 	], (object) [
