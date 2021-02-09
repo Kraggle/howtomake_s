@@ -31,7 +31,15 @@ function htm_custom_search() {
 	$query = $_REQUEST['query'] ?: array();
 	$query['post_status'] = 'publish';
 
+	if ($query['orderby'] === 'duration') {
+		$query['meta_key'] = 'duration_seconds';
+		$query['orderby'] = 'meta_value_num';
+	}
+
+	// logger($query);
+
 	$query = new WP_Query($query);
+
 	if ($query->have_posts()) {
 		$posts = [];
 
@@ -1218,7 +1226,7 @@ function htm_get_missing_durations() {
 		AND pm.post_id NOT IN (SELECT
 			mp.post_id
 		FROM wp_postmeta mp
-		WHERE mp.meta_key = 'video_duration_seconds')"
+		WHERE mp.meta_key = 'duration_seconds')"
 	);
 
 	$return->count = length($return->ids);
@@ -1243,7 +1251,7 @@ function htm_set_missing_durations() {
 		$di  = new DateInterval($post->duration);
 		$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
 
-		add_post_meta($post->id, 'video_duration_seconds', $sec, true);
+		add_post_meta($post->id, 'duration_seconds', $sec, true);
 	}
 
 	$return->message[] = 'Added the duration in seconds for ' . length($ids) . ' videos.';

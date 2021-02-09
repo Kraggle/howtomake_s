@@ -251,7 +251,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			// Insert the post into the database
 			$postId = wp_insert_post([
 				'post_title'   => $snippet->title,
-				'post_content' => remove_emoji($snippet->description),
+				'post_content' => format_youtube_description($snippet->description),
 				'post_status'  => 'publish',
 				'post_author'  => $postAuthor,
 				'post_type'	   => 'video',

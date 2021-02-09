@@ -119,8 +119,15 @@ function getExtraYoutubeInfo(array $features = null) {
 					update_post_meta($post->id, 'video_duration_raw', $item->contentDetails->duration);
 
 					$di  = new DateInterval($item->contentDetails->duration);
-					$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
-					add_post_meta($post->id, 'video_duration_seconds', $sec, true);
+					$sec = ceil(($di->days * 86400) + ($di->h * 3600) + ($di->i * 60) + $di->s);
+					add_post_meta($post->id, 'duration_seconds', $sec, true);
+
+					if ($sec < 58) {
+						wp_update_post([
+							'ID' => $post->id,
+							'post_status' => 'draft'
+						]);
+					}
 				}
 
 				// INFO: Added this to grab images, buy only if it's in features

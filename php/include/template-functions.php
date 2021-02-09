@@ -360,11 +360,11 @@ function get_read_time($post = null) {
 	if (!$post) $post = $id;
 	if (!$post) return;
 
-	$minutes = get_post_meta($post, 'read_time', true);
+	$seconds = get_post_meta($post, 'duration_seconds', true);
 
-	if (!$minutes) $minutes = set_read_time($post);
+	if (!$seconds) $seconds = set_read_time($post);
 
-	return $minutes;
+	return ceil($seconds / 60);
 }
 
 function set_read_time($post = null) {
@@ -373,7 +373,7 @@ function set_read_time($post = null) {
 	if (!$post) return;
 
 	$minutes = ceil(str_word_count(strip_tags(get_the_content(null, false, $post))) / 250);
-	add_post_meta($post, 'read_time', $minutes);
+	add_post_meta($post, 'duration_seconds', $minutes * 60);
 	return $minutes;
 }
 

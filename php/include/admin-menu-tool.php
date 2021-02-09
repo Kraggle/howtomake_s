@@ -94,7 +94,7 @@ $menu_items = [
 
 	<div class="ks-setting-box">
 		<span class="ks-name">Missing Durations</span>
-		<span class="ks-desc">This sets the video metadata 'video_duration_seconds' for use in filtering and sorting by duration.</span>
+		<span class="ks-desc">This sets the video metadata 'duration_seconds' for use in filtering and sorting by duration.</span>
 		<div class="flex row">
 			<label for="mdCount" class="ks-label">Quantity</label>
 			<input id="mdCount" class="ks-input" type="number" readonly />

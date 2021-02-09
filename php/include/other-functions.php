@@ -27,7 +27,53 @@ function htm_s_on_install() {
 	fclose($js);
 
 	global $htm__s_version, $wpdb;
-	$wpdb->query("DELETE FROM wp_postmeta WHERE meta_key = 'video_duration'");
+	$wpdb->query(
+		"DELETE 
+		FROM wp_postmeta 
+		WHERE meta_key IN (
+			'video_duration', 
+			'video_duration_h', 
+			'video_duration_m',
+			'video_duration_s'
+		)"
+	);
+
+	$wpdb->query(
+		"UPDATE wp_postmeta SET meta_key = 'duration_seconds' WHERE meta_key = 'video_duration_seconds'"
+	);
+
+	$metadata = $wpdb->get_results(
+		"SELECT *
+		FROM wp_postmeta
+		WHERE meta_key = 'read_time'"
+	);
+
+	foreach ($metadata as $meta) {
+		add_post_meta($meta->post_id, 'duration_seconds', $meta->meta_value * 60, true);
+		delete_post_meta($meta->post_id, $meta->meta_key);
+	}
+
+	$wpdb->query(
+		"DELETE pm1 
+		FROM wp_postmeta pm1, wp_postmeta pm2
+		WHERE pm1.meta_key = 'duration_seconds'
+		AND pm2.meta_key = 'duration_seconds'
+		AND pm1.post_id = pm2.post_id
+		AND pm1.meta_id > pm2.meta_id"
+	);
+
+	$wpdb->query(
+		"UPDATE wp_posts p
+		SET p.post_status = 'draft'
+		WHERE p.post_type LIKE 'video'
+		AND p.post_status LIKE 'publish'
+		AND p.ID IN (
+		SELECT post_id
+		FROM wp_postmeta pm
+		WHERE pm.meta_key LIKE 'duration_seconds'
+		AND pm.meta_value < 58
+		)"
+	);
 
 	add_option('htm__s_version', $htm__s_version);
 	update_option('htm__s_version', $htm__s_version);
@@ -991,8 +1037,11 @@ function refresh_youtube_data(array $items, array $features = null) {
 			update_post_meta($item->post_id, 'video_duration_raw', $item->contentDetails->duration);
 
 			$di  = new DateInterval($item->contentDetails->duration);
-			$sec = ceil($di->days * 86400 + $di->h * 3600 + $di->i * 60 + $di->s);
-			add_post_meta($item->post_id, 'video_duration_seconds', $sec, true);
+			$sec = ceil(($di->days * 86400) + ($di->h * 3600) + ($di->i * 60) + $di->s);
+			update_post_meta($item->post_id, 'duration_seconds', $sec, true);
+
+			if ($sec < 58)
+				$args['post_status'] = 'draft';
 		}
 
 		// Video Featured Image (only works if included in features)

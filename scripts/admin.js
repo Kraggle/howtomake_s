@@ -130,6 +130,7 @@ $(() => {
 				};
 
 				const doubleCall = (use) => {
+					time.start();
 					if (use.action && use.ids && use.ids.length) {
 
 						ajax(use.action, {

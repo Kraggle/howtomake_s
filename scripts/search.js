@@ -78,7 +78,8 @@ $(() => {
 
 	// INFO:: Build the check boxes
 	$('.check').each(function() {
-		const data = $(this).data();
+		const _me = $(this),
+			data = $(this).data();
 
 		$('<div />', {
 			class: 'marker'
@@ -107,6 +108,11 @@ $(() => {
 			// disableOnCheck.call($('input', this));
 			$('input', this).on('change', disableOnCheck);
 		}
+
+		$('label', this).on('click', e => {
+			if ($('input', _me).attr('enabled') == 'false')
+				e.preventDefault();
+		});
 	});
 
 	// INFO:: Support for the multi checks

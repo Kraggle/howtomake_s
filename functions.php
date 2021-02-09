@@ -27,7 +27,7 @@ if (!defined('K_YT_API_KEYS'))
 	]);
 /* cSpell:enable */
 global $htm__s_version;
-$htm__s_version = '0.1.11';
+$htm__s_version = '0.1.15';
 
 global $refreshing_categories;
 $refreshing_categories = false;
