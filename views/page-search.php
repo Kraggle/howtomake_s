@@ -32,6 +32,11 @@ $orderby = [
 		'enabled' => true
 	],
 	(object) [
+		'name' => 'Duration',
+		'value' => 'duration',
+		'enabled' => true
+	],
+	(object) [
 		'name' => 'Author',
 		'value' => 'author',
 		'enabled' => false

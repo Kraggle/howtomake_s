@@ -88,15 +88,14 @@
 
 			<?php // INFO:: Copywrite 
 			?>
-			<div class="foot-copy">Copyright © 2020 How To Make Money From Home UK.</div>
+			<div class="foot-copy">Copyright © 2021 How to Make Money from Home UK.</div>
 
 			<?php // INFO:: Licence 
 			?>
-			<div class="foot-claim">All content published on HTMMFH is owned and published from HTMMFH Ltd.</div>
+			<div class="foot-claim">How to Make Money from Home Ltd. Company No. 13139114</div>
 		</div>
 	</div>
 </footer>
-
 
 <?php
 // END

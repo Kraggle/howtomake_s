@@ -77,7 +77,7 @@
 			<li><a href="/making-money/top-10-homeworking-jobs-for-mums#online-translator">Online translator</a></li>
 			<li class="underline"><a href="/making-money/top-10-homeworking-jobs-for-mums#dropshipping">Dropshipping</a></li>
 		</ol>
-		<a class="center" href="/top-10-homeworking-jobs-for-mums/" title="Top 10 Jobs For Mums From Home"><b>VIEW FULL ARTICLE</b></a>
+		<a class="center" href="/making-money/top-10-homeworking-jobs-for-mums/" title="Top 10 Jobs For Mums From Home"><b>VIEW FULL ARTICLE</b></a>
 	<?php }, 'Top 10 Jobs for Mums');
 
 	// 10 Business ideas to make money instantly - links

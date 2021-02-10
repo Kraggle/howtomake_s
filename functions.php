@@ -7,7 +7,7 @@
  *
  * @package htm_s
  */
-
+/* cSpell:disable */
 define('IS_LIVE', $_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com');
 if (!defined('IS_DEBUG'))
 	define('IS_DEBUG', IS_LIVE ? false : true);
@@ -25,9 +25,9 @@ if (!defined('K_YT_API_KEYS'))
 		'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
 		'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
 	]);
-
+/* cSpell:enable */
 global $htm__s_version;
-$htm__s_version = '0.1.11';
+$htm__s_version = '0.1.15';
 
 global $refreshing_categories;
 $refreshing_categories = false;
@@ -120,6 +120,8 @@ add_action('after_setup_theme', function () {
 	/**
 	 * Used to regenerate images when the category is changed. So we are only keeping 
 	 * a minimal amount of images in the uploads folder.
+	 * 
+	 * @codingStandardsIgnoreStart
 	 */
 	add_action('set_object_terms', function ($object_id, $terms, $tt_ids, $taxonomy, $append, $old_tt_ids) {
 		global $refreshing_categories;
@@ -142,6 +144,8 @@ add_action('after_setup_theme', function () {
 		$terms = wp_get_object_terms($attachment_id, 'attachment_category');
 		return length($terms) == 0 ? $new_sizes : get_image_sizes_for_attachment($attachment_id);
 	}, 10, 3);
+
+	// @codingStandardsIgnoreEnd
 
 	$post_types = get_post_types(array('public' => true), 'names', 'and');
 	foreach ($post_types as $post_type)
@@ -199,7 +203,7 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'custom-header', 'template-tags', 'template-functions', 'customizer', 'custom-posts',
+	'template-tags', 'template-functions', 'customizer', 'custom-posts',
 	'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
 ]);
 

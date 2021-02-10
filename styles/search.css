@@ -520,6 +520,7 @@
 }
 
 .check {
+  position: relative;
   display: flex;
   padding: 0 10px;
 }
@@ -551,8 +552,17 @@
   opacity: 1;
 }
 .check input[enabled=false] ~ label {
+  position: relative;
   opacity: 0.5;
-  text-decoration: line-through;
+}
+.check input[enabled=false] ~ label::after {
+  content: "";
+  position: absolute;
+  left: -30px;
+  height: 1px;
+  right: 6px;
+  top: 50%;
+  background-color: #fff;
 }
 
 .list {

@@ -428,6 +428,7 @@ $drop-height: 40px;
 }
 
 .check {
+    position: relative;
     display: flex;
     padding: 0 10px;
 
@@ -469,8 +470,18 @@ $drop-height: 40px;
 
         &[enabled=false] {
             ~ label {
+                position: relative;
                 opacity: 0.5;
-                text-decoration: line-through;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: -30px;
+                    height: 1px;
+                    right: 6px;
+                    top: 50%;
+                    background-color: #fff;
+                }
             }
         }
     }

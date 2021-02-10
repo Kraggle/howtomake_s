@@ -94,7 +94,7 @@ $menu_items = [
 
 	<div class="ks-setting-box">
 		<span class="ks-name">Missing Durations</span>
-		<span class="ks-desc">This sets the video metadata 'video_duration_seconds' for use in filtering and sorting by duration.</span>
+		<span class="ks-desc">This sets the video metadata 'duration_seconds' for use in filtering and sorting by duration.</span>
 		<div class="flex row">
 			<label for="mdCount" class="ks-label">Quantity</label>
 			<input id="mdCount" class="ks-input" type="number" readonly />
@@ -102,6 +102,59 @@ $menu_items = [
 			<button id="getMD" class="ks-button" action="get_missing_durations" count="mdCount" other="setMD">Get Quantity</button>
 		</div>
 		<button id="setMD" class="ks-button" action="set_missing_durations" other="getMD" repeat=50>Update Durations</button>
+	</div>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Refresh Video Info from YouTube Data</span>
+		<span class="ks-desc">This will do any of the tasks selected bellow on any existing videos. Selecting just one or all will still use the same amount of quota credits. This will do EVERY video regardless of them already being set, so ensure this does not get run too frequently.</span>
+		<div class="flex row">
+			<label for="ydCount" class="ks-label">Quantity</label>
+			<input id="ydCount" class="ks-input" type="number" readonly />
+			<div class="spacer"></div>
+			<button id="getYD" class="ks-button" action="get_youtube_data" count="ydCount" other="setYD">Get Quantity</button>
+		</div>
+		<div class="grid three check-list">
+			<?php foreach ([[
+				'name'    => 'keywords',
+				'display' => 'Keywords',
+				'checked' => false
+			], [
+				'name'    => 'duration',
+				'display' => 'Duration',
+				'checked' => false
+			], [
+				'name'    => 'image',
+				'display' => 'Thumbnails',
+				'title'   => 'This task takes a long time',
+				'help'    => 'Very slow!',
+				'checked' => false
+			], [
+				'name'    => 'title',
+				'display' => 'Title',
+				'checked' => true
+			], [
+				'name'    => 'slug',
+				'display' => 'Slug',
+				'title'   => 'CAUTION: this will rewrite the permalink of the video',
+				'help'    => 'CAUTION!',
+				'checked' => false
+			], [
+				'name'    => 'description',
+				'display' => 'Description',
+				'checked' => true
+			]] as $check) { ?>
+				<div class="check-box">
+					<label for="_<?= $check['name'] ?>" title="<?= ($check['title'] ?: '') ?>">
+						<?php htm_checkbox("_{$check['name']}", $check['checked']); ?>
+						<div>
+							<span class="ks-check-name"><?= $check['display'] ?></span>
+							<p class="ks-help"><?= ($check['help'] ?: '') ?></p>
+						</div>
+					</label>
+				</div>
+			<?php } ?>
+		</div>
+		<button id="setYD" class="ks-button" action="set_youtube_data" other="getYD" get=".check-list input" repeat=50 isDouble=true>Refresh</button>
 	</div>
 <?php }
 	], (object) [

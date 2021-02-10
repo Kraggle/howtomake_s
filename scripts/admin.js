@@ -83,7 +83,18 @@ $(() => {
 
 			const loop = parseInt($(this).attr('repeat') || 0),
 				ids = $(this).data('ids'),
-				dataRelay = $(this).data('data');
+				dataRelay = $(this).data('data'),
+				doDouble = $(this).attr('doDouble');
+
+			let length = ids.length,
+				get = $(this).attr('get');
+			if (get) {
+				$(this).parents('.ks-setting-box').find(get).each(function() {
+					if ($.type(get) != 'array') get = [];
+					if ($(this).is(':checked'))
+						get.push($(this).attr('name').replace(/^_/, ''));
+				});
+			}
 
 			if (loop && ids.length) {
 
@@ -101,27 +112,49 @@ $(() => {
 
 					ajax(action, {
 						ids: ids.splice(0, loop),
-						data: dataRelay
+						data: dataRelay,
+						get
 					}, data => {
 						if (data.success) {
-							$(`#${$(`#${other}`).attr('count')}`).val(ids.length);
+							if (!doDouble) {
+								$(`#${$(`#${other}`).attr('count')}`).val(ids.length);
 
-							doProgress(total, ids.length);
-							time.left(ids.length, loop).end();
+								doProgress(total, ids.length);
+								time.left(ids.length, loop).end();
+							}
+
 							loopCall();
-						}
+
+						} else if (data.double) doubleCall(data);
 					});
 				};
 
+				const doubleCall = (use) => {
+					time.start();
+					if (use.action && use.ids && use.ids.length) {
+
+						ajax(use.action, {
+							ids: use.ids.splice(0, use.loop),
+							data: dataRelay,
+							get
+						}, data => {
+							if (data.success) {
+								length -= use.loop;
+								$(`#${$(`#${other}`).attr('count')}`).val(length);
+
+								doProgress(total, length);
+								time.left(length, use.loop).end();
+
+								doubleCall(use);
+							}
+						});
+
+					} else
+						loopCall();
+
+				};
+
 				loopCall();
-
-				// setTimeout(() => {
-				// 	loopCall();
-				// }, 1000);
-
-				// setTimeout(() => {
-				// 	loopCall();
-				// }, 2000);
 			} else {
 
 				ajax(action, data => {
@@ -170,6 +203,7 @@ function ajax(action) {
 
 	$.ajax({
 		url: V.ajax,
+		type: 'POST',
 		data: {
 			action,
 			nonce: $('.ks-box').data('nonce'),

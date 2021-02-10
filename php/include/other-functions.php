@@ -27,7 +27,53 @@ function htm_s_on_install() {
 	fclose($js);
 
 	global $htm__s_version, $wpdb;
-	$wpdb->query("DELETE FROM wp_postmeta WHERE meta_key = 'video_duration'");
+	$wpdb->query(
+		"DELETE 
+		FROM wp_postmeta 
+		WHERE meta_key IN (
+			'video_duration', 
+			'video_duration_h', 
+			'video_duration_m',
+			'video_duration_s'
+		)"
+	);
+
+	$wpdb->query(
+		"UPDATE wp_postmeta SET meta_key = 'duration_seconds' WHERE meta_key = 'video_duration_seconds'"
+	);
+
+	$metadata = $wpdb->get_results(
+		"SELECT *
+		FROM wp_postmeta
+		WHERE meta_key = 'read_time'"
+	);
+
+	foreach ($metadata as $meta) {
+		add_post_meta($meta->post_id, 'duration_seconds', $meta->meta_value * 60, true);
+		delete_post_meta($meta->post_id, $meta->meta_key);
+	}
+
+	$wpdb->query(
+		"DELETE pm1 
+		FROM wp_postmeta pm1, wp_postmeta pm2
+		WHERE pm1.meta_key = 'duration_seconds'
+		AND pm2.meta_key = 'duration_seconds'
+		AND pm1.post_id = pm2.post_id
+		AND pm1.meta_id > pm2.meta_id"
+	);
+
+	$wpdb->query(
+		"UPDATE wp_posts p
+		SET p.post_status = 'draft'
+		WHERE p.post_type LIKE 'video'
+		AND p.post_status LIKE 'publish'
+		AND p.ID IN (
+		SELECT post_id
+		FROM wp_postmeta pm
+		WHERE pm.meta_key LIKE 'duration_seconds'
+		AND pm.meta_value < 58
+		)"
+	);
 
 	add_option('htm__s_version', $htm__s_version);
 	update_option('htm__s_version', $htm__s_version);
@@ -521,6 +567,10 @@ function get_php_includes($file = '') {
 	return get_template_directory() . '/php/include/' . $file;
 }
 
+function get_php_vendor($file = '') {
+	return get_template_directory() . '/php/vendor/' . $file;
+}
+
 /**
  * Return the video thumbnail URL.
  *
@@ -642,13 +692,13 @@ function save_video_image_for_post($post, $info) {
 	return $mediaId;
 }
 
-function get_status_code($url) {
-	$headers = @get_headers($url);
-	$headers = (is_array($headers)) ? implode("\n ", $headers) : $headers;
+// function get_status_code($url) {
+// 	$headers = @get_headers($url);
+// 	$headers = (is_array($headers)) ? implode("\n ", $headers) : $headers;
 
-	preg_match('#HTTP/.*\s+(\d{3})\s#i', $headers, $match);
-	return count($match) ? $match[1] : false;
-}
+// 	preg_match('#HTTP/.*\s+(\d{3})\s#i', $headers, $match);
+// 	return count($match) ? $match[1] : false;
+// }
 
 
 
@@ -673,8 +723,10 @@ function random_string($length = 10) {
  */
 function list_ids($array, $key = 'ID', $type = 'array', $delimiter = ',') {
 	$ids = [];
-	foreach ($array as $value)
+	foreach ($array as $value) {
+		$value = to_object($value);
 		$ids[] = is_numeric($value->$key) ? intval($value->$key) : $value->$key;
+	}
 	return $type == 'array' ? $ids : implode($delimiter, $ids);
 }
 
@@ -722,6 +774,13 @@ function concat_strings($array, $key = null, $delimiter = ', ', $last = ' and ')
 	return implode($delimiter, $entries) . $last . $final;
 }
 
+// TODO: Make this work having different instances for each filename input.
+/**
+ * This, like error_log, outputs whatever you tell it to to a file of your choosing.
+ * 
+ * @param string $filename This is the path and filename of the file you want to log to.
+ * @param string $format   This is the format of the date of each string output to the log.
+ */
 class outputLogger {
 
 	private
@@ -793,8 +852,19 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 		AND tm.meta_key = 'alternative_names'"
 	);
 
+	// The videos channel
+	$terms = get_the_terms($video_id, 'video-channel');
+
 	$new = [];
 	foreach ($cats as $cat) {
+		// The channel(s) to exclude
+		$excludes = get_term_meta($cat->term_id, 'exclude_channels', true);
+		// Check if is being excluded
+		if (in_object($excludes, $terms, 'term_id')) {
+			// If it is, skip adding it
+			continue;
+		}
+
 		$tags = explode(',', $cat->tags);
 		$score = 0;
 
@@ -832,6 +902,22 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 
 		return false;
 	}
+}
+
+function in_object($needle, $haystack, $key) {
+	if (empty($needle)) return [];
+
+	if (!is_array($needle))
+		$needle = [$needle];
+
+	if (!is_array($haystack))
+		$haystack = [$haystack];
+
+	$return = [];
+	foreach ($needle as $n)
+		$return = array_merge($return, array_keys(array_column($haystack, $key), $n));
+
+	return $return;
 }
 
 function get_search_categories() {
@@ -872,10 +958,165 @@ function get_search_categories() {
  * Uses the version option to ensure only runs once.
  */
 function htm__update_custom_roles() {
-    if ( get_option( 'custom_roles_version' ) < 1 ) {
-        add_role( 'free_member', 'Free Member', array( get_role( 'subscriber' )->capabilities ) );
-        add_role( 'premium_member', 'Premium Member', array( get_role( 'subscriber' )->capabilities ) );
-        update_option( 'custom_roles_version', 1 );
-    }
+	if (get_option('custom_roles_version') < 1) {
+		add_role('free_member', 'Free Member', array(get_role('subscriber')->capabilities));
+		add_role('premium_member', 'Premium Member', array(get_role('subscriber')->capabilities));
+		update_option('custom_roles_version', 1);
+	}
 }
-add_action( 'init', 'htm__update_custom_roles' );
+add_action('init', 'htm__update_custom_roles');
+
+include_once(get_php_vendor('autoload.php'));
+
+function getYoutubeService() {
+	// INFO: Changed this to try the API key before resuming, as with 3 
+	// INFO: API keys we can triple the quota in a day 
+
+	/* cSpell:disable */
+	$appName = 'Youtube Scraper';
+	$apiKeys = [ // Youtube API Keys
+		'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
+		'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
+		'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
+	];
+	/* cSpell:enable */
+
+	// Google API init
+	$client = new Google_Client();
+	$client->setApplicationName($appName);
+
+	foreach ($apiKeys as $key) {
+
+		$client->setDeveloperKey($key);
+		$service = new Google_Service_YouTube($client);
+
+		try {
+			$results = $service->i18nRegions->listI18nRegions('id');
+
+			if ($results)
+				break;
+		} catch (Exception $e) {
+			videoLogger::getInstance()->put('Exception: ' . $e->getMessage());
+		}
+	}
+
+	return $service;
+}
+
+/**
+ * This runs from the How to Make - Video Editor menu, it will get all selected 
+ * information for every video that is fed in. 
+ * 
+ * $features can include: keywords, duration, image, title, slug, description, excerpt
+ *
+ * @param array $videos   An array of objects containing post id, title and yt_id
+ * @param array $features An array of features to save, all if null. default: null
+ * @return void
+ */
+function refresh_youtube_data(array $items, array $features = null) {
+
+	if (!count($items))
+		return false;
+
+	foreach ($items as $item) {
+		$item = to_object($item);
+		$title = friendly_title($item->snippet->title);
+		$args = [
+			'ID' => $item->post_id
+		];
+
+		// Attach keywords as tags to post
+		if (is_null($features) || in_array('keywords', $features)) {
+			wp_set_post_tags($item->post_id, $item->snippet->tags, true);
+			set_video_categories_from_tags($item->post_id, $item->snippet->tags, $title);
+		}
+
+		// Video Duration
+		if (is_null($features) || in_array('duration', $features)) {
+			// ISO_8601 Format
+			update_post_meta($item->post_id, 'video_duration_raw', $item->contentDetails->duration);
+
+			$di  = new DateInterval($item->contentDetails->duration);
+			$sec = ceil(($di->days * 86400) + ($di->h * 3600) + ($di->i * 60) + $di->s);
+			update_post_meta($item->post_id, 'duration_seconds', $sec, true);
+
+			if ($sec < 58)
+				$args['post_status'] = 'draft';
+		}
+
+		// Video Featured Image (only works if included in features)
+		if (is_array($features) && in_array('image', $features))
+			save_video_image_for_post($item->post_id, $item);
+
+		// Video Title
+		if (is_null($features) || in_array('title', $features))
+			$args['post_title'] = $title;
+
+		// The slug [permalink] of the video (only works if included in features)
+		if (is_array($features) && in_array('slug', $features)) {
+			// action
+		}
+
+		// Video Description
+		if (is_null($features) || in_array('description', $features))
+			$args['post_content'] = format_youtube_description($item->snippet->description);
+
+		if (length($args) > 1)
+			wp_update_post($args);
+
+		add_post_meta($item->post_id, 'htm_youtube_extra', true);
+
+		return 'Refreshed ' . concat_strings($features) . " for $title @ {$item->post_id}";
+	}
+}
+
+/**
+ * This runs from the How to Make - Video Editor menu, it will get all selected 
+ * information for every video that is fed in. 
+ * 
+ * $features can include: keywords, duration, image, title, slug, description, excerpt
+ *
+ * @param array $videos   An array of objects containing post id, title and yt_id
+ * @param array $features An array of features to save, all if null. default: null
+ * @return void
+ */
+function get_youtube_data(array $videos) {
+
+	$videoIds = list_ids($videos, 'yt_id');
+
+	if (!count($videoIds))
+		return false;
+
+	// Process in batches to reduce API calls. 50 is Youtube's pagination limit.
+	$chunkedVideoIDs = array_chunk($videoIds, 50, true);
+
+	foreach ($chunkedVideoIDs as $ids) {
+
+		// Get more information for the videos
+		$optParams = array(
+			'id' => implode(',', $ids),
+		);
+
+		try {
+			$results = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', $optParams);
+
+			$items = $results->items;
+			foreach ($items as $key => $item) {
+				$i = array_search($item->id, array_column($videos, 'yt_id'));
+				if (!is_numeric($i)) continue; // Skip if video ID not in list, shouldn't happen
+				$post = to_object($videos[$i]);
+				$items[$key]->post_id = $post->id;
+			}
+
+			return $items;
+		} catch (Exception $e) {
+			logger('Exception: ' . $e->getMessage());
+
+			return false;
+		}
+	}
+}
+
+function format_youtube_description($desc) {
+	return '<p>' . implode('</p><p>', preg_split('/\n{1,}/', $desc)) . '</p>';
+}
