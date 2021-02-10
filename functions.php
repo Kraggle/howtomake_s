@@ -203,8 +203,8 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'template-tags', 'template-functions', 'customizer', 'custom-posts',
-	'shortcodes', 'other-functions', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
+	'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts',
+	'shortcodes', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
 ]);
 
 add_action('init', function () {

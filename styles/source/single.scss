@@ -109,7 +109,7 @@
         }
 
         p {
-            color: $color-text-blue;
+            // color: $color-text-blue;
             margin-bottom: 20px;
         }
 
@@ -141,7 +141,8 @@
 
         li {
             margin: 10px 20px;
-            color: $color-text-blue;
+
+            // color: $color-text-blue;
             line-height: 1.7em;
 
             > .image-wrap {

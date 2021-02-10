@@ -1,4 +1,5 @@
 import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+import './src/jQuery-UI/importer.js';
 // import { onResize, list } from './partials/list.js';
 import V from './custom/Paths.js';
 import { timed, K } from './custom/K.js';
@@ -167,12 +168,12 @@ $(() => {
 			}, 500);
 		}
 
-		const hasFixed = $('.query-vars').hasClass('fixed'),
+		const hasFixed = $('.query-box').hasClass('fixed'),
 			top = $(window).scrollTop();
 		if (top > 0 && !hasFixed) {
-			$('.query-vars, .which-box').addClass('fixed');
+			$('.query-box, .terms-box, .filter-box, .list').addClass('fixed');
 		} else if (!top && hasFixed) {
-			$('.query-vars, .which-box').removeClass('fixed');
+			$('.query-box, .terms-box, .filter-box, .list').removeClass('fixed');
 		}
 	});
 
@@ -191,7 +192,58 @@ $(() => {
 			_m.addClass('open');
 		}
 	});
+
+	$('#filters-btn').on('click', () => {
+		const _m = $('.filter-box');
+		if (_m.hasClass('closed'))
+			_m.add('.list, .terms-box').removeClass('closed');
+		else
+			_m.add('.list, .terms-box').addClass('closed');
+	});
+
+	const sliderMax = parseInt($('#time_slider').attr('max'));
+	$('#time_slider').slider({
+		range: true,
+		min: 0,
+		max: sliderMax,
+		step: 1,
+		values: [
+			$('#time_from').val(),
+			$('#time_to').val()
+		],
+		slide(e, ui) {
+			ui.values.sort((a, b) => a - b);
+
+			const start = ui.values[0],
+				end = ui.values[1],
+				_d = $('.duration .display'),
+				eT = end == sliderMax ? '<span class="infinity"></span>' : end;
+
+			$('#time_from').val(start);
+			$('#time_to').val(end);
+
+			_d.html(`${start == 0 && end == sliderMax ? '' : start + ' - '}${eT} mins`);
+
+			reloadResults();
+		}
+	});
+
+	$('input.slider-value').change(function() {
+		const _t = $(this);
+		$('#slider').slider('values', _t.data('index'), _t.val());
+	});
+
+	// Hide Menus on no click
+	$(document).on('mousedown touchstart scroll', e => {
+		const container = $('.filter-btn, .filter-box');
+		if (!container.is(e.target) && container.has(e.target).length === 0)
+			$(container).add('.list, .terms-box').addClass('closed');
+	});
 });
+
+// function pluralize(count, noun, suffix = 's') {
+// 	return `${count} ${noun}${count !== 1 ? suffix : ''}`;
+// }
 
 function reloadResults() {
 	timer.run(() => {
@@ -227,15 +279,36 @@ function getSearchResults(reset = false) {
 
 	createLoaders();
 
-	const query = {
-		s: $('#search').val(),
-		orderby: $('#orderby').val(),
-		order: $('input[name=order]:checked').val(),
-		post_type: [],
-		tax_query: {},
-		posts_per_page: postsPerPage(),
-		offset
-	};
+	const to = parseInt($('#time_to').val()),
+		query = {
+			s: $('#search').val(),
+			orderby: $('#orderby').val(),
+			order: $('input[name=order]:checked').val(),
+			post_type: [],
+			tax_query: {},
+			meta_query: {
+				relation: 'AND',
+				0: {
+					key: 'duration_seconds',
+					value: parseInt($('#time_from').val()) * 60,
+					compare: '>=',
+					type: 'NUMERIC'
+				},
+				1: {
+					key: 'duration_seconds',
+					value: to * 60,
+					compare: '<=',
+					type: 'NUMERIC'
+				}
+			},
+			posts_per_page: postsPerPage(),
+			offset
+		};
+
+	if (to == parseInt($('#time_slider').attr('max'))) {
+		delete query.meta_query.relation;
+		delete query.meta_query[1];
+	}
 
 	const active = {},
 		aTerms = {};
@@ -272,7 +345,7 @@ function getSearchResults(reset = false) {
 		data: {
 			query,
 			action: 'custom_search',
-			nonce: $('.query-vars').data('nonce')
+			nonce: $('.query-box').data('nonce')
 		}
 	}).done(function(data) {
 		data = JSON.parse(data.replace(/0$/, ''));

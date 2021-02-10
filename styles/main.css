@@ -61,6 +61,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Mulish", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 18px;
 }
 
 textarea,
@@ -1363,6 +1364,11 @@ h1 {
 .page-title {
   color: #fff;
   padding-bottom: 90px;
+}
+
+.wrapper .content-wrap h1, .wrapper .content-wrap h2, .wrapper .content-wrap h3, .wrapper .content-wrap h4, .wrapper .content-wrap h5, .wrapper .content-wrap h6 {
+  color: #0da0c5;
+  text-align: left;
 }
 
 .subs-dialog {

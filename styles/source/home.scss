@@ -27,6 +27,10 @@
     .main {
         max-width: calc(100vw - 80px);
         margin: 0 auto;
+
+        @media (max-width: 500px) {
+            max-width: calc(100vw - 40px);
+        }
     }
 
     .title {
@@ -64,16 +68,6 @@
             grid-template-rows: repeat(14, 1fr);
         }
 
-        @media (max-width: 600px) {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(20, 1fr);
-        }
-
-        @media (max-width: 400px) {
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: repeat(40, 1fr);
-        }
-
         .money-hash {
             position: relative;
             padding-left: 25px;
@@ -99,7 +93,9 @@
 
         .content-wrap {
             flex-grow: 2;
-            text-align: center;
+
+            // text-align: center;
+       
         }
 
         @media (max-width: 980px) {
@@ -131,7 +127,7 @@
         }
 
         p {
-            color: $color-text-blue;
+            color: #000;
             margin-bottom: 20px;
 
             + h3 {
@@ -146,6 +142,10 @@
             + h3,
             + h2 {
                 margin-top: 100px;
+
+                @media (max-width: 500px) {
+                    margin-top: 60px;
+                }
             }
         }
 
@@ -168,7 +168,8 @@
 
         li {
             margin: 10px 20px;
-            color: $color-text-blue;
+
+            // color: $color-text-blue;
             line-height: 1.7em;
         }
 
@@ -206,7 +207,7 @@
 
         @media (max-width: 600px) {
             h2 {
-                font-size: 30px;
+                font-size: 24px;
             }
         }
     }
@@ -389,4 +390,56 @@ h3.related-title {
     border-radius: 4px;
     float: right;
     margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+    .content {
+        .search-wrapper {
+            display: none;
+        }
+
+        .title {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 750;
+        }
+
+        .has-text-align-right,
+        .content-wrap h1,
+        .money-list,
+        .goto-article {
+            display: none;
+        }
+
+        .content-wrap {
+            > p {
+                &:nth-of-type(1),
+                &:nth-of-type(2) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .body-decor {
+        height: 70px;
+    }
+
+    .body-curves + .content {
+        margin: -130px auto 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .content {
+        .title {
+            margin-bottom: 40px;
+        }
+    }
+
+    .body-curves + .content {
+        margin: -140px auto 0;
+    }
 }
