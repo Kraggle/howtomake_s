@@ -710,16 +710,53 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
   max-width: calc(100vw - 80px);
   margin: auto;
 }
-.banner .upper .social-icons {
+.banner .upper .icons {
   display: flex;
   flex-direction: row;
   align-content: center;
   padding: 0;
 }
-.banner .upper .social-icons .fa-icon {
+.banner .upper  .fa-icon{
   margin: 10px 0 0 10px;
 }
-.banner .upper .social-icons .fa-icon a {
+.banner .upper .top-account{display: none;}
+.banner .upper .top-account .auth-links {
+  margin: 10px 0 0 10px;
+  padding-top: 5px;
+  color: #fff;
+  font-size: 0.9rem;
+  
+}
+.banner .upper .top-account .auth-links a:hover{
+  text-decoration: underline;
+}
+
+.banner .upper .top-account{z-index:999;}
+.banner .upper .top-account .account-menu{
+  width: 40px;
+
+}
+.banner .upper .top-account .account-menu:hover .submenu{
+  
+}
+.banner .upper .top-account .account-menu .submenu{ 
+  display: none;
+  
+  float: right;
+  width: max-content;
+  /* transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1); */
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  margin: 10px 0;
+  padding: 5px 0;
+  color: #fff;
+  z-index:999;
+}
+.banner .upper .top-account .account-menu .submenu li{ 
+  padding: 10px 20px;
+}
+
+.banner .upper .fa-icon a {
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(255, 255, 255, 0.1);
   width: 30px;
@@ -730,13 +767,15 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
   border-radius: 3px;
   color: transparent;
 }
-.banner .upper .social-icons .fa-icon a svg {
+.banner .upper .fa-icon a svg {
   position: relative;
   width: 18px;
   height: 18px;
   margin-top: 6px;
   color: #fff;
 }
+
+
 .banner .lower {
   position: relative;
   display: flex;

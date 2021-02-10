@@ -34,7 +34,7 @@ fclose($fw);
 			wp_nav_menu([
 				'theme_location' => 'social-menu',
 				'container' => '',
-				'menu_class' => 'social-icons',
+				'menu_class' => 'social-icons icons',
 				'menu_id' => '',
 				'echo' => true,
 			]);
@@ -44,6 +44,28 @@ fclose($fw);
 		<!-- .et-top-search -->
 		<div class="top-search">
 			<?php get_template_part('views/widgets/search-form') ?>
+		</div>
+
+		<div class="top-account icons">
+			<?php if(is_user_logged_in()): ?>
+				<div class="account-menu logged-in">
+					<div class="fa-icon el-a type-solid svg-user">
+						<a href="https://dashboard.howtomakemoneyfromhomeuk.com/" >&nbsp;</a>
+						</div>
+					<div class="submenu">
+						<ul>
+						<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/">My Account</a></li>
+							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/">My Dashboard</a></li>
+							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">My Courses</a></li>
+							<li><a href="/wp-login.php?action=logout">Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+			<?php else: ?>
+				<div class="auth-links logged-out">
+					<a href="https://dashboard.howtomakemoneyfromhomeuk.com/register/basic/" class="login-link">Sign In / Register</a>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 

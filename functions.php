@@ -278,3 +278,12 @@ add_action('post_updated', function ($id, $post) {
 	if (!preg_match('/-autosave-/', $link))
 		htm_set_permalink($id, $link, $post);
 }, 20, 2);
+
+add_filter( 'upload_mimes', 'my_mime_types', 1, 1 );
+function my_mime_types( $mime_types ) {
+  $mime_types['jpegcharsetbinary'] = 'image/jpegcharsetbinary';     // Adding .svg extension
+
+  return $mime_types;
+}
+
+

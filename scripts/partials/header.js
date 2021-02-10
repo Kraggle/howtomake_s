@@ -67,6 +67,13 @@ export default {
 						}).removeClass('open');
 					});
 
+					$('.top-account .account-menu').hover( function() {
+						
+						$('.top-account .account-menu .submenu').slideDown(200).addClass('open');
+					}, function() {
+						$('.top-account .account-menu .submenu').slideUp(200).removeClass('open');
+					});
+
 				},
 
 				mobile() {
