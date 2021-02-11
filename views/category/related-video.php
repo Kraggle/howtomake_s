@@ -4,7 +4,7 @@
 <article id="l_<?= $id ?>" class="related">
 
 	<a href="<?= get_permalink() ?>" class="related-image <?= get_post_type() ?>">
-		<img alt="<?php the_title_attribute() ?>" src="<?= get_the_video_thumbnail_url(null, 'menu') ?>">
+		<img alt="<?php the_title_attribute() ?>" src="<?= get_the_post_thumbnail_url(null, 'menu') ?>">
 	</a>
 	<h2 class="related-title">
 		<a href="<?= get_permalink() ?>"><?= get_the_title() ?></a>

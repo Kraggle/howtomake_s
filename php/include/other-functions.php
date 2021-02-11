@@ -654,7 +654,7 @@ function save_video_image_for_post($post, $info) {
 	$mimeType = $finfo->buffer($image);
 
 
-	if(strpos($mimeType,'image/jpeg') === 0)$mimeType = 'image/jpeg';// Fix for image/jpegcharsetbinary
+	if (strpos($mimeType, 'image/jpeg') === 0) $mimeType = 'image/jpeg'; // Fix for image/jpegcharsetbinary
 
 	$fileExt = [
 		'image/png' => 'png',
@@ -670,7 +670,12 @@ function save_video_image_for_post($post, $info) {
 	$slug = get_slug_from_string($info->snippet->title);
 	$filename = $post . '-' . $slug . '.' . $ext;
 
-	$filePath = wp_upload_dir()['basedir'] . "/yt-thumb/$filename";
+	$filePath = wp_upload_dir()['basedir'] . '/yt-thumb/';
+
+	if (!file_exists($filePath))
+		mkdir($filePath);
+
+	$filePath .= $filename;
 
 	if (!file_exists($filePath))
 		file_put_contents($filePath, $image);
