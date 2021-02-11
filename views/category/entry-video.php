@@ -5,7 +5,7 @@
 <article id="l_<?= $id ?>" class="entry <?= get_post_type() ?>">
 
 	<a href="<?= get_permalink() ?>" class="entry-image <?= get_post_type() ?>">
-		<img alt="<?php the_title_attribute() ?>" src="<?= get_the_post_thumbnail_url(null, 'menu') ?>">
+		<img alt="<?php the_title_attribute() ?>" src="<?= get_the_post_thumbnail_url($id, 'menu') ?>">
 	</a>
 	<h2 class="entry-title">
 		<a href="<?= get_permalink() ?>" title="<?= get_the_title() ?>"><?= get_the_title() ?></a>
