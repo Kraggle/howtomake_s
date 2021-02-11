@@ -144,7 +144,7 @@ function htm_get_categories() {
 
 	foreach ($return as $cat) {
 		$cat->link = parse_url(get_category_link($cat->term_id), PHP_URL_PATH);
-		$cat->image = parse_url(get_channel_logo($cat->term_id), PHP_URL_PATH);
+		$cat->image = get_channel_logo($cat->term_id);
 	}
 
 	echo json_encode($return);
