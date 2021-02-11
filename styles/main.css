@@ -719,7 +719,7 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
 .banner .upper  .fa-icon{
   margin: 10px 0 0 10px;
 }
-.banner .upper .top-account{display: none;}
+.banner .upper .top-account{z-index:999; display: none;}
 .banner .upper .top-account .auth-links {
   margin: 10px 0 0 10px;
   padding-top: 5px;
@@ -731,14 +731,12 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
   text-decoration: underline;
 }
 
-.banner .upper .top-account{z-index:999;}
+
 .banner .upper .top-account .account-menu{
   width: 40px;
 
 }
-.banner .upper .top-account .account-menu:hover .submenu{
-  
-}
+
 .banner .upper .top-account .account-menu .submenu{ 
   display: none;
   
@@ -746,7 +744,7 @@ body .et_pb_searchform > div .et_pb_searchsubmit:hover {
   width: max-content;
   /* transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1); */
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
   margin: 10px 0;
   padding: 5px 0;
   color: #fff;

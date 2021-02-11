@@ -653,11 +653,14 @@ function save_video_image_for_post($post, $info) {
 	$finfo = new finfo(FILEINFO_MIME);
 	$mimeType = $finfo->buffer($image);
 
+
+	if(strpos($mimeType,'image/jpeg') === 0)$mimeType = 'image/jpeg';// Fix for image/jpegcharsetbinary
+
 	$fileExt = [
 		'image/png' => 'png',
 		'image/jpg' => 'jpg',
 		'image/jpeg' => 'jpg',
-		'image/jpeg' => 'jpeg',
+		// 'image/jpeg' => 'jpeg',
 		'image/gif' => 'gif',
 		'image/svg' => 'svg'
 	];

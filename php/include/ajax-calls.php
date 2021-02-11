@@ -113,7 +113,7 @@ function htm_get_posts() {
 			'id'    => $post->ID,
 			'title' => $post->post_title,
 			'readTime' => $type ? get_duration($post->ID) : get_read_time($post->ID),
-			'image' => parse_url(get_the_post_thumbnail_url($post->ID, 'menu'), PHP_URL_PATH),
+			'image' => get_the_post_thumbnail_url($post->ID, 'menu'),
 			'link'  => parse_url(get_permalink($post->ID), PHP_URL_PATH)
 		];
 
@@ -144,7 +144,7 @@ function htm_get_categories() {
 
 	foreach ($return as $cat) {
 		$cat->link = parse_url(get_category_link($cat->term_id), PHP_URL_PATH);
-		$cat->image = parse_url(get_channel_logo($cat->term_id), PHP_URL_PATH);
+		$cat->image = get_channel_logo($cat->term_id);
 	}
 
 	echo json_encode($return);
@@ -192,7 +192,7 @@ function htm_get_featured() {
 				'id'    => $post->ID,
 				'title' => $post->post_title,
 				'readTime' => get_read_time($post->ID),
-				'image' => parse_url(get_the_post_thumbnail_url($post->ID, 'menu'), PHP_URL_PATH),
+				'image' => get_the_post_thumbnail_url($post->ID, 'menu'),
 				'link'  => parse_url(get_permalink($post->ID), PHP_URL_PATH)
 			];
 
