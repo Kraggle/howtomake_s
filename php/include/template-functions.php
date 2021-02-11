@@ -546,8 +546,9 @@ function get_channel_logo($term_id) {
 	return wp_get_attachment_image_url($imageId, 'channel');
 }
 
+require_once(get_php_library('phpQuery/phpQuery.php'));
+
 add_filter('the_content', function ($content) {
-	require_once(get_php_library('phpQuery/phpQuery.php'));
 
 	$doc = phpQuery::newDocument($content);
 	$sizes = get_all_image_sizes();
@@ -637,6 +638,18 @@ add_filter('the_content', function ($content) {
 			pq($link)->attr('href', $match[1]);
 	}
 
+	ob_start();
+	print $doc->htmlOuter();
+	$content = ob_get_contents();
+	ob_end_clean();
+
+	return $content;
+}, 3);
+
+add_filter('the_content', function ($content) {
+
+	$doc = phpQuery::newDocument($content);
+
 	// Wrap any iframe
 	foreach ($doc['iframe'] as $iframe) {
 		$wrap = pq($iframe)->parent();
@@ -652,7 +665,7 @@ add_filter('the_content', function ($content) {
 	ob_end_clean();
 
 	return $content;
-}, 3);
+}, 20);
 
 // disable Gutenberg
 add_filter('use_block_editor_for_post', '__return_false', 10);

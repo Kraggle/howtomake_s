@@ -109,6 +109,20 @@ foreach ($_REQUEST as $key => $val) {
 	}
 }
 
+$query->meta_query = [
+	'relation' => 'AND',
+	'0' => [
+		'key' => 'duration_seconds',
+		'value' => 120,
+		'compare' => '>='
+	],
+	'1' => [
+		'key' => 'duration_seconds',
+		'value' => 180,
+		'compare' => '<='
+	]
+];
+
 // logger($query);
 
 $is_post = in_array('post', $query->type);
@@ -134,7 +148,7 @@ $is_video = in_array('video', $query->type);
 					<div class="mobile-button"><i class="fa-icon type-regular svg-search"></i></div>
 
 					<div class="mobile-wrap">
-						<div class="query-vars" data-nonce="<?= wp_create_nonce('custom_search_nonce') ?>">
+						<div class="query-box" data-nonce="<?= wp_create_nonce('custom_search_nonce') ?>">
 
 							<div class="search-box">
 								<input id="search" type="text" name="s" class="search" placeholder="Search" value="<?= $query->term ?>">
@@ -142,6 +156,23 @@ $is_video = in_array('video', $query->type);
 								<div class="divider"></div>
 								<button class="svg submit"><i class="fa-icon type-regular svg-search"></i></button>
 							</div>
+
+							<div id="filters-btn" class="button-wrap filter-btn">
+								<label class="name">Filters</label>
+								<span class="icon filters"></span>
+							</div>
+
+							<div class="results none">
+								<label class="name">Results</label>
+								<span class="got">20</span>
+								<span>/</span>
+								<span class="total">164</span>
+								<span class="no">None</span>
+							</div>
+
+						</div>
+
+						<div class="filter-box closed">
 
 							<div class="dropdown orderby select-wrap">
 								<label class="name" for="orderby">Sort by</label>
@@ -164,17 +195,17 @@ $is_video = in_array('video', $query->type);
 								<input type="radio" name="order" id="desc" value="desc" <?= ($query->order === 'desc' ? 'checked' : '') ?>>
 							</div>
 
-							<div class="results none">
-								<label class="name">Results</label>
-								<span class="got">20</span>
-								<span>/</span>
-								<span class="total">164</span>
-								<span class="no">None</span>
+							<div class="slider-wrap double duration">
+								<label class="name">Duration</label>
+								<input id="time_from" type="text" data-index="0" value="0" />
+								<input id="time_to" type="text" data-index="1" value="99" />
+								<div id="time_slider" max="99"></div>
+								<span class="display"><span class="infinity"></span> mins</span>
 							</div>
 
 						</div>
 
-						<div class="which-box">
+						<div class="terms-box closed">
 
 							<div class="checks flex type-box" data-at-least=1>
 								<label class="name">Sections</label>
@@ -236,7 +267,7 @@ $is_video = in_array('video', $query->type);
 						</div>
 					</div>
 
-					<div class="list"></div>
+					<div class="list closed"></div>
 
 				</main>
 			</div>
