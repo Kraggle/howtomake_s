@@ -974,7 +974,6 @@ function htm__update_custom_roles() {
 }
 add_action('init', 'htm__update_custom_roles');
 
-include_once(get_php_vendor('autoload.php'));
 
 function getYoutubeService() {
 	// INFO: Changed this to try the API key before resuming, as with 3 

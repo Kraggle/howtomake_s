@@ -546,11 +546,11 @@ function get_channel_logo($term_id) {
 	return wp_get_attachment_image_url($imageId, 'channel');
 }
 
-require_once(get_php_library('phpQuery/phpQuery.php'));
 
 add_filter('the_content', function ($content) {
 
 	$doc = phpQuery::newDocument($content);
+
 	$sizes = get_all_image_sizes();
 
 	// Set the content images to the biggest possible without go bigger then the max
