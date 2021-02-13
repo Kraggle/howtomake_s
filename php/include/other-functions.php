@@ -274,6 +274,8 @@ function generate_category_thumbnails($object_id) {
 	$upload_dir = wp_upload_dir();
 	$image_fullpath = get_attached_file($image->ID);
 
+	// logger($image_fullpath);
+
 	// Can't get the image path
 	if (false === $image_fullpath || strlen($image_fullpath) == 0) {
 
@@ -283,8 +285,8 @@ function generate_category_thumbnails($object_id) {
 		}
 	}
 
-	// Image path incomplete
-	if ((strrpos($image_fullpath, $upload_dir['basedir']) === false))
+	// Image path incomplete and not CDN
+	if (strpos($image_fullpath, '://cdn') === false && strrpos($image_fullpath, $upload_dir['basedir']) === false)
 		$image_fullpath = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . $image_fullpath;
 
 	// Image doesn't exists
@@ -303,7 +305,7 @@ function generate_category_thumbnails($object_id) {
 	$name = $file_info['filename'];
 
 	$files = [];
-	// logger($file_info);
+
 	$path = to_array(array_diff(scandir($file_info['dirname']), ['.', '..']));
 
 	$files = preg_grep("/^$name\d+x\d+\.\w+/i", $path);
@@ -326,33 +328,40 @@ function generate_category_thumbnails($object_id) {
 
 	// logger($image_fullpath, $files);
 
-	foreach ($files as $thumb) {
-		$thumb_path = $file_info['dirname'] . DIRECTORY_SEPARATOR . $thumb;
-		$thumb_info = pathinfo($thumb_path);
-		$valid_thumb = preg_split("/$name/i", $thumb_info['filename']);
+	if (IS_LIVE) {
+		foreach ($files as $thumb) {
+			$thumb_path = $file_info['dirname'] . DIRECTORY_SEPARATOR . $thumb;
+			$thumb_info = pathinfo($thumb_path);
+			$valid_thumb = preg_split("/$name/i", $thumb_info['filename']);
 
-		// logger(
-		// 	'valid thumb: ' . ($valid_thumb[0] == "" ? 'yes' : 'no'),
-		// 	$valid_thumb,
-		// 	$file_info['filename'],
-		// 	$thumb_info['filename']
-		// );
+			// logger(
+			// 	'valid thumb: ' . ($valid_thumb[0] == "" ? 'yes' : 'no'),
+			// 	$valid_thumb,
+			// 	$file_info['filename'],
+			// 	$thumb_info['filename']
+			// );
 
-		if ($valid_thumb[0] == "") {
+			if ($valid_thumb[0] == "") {
 
-			$dim = $valid_thumb[1];
-			if (!$stored->$dim) {
-				$dims = explode('x', $dim);
-				// logger("maybe deleting: $thumb");
-				if (count($dims) == 2 && is_numeric($dims[0]) && is_numeric($dims[1])) {
-					// logger("deleting: $thumb");
-					unlink($thumb_path);
+				$dim = $valid_thumb[1];
+				if (!$stored->$dim) {
+					$dims = explode('x', $dim);
+					// logger("maybe deleting: $thumb");
+					if (count($dims) == 2 && is_numeric($dims[0]) && is_numeric($dims[1])) {
+						// logger("deleting: $thumb");
+						unlink($thumb_path);
+					}
 				}
 			}
 		}
 	}
 
+	// list_used_hooks();
+
 	$metadata = wp_generate_attachment_metadata($image->ID, $image_fullpath);
+
+	// logger('TEST');
+
 	wp_update_attachment_metadata($image->ID, $metadata);
 }
 
@@ -1127,4 +1136,15 @@ function get_youtube_data(array $videos) {
 
 function format_youtube_description($desc) {
 	return '<p>' . implode('</p><p>', preg_split('/\n{1,}/', $desc)) . '</p>';
+}
+
+function list_used_hooks() {
+	add_action('all', function ($tag) {
+		global $wp_filter;
+
+		if (!isset($wp_filter[$tag]))
+			return;
+
+		logger($wp_filter[$tag]);
+	});
 }
