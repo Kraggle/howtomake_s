@@ -16,6 +16,8 @@ $fw = fopen($file, "w");
 fputs($fw, $page, strlen($page));
 fclose($fw);
 
+global $wp;
+
 ?>
 
 <div class="menu-back"></div>
@@ -54,16 +56,16 @@ fclose($fw);
 						</div>
 					<div class="submenu">
 						<ul>
-						<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/">My Account</a></li>
-							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/">My Dashboard</a></li>
-							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">My Courses</a></li>
+						<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/">Dashboard</a></li>
+						<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/">Account</a></li>
+							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">Courses</a></li>
 							<li><a href="/wp-login.php?action=logout">Log Out</a></li>
 						</ul>
 					</div>
 				</div>
 			<?php else: ?>
 				<div class="auth-links logged-out">
-					<a href="https://dashboard.howtomakemoneyfromhomeuk.com/register/basic/" class="login-link">Sign In / Register</a>
+					<a href="https://dashboard.howtomakemoneyfromhomeuk.com/login/?return-url=<?php echo urlencode(add_query_arg( $wp->query_vars, home_url( $wp->request ) )); ?>" class="login-link">Sign In</a> / <a href="https://dashboard.howtomakemoneyfromhomeuk.com/register/basic/?return-url=<?php echo urlencode(add_query_arg( $wp->query_vars, home_url( $wp->request ) )); ?>" class="register-link">Register</a>
 				</div>
 			<?php endif; ?>
 		</div>

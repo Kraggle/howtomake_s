@@ -1,5 +1,7 @@
 <?php
 
+include('vendor/autoload.php');
+
 /**
  * htm_s functions and definitions
  *
