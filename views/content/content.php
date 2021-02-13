@@ -10,9 +10,9 @@
 
 
 if (is_singular())
-	the_title('<h1 class="title">', '</h1>');
+	the_title('<h1 class="title" itemprop="headline">', '</h1>');
 else
-	the_title('<h2 class="title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+	the_title('<h2 class="title" itemprop="headline"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
 
 if ('post' === get_post_type()) { ?>
 	<p class="meta">by

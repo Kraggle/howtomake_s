@@ -71,7 +71,7 @@ if ($uri[1] !== 'search') {
 // INFO:: Default search terms
 $query = (object) [
 	'order' => 'desc',
-	'orderby' => $_REQUEST['term'] ? 'relevance' : 'date',
+	'orderby' => $_REQUEST['term'] ? 'relevance' : 'modified',
 	'type' => [
 		'video',
 		'post'
@@ -261,6 +261,8 @@ $is_video = in_array('video', $query->type);
 									<div class="check">
 										<label for="_<?= $slug ?>"><?= $name ?></label>
 										<input id="_<?= $slug ?>" type="checkbox" enabled="<?= $enabled ?>" <?= $checked ?> data-object="<?= htmlspecialchars(json_encode($tax)) ?>" disable="<?= $disable ?>">
+
+										<div class="cat-menu" slug="_<?= $slug ?>" data-object=" <?= htmlspecialchars(json_encode($tax)) ?>"></div>
 									</div>
 								<?php } ?>
 							</div>

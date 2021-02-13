@@ -9,7 +9,9 @@
  */
 
 
-the_title('<h1 class="title">', '</h1>'); ?>
+the_title('<h1 class="title" itemprop="headline">', '</h1>');
+
+echo content_schema_meta(); ?>
 
 <p class="meta">by
 	<span class="author">
@@ -24,7 +26,7 @@ the_title('<h1 class="title">', '</h1>'); ?>
 </div>
 
 <div class="wrapper">
-	<div class="content-wrap">
+	<div class="content-wrap" itemprop="articleBody">
 
 		<h3>Description</h3>
 

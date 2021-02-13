@@ -668,6 +668,51 @@
   top: 50%;
   background-color: #fff;
 }
+.check input[enabled=true] ~ .cat-menu {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+}
+.check input[enabled=true] ~ .cat-menu::after {
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Font Awesome 5 Pro";
+  content: "";
+  font-size: 26px;
+  opacity: 0.3;
+}
+.check input[enabled=true] ~ .cat-menu:hover::after {
+  opacity: 0.6;
+}
+
+.my-menu {
+  transform: translateX(100%);
+  background-color: #0da0c5;
+  padding: 5px 20px 5px 10px;
+  position: absolute;
+  line-height: 34px;
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 16px;
+}
+.my-menu label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: #ddd;
+  font-size: 13px;
+  white-space: nowrap;
+  margin-bottom: -8px;
+}
+.my-menu .my-item {
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 10px;
+  cursor: pointer;
+}
+.my-menu .my-item:hover {
+  color: #cccccc;
+}
 
 .list {
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);

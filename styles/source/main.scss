@@ -29,7 +29,8 @@
 }
 
 .body-decor {
-    height: 170px;
+    margin-top: -1px;
+    height: 171px;
     background-image: linear-gradient(180deg, $color-main 0%, $color-gradient 100%);
 }
 
@@ -523,4 +524,8 @@ h1 {
             }
         }
     }
+}
+
+.top-account {
+    display: none;
 }

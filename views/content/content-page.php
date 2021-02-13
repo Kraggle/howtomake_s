@@ -17,14 +17,16 @@ if (is_front_page()) { ?>
 
 <?php }
 
-the_title('<h1 class="title">', '</h1>');
+the_title('<h1 class="title" itemprop="headline">', '</h1>');
+
+echo content_schema_meta();
 
 if (is_front_page()) {
 	get_template_part('views/widgets/home-navigation');
 } ?>
 
 <div class="wrapper">
-	<div class="content-wrap">
+	<div class="content-wrap" itemprop="articleBody">
 		<?php the_content(
 			sprintf(
 				wp_kses(

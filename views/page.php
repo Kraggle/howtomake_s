@@ -28,7 +28,7 @@
 			<div class="body-decor"></div>
 			<div class="body-curves"></div>
 			<div class="content">
-				<main class="main">
+				<main class="main" itemscope itemtype="http://schema.org/Article">
 
 					<?php if (have_posts()) {
 						while (have_posts()) {

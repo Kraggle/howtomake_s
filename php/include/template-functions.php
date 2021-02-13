@@ -589,7 +589,7 @@ add_filter('the_content', function ($content) {
 
 			if (!$size = $meta['sizes']['post']) {
 
-				if ($meta['width'] < $sizes['post']['width']) {
+				if ($meta['width'] <= $sizes['post']['width']) {
 					$get = (object) array_merge((array) $get, [
 						'file' => $meta['file'],
 						'width' => $meta['width'],
@@ -659,6 +659,8 @@ add_filter('the_content', function ($content) {
 		else $wrap->addClass('iframe-wrap');
 	}
 
+	pq('h1')->attr('itemprop', 'headline');
+
 	ob_start();
 	print $doc->htmlOuter();
 	$content = ob_get_contents();
@@ -669,3 +671,37 @@ add_filter('the_content', function ($content) {
 
 // disable Gutenberg
 add_filter('use_block_editor_for_post', '__return_false', 10);
+
+function content_schema_meta() {
+	$post = get_post();
+
+	if (!($post instanceof WP_Post))
+		return '';
+
+	ob_start(); ?>
+
+	<div class="hidden-meta">
+		<meta itemprop="datePublished" content="<?= date('Y-m-d', strtotime($post->post_date)) ?>">
+		<meta itemprop="dateModified" content="<?= date('Y-m-d', strtotime($post->post_modified)) ?>">
+		<meta itemprop="mainEntityOfPage" content="<?= get_the_permalink() ?>">
+
+		<div class="hidden-meta" itemscope itemprop="publisher" itemtype="https://schema.org/Organization">
+			<meta itemprop="name" content="How to Make Money From Home Ltd">
+			<div class="hidden-meta" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+				<meta itemprop="url" content="<?= get_template_directory_uri() ?>/assets/images/logo.png">
+				<meta itemprop="width" content="300">
+				<meta itemprop="height" content="182">
+			</div>
+		</div>
+
+		<div class="hidden-meta" itemprop="author" itemscope itemtype="https://schema.org/Person">
+			<meta itemprop="name" content="<?= get_the_author() ?>">
+			<meta itemprop="url" content="<?= get_author_posts_url(get_the_author_meta('ID')) ?>">
+		</div>
+	</div>
+
+<?php $content = ob_get_contents();
+	ob_end_clean();
+
+	return $content;
+}

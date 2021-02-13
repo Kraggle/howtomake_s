@@ -235,9 +235,47 @@ $(() => {
 
 	// Hide Menus on no click
 	$(document).on('mousedown touchstart scroll', e => {
-		const container = $('.filter-btn, .filter-box');
+		// Hide
+		let container = $('.filter-btn, .filter-box');
 		if (!container.is(e.target) && container.has(e.target).length === 0)
 			$(container).add('.list, .terms-box').addClass('closed');
+
+		// Remove
+		container = $('.my-menu');
+		if (!container.is(e.target) && container.has(e.target).length === 0)
+			$(container).remove();
+
+	});
+
+	$('.cat-menu').on('click', function() {
+		const _me = $(this),
+			// data = $(this).data('object'),
+			pos = $(this).offset();
+
+		$(`<div class="my-menu">
+			<label>Select</label>
+			<div class="my-item only">Just me!</div>
+			<div class="my-item not">All but me!</div>
+		</div>`).css({
+			top: pos.top + 'px',
+			left: (pos.left - 90) + 'px'
+		}).appendTo('.content');
+
+		$('.my-menu .my-item').on('click', function() {
+			const _all = $('.cat-wrap input[enabled="true"]');
+
+			if ($(this).hasClass('all')) {
+				_all.prop('checked', true).trigger('change');
+			} else if ($(this).hasClass('only')) {
+				_all.prop('checked', false);
+				$(`#${_me.attr('slug')}`).prop('checked', true).trigger('change');
+			} else if ($(this).hasClass('not')) {
+				_all.prop('checked', true);
+				$(`#${_me.attr('slug')}`).prop('checked', false).trigger('change');
+			}
+
+			$('.my-menu').remove();
+		});
 	});
 });
 
