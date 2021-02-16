@@ -55,12 +55,14 @@ global $wp;
 						<a href="https://dashboard.howtomakemoneyfromhomeuk.com/" >&nbsp;</a>
 						</div>
 					<div class="submenu">
-						<ul>
-						<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/">Dashboard</a></li>
-						<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/">Account</a></li>
-							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">Courses</a></li>
-							<li><a href="/wp-login.php?action=logout">Log Out</a></li>
-						</ul>
+						<div class="submenu-inner">
+							<ul>
+							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/">Dashboard</a></li>
+							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/">Account</a></li>
+								<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">Courses</a></li>
+								<li><a href="/wp-login.php?action=logout">Log Out</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			<?php else: ?>

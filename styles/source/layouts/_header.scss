@@ -700,36 +700,91 @@ $sub-scroll-pad: 39px;
         max-width: calc(100vw - 80px);
         margin: auto;
 
+        .fa-icon {
+            margin: 10px 0 0 10px;
+
+            a {
+                @include transition;
+
+                background-color: rgba(255, 255, 255, 0.1);
+                width: 30px;
+                height: 30px;
+                display: inline-block;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 3px;
+                color: transparent;
+
+                svg {
+                    position: relative;
+                    width: 18px;
+                    height: 18px;
+                    margin-top: 6px;
+                    color: #fff;
+                }
+            }
+        }
+
         .social-icons {
             display: flex;
             flex-direction: row;
             align-content: center;
             padding: 0;
 
-            .fa-icon {
+        }
+
+        .top-account{
+            z-index:999;
+
+            .auth-links {
                 margin: 10px 0 0 10px;
+                padding-top: 5px;
+                color: #fff;
+                font-size: 0.9rem;
+                display: none;
 
-                a {
-                    @include transition;
+                a:hover{
+                    text-decoration: underline;
+                }
+            }  
+            
+            .account-menu {
+                
+                width: 40px;
 
-                    background-color: rgba(255, 255, 255, 0.1);
-                    width: 30px;
-                    height: 30px;
-                    display: inline-block;
-                    line-height: 30px;
-                    text-align: center;
-                    border-radius: 3px;
-                    color: transparent;
+                .submenu{
 
-                    svg {
-                        position: relative;
-                        width: 18px;
-                        height: 18px;
-                        margin-top: 6px;
-                        color: #fff;
+                    display: none;
+  
+                    float: right;
+                    width: max-content;
+                    z-index:999;
+                    .submenu-inner{
+                        /* transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1); */
+                        background-color: rgba(255, 255, 255, 0.1);
+                        backdrop-filter: blur(8px);
+                        margin: 10px 0;
+                        padding: 5px 0;
+                        color: rgba(255, 255, 255, 0.7);
+                    }
+                    
+                    
+                    li{
+                        font-size: 1rem;
+
+                        &:hover{
+                            background-color: rgba(255, 255, 255, 0.2);
+                            color: #fff;
+                        }
+
+                        a{
+                            padding: 10px 20px;
+                            display: block;
+                        }
                     }
                 }
             }
+
         }
     }
 
