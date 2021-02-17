@@ -1,4 +1,4 @@
-import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import { jQuery as $ } from '../../jquery-3.5.1.js';
 import './jq-ui-mouse.js';
 import './jq-ui-keycode.js';
 

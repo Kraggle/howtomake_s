@@ -1,3 +1,7 @@
+import { jQuery as $ } from '../../jquery-3.5.1.js';
+import '../jq-ui-core.js';
+import './jq-ui-mouse.js'
+import './jq-ui-sortable.js'
 /*!
  * jQuery UI Disable Selection 1.12.1
  * http://jqueryui.com

@@ -1,3 +1,14 @@
+import { jQuery as $ } from '../../jquery-3.5.1.js';
+import '../jq-ui-core.js';
+import '../effects/jq-ui-effects.js';
+import './jq-ui-position.js'
+import './jq-ui-draggable.js'
+import './jq-ui-resizeable.js'
+import './jq-ui-tabbable.js'
+import './jq-ui-button.js'
+import './jq-ui-keycode.js'
+
+
 /*!
  * jQuery UI Dialog 1.12.1
  * http://jqueryui.com
@@ -373,7 +384,7 @@ $.widget("ui.dialog", {
         // otherwise we brute force the content as the description
         if (!this.element.find("[aria-describedby]").length) {
             this.uiDialog.attr({
-                "aria-describedby": this.element.uniqueId().attr("id")
+                "aria-describedby": this.element.attr("id")
             });
         }
     },
@@ -417,7 +428,7 @@ $.widget("ui.dialog", {
             }
         });
 
-        uiDialogTitle = $("<span>").uniqueId().prependTo(this.uiDialogTitlebar);
+        uiDialogTitle = $("<span>").prependTo(this.uiDialogTitlebar);
         this._addClass(uiDialogTitle, "ui-dialog-title");
         this._title(uiDialogTitle);
 

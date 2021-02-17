@@ -1,4 +1,4 @@
-import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+import { jQuery as $ } from './src/jquery-3.5.1.js';
 import './src/jQuery-UI/importer.js';
 // import { onResize, list } from './partials/list.js';
 import V from './custom/Paths.js';

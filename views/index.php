@@ -47,6 +47,7 @@ logger('index.php has beed called, this should be rectified as soon as posible',
 	<?php get_template_part('views/partials/footer') ?>
 	<?php wp_footer() ?>
 	</div>
+	<?php get_template_part('views/partials/active-dialog') ?>
 </body>
 
 </html>

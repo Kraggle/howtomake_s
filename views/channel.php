@@ -130,6 +130,7 @@
 		<?php get_template_part('views/partials/footer') ?>
 		<?php wp_footer() ?>
 	</div>
+	<?php get_template_part('views/partials/active-dialog') ?>
 </body>
 
 </html>

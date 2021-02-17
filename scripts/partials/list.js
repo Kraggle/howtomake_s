@@ -1,4 +1,4 @@
-import { jQuery as $ } from '../src/jquery-3.5.1-min.js';
+import { jQuery as $ } from '../src/jquery-3.5.1.js';
 
 export const onResize = (force) => {
 	const using = $('.list-part:visible').length;
