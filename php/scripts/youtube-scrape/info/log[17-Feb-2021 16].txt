@@ -64,3 +64,192 @@
 [17-Feb-2021 16:15:49] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30051
 [17-Feb-2021 16:15:49] &raquo; <span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>
 [17-Feb-2021 16:16:31] &raquo; Kill script has been canceled, you may resume.
+[17-Feb-2021 16:18:07] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:18:07] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:18:07] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:18:07] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:18:08] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:18:08] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:18:08] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:18:08] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:18:08] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:18:08] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:20:30] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 16:20:57] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:21:01] &raquo; <b>Ahrefs</b>:
+[17-Feb-2021 16:21:01] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:21:48] &raquo;  &raquo; We have: 195 and there are 191 in total.
+[17-Feb-2021 16:21:48] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:21:48] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:21:48] &raquo; <b>Andrei Jikh</b>:
+[17-Feb-2021 16:21:48] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:22:42] &raquo;  &raquo; We have: 213 and there are 213 in total.
+[17-Feb-2021 16:22:42] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:22:42] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:22:42] &raquo; <b>Beast of eCom</b>:
+[17-Feb-2021 16:22:42] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:23:17] &raquo;  &raquo; We have: 137 and there are 137 in total.
+[17-Feb-2021 16:23:17] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:23:17] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:23:17] &raquo; <b>Daily Motivation</b>:
+[17-Feb-2021 16:23:17] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:24:00] &raquo;  &raquo; We have: 173 and there are 173 in total.
+[17-Feb-2021 16:24:00] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:24:00] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:24:00] &raquo; <b>Dragons Den</b>:
+[17-Feb-2021 16:24:00] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:25:33] &raquo;  &raquo; We have: 370 and there are 370 in total.
+[17-Feb-2021 16:25:34] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:25:34] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:25:34] &raquo; <b>Gabriel St-Germain</b>:
+[17-Feb-2021 16:25:34] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:25:38] &raquo;  &raquo; We have: 28 and there are 24 in total.
+[17-Feb-2021 16:25:38] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:25:38] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:25:38] &raquo; <b>Graham Stephan</b>:
+[17-Feb-2021 16:25:38] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:26:54] &raquo;  &raquo; We have: 588 and there are 588 in total.
+[17-Feb-2021 16:26:54] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:26:54] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:26:54] &raquo; <b>Jack Kitchener</b>:
+[17-Feb-2021 16:26:54] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:27:34] &raquo;  &raquo; We have: 308 and there are 308 in total.
+[17-Feb-2021 16:27:34] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:27:34] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:27:34] &raquo; <b>Jared Goetz</b>:
+[17-Feb-2021 16:27:34] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:27:37] &raquo;  &raquo; We have: 21 and there are 20 in total.
+[17-Feb-2021 16:27:37] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:27:37] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:27:37] &raquo; <b>Kristin Stones</b>:
+[17-Feb-2021 16:27:37] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:27:57] &raquo;  &raquo; We have: 151 and there are 152 in total.
+[17-Feb-2021 16:27:57] &raquo;  &raquo; Results: 1
+[17-Feb-2021 16:27:57] &raquo;  &raquo;  &raquo; IwBdxFvET4Q - 7 Minimalist Habits For A Simpler Life | Minimalism For Beginners
+[17-Feb-2021 16:27:57] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30052
+[17-Feb-2021 16:28:02] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30053
+[17-Feb-2021 16:28:02] &raquo; Restarting in -345 seconds
+[17-Feb-2021 16:28:02] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[17-Feb-2021 16:28:03] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 16:28:03] &raquo; <b>Kristin Stones</b>:
+[17-Feb-2021 16:28:03] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:28:40] &raquo;  &raquo; We have: 152 and there are 152 in total.
+[17-Feb-2021 16:28:40] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:28:40] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:28:40] &raquo; <b>Law of Attraction Coaching</b>:
+[17-Feb-2021 16:28:40] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:28:54] &raquo;  &raquo; We have: 109 and there are 111 in total.
+[17-Feb-2021 16:28:54] &raquo;  &raquo; Results: 2
+[17-Feb-2021 16:28:54] &raquo;  &raquo;  &raquo; xQa2-rQwJBY - PUSH YOURSELF Best Motivational Speech for 2021
+[17-Feb-2021 16:29:08] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30054
+[17-Feb-2021 16:29:12] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30055
+[17-Feb-2021 16:29:12] &raquo; Restarting in 10 seconds
+[17-Feb-2021 16:29:12] &raquo;  &raquo;  &raquo; K8YnLi-FUeI - YOU WILL GET THROUGH THIS Best Motivational Speech
+[17-Feb-2021 16:29:19] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30056
+[17-Feb-2021 16:29:24] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30057
+[17-Feb-2021 16:29:24] &raquo; Restarting in -2 seconds
+[17-Feb-2021 16:29:24] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[17-Feb-2021 16:29:24] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 16:29:24] &raquo; <b>Law of Attraction Coaching</b>:
+[17-Feb-2021 16:29:24] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:29:52] &raquo;  &raquo; We have: 111 and there are 111 in total.
+[17-Feb-2021 16:29:52] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:29:52] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:29:52] &raquo; <b>Robert Kiyosaki</b>:
+[17-Feb-2021 16:29:52] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:30:50] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:31:03] &raquo;  &raquo; We have: 570 and there are 569 in total.
+[17-Feb-2021 16:31:03] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:31:03] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:31:03] &raquo; <b>Shark Tank Australia</b>:
+[17-Feb-2021 16:31:03] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:31:29] &raquo;  &raquo; We have: 209 and there are 210 in total.
+[17-Feb-2021 16:31:29] &raquo;  &raquo; Results: 1
+[17-Feb-2021 16:31:29] &raquo;  &raquo;  &raquo; 5Tr-K2heUyc - Entrepreneur Reinvents the Truck | Shark Tank AUS #Shorts
+[17-Feb-2021 16:31:30] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30058
+[17-Feb-2021 16:31:35] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30059
+[17-Feb-2021 16:31:35] &raquo; Restarting in -51 seconds
+[17-Feb-2021 16:31:35] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[17-Feb-2021 16:31:54] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 16:31:54] &raquo; <b>Shark Tank Australia</b>:
+[17-Feb-2021 16:31:54] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:32:42] &raquo; Restarting in 31 seconds
+[17-Feb-2021 16:32:43] &raquo;  &raquo; We have: 210 and there are 210 in total.
+[17-Feb-2021 16:32:43] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:32:43] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:32:43] &raquo; <b>Valuetainment</b>:
+[17-Feb-2021 16:32:43] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:35:51] &raquo; Restarting in -158 seconds
+[17-Feb-2021 16:35:51] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[17-Feb-2021 16:35:52] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[17-Feb-2021 16:35:52] &raquo; <b>Valuetainment</b>:
+[17-Feb-2021 16:35:52] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:41:56] &raquo; Restarting in -285 seconds
+[17-Feb-2021 16:41:56] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[17-Feb-2021 16:41:57] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[17-Feb-2021 16:41:57] &raquo; <b>Valuetainment</b>:
+[17-Feb-2021 16:41:57] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:42:21] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:42:21] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:44:20] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:47:12] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:47:56] &raquo; Restarting in -280 seconds
+[17-Feb-2021 16:47:56] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[17-Feb-2021 16:59:22] &raquo; Click `START UPDATE` at the top of the page to manually run this task.

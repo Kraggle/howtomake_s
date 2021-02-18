@@ -261,80 +261,102 @@ function htm_s_echo_channel($channel, $key) {
 		return;
 	}
 
-	if ($key === 'link') {
-		echo parse_url(get_category_link($channel->term_id), PHP_URL_PATH);
-		return;
-	}
+	switch ($key) {
+		case 'link':
+			echo parse_url(get_category_link($channel->term_id), PHP_URL_PATH);
+			break;
 
-	if ($key === 'logo') {
-		// get the logo from the database
-		$imageId = get_term_meta($channel->term_id, 'actual_logo', true);
-		// if it's not in the database, get it from youtube
-		if (!$imageId) $imageId = get_channel_logo(get_term_meta($channel->term_id, 'yt_channel_id', true), $channel->term_id);
-		echo '<img src="' . parse_url(wp_get_attachment_image_url($imageId, 'medium'), PHP_URL_PATH) . '" class="channel-logo" />';
-		return;
-	}
+		case 'logo':
+			// get the logo from the database
+			$imageId = get_term_meta($channel->term_id, 'actual_logo', true);
+			// if it's not in the database, get it from youtube
+			if (!$imageId) $imageId = get_channel_logo(get_term_meta($channel->term_id, 'yt_channel_id', true), $channel->term_id);
+			echo '<img src="' . wp_get_attachment_image_url($imageId, 'channel') . '" class="channel-logo" />';
+			break;
 
-	if ($key === 'categories') {
-		$categories = get_field('video_categories', $channel);
+		case 'categories':
+			// gets all categories from all videos from the given channel
+			$categories = get_results(
+				"SELECT
+			t2.term_id,
+			t2.name,
+			t2.slug
+			FROM wp_term_relationships tr1
+			INNER JOIN wp_posts p
+				ON tr1.object_id = p.ID
+			INNER JOIN wp_term_taxonomy tt
+				ON tr1.term_taxonomy_id = tt.term_taxonomy_id
+			INNER JOIN wp_term_relationships tr2
+				ON tr2.object_id = p.ID
+			INNER JOIN wp_terms t1
+				ON t1.term_id = tr2.term_taxonomy_id
+			INNER JOIN wp_terms t2
+				ON t2.term_id = tr1.term_taxonomy_id
+			WHERE tt.taxonomy = 'video-category'
+			AND tr2.term_taxonomy_id = $channel->term_id
+			GROUP BY t2.term_id,
+					t2.name,
+					t2.slug
+			ORDER BY t2.name"
+			);
 
-		$links = [];
-		foreach ($categories as $cat) {
-			$term = get_term($cat);
-			$link = parse_url(get_term_link($term, 'video-category'), PHP_URL_PATH);
-			$links[] = '<a href="' . $link . '">' . $term->name . '</a>';
-		}
-
-		echo join(', ', $links);
-		return;
-	}
-
-	if ($key == 'social') {
-		$social = (object) get_field('social_accounts', $channel);
-
-		$social->youtube_url = 'https://www.youtube.com/channel/' .
-			get_field('yt_channel_id', $channel->term_id);
-
-		$links = (object) [
-			'youtube_url' => (object) [
-				'class' => 'type-brands svg-youtube color-a8240f',
-				'name' => 'YouTube'
-			],
-			'facebook_url' => (object) [
-				'class' => 'type-brands svg-facebook-f color-39579a',
-				'name' => 'Facebook'
-			],
-			'instagram_url' => (object) [
-				'class' => 'type-brands svg-instagram color-517fa4',
-				'name' => 'Instagram'
-			],
-			'twitter_url' => (object) [
-				'class' => 'type-brands svg-twitter color-01aced',
-				'name' => 'Twitter'
-			],
-			'pinterest_url' => (object) [
-				'class' => 'type-brands svg-pinterest-p color-c61d26',
-				'name' => 'Pinterest'
-			],
-			'website_url' => (object) [
-				'class' => 'type-solid svg-link color-31a237',
-				'name' => 'Website'
-			]
-		];
-
-		foreach ($social as $key => $url) {
-			if ($url) {
-				printf(
-					'<a href="%1$s" class="fa-icon %2$s" title="%3$s"
-						target="_blank"></a>',
-					$url,
-					$links->$key->class,
-					"Follow on {$links->$key->name}"
-				);
+			$links = [];
+			foreach ($categories as $cat) {
+				$link = parse_url(get_term_link($cat->slug, 'video-category'), PHP_URL_PATH);
+				$links[] = '<a class="link" href="' . $link . '">' . $cat->name . '</a>';
 			}
-		}
 
-		return;
+			echo implode('', $links);
+			break;
+
+		case 'social':
+			$social = (object) get_field('social_accounts', $channel);
+
+			$social->youtube_url = 'https://www.youtube.com/channel/' .
+				get_field('yt_channel_id', $channel->term_id);
+
+			$links = (object) [
+				'youtube_url' => (object) [
+					'class' => 'type-brands svg-youtube color-a8240f',
+					'name' => 'YouTube'
+				],
+				'facebook_url' => (object) [
+					'class' => 'type-brands svg-facebook-f color-39579a',
+					'name' => 'Facebook'
+				],
+				'instagram_url' => (object) [
+					'class' => 'type-brands svg-instagram color-517fa4',
+					'name' => 'Instagram'
+				],
+				'twitter_url' => (object) [
+					'class' => 'type-brands svg-twitter color-01aced',
+					'name' => 'Twitter'
+				],
+				'pinterest_url' => (object) [
+					'class' => 'type-brands svg-pinterest-p color-c61d26',
+					'name' => 'Pinterest'
+				],
+				'website_url' => (object) [
+					'class' => 'type-solid svg-link color-31a237',
+					'name' => 'Website'
+				]
+			];
+
+			foreach ($social as $key => $url) {
+				if ($url) {
+					printf(
+						'<a href="%1$s" class="fa-icon %2$s" title="%3$s"
+						target="_blank"></a>',
+						$url,
+						$links->$key->class,
+						"Follow on {$links->$key->name}"
+					);
+				}
+			}
+			break;
+
+		default:
+			break;
 	}
 }
 
@@ -705,4 +727,57 @@ function content_schema_meta() {
 	ob_end_clean();
 
 	return $content;
+}
+
+/**
+ * Display the video excerpt.
+ */
+function the_video_excerpt($max_length = 200) {
+
+	/**
+	 * Filters the displayed video excerpt.
+	 *
+	 * @see get_the_video_excerpt()
+	 *
+	 * @param string $post_excerpt The post excerpt.
+	 */
+	echo apply_filters('the_video_excerpt', get_the_video_excerpt(null, $max_length));
+}
+
+/**
+ * Retrieves the video excerpt.
+ *
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
+ * @return string Video excerpt.
+ */
+function get_the_video_excerpt($post = null, $max_length = 200) {
+	$post = get_post($post);
+	if (empty($post)) {
+		return '';
+	}
+
+	if (post_password_required($post)) {
+		return __('There is no excerpt because this is a protected post.');
+	}
+
+	$doc = phpQuery::newDocument($post->post_content);
+	$content = '';
+	$length = 0;
+	foreach ($doc['p'] as $p) {
+		$text = pq($p)->getString()[0];
+		$len = strlen($text);
+		if ($length + $len < $max_length) {
+			$length += $len;
+			$content .= "<p>$text</p>";
+		} else
+			break;
+	}
+
+	/**
+	 * Filters the retrieved video excerpt.
+	 *
+	 * @param string  $post_excerpt The video excerpt.
+	 * @param WP_Post $post         Video object.
+	 */
+	return apply_filters('get_the_video_excerpt', $content, $post);
 }

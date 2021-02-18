@@ -106,6 +106,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 	// Get Channels
 	$channels = get_terms(['taxonomy' => 'video-channel', 'hide_empty' => false]);
 
+	$last = get_option('last_youtube_data_update', date('Y-m-d', strtotime('-1 week')));
+	if ($force || date('Y-m-d', strtotime('-1 days')) > $last) {
+		get_youtube_channel_data($channels);
+		update_option('last_youtube_data_update', date('Y-m-d'));
+	}
+
 	foreach ($channels as $channel) {
 		// INFO: This now checks if it was updated today already and skips if it was
 		$lastUpdate = get_term_meta($channel->term_id, 'yt_last_update', true) ?: date('Y-m-d', strtotime('-1 week'));
@@ -138,13 +144,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 		$videoCategories = get_field('video_categories', $channel, true);
 
-		// INFO: This whole section will only run once every two days
+		// INFO: This whole section will only run once every day
 		// INFO: It checks for dead links and duplicate video posts
+		// INFO: It now also updates any video meta
 		$lastRemoval = get_term_meta($channel->term_id, 'yt_last_removal', true) ?: date('Y-m-d', strtotime('-1 week'));
-		if ($force || date('Y-m-d', strtotime('-2 days')) > $lastRemoval) {
+		if ($force || date('Y-m-d', strtotime('-1 days')) > $lastRemoval) {
 			update_term_meta($channel->term_id, 'yt_last_removal', date('Y-m-d'), true);
 
-			$log->put(indent() . "It's been more than 2 days, so we're checking for dead links and duplicates");
+			$log->put(indent() . "It's been more than 1 day, so we're checking for dead links and duplicates");
 
 			// Get all youtube ids and post ids of existing channel videos
 			$posts = get_channel_video_ids($channel->term_id);
@@ -156,8 +163,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			foreach ($posts as $post) {
 				if (in_array($post->yt_id, $got_yt_ids)) {
 					// delete the post as its a duplicate
-					wp_delete_post($post->post_id, true);
-					$log->put(indent(2) . "Deleting post {$post->post_id} as it was a duplicate!");
+					wp_delete_post($post->id, true);
+					$wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = $post_id;");
+					$log->put(indent(2) . "Deleting post {$post->id} as it was a duplicate!");
 					continue;
 				}
 				$got_yt_ids[] = $post->yt_id;
@@ -165,54 +173,53 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			}
 
 			// This is here to remove any dead youtube links, it's the most cost effective way to do it.
+			$videoIds = list_ids($ids, 'yt_id');
+			$chunkedIDs = array_chunk($videoIds, 50, true);
 			$not_dead = [];
-			$chunks = array_chunk($got_yt_ids, 50);
-			foreach ($chunks as $chunk) {
+
+			// This is used in case we stalled during the last run
+			$atPart = get_option('scrape_stalled_at_part', null);
+			$atIndex = get_option('scrape_stalled_at_index', 0);
+			$index = $atPart == 'video-scrape' ? $atIndex : 0;
+			$chunkedIDs = array_slice($chunkedIDs, $index);
+
+			foreach ($chunkedIDs as $ids) {
+				$index++;
+
 				try {
-					$response = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', [
-						'id' => implode(',', $chunk)
+					$results = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', [
+						'id' => implode(',', $ids),
 					]);
 
-					$not_dead = array_merge($not_dead, $response->items);
+					$items = $results->items;
+					foreach ($items as $item) {
+						$i = array_search($item->id, array_column($ids, 'yt_id'));
+						if (!is_numeric($i)) continue; // Skip if video ID not in list, shouldn't happen
+						$post = to_object($ids[$i]);
+
+						// save_youtube_data($post->id, $item);
+
+						$not_dead[] = $item;
+					}
 				} catch (Exception $e) {
-					$log->put('Exception: ' . $e->getMessage());
+					logger('Exception: ' . $e->getMessage());
 				}
+
+				test_restart('video-scrape', $index);
 			}
 
-			$json = [];
 			$have_yt_ids = [];
-			foreach ($not_dead as $video) {
+			foreach ($not_dead as $video)
 				$have_yt_ids[] = $video->id;
-
-				// $json[] = (object) [
-				// 	'id' => $video->id,
-				// 	'snippet' => [
-				// 		'description' => $video->snippet->description,
-				// 		'publishedAt' => $video->snippet->publishedAt,
-				// 		'tags' => $video->snippet->tags,
-				// 		'title' => $video->snippet->title,
-				// 		'thumbnails' => $video->snippet->thumbnails,
-				// 	],
-				// 	'contentDetails' => [
-				// 		'duration' => $video->contentDetails->duration,
-				// 	],
-				// 	'statistics' => $video->statistics
-				// ];
-			}
-
-			// if (!file_exists('./data/'))
-			// 	mkdir('./data/');
-
-			// Save the data we pulled for future reference
-			// file_put_contents("./data/$ytChannelId.json", json_encode($json));
 
 			foreach ($got_yt_ids as $yt_id) {
 				// The link no longer exists, delete the post
 				if (!in_array($yt_id, $have_yt_ids)) {
 					if (is_numeric($i = array_search($yt_id, $ids))) {
-						$post_id = $ids[$i]->post_id;
+						$post_id = $ids[$i]->id;
 						wp_delete_post($post_id, true);
-						$log->put(indent(2) . "Deleting post {$post->post_id} as it was a dead link!");
+						// $wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = $post_id;");
+						$log->put(indent(2) . "Deleting post {$post_id} as it was a dead link!");
 					}
 				}
 			}
@@ -278,6 +285,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			test_restart();
 		}
 
+
 		$log->put(indent() . 'Finished channel update, setting last update to ' . date('Y-m-d'));
 		update_term_meta($channel->term_id, 'yt_last_update', date('Y-m-d'));
 	}
@@ -289,22 +297,35 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 file_put_contents('running.json', json_encode(['running' => false]));
 
-function test_restart() {
+function test_restart($atPart = null, $atIndex = null) {
 	global $endAt, $log;
+
+	$end = false;
+	$msg = '';
+	$header = 'Location: index.php';
 
 	$do = json_decode(file_get_contents('kill-switch.json'));
 	if ($do->kill) {
-		file_put_contents('running.json', json_encode(['running' => false]));
-		$log->put('<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>');
-		exit;
+		$end = true;
+		$msg = '<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>';
+		$header = 'Location: index.php';
+	} elseif (time() >= $endAt) {
+		$end = true;
+		$msg = '';
+		$header = 'Location: index.php?action=import';
+	} else {
+		$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
 	}
 
-	$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
+	if ($end) {
+		if ($atPart && (is_numeric($atIndex) || $atIndex)) {
+			update_option('scrape_stalled_at_part', $atPart);
+			update_option('scrape_stalled_at_index', $atIndex);
+		}
 
-	if (time() >= $endAt) {
-		$log->put('<span style="color:red">Restarting to save from script timout!</span>');
+		$log->put($msg);
 		file_put_contents('running.json', json_encode(['running' => false]));
-		header("Location: index.php?action=import");
+		header($header);
 		exit;
 	}
 }

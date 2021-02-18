@@ -2,7 +2,7 @@
 
 require_once(get_php_includes('classes/bulk-core.php'));
 require_once(get_php_includes('classes/bulk-add-meta.php'));
-require_once(get_php_includes('classes/bulk-update-meta.php'));
+// require_once(get_php_includes('classes/bulk-update-meta.php'));
 
 // $bulk = BulkAddMeta::get_instance();
 // $bulk->add(1600, 'kraggle_test', random_string(20), true)

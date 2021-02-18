@@ -29,7 +29,7 @@ if (!defined('K_YT_API_KEYS'))
 	]);
 /* cSpell:enable */
 global $htm__s_version;
-$htm__s_version = '0.1.15';
+$htm__s_version = '0.1.21';
 
 global $refreshing_categories;
 $refreshing_categories = false;
@@ -159,6 +159,12 @@ add_action('after_setup_theme', function () {
 			$name = get_taxonomy($taxonomy)->name;
 			add_option("htm_sitemap_include_$name", 1);
 		}
+
+	global $wpdb;
+	$wpdb->{'videometa'} = "{$wpdb->prefix}yt_video_meta";
+	$wpdb->{'channelmeta'} = "{$wpdb->prefix}yt_channel_meta";
+
+	// save_youtube_data(31906, json_decode(file_get_contents(get_php_includes() . 'videoData.json'))->items[0]);
 }, 20);
 
 /**
@@ -206,7 +212,7 @@ array_map(function ($file) use ($htm_s_error) {
 	}
 }, [
 	'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts',
-	'shortcodes', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
+	'shortcodes', 'forms', 'ajax-calls', 'bulk-functions', 'admin-menu-tool'
 ]);
 
 add_action('init', function () {
@@ -281,11 +287,9 @@ add_action('post_updated', function ($id, $post) {
 		htm_set_permalink($id, $link, $post);
 }, 20, 2);
 
-add_filter( 'upload_mimes', 'my_mime_types', 1, 1 );
-function my_mime_types( $mime_types ) {
-  $mime_types['jpegcharsetbinary'] = 'image/jpegcharsetbinary';     // Adding .svg extension
+add_filter('upload_mimes', 'my_mime_types', 1, 1);
+function my_mime_types($mime_types) {
+	$mime_types['jpegcharsetbinary'] = 'image/jpegcharsetbinary';     // Adding .svg extension
 
-  return $mime_types;
+	return $mime_types;
 }
-
-
