@@ -1,0 +1,66 @@
+[17-Feb-2021 16:01:03] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:01:03] &raquo; <b>Ahrefs</b>:
+[17-Feb-2021 16:01:03] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 16:01:05] &raquo;  &raquo; We have: 194 and there are 191 in total.
+[17-Feb-2021 16:01:05] &raquo;  &raquo; Results: 1
+[17-Feb-2021 16:01:05] &raquo;  &raquo;  &raquo; 3tbDkc3k48E - How to Use Internal Links to Rank Higher in Google
+[17-Feb-2021 16:01:06] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30046
+[17-Feb-2021 16:01:12] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30047
+[17-Feb-2021 16:01:12] &raquo; Restarting in 70 seconds
+[17-Feb-2021 16:01:12] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:01:12] &raquo; <b>Andrei Jikh</b>:
+[17-Feb-2021 16:01:12] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 16:01:15] &raquo;  &raquo; We have: 213 and there are 213 in total.
+[17-Feb-2021 16:01:15] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:01:15] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:01:15] &raquo; <b>Beast of eCom</b>:
+[17-Feb-2021 16:01:15] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 16:01:16] &raquo;  &raquo; We have: 137 and there are 137 in total.
+[17-Feb-2021 16:01:16] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:01:16] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:01:16] &raquo; <b>Daily Motivation</b>:
+[17-Feb-2021 16:01:16] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 16:01:18] &raquo;  &raquo; We have: 172 and there are 173 in total.
+[17-Feb-2021 16:01:18] &raquo;  &raquo; Results: 1
+[17-Feb-2021 16:01:18] &raquo;  &raquo;  &raquo; jA2n5wLy1f0 - A Truth That Most Refuse To See...
+[17-Feb-2021 16:01:19] &raquo; Kill script has been triggered, before resuming you must `CANCEL KILL`!
+[17-Feb-2021 16:01:23] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30048
+[17-Feb-2021 16:01:27] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30049
+[17-Feb-2021 16:01:27] &raquo; <span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>
+[17-Feb-2021 16:01:39] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 16:05:43] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 16:12:47] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 16:12:56] &raquo; Kill script has been canceled, you may resume.
+[17-Feb-2021 16:13:20] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 16:13:23] &raquo; <b>Ahrefs</b>:
+[17-Feb-2021 16:13:23] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:13:49] &raquo;  &raquo; We have: 195 and there are 191 in total.
+[17-Feb-2021 16:13:49] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:13:49] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:13:49] &raquo; <b>Andrei Jikh</b>:
+[17-Feb-2021 16:13:49] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:13:50] &raquo; Kill script has been triggered, before resuming you must `CANCEL KILL`!
+[17-Feb-2021 16:14:17] &raquo;  &raquo; We have: 213 and there are 213 in total.
+[17-Feb-2021 16:14:17] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:14:17] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:14:17] &raquo; <b>Beast of eCom</b>:
+[17-Feb-2021 16:14:17] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:14:35] &raquo;  &raquo; We have: 137 and there are 137 in total.
+[17-Feb-2021 16:14:35] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:14:35] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:14:35] &raquo; <b>Daily Motivation</b>:
+[17-Feb-2021 16:14:35] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:14:56] &raquo;  &raquo; We have: 173 and there are 173 in total.
+[17-Feb-2021 16:14:56] &raquo;  &raquo; Results: 0
+[17-Feb-2021 16:14:56] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 16:14:56] &raquo; <b>Dragons Den</b>:
+[17-Feb-2021 16:14:56] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 16:15:30] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:15:30] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 16:15:43] &raquo;  &raquo; We have: 369 and there are 370 in total.
+[17-Feb-2021 16:15:43] &raquo;  &raquo; Results: 1
+[17-Feb-2021 16:15:43] &raquo;  &raquo;  &raquo; Of96zm1XD24 - Peter's FLABBERGASTED by Online Retailer’s Return Rate! | Dragons’ Den
+[17-Feb-2021 16:15:44] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30050
+[17-Feb-2021 16:15:49] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30051
+[17-Feb-2021 16:15:49] &raquo; <span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>
+[17-Feb-2021 16:16:31] &raquo; Kill script has been canceled, you may resume.
