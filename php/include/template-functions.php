@@ -60,7 +60,8 @@ function htm_add_head_stuff() {
 						'ajax' => admin_url( 'admin-ajax.php' ),
 						'theme_path' => get_stylesheet_directory_uri(),
 						'is_user_logged_in' => is_user_logged_in(),
-						'dialog_createaccount_closed' => $_COOKIE['dialog_createaccount_closed'] ? $_COOKIE['dialog_createaccount_closed'] : null,
+						'promo_popup_options' => get_field( 'promo_popup', 'option' ),
+						// 'dialog_createaccount_closed' => $_COOKIE['dialog_createaccount_closed'] ? $_COOKIE['dialog_createaccount_closed'] : null,
 						
 					]
 				]

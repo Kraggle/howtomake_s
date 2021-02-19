@@ -14,9 +14,15 @@ export default {
                 var dialogShown = sessionStorage.getItem("dialog-create-account-shown");
 
                 //params.is_user_logged_in = false;dialogShown = false;// <== Debug
-
-                if(!params.is_user_logged_in && !dialogShown){
-
+                //console.log(params.promo_popup_options.enabled[0]);
+                //console.log(params.is_user_logged_in);
+                
+                //console.log(dialogShown);
+                
+                if(params.promo_popup_options.enabled[0] == '1' && 
+                    !params.is_user_logged_in && 
+                    !dialogShown){
+                        
                     setTimeout(function(){
                         $( "#dialog-create-account" ).dialog({
                             autoOpen: true,
@@ -37,7 +43,7 @@ export default {
                         });
 
                         sessionStorage.setItem("dialog-create-account-shown", true);
-                    }, 4000);
+                    }, params.promo_popup_options.time_delay_msecs);
                 }
             break;
             

@@ -1,4 +1,6 @@
-<div id="dialog-create-account" class="dialog-inner" title="This is my Dialog" style="display:none;">
+<?php
+    $popupOptions = get_field( 'promo_popup', 'option' );
+?><div id="dialog-create-account" class="dialog-inner" title="This is my Dialog" style="display:none;">
 
     <div class="container">
         <div class="region image-region">
@@ -7,7 +9,7 @@
            </div>
         </div>
         <div class="region form-region">
-        <?php echo do_shortcode('[contact-form-7 id="30215" title="Start Registration Modal"]'); ?>
+        <?php echo do_shortcode('[contact-form-7 id="' . $popupOptions['contact_form'] . '" title=""]'); ?>
         </div>
     </div>
 </div>

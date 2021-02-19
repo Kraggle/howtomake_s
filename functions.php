@@ -213,7 +213,7 @@ array_map(function ($file) use ($htm_s_error) {
 }, [
 	'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts',
 
-	'shortcodes', 'forms', 'ajax-calls', 'bulk-functions', 'admin-menu-tool','mail', 'contact-form-7'
+	'shortcodes', 'forms', 'ajax-calls', 'bulk-functions', 'admin-menu-tool','mail', 'contact-form-7','option-pages'
 
 ]);
 
