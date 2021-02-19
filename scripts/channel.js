@@ -1,10 +1,12 @@
-import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+
+import { jQuery as $ } from './src/jquery-3.5.1.js';
 import V from './custom/Paths.js';
 import { timed, K } from './custom/K.js';
 import { clamp as $clamp } from './src/clamp.js';
 
 const timer = timed(),
 	tileWidth = 216;
+
 
 $(() => {
 

@@ -1,3 +1,5 @@
+import { jQuery as $ } from '../../jquery-3.5.1.js';
+import '../jq-ui-core.js';
 /*!
  * jQuery UI Button 1.12.1
  * http://jqueryui.com

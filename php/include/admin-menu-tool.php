@@ -156,7 +156,7 @@ $menu_items = [
 		</div>
 		<button id="setYD" class="ks-button" action="set_youtube_data" other="getYD" get=".check-list input" repeat=50 isDouble=true>Refresh</button>
 	</div>
-<?php }
+	<?php }
 	], (object) [
 		'name' => 'Page Settings',
 		'content' => function () { ?>
@@ -210,6 +210,30 @@ $menu_items = [
 					</div>
 			<?php }
 			} ?>
+		</div>
+		<button id="setSitemap" type="save" class="ks-button" action="set_sitemap_settings">Save</button>
+	</div>
+	<?php }
+	], (object) [
+		'name' => 'Promo Popup',
+		'content' => function () { ?>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Promo Popup</span>
+		<span class="ks-desc">Dialog window that displays on set event</span>
+		<div class="ks-setting-list">
+			<?php $post_types = get_post_types(array('public' => true), 'names', 'and'); ?>
+
+			<?php /* <label>Dialog view</label>
+			<select name="dialog-view">
+				<option value="create-account">create-account.php</option>
+			</select>
+
+			<label>CF7 Form</label>
+			<select name="cf7-form">
+				<option value="create-account">create-account.php</option>
+			</select> */ ?>
+			
 		</div>
 		<button id="setSitemap" type="save" class="ks-button" action="set_sitemap_settings">Save</button>
 	</div>

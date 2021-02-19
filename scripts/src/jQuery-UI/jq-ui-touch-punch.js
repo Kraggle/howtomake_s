@@ -1,4 +1,4 @@
-import { jQuery as $ } from '../jquery-3.5.1-min.js';
+import { jQuery as $ } from '../jquery-3.5.1.js';
 /*!
  * jQuery UI Touch Punch 0.2.3
  *

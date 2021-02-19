@@ -63,6 +63,11 @@ function howtomake_shortcode_video_publish_date() {
 add_shortcode('current_video_publish_date', 'howtomake_shortcode_video_publish_date');
 
 
+function howtomake_shortcode_registration_url() {
+
+	return get_the_date('jS M, Y');
+}
+add_shortcode('registration_url', 'howtomake_shortcode_registration_url');
 
 
 /* Video Channel */
@@ -312,3 +317,7 @@ function htm_shortcode_sitemap() {
 	return $html;
 }
 add_shortcode('htm_sitemap', 'htm_shortcode_sitemap');
+
+
+
+

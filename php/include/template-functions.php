@@ -53,7 +53,17 @@ function htm_add_head_stuff() {
 					"name" => "htm_s-main",
 					"path" => "$path/scripts/main.js",
 					"src" => "$uri/scripts/main.js",
-					"module" => true
+					"module" => true,
+					"params" => [// These appear as global js object called 'params'
+						"abc" => "def",
+						
+						'ajax' => admin_url( 'admin-ajax.php' ),
+						'theme_path' => get_stylesheet_directory_uri(),
+						'is_user_logged_in' => is_user_logged_in(),
+						'promo_popup_options' => get_field( 'promo_popup', 'option' ),
+						// 'dialog_createaccount_closed' => $_COOKIE['dialog_createaccount_closed'] ? $_COOKIE['dialog_createaccount_closed'] : null,
+						
+					]
 				]
 			],
 			"styles" => [
@@ -185,7 +195,14 @@ function htm_add_head_stuff() {
 			foreach ($item->scripts as $script) {
 				if (file_exists($script->path)) {
 					$ver = filemtime($script->path);
-					wp_enqueue_script(($script->module ? 'module-' : '') . $script->name, $script->src, [], $ver);
+					$scriptId = ($script->module ? 'module-' : '') . $script->name;
+					wp_enqueue_script($scriptId, $script->src, [], $ver);
+				
+					if($script->params){
+						wp_localize_script(
+							$scriptId, 'params', $script->params
+						);
+					}
 				}
 			}
 		}

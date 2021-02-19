@@ -1,8 +1,16 @@
-import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+import { jQuery as $ } from './src/jquery-3.5.1.js';
 import header from './partials/header.js';
+
+import dialog from './util/dialog.js';
+
+
 
 $(() => {
 	header.build();
+
+	/* Open Modal Window */
+	dialog.show('create-account');
+
 
 	$('a[href^="#"]').on('click', function(e) {
 		const id = $(this).attr('href');

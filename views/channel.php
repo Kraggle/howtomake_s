@@ -175,6 +175,7 @@ $chevron_down = get_font_awesome_icon('chevron-down', 'regular');
 		<?php get_template_part('views/partials/footer') ?>
 		<?php wp_footer() ?>
 	</div>
+	<?php get_template_part('views/partials/body-bottom') ?>
 </body>
 
 </html>

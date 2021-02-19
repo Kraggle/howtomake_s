@@ -1,3 +1,8 @@
+import { jQuery as $ } from '../../jquery-3.5.1.js';
+import '../jq-ui-core.js';
+import '../effects/jq-ui-effects.js';
+import './jq-ui-mouse.js'
+
 /*!
  * jQuery UI Sortable 1.12.1
  * http://jqueryui.com

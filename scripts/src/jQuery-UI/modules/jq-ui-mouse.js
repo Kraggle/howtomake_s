@@ -1,4 +1,5 @@
-import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import { jQuery as $ } from '../../jquery-3.5.1.js';
+import '../jq-ui-core.js';
 
 /*!
  * jQuery UI Mouse 1.12.1
