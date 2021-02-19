@@ -13,11 +13,11 @@ export default {
                 var dialogShown = sessionStorage.getItem("dialog-shown");
 
                 //params.is_user_logged_in = false;dialogShown = false;// <== Debug
-                console.log("enabled: " + params.promo_popup_options.enabled[0]);
-                console.log("is_user_logged_in: " + params.is_user_logged_in);
+                // console.log("enabled: " + params.promo_popup_options.enabled[0]);
+                // console.log("is_user_logged_in: " + params.is_user_logged_in);
                 
-                console.log("show_dialog: " + params.show_dialog);
-                console.log("dialogShown: " + dialogShown);
+                // console.log("show_dialog: " + params.show_dialog);
+                // console.log("dialogShown: " + dialogShown);
                 if(params.show_dialog && !dialogShown){
 
                     setTimeout(function(){
