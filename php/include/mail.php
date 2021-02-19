@@ -10,4 +10,4 @@ function mailtrap($phpmailer) {
   $phpmailer->Password = 'e15279224f161c';
 }
 
-add_action('phpmailer_init', 'mailtrap');
+if(WP_DEBUG) add_action('phpmailer_init', 'mailtrap');
