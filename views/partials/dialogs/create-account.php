@@ -7,7 +7,7 @@
            </div>
         </div>
         <div class="region form-region">
-        <?php echo do_shortcode('[contact-form-7 id="30005" title="Start Registration Modal"]'); ?>
+        <?php echo do_shortcode('[contact-form-7 id="30215" title="Start Registration Modal"]'); ?>
         </div>
     </div>
 </div>
