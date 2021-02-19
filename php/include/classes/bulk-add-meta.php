@@ -199,6 +199,8 @@ class BulkAddMeta extends BulkCore {
 
 		$sql = $this->insert_start . implode(', ', $this->formats) . ';';
 
+		// logger($this->prepare($sql, $this->values));
+
 		$result =  $this->query($this->prepare($sql, $this->values));
 
 		if (!$result) {

@@ -78,6 +78,9 @@ function htm_s_on_install() {
 	$charset_collate = $wpdb->get_charset_collate();
 	$max_index_length = 191;
 
+	$wpdb->{'videometa'} = "{$wpdb->prefix}yt_video_meta";
+	$wpdb->{'channelmeta'} = "{$wpdb->prefix}yt_channel_meta";
+
 	$wpdb->query(
 		"CREATE TABLE IF NOT EXISTS {$wpdb->videometa} (
 			meta_id bigint(20) unsigned NOT NULL auto_increment,
@@ -1263,8 +1266,11 @@ function save_youtube_data($object_id, $data) {
 
 	$data = get_key_value($data);
 
-	foreach ($data as $key => $value)
-		$bulk->add($object_id, $key, $value);
+	foreach ($data as $key => $value) {
+		if (!is_null($value)) {
+			$bulk->add($object_id, $key, $value);
+		}
+	}
 
 	$bulk->push();
 }
@@ -1281,6 +1287,9 @@ function get_key_value($obj) {
 
 			continue;
 		}
+
+		while (strlen($k) > 191)
+			$k = preg_replace('/^\w+\./', '', $k);
 
 		$return->$k = $v;
 	}

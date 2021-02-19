@@ -141,12 +141,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			continue;
 		}
 
-		$ytChannelId = get_field('yt_channel_id', $channel, true);
+		$channel->yt_id = get_field('yt_channel_id', $channel, true);
 		$ytUploadsId = get_term_meta($channel->term_id, 'yt_uploads_id', true);
 
 		if (!$ytUploadsId) {
 			$response = getYoutubeService()->channels->listChannels('contentDetails', [
-				'id' => $ytChannelId
+				'id' => $channel->yt_id
 			]);
 
 			$ytUploadsId = $response->items[0]->contentDetails->relatedPlaylists->uploads;
@@ -168,22 +168,22 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 			// This is here as there are a few videos that were duplicated and this is 
 			// probably the best place to remove them as we are already going through them.
-			$saved_ids = [];
+			$saved_ids = (object) [];
 			$ids = [];
 			foreach ($posts as $post) {
-				if (in_array($post->yt_id, $saved_ids)) {
+				if ($saved_ids->{$post->yt_id}) {
 					// delete the post as its a duplicate
 					wp_delete_post($post->id, true);
 					$wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = {$post->id};");
 					$log->put(indent(2) . "Video @{$post->id} has been deleted as it was a duplicate!");
 					continue;
 				}
-				$saved_ids[] = $post->yt_id;
+				$saved_ids->{$post->yt_id} = $post->id;
 				$ids[] = $post;
 			}
 			unset($posts);
 
-			$itemsPath = "./data/$channel->yt_id.json";
+			$itemsPath = "./data/{$channel->yt_id}.json";
 			if (!file_exists($itemsPath))
 				file_put_contents($itemsPath, json_encode([]));
 			$items = json_decode(file_get_contents($itemsPath));
@@ -200,9 +200,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 						]);
 
 						$items = array_merge($items, $results->items);
-
-						// file_put_contents('running.json', json_encode(['running' => false]));
-						// exit;
 					} catch (Exception $e) {
 						logger('Exception: ' . $e->getMessage());
 					}
@@ -223,28 +220,22 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 					test_restart(false);
 				}
 
-				if (is_numeric($i = array_search($item->id, array_column($ids, 'yt_id')))) {
+				$post_id = $saved_ids->{$item->id};
 
-					$post_id = $ids[$i]->id;
-					save_youtube_data($post_id, $item);
+				save_youtube_data($post_id, $item);
 
-					$item->post_id = $post_id;
-					$item->is_saved = true;
-
-					$index++;
-				}
+				$item->post_id = $post_id;
+				$item->is_saved = true;
+				$index++;
 			}
 
 			$existing_ids = list_ids($items, 'id');
-			foreach ($saved_ids as $yt_id) {
+			foreach ($saved_ids as $yt_id => $id) {
 				// The link no longer exists, delete the post
 				if (!in_array($yt_id, $existing_ids)) {
-					if (is_numeric($i = array_search($yt_id, array_column($ids, 'yt_id')))) {
-						$post_id = $ids[$i]->id;
-						wp_delete_post($post_id, true);
-						$wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = $post_id;");
-						$log->put(indent(2) . "Video @{$post->id} has been deleted as it no longer existed!");
-					}
+					wp_delete_post($id, true);
+					$wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = $id;");
+					$log->put(indent(2) . "Video @{$id} has been deleted as it no longer existed!");
 				}
 			}
 
