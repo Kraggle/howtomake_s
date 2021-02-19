@@ -7,7 +7,29 @@
 // INFO:  - There is now a few methods of skipping if the channel has already run today
 // INFO:  - There is a timer that will end the script before a timeout and resume the script again
 
-$force = isset($_GET['force']) ? $_GET['force'] : false;
+// ------------------------------------------------------------------
+
+
+if (!defined('ABSPATH')) {
+	require_once("../../../../../../wp-load.php");
+}
+
+// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
+require_once(ABSPATH . 'wp-admin/includes/image.php');
+
+require_once __DIR__ . '/../../include/functions.php';
+
+// ================================== Settings End =======================================
+
+global $wpdb;
+
+if ($force = isset($_GET['force']) && $_GET['force']) {
+	$older = date('Y-m-d', strtotime('-1 week'));
+	update_option('last_youtube_data_update', $older);
+	$wpdb->query(
+		"UPDATE {$wpdb->termmeta} SET meta_value = '$older' WHERE meta_key In ('yt_last_update', 'yt_last_removal')"
+	);
+}
 
 ?>
 
@@ -41,6 +63,7 @@ $force = isset($_GET['force']) ? $_GET['force'] : false;
 	<input id="cancel-kill" type="button" value="CANCEL KILL" style="position: fixed; top: 50px; right: 20px;" />
 
 	<div class="logs"></div>
+	<div id="scroller"></div>
 	<script type="module" src="index.js"></script>
 </body>
 
@@ -56,22 +79,11 @@ $maxTime = 80;
 global $endAt;
 $endAt = strtotime("+{$maxTime} seconds");
 
-// ------------------------------------------------------------------
-
-
-if (!defined('ABSPATH')) {
-	require_once("../../../../../../wp-load.php");
-}
-
-// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
-require_once(ABSPATH . 'wp-admin/includes/image.php');
-
-require_once __DIR__ . '/../../include/functions.php';
-
-// ================================== Settings End =======================================
-
 if (!file_exists('./info/'))
 	mkdir('./info/');
+
+if (!file_exists('./data/'))
+	mkdir('./data/');
 
 global $log;
 $log = videoLogger::getInstance('./info/log' . date('[d-M-Y H]') . '.txt');
@@ -101,15 +113,20 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 	$log->put('Getting the channels and checking if they need updating.');
 
-	global $wpdb;
-
 	// Get Channels
 	$channels = get_terms(['taxonomy' => 'video-channel', 'hide_empty' => false]);
+
+	$last = get_option('last_youtube_data_update', date('Y-m-d', strtotime('-1 week')));
+	if (date('Y-m-d', strtotime('-1 days')) > $last) {
+		$log->put('Saving the youtube data for ' . count($channels) . ' channels!');
+		get_youtube_channel_data($channels);
+		update_option('last_youtube_data_update', date('Y-m-d'));
+	}
 
 	foreach ($channels as $channel) {
 		// INFO: This now checks if it was updated today already and skips if it was
 		$lastUpdate = get_term_meta($channel->term_id, 'yt_last_update', true) ?: date('Y-m-d', strtotime('-1 week'));
-		if (!$force && date('Y-m-d', strtotime('-1 days')) < $lastUpdate) {
+		if (date('Y-m-d', strtotime('-1 days')) < $lastUpdate) {
 			$log->put("Skipping <b>{$channel->name}</b> as it was updated within the last day.");
 			continue;
 		}
@@ -124,12 +141,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			continue;
 		}
 
-		$ytChannelId = get_field('yt_channel_id', $channel, true);
+		$channel->yt_id = get_field('yt_channel_id', $channel, true);
 		$ytUploadsId = get_term_meta($channel->term_id, 'yt_uploads_id', true);
 
 		if (!$ytUploadsId) {
 			$response = getYoutubeService()->channels->listChannels('contentDetails', [
-				'id' => $ytChannelId
+				'id' => $channel->yt_id
 			]);
 
 			$ytUploadsId = $response->items[0]->contentDetails->relatedPlaylists->uploads;
@@ -138,84 +155,92 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 		$videoCategories = get_field('video_categories', $channel, true);
 
-		// INFO: This whole section will only run once every two days
+		// INFO: This whole section will only run once every day
 		// INFO: It checks for dead links and duplicate video posts
+		// INFO: It now also updates any video meta
 		$lastRemoval = get_term_meta($channel->term_id, 'yt_last_removal', true) ?: date('Y-m-d', strtotime('-1 week'));
-		if ($force || date('Y-m-d', strtotime('-2 days')) > $lastRemoval) {
-			update_term_meta($channel->term_id, 'yt_last_removal', date('Y-m-d'), true);
+		if (date('Y-m-d', strtotime('-1 days')) > $lastRemoval) {
 
-			$log->put(indent() . "It's been more than 2 days, so we're checking for dead links and duplicates");
+			$log->put(indent() . "Checking for dead links, duplicates and updating the video data.");
 
 			// Get all youtube ids and post ids of existing channel videos
 			$posts = get_channel_video_ids($channel->term_id);
 
 			// This is here as there are a few videos that were duplicated and this is 
 			// probably the best place to remove them as we are already going through them.
-			$got_yt_ids = [];
+			$saved_ids = (object) [];
 			$ids = [];
 			foreach ($posts as $post) {
-				if (in_array($post->yt_id, $got_yt_ids)) {
+				if ($saved_ids->{$post->yt_id}) {
 					// delete the post as its a duplicate
-					wp_delete_post($post->post_id, true);
-					$log->put(indent(2) . "Deleting post {$post->post_id} as it was a duplicate!");
+					wp_delete_post($post->id, true);
+					$wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = {$post->id};");
+					$log->put(indent(2) . "Video @{$post->id} has been deleted as it was a duplicate!");
 					continue;
 				}
-				$got_yt_ids[] = $post->yt_id;
+				$saved_ids->{$post->yt_id} = $post->id;
 				$ids[] = $post;
 			}
+			unset($posts);
 
-			// This is here to remove any dead youtube links, it's the most cost effective way to do it.
-			$not_dead = [];
-			$chunks = array_chunk($got_yt_ids, 50);
-			foreach ($chunks as $chunk) {
-				try {
-					$response = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', [
-						'id' => implode(',', $chunk)
-					]);
+			$itemsPath = "./data/{$channel->yt_id}.json";
+			if (!file_exists($itemsPath))
+				file_put_contents($itemsPath, json_encode([]));
+			$items = json_decode(file_get_contents($itemsPath));
 
-					$not_dead = array_merge($not_dead, $response->items);
-				} catch (Exception $e) {
-					$log->put('Exception: ' . $e->getMessage());
-				}
-			}
+			if (!count($items)) {
+				$log->put(indent(2) . 'Acquiring the video data from youtube for ' . count($ids) . ' videos.');
+				// This is here to remove any dead youtube links, it's the most cost effective way to do it.
+				$chunks = array_chunk($ids, 50, true);
+				foreach ($chunks as $chunk) {
 
-			$json = [];
-			$have_yt_ids = [];
-			foreach ($not_dead as $video) {
-				$have_yt_ids[] = $video->id;
+					try {
+						$results = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', [
+							'id' => list_ids($chunk, 'yt_id', 'string'),
+						]);
 
-				// $json[] = (object) [
-				// 	'id' => $video->id,
-				// 	'snippet' => [
-				// 		'description' => $video->snippet->description,
-				// 		'publishedAt' => $video->snippet->publishedAt,
-				// 		'tags' => $video->snippet->tags,
-				// 		'title' => $video->snippet->title,
-				// 		'thumbnails' => $video->snippet->thumbnails,
-				// 	],
-				// 	'contentDetails' => [
-				// 		'duration' => $video->contentDetails->duration,
-				// 	],
-				// 	'statistics' => $video->statistics
-				// ];
-			}
-
-			// if (!file_exists('./data/'))
-			// 	mkdir('./data/');
-
-			// Save the data we pulled for future reference
-			// file_put_contents("./data/$ytChannelId.json", json_encode($json));
-
-			foreach ($got_yt_ids as $yt_id) {
-				// The link no longer exists, delete the post
-				if (!in_array($yt_id, $have_yt_ids)) {
-					if (is_numeric($i = array_search($yt_id, $ids))) {
-						$post_id = $ids[$i]->post_id;
-						wp_delete_post($post_id, true);
-						$log->put(indent(2) . "Deleting post {$post->post_id} as it was a dead link!");
+						$items = array_merge($items, $results->items);
+					} catch (Exception $e) {
+						logger('Exception: ' . $e->getMessage());
 					}
 				}
+
+				file_put_contents($itemsPath, json_encode($items));
+				test_restart();
 			}
+
+			$log->put(indent(2) . 'Saving the youtube data for ' . count($items) . ' videos! This may take some time.');
+
+			$index = 0;
+			foreach ($items as &$item) {
+				if ($item->is_saved) continue;
+
+				if ($index % 10 == 0) {
+					file_put_contents($itemsPath, json_encode($items));
+					test_restart(false);
+				}
+
+				$post_id = $saved_ids->{$item->id};
+
+				save_youtube_data($post_id, $item);
+
+				$item->post_id = $post_id;
+				$item->is_saved = true;
+				$index++;
+			}
+
+			$existing_ids = list_ids($items, 'id');
+			foreach ($saved_ids as $yt_id => $id) {
+				// The link no longer exists, delete the post
+				if (!in_array($yt_id, $existing_ids)) {
+					wp_delete_post($id, true);
+					$wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = $id;");
+					$log->put(indent(2) . "Video @{$id} has been deleted as it no longer existed!");
+				}
+			}
+
+			file_put_contents($itemsPath, json_encode([]));
+			update_term_meta($channel->term_id, 'yt_last_removal', date('Y-m-d'), true);
 		}
 
 		$posts = get_channel_video_ids($channel->term_id);
@@ -278,8 +303,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			test_restart();
 		}
 
+
 		$log->put(indent() . 'Finished channel update, setting last update to ' . date('Y-m-d'));
 		update_term_meta($channel->term_id, 'yt_last_update', date('Y-m-d'));
+
+		test_restart();
 	}
 
 	getExtraYoutubeInfo();
@@ -289,22 +317,30 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 file_put_contents('running.json', json_encode(['running' => false]));
 
-function test_restart() {
+function test_restart($do_msg = true) {
 	global $endAt, $log;
+
+	$end = false;
+	$msg = '';
+	$header = 'Location: index.php';
 
 	$do = json_decode(file_get_contents('kill-switch.json'));
 	if ($do->kill) {
-		file_put_contents('running.json', json_encode(['running' => false]));
-		$log->put('<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>');
-		exit;
+		$end = true;
+		$msg = '<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>';
+		$header = 'Location: index.php';
+	} elseif (time() >= $endAt) {
+		$end = true;
+		$msg = '';
+		$header = 'Location: index.php?action=import';
+	} elseif ($do_msg) {
+		$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
 	}
 
-	$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
-
-	if (time() >= $endAt) {
-		$log->put('<span style="color:red">Restarting to save from script timout!</span>');
+	if ($end) {
+		$log->put($msg);
 		file_put_contents('running.json', json_encode(['running' => false]));
-		header("Location: index.php?action=import");
+		header($header);
 		exit;
 	}
 }

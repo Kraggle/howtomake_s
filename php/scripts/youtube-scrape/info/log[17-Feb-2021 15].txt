@@ -1,0 +1,9 @@
+[17-Feb-2021 15:24:10] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 15:35:38] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 15:35:58] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 15:36:30] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 15:42:03] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 15:42:58] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 15:43:06] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 15:47:42] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 15:49:38] &raquo; Getting the channels and checking if they need updating.

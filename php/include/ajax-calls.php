@@ -1325,7 +1325,7 @@ function htm_set_youtube_data() {
 	$return = (object) ['message' => []];
 	$ids = $_REQUEST['data']['ids'];
 
-	$items = get_youtube_data($ids);
+	$items = get_youtube_video_data($ids);
 
 	if (count($items)) {
 		$return->double = true;

@@ -1,6 +1,8 @@
 import { jQuery as $ } from '../../../scripts/src/jquery-3.5.1.js';
 
 $(() => {
+	let old = '';
+
 	setInterval(() => {
 		$.ajax({
 			url: './info/latest-log.php?v',
@@ -8,8 +10,14 @@ $(() => {
 			cache: false
 		}).done(function(data) {
 			data = JSON.parse(data);
-			if (data.content)
+			if (old != data.content) {
 				$('.logs').html(`<pre>${data.content}</pre>`);
+				old = data.content;
+
+				$([document.documentElement, document.body]).animate({
+					scrollTop: $('#scroller').offset().top
+				}, 300);
+			}
 		});
 	}, 1000);
 

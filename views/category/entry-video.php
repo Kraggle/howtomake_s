@@ -17,9 +17,9 @@
 		<span class="entry-date"><?= get_the_date('M jS, Y') ?></span> |
 		<?php the_terms($id, 'video-category', '', ', ') ?>
 	</p>
-	<div class="entry-excerpt">
+	<!-- <div class="entry-excerpt">
 		<?= remove_emoji(get_the_excerpt()) ?>
-	</div>
+	</div> -->
 </article>
 
 

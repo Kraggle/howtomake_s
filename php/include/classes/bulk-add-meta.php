@@ -50,6 +50,16 @@ class BulkAddMeta extends BulkCore {
 				if ($the_post)
 					$id = $the_post;
 				break;
+
+			case 'channel':
+				// $this->table = 'wp_yt_channel_meta';
+				$this->column = 'object_id';
+				break;
+
+			case 'video':
+				// $this->table = 'wp_yt_video_meta';
+				$this->column = 'post_id';
+				break;
 		}
 
 		if (!$meta_key || !is_numeric($id)) {
@@ -188,6 +198,8 @@ class BulkAddMeta extends BulkCore {
 		}
 
 		$sql = $this->insert_start . implode(', ', $this->formats) . ';';
+
+		// logger($this->prepare($sql, $this->values));
 
 		$result =  $this->query($this->prepare($sql, $this->values));
 

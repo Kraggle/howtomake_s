@@ -134,6 +134,8 @@ function getExtraYoutubeInfo(array $features = null) {
 				// Video Featured Image
 				if (is_array($features) && in_array('image', $features))
 					save_video_image_for_post($post->id, $item);
+
+				save_youtube_data($post->id, $item);
 			}
 		} catch (Exception $e) {
 			$log->put('Exception: ' . $e->getMessage());
@@ -179,7 +181,7 @@ function get_channel_video_ids($term_id) {
 	return get_results(
 		"SELECT
 		m.meta_value AS yt_id,
-		p.ID AS post_id
+		p.ID AS id
 		FROM wp_term_relationships r
 		INNER JOIN wp_posts p
 			ON r.object_id = p.ID

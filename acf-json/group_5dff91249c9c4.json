@@ -22,54 +22,8 @@
             "maxlength": ""
         },
         {
-            "key": "field_5dffb57bb1f92",
-            "label": "Video Categories",
-            "name": "video_categories",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "video-category",
-            "field_type": "checkbox",
-            "add_term": 1,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "id",
-            "multiple": 0,
-            "allow_null": 0
-        },
-        {
-            "key": "field_5e2f27786cc46",
-            "label": "Channel Logo",
-            "name": "channel_logo",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5ff5a84a3257a",
-            "label": "Square Logo",
+            "label": "Channel Logo",
             "name": "actual_logo",
             "type": "image",
             "instructions": "This image has to be square with the capability to make a circle.",
@@ -81,40 +35,15 @@
                 "id": ""
             },
             "return_format": "array",
-            "preview_size": "thumbnail",
+            "preview_size": "channel",
             "library": "all",
-            "min_width": "",
-            "min_height": "",
+            "min_width": 120,
+            "min_height": 120,
             "min_size": "",
             "max_width": "",
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_5e2b5e25ecb07",
-            "label": "Importer Enabled",
-            "name": "importer_enabled",
-            "type": "checkbox",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1": "Importer Enabled"
-            },
-            "allow_custom": 0,
-            "default_value": [
-                1
-            ],
-            "layout": "vertical",
-            "toggle": 0,
-            "return_format": "value",
-            "save_custom": 0
         },
         {
             "key": "field_5e2f27a16cc47",
@@ -210,8 +139,288 @@
                     },
                     "default_value": "",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_602bc71b17c60",
+                    "label": "Snapchat URL",
+                    "name": "snapchat_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
+        },
+        {
+            "key": "field_602bd23f17c65",
+            "label": "People Header",
+            "name": "people_header",
+            "type": "text",
+            "instructions": "This is only necessary if you do not want the default `Who are {channel_name}?`",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_602bd2c717c66",
+            "label": "People Description",
+            "name": "people_description",
+            "type": "wysiwyg",
+            "instructions": "This will appear after the `People Header` and before the `People Description`. Can be blank.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_602bc74a17c61",
+            "label": "People",
+            "name": "channel_people",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_602bd0b417c62",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Person",
+            "sub_fields": [
+                {
+                    "key": "field_602bd0b417c62",
+                    "label": "Persons Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_602bd16617c63",
+                    "label": "Persons URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_602bd18c17c64",
+                    "label": "Persons Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "channel",
+                    "library": "all",
+                    "min_width": 120,
+                    "min_height": 120,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        },
+        {
+            "key": "field_602bd3a017c67",
+            "label": "Quick Facts",
+            "name": "quick_facts",
+            "type": "repeater",
+            "instructions": "Each of these will show in a bullet list. They can be styled (as in have &lt;b&gt;, &lt;a&gt;, etc...)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_602bd41617c68",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Fact",
+            "sub_fields": [
+                {
+                    "key": "field_602bd41617c68",
+                    "label": "Quick Fact",
+                    "name": "quick_fact",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_602bd47917c69",
+            "label": "FAQs",
+            "name": "faqs",
+            "type": "repeater",
+            "instructions": "These can be styled (as in have &lt;b&gt;, &lt;a&gt;, etc...)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_602bd47a17c6a",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add FAQ",
+            "sub_fields": [
+                {
+                    "key": "field_602bd47a17c6a",
+                    "label": "Question",
+                    "name": "faq_question",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_602bd4ff17c6b",
+                    "label": "Answer",
+                    "name": "faq_answer",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5dffb57bb1f92",
+            "label": "Video Categories",
+            "name": "video_categories",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "video-category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_5e2b5e25ecb07",
+            "label": "Importer Enabled",
+            "name": "importer_enabled",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Importer Enabled"
+            },
+            "allow_custom": 0,
+            "default_value": [
+                1
+            ],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
         },
         {
             "key": "field_5e29f9c166981",
@@ -250,5 +459,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1609935156
+    "modified": 1613489177
 }

@@ -75,6 +75,35 @@ function htm_s_on_install() {
 		)"
 	);
 
+	$charset_collate = $wpdb->get_charset_collate();
+	$max_index_length = 191;
+
+	$wpdb->{'videometa'} = "{$wpdb->prefix}yt_video_meta";
+	$wpdb->{'channelmeta'} = "{$wpdb->prefix}yt_channel_meta";
+
+	$wpdb->query(
+		"CREATE TABLE IF NOT EXISTS {$wpdb->videometa} (
+			meta_id bigint(20) unsigned NOT NULL auto_increment,
+			post_id bigint(20) unsigned NOT NULL default '0',
+			meta_key varchar(255) default NULL,
+			meta_value longtext,
+			PRIMARY KEY  (meta_id),
+			KEY post_id (post_id),
+			KEY meta_key (meta_key($max_index_length))
+		) $charset_collate;"
+	);
+	$wpdb->query(
+		"CREATE TABLE IF NOT EXISTS {$wpdb->channelmeta} (
+			meta_id bigint(20) unsigned NOT NULL auto_increment,
+			object_id bigint(20) unsigned NOT NULL default '0',
+			meta_key varchar(255) default NULL,
+			meta_value longtext,
+			PRIMARY KEY  (meta_id),
+			KEY object_id (object_id),
+			KEY meta_key (meta_key($max_index_length))
+		) $charset_collate;"
+	);
+
 	add_option('htm__s_version', $htm__s_version);
 	update_option('htm__s_version', $htm__s_version);
 }
@@ -1094,9 +1123,9 @@ function refresh_youtube_data(array $items, array $features = null) {
  *
  * @param array $videos   An array of objects containing post id, title and yt_id
  * @param array $features An array of features to save, all if null. default: null
- * @return void
+ * @return array the items returned from the youtube api
  */
-function get_youtube_data(array $videos) {
+function get_youtube_video_data(array $videos) {
 
 	$videoIds = list_ids($videos, 'yt_id');
 
@@ -1104,9 +1133,11 @@ function get_youtube_data(array $videos) {
 		return false;
 
 	// Process in batches to reduce API calls. 50 is Youtube's pagination limit.
-	$chunkedVideoIDs = array_chunk($videoIds, 50, true);
+	$chunkedIDs = array_chunk($videoIds, 50, true);
 
-	foreach ($chunkedVideoIDs as $ids) {
+	$return = [];
+
+	foreach ($chunkedIDs as $ids) {
 
 		// Get more information for the videos
 		$optParams = array(
@@ -1117,11 +1148,69 @@ function get_youtube_data(array $videos) {
 			$results = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', $optParams);
 
 			$items = $results->items;
-			foreach ($items as $key => $item) {
+			foreach ($items as $item) {
 				$i = array_search($item->id, array_column($videos, 'yt_id'));
 				if (!is_numeric($i)) continue; // Skip if video ID not in list, shouldn't happen
 				$post = to_object($videos[$i]);
-				$items[$key]->post_id = $post->id;
+
+				save_youtube_data($post->id, $item);
+
+				$item->post_id = $post->id;
+				$return[] = $item;
+			}
+		} catch (Exception $e) {
+			logger('Exception: ' . $e->getMessage());
+
+			return false;
+		}
+	}
+
+	return $return;
+}
+
+/**
+ * This runs from the How to Make - Video Editor menu, it will get all selected 
+ * information for every video that is fed in. 
+ * 
+ * $features can include: keywords, duration, image, title, slug, description, excerpt
+ *
+ * @param array $channels   An array of channels
+ * @param array $features An array of features to save, all if null. default: null
+ * @return void
+ */
+function get_youtube_channel_data(array $channels) {
+
+	$channelIds = [];
+	foreach ($channels as &$channel) {
+		$channel->yt_id = get_field('yt_channel_id', $channel, true);
+		$channelIds[] = $channel->yt_id;
+	}
+
+	if (!count($channelIds))
+		return false;
+
+	// Process in batches to reduce API calls. 50 is Youtube's pagination limit.
+	$chunkedIDs = array_chunk($channelIds, 50, true);
+
+	foreach ($chunkedIDs as $ids) {
+
+		// Get more information for the videos
+		$optParams = array(
+			'id' => implode(',', $ids),
+		);
+
+		try {
+			$results = getYoutubeService()->channels->listChannels('id,snippet,contentDetails,statistics,topicDetails', $optParams);
+
+			$items = $results->items;
+			foreach ($items as $key => $item) {
+				$i = array_search($item->id, array_column($channels, 'yt_id'));
+				if (!is_numeric($i)) continue; // Skip if ID not in list, shouldn't happen
+				$obj = to_object($channels[$i]);
+
+				save_youtube_data($obj->term_id, $item);
+
+				$items[$key]->object_id = $obj->term_id;
 			}
 
 			return $items;
@@ -1146,4 +1235,107 @@ function list_used_hooks() {
 
 		logger($wp_filter[$tag]);
 	});
+}
+
+function empty_error_log() {
+	file_put_contents(ini_get('error_log'), '');
+}
+
+function save_youtube_data($object_id, $data) {
+	// empty_error_log();
+
+	switch ($data->kind) {
+		case 'youtube#video':
+			$table = 'wp_yt_video_meta';
+			$id = 'post_id';
+			$type = 'video';
+			break;
+
+		case 'youtube#channel':
+			$table = 'wp_yt_channel_meta';
+			$id = 'object_id';
+			$type = 'channel';
+			break;
+
+		default:
+			return;
+	}
+
+	$bulk = BulkAddMeta::get_instance($type);
+	$bulk->query("DELETE FROM $table WHERE $id = $object_id");
+
+	$data = get_key_value($data);
+
+	foreach ($data as $key => $value) {
+		if (!is_null($value)) {
+			$bulk->add($object_id, $key, $value);
+		}
+	}
+
+	$bulk->push();
+}
+
+function get_key_value($obj) {
+	$return = (object) [];
+
+	foreach ($obj as $k => $v) {
+		if (gettype($v) == 'object') {
+			$v = get_key_value($v);
+
+			foreach ($v as $l => $w)
+				$return->{"$k.$l"} = $w;
+
+			continue;
+		}
+
+		while (strlen($k) > 191)
+			$k = preg_replace('/^\w+\./', '', $k);
+
+		$return->$k = $v;
+	}
+
+	return $return;
+}
+
+function get_video_meta($video_id, $key) {
+	global $wpdb;
+	$results = $wpdb->get_results(
+		"SELECT 
+			meta_value
+		FROM {$wpdb->videometa}
+		WHERE meta_key = '$key' 
+		AND post_id = $video_id"
+	);
+
+	return count($results) ? $results[0]->meta_value : null;
+}
+
+function get_channel_meta($channel_id, $key) {
+	global $wpdb;
+	$results = $wpdb->get_results(
+		"SELECT 
+			meta_value
+		FROM {$wpdb->channelmeta}
+		WHERE meta_key = '$key' 
+		AND `object_id` = $channel_id"
+	);
+
+	return count($results) ? $results[0]->meta_value : null;
+}
+
+function custom_number_format($n, $precision = 1) {
+	if ($n < 1000) {
+		$n_format = number_format($n);
+	} elseif ($n < 1000000) {
+		// Anything less than a million
+		$n_format = number_format($n / 1000) . 'K';
+	} elseif ($n < 1000000000) {
+		// Anything less than a billion
+		$n_format = number_format($n / 1000000, $precision) . 'M';
+	} else {
+		// At least a billion
+		$n_format = number_format($n / 1000000000, $precision) . 'B';
+	}
+
+	return $n_format;
 }
