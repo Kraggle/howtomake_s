@@ -1,6 +1,6 @@
 <?php
     $popupOptions = get_field( 'promo_popup', 'option' );
-?><div id="dialog-create-account" class="dialog-inner" title="This is my Dialog" style="display:none;">
+?><div id="dialog-wrapper" class="dialog-inner" title="" style="display:none;">
 
     <div class="container">
         <div class="region image-region">

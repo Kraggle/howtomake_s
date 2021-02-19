@@ -9,7 +9,7 @@ $(() => {
 	header.build();
 
 	/* Open Modal Window */
-	dialog.show('create-account');
+	dialog.show();
 
 
 	$('a[href^="#"]').on('click', function(e) {

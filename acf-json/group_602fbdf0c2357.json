@@ -122,6 +122,50 @@
                     "multiple": 0,
                     "return_format": "id",
                     "ui": 1
+                },
+                {
+                    "key": "field_602fee5b8682a",
+                    "label": "Restrict Pages",
+                    "name": "restrict_pages",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "all": "Show on all pages",
+                        "white": "Only show on pages where start of URI matches list",
+                        "black": "Show on all pages except where start of URI matches list"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_602ff0f83b917",
+                    "label": "URI List",
+                    "name": "uri_list",
+                    "type": "textarea",
+                    "instructions": "One per line.\r\nStart with forward slash.\r\nOnly start of URI needs to match",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
                 }
             ]
         },
@@ -235,5 +279,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1613745463
+    "modified": 1613756903
 }

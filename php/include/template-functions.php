@@ -38,6 +38,39 @@ function htm_s_pingback_header() {
 add_action('wp_head', 'htm_s_pingback_header');
 
 
+
+function dialogShouldShow(){
+	$popupOptions = get_field( 'promo_popup', 'option' );
+
+	if($popupOptions['enabled'][0] == '1'){
+
+		$uris = explode("\n",$popupOptions['uri_list']);
+		
+		$uriMatches = false;
+		foreach($uris as $uri){
+			$uri = trim(strtolower($uri));
+
+			if(!empty($uri) && strpos($_SERVER['REQUEST_URI'], $uri) === 0){
+				$uriMatches = true;
+				break;
+			}
+		}
+	
+		if(
+			!is_user_logged_in() &&
+			(
+				$popupOptions['restrict_pages'] == 'all' ||
+				($popupOptions['restrict_pages'] == 'white' && $uriMatches) ||
+				($popupOptions['restrict_pages'] == 'black' && !$uriMatches)
+			)
+		)return true;
+		
+	
+	}
+	return false;
+}
+
+
 function htm_add_head_stuff() {
 	global $template;
 	$base = basename($template);
@@ -61,6 +94,7 @@ function htm_add_head_stuff() {
 						'theme_path' => get_stylesheet_directory_uri(),
 						'is_user_logged_in' => is_user_logged_in(),
 						'promo_popup_options' => get_field( 'promo_popup', 'option' ),
+						'show_dialog' => dialogShouldShow()?'1':'',
 						// 'dialog_createaccount_closed' => $_COOKIE['dialog_createaccount_closed'] ? $_COOKIE['dialog_createaccount_closed'] : null,
 						
 					]

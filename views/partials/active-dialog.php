@@ -1,7 +1,8 @@
 <?php 
 
 $popupOptions = get_field( 'promo_popup', 'option' );
+if(dialogShouldShow())get_template_part('views/partials/dialogs/' . $popupOptions['view_template']);
 
-if($popupOptions['enabled'][0] == '1')get_template_part('views/partials/dialogs/' . $popupOptions['view_template']);
+
 
 ?>
