@@ -73,27 +73,30 @@ $chevron_down = get_font_awesome_icon('chevron-down', 'regular');
 										</div>
 									</div>
 
-									<?php if (is_array($fields->channel_people) && count($fields->channel_people)) { ?>
+									<?php if ((is_array($fields->channel_people) && count($fields->channel_people)) || $fields->people_description) { ?>
 										<div class="detail-box">
 
-											<h5 class="detail-head"><?= $fields->people_header ?: 'Who are ' . single_cat_title() . '?' ?></h5>
+											<h5 class="detail-head"><?= $fields->people_header ?></h5>
 											<span class="icon"><?= $chevron_down ?></span>
 
 											<div class="collapse">
 												<?php if ($fields->people_description)
 													echo $fields->people_description; ?>
 
-												<div class="people">
-													<?php foreach ($fields->channel_people as $person) {
-														if ($person->name) { ?>
-															<a href="<?= $person->url ?: '' ?>" class="person">
-																<img src="<?= wp_get_attachment_image_url($person->image->ID, 'channel') ?>" class="person-image" />
-																<div class="overline"></div>
-																<p class="name"><?= $person->name ?></p>
-															</a>
+												<?php if (is_array($fields->channel_people) && count($fields->channel_people)) { ?>
+
+													<div class="people">
+														<?php foreach ($fields->channel_people as $person) {
+															if ($person->name) { ?>
+																<a href="<?= $person->url ?: '' ?>" class="person">
+																	<img src="<?= wp_get_attachment_image_url($person->image->ID, 'channel') ?>" class="person-image" />
+																	<div class="overline"></div>
+																	<p class="name"><?= $person->name ?></p>
+																</a>
+															<?php } ?>
 														<?php } ?>
-													<?php } ?>
-												</div>
+													</div>
+												<?php } ?>
 											</div>
 
 										</div>
@@ -129,7 +132,7 @@ $chevron_down = get_font_awesome_icon('chevron-down', 'regular');
 													<?php foreach ($fields->faqs as $faq) {
 														if ($faq->faq_question && $faq->faq_answer) { ?>
 															<h2 class="question"><?= $faq->faq_question ?></h2>
-															<p class="answer"><?= $faq->faq_answer ?></p>
+															<?= $faq->faq_answer ?>
 														<?php } ?>
 													<?php } ?>
 												</div>

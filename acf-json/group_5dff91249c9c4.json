@@ -163,7 +163,7 @@
             "label": "People Header",
             "name": "people_header",
             "type": "text",
-            "instructions": "This is only necessary if you do not want the default `Who are {channel_name}?`",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -172,7 +172,7 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "Who is {channel_name}?",
             "prepend": "",
             "append": "",
             "maxlength": ""
@@ -182,9 +182,16 @@
             "label": "People Description",
             "name": "people_description",
             "type": "wysiwyg",
-            "instructions": "This will appear after the `People Header` and before the `People Description`. Can be blank.",
+            "instructions": "This will appear after the `People Header` and before `People`. Can be blank.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602bd23f17c65",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -203,7 +210,14 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602bd23f17c65",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -281,7 +295,7 @@
             "label": "Quick Facts",
             "name": "quick_facts",
             "type": "repeater",
-            "instructions": "Each of these will show in a bullet list. They can be styled (as in have &lt;b&gt;, &lt;a&gt;, etc...)",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -299,7 +313,7 @@
                     "key": "field_602bd41617c68",
                     "label": "Quick Fact",
                     "name": "quick_fact",
-                    "type": "text",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -309,10 +323,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 1
                 }
             ]
         },
@@ -321,7 +335,7 @@
             "label": "FAQs",
             "name": "faqs",
             "type": "repeater",
-            "instructions": "These can be styled (as in have &lt;b&gt;, &lt;a&gt;, etc...)",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -332,7 +346,7 @@
             "collapsed": "field_602bd47a17c6a",
             "min": 0,
             "max": 0,
-            "layout": "row",
+            "layout": "block",
             "button_label": "Add FAQ",
             "sub_fields": [
                 {
@@ -358,20 +372,27 @@
                     "key": "field_602bd4ff17c6b",
                     "label": "Answer",
                     "name": "faq_answer",
-                    "type": "text",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_602bd47a17c6a",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 1
                 }
             ]
         },
@@ -459,5 +480,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613489177
+    "modified": 1613747065
 }
