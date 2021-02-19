@@ -1,4 +1,4 @@
-<div id="dialog-create-account" class="dialog-inner" title="This is my Dialog">
+<div id="dialog-create-account" class="dialog-inner" title="This is my Dialog" style="display:none;">
 
     <div class="container">
         <div class="region image-region">

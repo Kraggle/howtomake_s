@@ -2213,6 +2213,19 @@ a.ui-button:active,
   background: #fff;
   padding: 0;
   color: #0da0c5;
+  border-radius: 3px;
+}
+.dialog-create-account .show-when-sent {
+  display: none;
+}
+.dialog-create-account form.sent .hide-when-sent {
+  display: none;
+}
+.dialog-create-account form.sent .show-when-sent {
+  display: block;
+}
+.dialog-create-account form.sent .wpcf7-response-output {
+  display: none !important;
 }
 .dialog-create-account .dialog-inner {
   padding: 0;
@@ -2251,8 +2264,8 @@ a.ui-button:active,
 }
 .dialog-create-account .form-region p, .dialog-create-account .form-region li {
   color: #606060;
-  font-size: 0.8rem;
-  line-height: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
 }
 .dialog-create-account .form-region p, .dialog-create-account .form-region ul {
   margin-bottom: 1rem;
@@ -2267,6 +2280,7 @@ a.ui-button:active,
 }
 .dialog-create-account .form-region li {
   position: relative;
+  margin-bottom: 4px;
 }
 .dialog-create-account .form-region li:before {
   border-color: #0da0c5;

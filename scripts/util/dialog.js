@@ -13,11 +13,11 @@ export default {
 
                 var dialogShown = sessionStorage.getItem("dialog-create-account-shown");
 
-                params.is_user_logged_in = false;dialogShown = false;
+                //params.is_user_logged_in = false;dialogShown = false;// <== Debug
 
                 if(!params.is_user_logged_in && !dialogShown){
 
-                    //setTimeout(function(){
+                    setTimeout(function(){
                         $( "#dialog-create-account" ).dialog({
                             autoOpen: true,
                             modal: true,
@@ -37,7 +37,7 @@ export default {
                         });
 
                         sessionStorage.setItem("dialog-create-account-shown", true);
-                    //}, 8000);
+                    }, 4000);
                 }
             break;
             

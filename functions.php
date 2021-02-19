@@ -206,7 +206,7 @@ array_map(function ($file) use ($htm_s_error) {
 	}
 }, [
 	'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts',
-	'shortcodes', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions'
+	'shortcodes', 'forms', 'ajax-calls', 'admin-menu-tool', 'bulk-functions','mail', 'contact-form-7'
 ]);
 
 add_action('init', function () {
