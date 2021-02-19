@@ -639,9 +639,9 @@ add_filter('the_content', function ($content) {
 				]);
 			}
 
-			$imageUrl = wp_get_attachment_image_url( $get->id, $size['width'] . 'x' . $size['height'] , false );
+			$imageUrl = wp_get_attachment_image_url($get->id, $size['width'] . 'x' . $size['height'], false);
 			pq($img)->removeClass($get->class)->addClass("size-{$get->size}")
-				->attr('src', $imageUrl);// "https://cdn.howtomakemoneyfromhomeuk.com/wp-content/uploads/{$get->file}"
+				->attr('src', $imageUrl); // "https://cdn.howtomakemoneyfromhomeuk.com/wp-content/uploads/{$get->file}"
 		} else {
 			$get->width = $meta['sizes']['post']['width'];
 			$get->height = $meta['sizes']['post']['height'];
