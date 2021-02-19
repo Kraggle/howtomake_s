@@ -20,6 +20,7 @@
 	})(window,document,'script','dataLayer','GTM-T674ZX6');</script>
 	<!-- End Google Tag Manager -->
 
+	<?php echo ! WP_DEBUG ? get_field( 'scripts_head', 'option' ) : ''; ?>
 </head>
 
 <?php
