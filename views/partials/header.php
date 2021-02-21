@@ -59,7 +59,7 @@ global $wp;
 							<ul>
 							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/">Dashboard</a></li>
 							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/">Account</a></li>
-								<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">Courses</a></li>
+								<?php /* <li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">Courses</a></li>*/ ?>
 								<li><a href="/wp-login.php?action=logout">Log Out</a></li>
 							</ul>
 						</div>
