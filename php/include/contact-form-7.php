@@ -10,7 +10,7 @@ function htmmfh_add_form_tag_current_url() {
 function htmmfh_current_url_form_tag_handler( $tag ) {
     global $wp;
 
-    $url = base64_encode(add_query_arg( $wp->query_vars, home_url( $wp->request ) ));
+    $url = base64_encode( home_url( $wp->request ) );
     return '<input type="hidden" name="current-url" value="'.$url.'" />';
 
 }
