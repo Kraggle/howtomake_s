@@ -10,14 +10,15 @@ export default {
     show: function(){
         
 
-                var dialogShown = sessionStorage.getItem("dialog-shown");
+                var dialogShown = localStorage.getItem("dialog-shown");
 
-                //params.is_user_logged_in = false;dialogShown = false;// <== Debug
-                // console.log("enabled: " + params.promo_popup_options.enabled[0]);
-                // console.log("is_user_logged_in: " + params.is_user_logged_in);
-                
-                // console.log("show_dialog: " + params.show_dialog);
-                // console.log("dialogShown: " + dialogShown);
+
+                // If dialog last shown > 24hrs ago, show again
+                if(dialogShown){
+                    var dialogShownDate = new Date(dialogShown);
+                    if(Date.now() - dialogShownDate.getTime() > 86400000)dialogShown = false;
+                }
+
                 if(params.show_dialog && !dialogShown){
 
                     setTimeout(function(){
@@ -33,13 +34,15 @@ export default {
                                 $(event.target).parent().css('position', 'fixed');
                             },
                             open: function(event, ui) {   //added here
+                                localStorage.setItem("dialog-shown", Date.now());
+                                console.log('Set');
                                 jQuery('.ui-widget-overlay').on('click', function() {
                                     $( "#dialog-wrapper" ).dialog('close');
                                 });
                             },
                         });
 
-                        sessionStorage.setItem("dialog-shown", true);
+                        
                     }, params.promo_popup_options.time_delay_msecs);
                 }
 
