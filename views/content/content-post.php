@@ -8,8 +8,31 @@
  * @package htm_s
  */
 
+// This is used to split the content and the related posts apart 
+ob_start();
+the_content();
+$content = ob_get_contents();
+ob_end_clean();
+
+$doc = phpQuery::newDocument($content);
+$related = pq('.yarpp-related');
+$entries = $related->find('.list .entry')->slice(0, 5);
+$related->find('.list')->html($entries);
+
+$doc->find('.yarpp-related')->remove();
+
+ob_start();
+print $doc->htmlOuter();
+$content = ob_get_contents();
+ob_end_clean();
+
+ob_start();
+print $related->htmlOuter();
+$related = ob_get_contents();
+ob_end_clean();
 
 the_title('<h1 class="title" itemprop="headline">', '</h1>');
+
 
 echo content_schema_meta(); ?>
 
@@ -27,31 +50,13 @@ echo content_schema_meta(); ?>
 
 <div class="wrapper">
 	<div class="content-wrap" itemprop="articleBody">
-		<?php the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'htm_s'),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post(get_the_title())
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'htm_s'),
-				'after'  => '</div>',
-			)
-		); ?>
+		<?= $content ?>
 	</div>
 
 	<?= do_shortcode('[htm_more_side_panel]') ?>
 </div>
+
+<?= $related ?>
 
 <?php // htm_s_entry_footer(); 
 // END

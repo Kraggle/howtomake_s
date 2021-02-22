@@ -45,6 +45,10 @@
 				</main>
 			</div>
 
+			<?php if (get_post_type() == 'video') {
+				//get_template_part('views/partials/related-panel');
+			} ?>
+
 			<?php get_template_part('views/partials/subscribe-panel') ?>
 			<?php get_template_part('views/partials/more-panel') ?>
 		</div>

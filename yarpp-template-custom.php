@@ -9,19 +9,13 @@ Author: Kraggle
 <?php if (have_posts()) { ?>
 	<h3 class="related-title">Related Posts</h3>
 
-	<div class="related-wrap">
+	<div class="list">
 
 		<?php while (have_posts()) {
 			the_post();
 
-			get_template_part('views/category/related', get_post_type());
+			get_template_part('views/category/search', get_post_type());
 		} ?>
-
-		<div class="related-part" part="1"></div>
-		<div class="related-part" part="2"></div>
-		<div class="related-part" part="3"></div>
-		<div class="related-part" part="4"></div>
-		<div class="related-part" part="5"></div>
 
 	</div>
 

@@ -142,34 +142,12 @@ body .et_pb_searchform > div .et_pb_s {
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1) !important;
   width: initial !important;
 }
-body .et_pb_searchform > div .et_pb_s::-webkit-input-placeholder {
+body .et_pb_searchform > div .et_pb_s::placeholder {
   color: rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
   font-weight: 500;
   opacity: 1;
 }
-
-body .et_pb_searchform > div .et_pb_s:-moz-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  font-weight: 500;
-  opacity: 1;
-}
-
-body .et_pb_searchform > div .et_pb_s::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  font-weight: 500;
-  opacity: 1;
-}
-
-body .et_pb_searchform > div .et_pb_s:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  font-weight: 500;
-  opacity: 1;
-}
-
 body .et_pb_searchform > div .et_pb_s:focus {
   box-shadow: inset 0 0 8px 4px rgba(246, 149, 82, 0.3) !important;
 }
@@ -3605,12 +3583,28 @@ h1 {
     width: 100%;
   }
 }
+@media (max-width: 600px) {
+  .subs-dialog {
+    padding: 100px 80px;
+  }
+  .subs-dialog h2 {
+    font-size: 36px;
+  }
+}
 @media (max-width: 480px) {
   .subs-dialog {
     padding: 100px 40px;
   }
   .subs-dialog h2 {
-    font-size: 36px;
+    font-size: 30px;
+  }
+}
+@media (max-width: 380px) {
+  .subs-dialog {
+    padding: 100px 20px;
+  }
+  .subs-dialog h2 {
+    font-size: 26px;
   }
 }
 .subs-dialog p {

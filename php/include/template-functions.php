@@ -39,33 +39,29 @@ add_action('wp_head', 'htm_s_pingback_header');
 
 
 
-function dialogShouldShow(){
-	$popupOptions = get_field( 'promo_popup', 'option' );
+function dialogShouldShow() {
+	$popupOptions = get_field('promo_popup', 'option');
 
-	if($popupOptions['enabled'][0] == '1'){
+	if ($popupOptions['enabled'][0] == '1') {
 
-		$uris = explode("\n",$popupOptions['uri_list']);
-		
+		$uris = explode("\n", $popupOptions['uri_list']);
+
 		$uriMatches = false;
-		foreach($uris as $uri){
+		foreach ($uris as $uri) {
 			$uri = trim(strtolower($uri));
 
-			if(!empty($uri) && strpos($_SERVER['REQUEST_URI'], $uri) === 0){
+			if (!empty($uri) && strpos($_SERVER['REQUEST_URI'], $uri) === 0) {
 				$uriMatches = true;
 				break;
 			}
 		}
-	
-		if(
+
+		if (
 			!is_user_logged_in() &&
-			(
-				$popupOptions['restrict_pages'] == 'all' ||
+			($popupOptions['restrict_pages'] == 'all' ||
 				($popupOptions['restrict_pages'] == 'white' && $uriMatches) ||
-				($popupOptions['restrict_pages'] == 'black' && !$uriMatches)
-			)
-		)return true;
-		
-	
+				($popupOptions['restrict_pages'] == 'black' && !$uriMatches))
+		) return true;
 	}
 	return false;
 }
@@ -87,16 +83,16 @@ function htm_add_head_stuff() {
 					"path" => "$path/scripts/main.js",
 					"src" => "$uri/scripts/main.js",
 					"module" => true,
-					"params" => [// These appear as global js object called 'params'
+					"params" => [ // These appear as global js object called 'params'
 						"abc" => "def",
-						
-						'ajax' => admin_url( 'admin-ajax.php' ),
+
+						'ajax' => admin_url('admin-ajax.php'),
 						'theme_path' => get_stylesheet_directory_uri(),
 						'is_user_logged_in' => is_user_logged_in(),
-						'promo_popup_options' => get_field( 'promo_popup', 'option' ),
-						'show_dialog' => dialogShouldShow()?'1':'',
+						'promo_popup_options' => get_field('promo_popup', 'option'),
+						'show_dialog' => dialogShouldShow() ? '1' : '',
 						// 'dialog_createaccount_closed' => $_COOKIE['dialog_createaccount_closed'] ? $_COOKIE['dialog_createaccount_closed'] : null,
-						
+
 					]
 				]
 			],
@@ -231,11 +227,9 @@ function htm_add_head_stuff() {
 					$ver = filemtime($script->path);
 					$scriptId = ($script->module ? 'module-' : '') . $script->name;
 					wp_enqueue_script($scriptId, $script->src, [], $ver);
-				
-					if($script->params){
-						wp_localize_script(
-							$scriptId, 'params', $script->params
-						);
+
+					if ($script->params) {
+						wp_localize_script($scriptId, 'params', $script->params);
 					}
 				}
 			}
@@ -287,8 +281,8 @@ function the_channel($post = null, $key = 'name') {
  */
 function get_channel($channel_id = null, $key = 'name') {
 	$channel = get_queried_object();
-	if ($channel_id) $channel = get_category($channel_id);
-	if (!$channel) return;
+	if ($channel_id) $channel = get_term($channel_id, 'video-channel');
+	if (!$channel || !($channel instanceof WP_Term)) return;
 
 	htm_s_echo_channel($channel, $key);
 }
@@ -320,35 +314,37 @@ function htm_s_echo_channel($channel, $key) {
 		case 'logo':
 			// get the logo from the database
 			$imageId = get_term_meta($channel->term_id, 'actual_logo', true);
+
 			// if it's not in the database, get it from youtube
 			if (!$imageId) $imageId = get_channel_logo(get_term_meta($channel->term_id, 'yt_channel_id', true), $channel->term_id);
 			echo '<img src="' . wp_get_attachment_image_url($imageId, 'channel') . '" class="channel-logo" />';
 			break;
 
 		case 'categories':
+		case 'category':
 			// gets all categories from all videos from the given channel
 			$categories = get_results(
 				"SELECT
-			t2.term_id,
-			t2.name,
-			t2.slug
-			FROM wp_term_relationships tr1
-			INNER JOIN wp_posts p
-				ON tr1.object_id = p.ID
-			INNER JOIN wp_term_taxonomy tt
-				ON tr1.term_taxonomy_id = tt.term_taxonomy_id
-			INNER JOIN wp_term_relationships tr2
-				ON tr2.object_id = p.ID
-			INNER JOIN wp_terms t1
-				ON t1.term_id = tr2.term_taxonomy_id
-			INNER JOIN wp_terms t2
-				ON t2.term_id = tr1.term_taxonomy_id
-			WHERE tt.taxonomy = 'video-category'
-			AND tr2.term_taxonomy_id = $channel->term_id
-			GROUP BY t2.term_id,
-					t2.name,
-					t2.slug
-			ORDER BY t2.name"
+				t2.term_id,
+				t2.name,
+				t2.slug
+				FROM wp_term_relationships tr1
+				INNER JOIN wp_posts p
+					ON tr1.object_id = p.ID
+				INNER JOIN wp_term_taxonomy tt
+					ON tr1.term_taxonomy_id = tt.term_taxonomy_id
+				INNER JOIN wp_term_relationships tr2
+					ON tr2.object_id = p.ID
+				INNER JOIN wp_terms t1
+					ON t1.term_id = tr2.term_taxonomy_id
+				INNER JOIN wp_terms t2
+					ON t2.term_id = tr1.term_taxonomy_id
+				WHERE tt.taxonomy = 'video-category'
+				AND tr2.term_taxonomy_id = $channel->term_id
+				GROUP BY t2.term_id,
+						t2.name,
+						t2.slug
+				ORDER BY t2.name"
 			);
 
 			$links = [];

@@ -7,7 +7,6 @@ import { clamp as $clamp } from './src/clamp.js';
 const timer = timed(),
 	tileWidth = 216;
 
-
 $(() => {
 
 	getSearchResults();
@@ -243,7 +242,6 @@ function createLoaders() {
 
 	// onResize(true);
 }
-
 
 $.fn.extend({
 	clamp(options) {

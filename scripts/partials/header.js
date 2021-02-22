@@ -4,7 +4,6 @@ import SVG from '../custom/SVGIcons.js';
 // import '../src/imgColor.js';
 import { clamp as $clamp } from '../src/clamp.js';
 
-
 const timer = {
 	category: 1500,
 	video: 1500,
@@ -69,8 +68,8 @@ export default {
 					});
 
 					/* Top account menu and auth links */
-					$('.top-account .account-menu').hover( function() {
-						
+					$('.top-account .account-menu').hover(function() {
+
 						$('.top-account .account-menu .submenu').stop(true).slideDown(200).addClass('open');
 					}, function() {
 						$('.top-account .account-menu .submenu').stop(true).slideUp(200).removeClass('open');
@@ -230,16 +229,24 @@ export default {
 		};
 		$(window).on('resize', onResize);
 
-		$(window).on('scroll', () => {
-			const $b = $('.banner.for-desktop, body');
+		const onScroll = () => {
+			const $b = $('.banner.for-desktop, body'),
+				top = $(window).scrollTop();
 
-			if ($(window).scrollTop() > 200 && !$b.hasClass('scrolled'))
+			if (top == 0 && !$b.hasClass('at-top'))
+				$b.addClass('at-top');
+			else if (top > 0 && $b.hasClass('at-top'))
+				$b.removeClass('at-top');
+
+			if (top > 200 && !$b.hasClass('scrolled'))
 				$b.addClass('scrolled');
-			else if ($(window).scrollTop() <= 200 && $b.hasClass('scrolled'))
+			else if (top <= 200 && $b.hasClass('scrolled'))
 				$b.removeClass('scrolled');
-		});
+		};
+		$(window).on('scroll', onScroll);
 
 		onResize();
+		onScroll();
 		$('body').hasClass('for-desktop') && menu.build.desktop();
 	}
 };
