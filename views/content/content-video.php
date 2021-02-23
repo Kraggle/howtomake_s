@@ -44,7 +44,7 @@ ob_end_clean();
 <div class="wrapper youtube">
 	<div class="content-wrap">
 		<div id="v_<?= $id ?>" class="video-wrap">
-			<iframe width="1080" height="608" src="https://www.youtube.com/embed/<?php the_field('youtube_video_id'); ?>?autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe width="1080" height="608" src="https://www.youtube.com/embed/<?php the_field('youtube_video_id'); ?>?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 		<div class="display-wrap">
 			<?php the_title('<h1 class="title">', '</h1>'); ?>
