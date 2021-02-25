@@ -1,9 +1,11 @@
-@import 'common/variables';
+@import './common/variables';
+@import './layouts/sidebar';
 
 .main {
     > .title {
         color: #fff;
         margin-bottom: 60px;
+        font-weight: 800;
     }
 }
 
@@ -20,8 +22,9 @@
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
-    @media (max-width: 980px) {
-        flex-direction: column;
+    .inner-wrap {
+        display: flex;
+        gap: 50px;
     }
 
     a {
@@ -30,17 +33,18 @@
     }
 
     p {
-        color: $color-text-blue;
         margin-bottom: 20px;
     }
 
     a, p, ul, ol, div, noscript {
-        + h6,
-        + h5,
-        + h4,
-        + h3,
-        + h2 {
-            margin-top: 50px;
+        @for $i from 1 through 6 {
+            + h#{$i} {
+                margin-top: 100px;
+
+                @media (max-width: 500px) {
+                    margin-top: 60px;
+                }
+            }
         }
     }
 
@@ -60,40 +64,62 @@
     }
 
     li {
-        margin: 20px;
-        color: $color-text-blue;
-        line-height: 1.1em;
-        font-size: 15px;
+        margin: 10px 20px;
+        line-height: 1.7em;
+    }
+
+    h1,
+    h2 {
+        font-size: 30px;
+        font-weight: 750;
     }
 
     h3 {
         font-size: 25px;
     }
 
-    h2 {
-        font-size: 35px;
-        font-weight: 750;
-    }
-
-    h2, h3, h4, h5, h6 {
-        margin-bottom: 15px;
-    }
-
-    .image-wrap {
-        position: relative;
-        margin: 20px 0;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+    @for $i from 2 through 6 {
+        h#{$i} {
+            margin-bottom: 15px;
         }
     }
 
     @media (max-width: 600px) {
         h2 {
-            font-size: 30px;
+            font-size: 24px;
         }
+    }
+
+    .image-wrap {
+        position: relative;
+        margin: 20px 0;
+        width: 100%;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .image-center {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .centre-image {
+        background-image: linear-gradient(209deg, $color-main 0%, $color-gradient 100%);
+
+        img {
+            display: block;
+            margin: auto;
+        }
+    }
+
+    @media (max-width: 1180px) {
+        flex-direction: column;
     }
 }
 
@@ -128,5 +154,186 @@
                 outline: none;
             }
         }
+    }
+}
+
+.page-home {
+    .content-wrap {
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+.with-description {
+    main {
+        > .title {
+            margin: 0;
+            padding-top: 30px;
+        }
+
+        > .description {
+            max-width: 1080px;
+            text-align: center;
+            color: #fff;
+            padding: 20px 0;
+            margin: 0 auto 120px;
+        }
+    }
+}
+
+.sidebar {
+    @include transition;
+
+    justify-self: end;
+    width: 225px;
+    min-width: 225px;
+    position: sticky;
+    top: 190px;
+    max-height: calc(100vh - 220px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 51;
+    background-color: #fff;
+    box-shadow: 0 2px 31px 0 rgba(0, 0, 0, 0.3);
+    padding: 0;
+
+    .title {
+        font-size: 20px;
+        line-height: 1em;
+        background-color: $color-main;
+        color: #fff;
+        padding: 20px;
+        margin: 0 !important;
+        width: 100%;
+        font-weight: 700 !important;
+    }
+
+    .content {
+        font-size: 15px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+
+        &.ol {
+            text-align: left;
+            counter-reset: list;
+            display: flex;
+            flex-direction: column;
+
+            .item {
+                @include transition;
+
+                position: relative;
+                padding: 15px 20px 15px 40px;
+                color: $color-gradient;
+                font-weight: 600;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+                line-height: 1;
+                background-color: #fff;
+
+                &::before {
+                    counter-increment: list;
+                    content: counter(list) '.';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    width: 30px;
+                    text-align: right;
+                    transform: translateY(-50%);
+                    font-size: 12px;
+                    color: #000;
+                }
+
+                &.active {
+                    background-color: $color-gradient;
+                    color: #fff;
+                }
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 0.5em;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(#000, 0.08);
+            border: 1px solid rgba(#fff, 0.2);
+            border-left: 0;
+        }
+
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+            border-left: 1px solid rgba(#000, 0.1);
+            background-color: transparent;
+        }
+    }
+
+    @media (max-width: 830px) {
+        display: none;
+    }
+}
+
+body {
+    &:not(.at-top) {
+        .sidebar {
+            max-height: calc(100vh - 210px);
+        }
+    }
+
+    &.scrolled {
+        .sidebar {
+            top: 100px;
+            max-height: calc(100vh - 120px);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .content {
+        .title {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 750;
+        }
+
+        .has-text-align-right,
+        .content-wrap h1,
+        .money-list,
+        .goto-article {
+            display: none;
+        }
+
+        .content-wrap {
+            > p {
+                &:nth-of-type(1),
+                &:nth-of-type(2) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .body-decor {
+        height: 70px;
+    }
+
+    .body-curves + .content {
+        margin: -130px auto 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .content {
+        .title {
+            margin-bottom: 40px;
+        }
+    }
+
+    .body-curves + .content {
+        margin: -140px auto 0;
     }
 }

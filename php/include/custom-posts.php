@@ -64,6 +64,56 @@ add_action('init', function () {
 			'with_front' => false // Don't display the category base before
 		)
 	));
+
+	register_post_type('snippet', [
+		'labels' => [
+			'name'               => _x('Snippets', 'post type general name', 'boilerplate'),
+			'singular_name'      => _x('Snippet', 'post type singular name', 'boilerplate'),
+			'menu_name'          => _x('Snippets', 'admin menu', 'boilerplate'),
+			'name_admin_bar'     => _x('Snippet', 'add new on admin bar', 'boilerplate'),
+			'add_new'            => _x('Add New', 'optional_extras', 'boilerplate'),
+			'add_new_item'       => __('Add New Snippet', 'boilerplate'),
+			'new_item'           => __('New Snippet', 'boilerplate'),
+			'edit_item'          => __('Edit Snippet', 'boilerplate'),
+			'view_item'          => __('View Snippet', 'boilerplate'),
+			'all_items'          => __('Snippets', 'boilerplate'),
+			'search_items'       => __('Search Snippets', 'boilerplate'),
+			'parent_item_colon'  => __('Parent Snippets:', 'boilerplate'),
+			'not_found'          => __('No Snippets found.', 'boilerplate'),
+			'not_found_in_trash' => __('No Snippets found in Trash.', 'boilerplate'),
+		],
+		'supports'            => ['title'], // 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-schedule',
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'map_meta_cap'        => true,
+		'capabilities'        => ['edit_posts'],
+		'yarpp_support'       => false,
+		'taxonomies' 		  => ['snippet-type']
+	]);
+
+	register_taxonomy('snippet-type', 'snippet', array(
+		'hierarchical'       => false,
+		'label'              => 'Types',
+		'query_var'          => true,
+		'show_ui'            => true,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'has_archive'        => true,
+		'rewrite'            => array(
+			'slug'           => 'type', // This controls the base slug that will display before each term
+			'with_front'     => false // Don't display the category base before 
+		)
+	));
 });
 
 function filter_cars_by_taxonomies($post_type) {

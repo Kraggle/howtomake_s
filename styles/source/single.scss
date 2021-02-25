@@ -1,25 +1,9 @@
-@import 'common/variables';
-@import 'common/fa-variables';
-@import 'layouts/list';
+@import './common/variables';
+@import './common/fa-variables';
+@import './layouts/list';
+@import './layouts/sidebar';
 
 .content {
-    .main {
-        max-width: calc(100vw - 80px);
-        margin: 0 auto;
-
-        @media (max-width: 580px) {
-            max-width: calc(100vw - 60px);
-        }
-
-        @media (max-width: 480px) {
-            max-width: calc(100vw - 40px);
-        }
-
-        @media (max-width: 380px) {
-            max-width: calc(100vw - 20px);
-        }
-    }
-
     .title {
         color: #fff;
         font-size: clamp(18px, 3vw, 30px);

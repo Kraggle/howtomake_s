@@ -85,14 +85,12 @@ function htm_add_head_stuff() {
 					"module" => true,
 					"params" => [ // These appear as global js object called 'params'
 						"abc" => "def",
-
 						'ajax' => admin_url('admin-ajax.php'),
 						'theme_path' => get_stylesheet_directory_uri(),
 						'is_user_logged_in' => is_user_logged_in(),
 						'promo_popup_options' => get_field('promo_popup', 'option'),
 						'show_dialog' => dialogShouldShow() ? '1' : '',
-						// 'dialog_createaccount_closed' => $_COOKIE['dialog_createaccount_closed'] ? $_COOKIE['dialog_createaccount_closed'] : null,
-
+						// 'dialog_createaccount_closed' => $_COOKIE['dialog_createaccount_closed'] ? $_COOKIE['dialog_createaccount_closed'] : null
 					]
 				]
 			],
@@ -104,16 +102,16 @@ function htm_add_head_stuff() {
 				]
 			]
 		],
-		"home" => (object) [
-			"query" => is_front_page(),
-			"styles" => [
-				(object) [
-					"name" => "htm_s-home",
-					"path" => "$path/styles/home.css",
-					"src" => "$uri/styles/home.css"
-				]
-			]
-		],
+		// "home" => (object) [
+		// 	"query" => is_front_page(),
+		// 	"styles" => [
+		// 		(object) [
+		// 			"name" => "htm_s-home",
+		// 			"path" => "$path/styles/home.css",
+		// 			"src" => "$uri/styles/home.css"
+		// 		]
+		// 	]
+		// ],
 		"single" => (object) [
 			"query" => in_array($base, ['single.php', 'index.php']),
 			"scripts" => [

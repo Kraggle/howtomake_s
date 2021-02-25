@@ -1,7 +1,5 @@
 <?php // This is used on the single video page for related channels
 
-empty_error_log();
-
 $channel_id = get_the_terms($post, 'video-channel')[0]->term_id;
 $terms = get_results(
 	"SELECT

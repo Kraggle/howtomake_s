@@ -730,11 +730,10 @@ $sub-scroll-pad: 39px;
             flex-direction: row;
             align-content: center;
             padding: 0;
-
         }
 
-        .top-account{
-            z-index:999;
+        .top-account {
+            z-index: 999;
 
             .auth-links {
                 margin: 10px 0 0 10px;
@@ -743,23 +742,21 @@ $sub-scroll-pad: 39px;
                 font-size: 0.9rem;
                 display: none;
 
-                a:hover{
+                a:hover {
                     text-decoration: underline;
                 }
-            }  
-            
+            }
+
             .account-menu {
-                
                 width: 40px;
 
-                .submenu{
-
+                .submenu {
                     display: none;
-  
                     float: right;
                     width: max-content;
-                    z-index:999;
-                    .submenu-inner{
+                    z-index: 999;
+
+                    .submenu-inner {
                         /* transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1); */
                         background-color: rgba(255, 255, 255, 0.1);
                         backdrop-filter: blur(8px);
@@ -767,31 +764,29 @@ $sub-scroll-pad: 39px;
                         padding: 5px 0;
                         color: rgba(255, 255, 255, 0.7);
                     }
-                    
-                    
-                    li{
+
+                    li {
                         font-size: 1rem;
 
-                        &:hover{
+                        &:hover {
                             background-color: rgba(255, 255, 255, 0.2);
                             color: #fff;
                         }
 
-                        a{
+                        a {
                             padding: 10px 20px;
                             display: block;
                         }
                     }
                 }
             }
-
         }
     }
 
     .lower {
         position: relative;
         display: flex;
-        max-width: calc(100% - 40px);
+        max-width: calc(100vw - 40px);
         margin: auto;
     }
 

@@ -29,7 +29,7 @@ if (!defined('K_YT_API_KEYS'))
 	]);
 /* cSpell:enable */
 global $htm__s_version;
-$htm__s_version = '0.1.21';
+$htm__s_version = '0.1.22';
 
 global $refreshing_categories;
 $refreshing_categories = false;
@@ -211,10 +211,8 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts',
-
-	'shortcodes', 'forms', 'ajax-calls', 'bulk-functions', 'admin-menu-tool','mail', 'contact-form-7','option-pages'
-
+	'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts', 'shortcodes',
+	'forms', 'ajax-calls', 'bulk-functions', 'admin-menu-tool', 'mail', 'contact-form-7', 'option-pages'
 ]);
 
 add_action('init', function () {
@@ -262,7 +260,7 @@ foreach ([
  */
 add_action('wp_enqueue_scripts', function () {
 	// global $template;
-	// error_log('Using template: ' . basename($template));
+	// logger('Using template: ' . basename($template));
 
 	wp_enqueue_style('page_loader', get_template_directory_uri() . "/styles/loader.css");
 	// wp_enqueue_script('greensock', "//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js", array(), null, true);

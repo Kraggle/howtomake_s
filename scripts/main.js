@@ -1,16 +1,14 @@
 import { jQuery as $ } from './src/jquery-3.5.1.js';
 import header from './partials/header.js';
-
 import dialog from './util/dialog.js';
-
-
+import './custom/jquery-visible.js';
+import { timed } from './custom/K.js';
 
 $(() => {
 	header.build();
 
 	/* Open Modal Window */
 	dialog.show();
-
 
 	$('a[href^="#"]').on('click', function(e) {
 		const id = $(this).attr('href');
@@ -24,6 +22,12 @@ $(() => {
 	});
 
 	const onResize = () => {
+
+		if ($('.wrap.with-description').length) {
+			const h = $('.main > .description').outerHeight() + $('.main > .title').outerHeight();
+			$('.body-decor').height(h);
+			$('.wrap > .content').css('margin-top', `-${h + 100}px`);
+		}
 
 		if ($('.more-side').length) {
 			const using = $('.more-part:visible').length;
@@ -83,6 +87,41 @@ $(() => {
 	if (bar.length) {
 		bar.slideUp('slow');
 		$('<div class="admin-bar-show"></div>').on('click', () => bar.slideToggle('slow')).appendTo('.body-wrap');
+	}
+
+	const _side = $('.sidebar');
+	if (_side.length) {
+		let old, found;
+		const timer = timed();
+		$(window).on('scroll', () => {
+			found = false;
+			$('.content-wrap > [id!=""][id]').each(function() {
+				const id = '#' + $(this).attr('id'),
+					_btn = $(`.sidebar [href="${id}"]`);
+
+				if (!found && $(this).visible(true) && _btn.length) {
+					found = true;
+
+					if (this != old) {
+						old = this;
+						_btn.siblings().removeClass('active');
+						_btn.addClass('active');
+
+						timer.run(() => {
+
+							let top = 0;
+							_btn.prevAll().each(function() {
+								top += $(this).outerHeight(true);
+							});
+
+							$('.sidebar .content').animate({
+								scrollTop: top
+							}, 300);
+						}, 100);
+					}
+				}
+			});
+		});
 	}
 });
 

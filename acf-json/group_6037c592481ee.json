@@ -1,0 +1,146 @@
+{
+    "key": "group_6037c592481ee",
+    "title": "Snippet",
+    "fields": [
+        {
+            "key": "field_6037c73ad6bdc",
+            "label": "Type",
+            "name": "type",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "snippet-type",
+            "field_type": "radio",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "multiple": 0
+        },
+        {
+            "key": "field_6037c5bdbbd43",
+            "label": "Content",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "This section will only be used if you set the type to 'Content'.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6037c73ad6bdc",
+                        "operator": ">",
+                        "value": "21156"
+                    },
+                    {
+                        "field": "field_6037c73ad6bdc",
+                        "operator": "<",
+                        "value": "21158"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_6037cd58a1d16",
+            "label": "Panel",
+            "name": "single",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6037c73ad6bdc",
+                        "operator": ">",
+                        "value": "21155"
+                    },
+                    {
+                        "field": "field_6037c73ad6bdc",
+                        "operator": "<",
+                        "value": "21157"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6037d1d1cf055"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_6037cefda1d20",
+            "label": "Side Bar",
+            "name": "bar",
+            "type": "clone",
+            "instructions": "These are displayed, if there are any, on the right-hand side of the page.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6037c73ad6bdc",
+                        "operator": ">",
+                        "value": "21154"
+                    },
+                    {
+                        "field": "field_6037c73ad6bdc",
+                        "operator": "<",
+                        "value": "21156"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6037db7fb75ad"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "snippet"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1614281008
+}
