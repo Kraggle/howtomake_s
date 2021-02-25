@@ -450,6 +450,7 @@
   padding: 0;
   border: 0;
   box-shadow: none;
+  background-color: initial;
 }
 
 .with-description main > .title {
