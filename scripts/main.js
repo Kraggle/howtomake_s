@@ -24,7 +24,10 @@ $(() => {
 	const onResize = () => {
 
 		if ($('.wrap.with-description').length) {
-			const h = $('.main > .description').outerHeight() + $('.main > .title').outerHeight();
+			let h = 0;
+			$('.main > .title, .main > .meta, .main > .description').each(function() {
+				h += $(this).outerHeight();
+			});
 			$('.body-decor').height(h);
 			$('.wrap > .content').css('margin-top', `-${h + 100}px`);
 		}

@@ -165,6 +165,8 @@ add_action('after_setup_theme', function () {
 	$wpdb->{'channelmeta'} = "{$wpdb->prefix}yt_channel_meta";
 
 	// save_youtube_data(31906, json_decode(file_get_contents(get_php_includes() . 'videoData.json'))->items[0]);
+
+	add_filter('other_content', 'do_shortcode');
 }, 20);
 
 /**
@@ -293,3 +295,13 @@ function my_mime_types($mime_types) {
 
 	return $mime_types;
 }
+
+add_action('acf/render_field', function ($field) {
+	if (in_array($field['_name'], ['existing_panel', 'existing_content', 'existing_panels'])) { ?>
+		<button class="edit">Edit</button>
+	<?php }
+});
+
+add_action('admin_footer', function () { ?>
+	<p class="admin-page-nonce" nonce="<?= wp_create_nonce('admin_nonce') ?>"></p>
+<?php });

@@ -36,12 +36,12 @@
                     {
                         "field": "field_6037c73ad6bdc",
                         "operator": ">",
-                        "value": "21156"
+                        "value": "21154"
                     },
                     {
                         "field": "field_6037c73ad6bdc",
                         "operator": "<",
-                        "value": "21158"
+                        "value": "21156"
                     }
                 ]
             ],
@@ -59,7 +59,7 @@
         {
             "key": "field_6037cd58a1d16",
             "label": "Panel",
-            "name": "single",
+            "name": "panel",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -102,12 +102,12 @@
                     {
                         "field": "field_6037c73ad6bdc",
                         "operator": ">",
-                        "value": "21154"
+                        "value": "21156"
                     },
                     {
                         "field": "field_6037c73ad6bdc",
                         "operator": "<",
-                        "value": "21156"
+                        "value": "21158"
                     }
                 ]
             ],
@@ -142,5 +142,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614281008
+    "modified": 1614440477
 }

@@ -1,9 +1,9 @@
 {
-    "key": "group_6035006f0c621",
-    "title": "Page Extras",
+    "key": "group_6039fe19e25c8",
+    "title": "Post Extras",
     "fields": [
         {
-            "key": "field_6036a2ccdf147",
+            "key": "field_603a142df9b0e",
             "label": "Description",
             "name": "description",
             "type": "wysiwyg",
@@ -17,12 +17,12 @@
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
+            "toolbar": "full",
+            "media_upload": 1,
             "delay": 1
         },
         {
-            "key": "field_603a46c09db8a",
+            "key": "field_6039fe1aef058",
             "label": "Table of Contents",
             "name": "",
             "type": "clone",
@@ -43,7 +43,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_6037faf6e2c12",
+            "key": "field_6039fe1af2d2a",
             "label": "Right Side Panels",
             "name": "",
             "type": "clone",
@@ -69,7 +69,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "page"
+                "value": "post"
             }
         ]
     ],
@@ -81,5 +81,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614433309
+    "modified": 1614433337
 }

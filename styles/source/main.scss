@@ -1,13 +1,13 @@
-@import 'common/variables';
-@import 'common/fa-variables';
+@import './common/variables';
+@import './common/fa-variables';
 
-@import 'common/global';
-@import 'components/buttons';
-@import 'components/comments';
-@import 'components/forms';
-@import 'components/dialog';
-@import 'layouts/header';
-@import 'layouts/footer';
+@import './common/global';
+@import './components/buttons';
+@import './components/comments';
+@import './components/forms';
+@import './components/dialog';
+@import './layouts/header';
+@import './layouts/footer';
 
 .admin-bar-show {
     @include transition;
@@ -275,6 +275,28 @@ h1 {
             background-color: $color-button;
             border-radius: 4px;
             cursor: pointer;
+        }
+    }
+}
+
+.with-description {
+    main {
+        > .title {
+            margin: 0;
+            padding-top: 30px;
+        }
+
+        > .meta {
+            margin: 0;
+            padding: 10px;
+        }
+
+        > .description {
+            max-width: 1080px;
+            text-align: center;
+            color: #fff;
+            padding: 20px 0;
+            margin: 0 auto 120px;
         }
     }
 }

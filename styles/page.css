@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /** Import Bootstrap functions */
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 @font-face {
@@ -108,6 +109,11 @@
   box-shadow: 0 2px 31px 0 rgba(0, 0, 0, 0.3);
   padding: 0;
   gap: 0;
+}
+.more-side .more-panel.make-sticky {
+  position: sticky;
+  top: 100px;
+  z-index: 10;
 }
 .more-side .more-panel .more-title {
   font-size: 20px;
@@ -268,6 +274,107 @@
   border: 3px solid #0da0c5;
   border-radius: 50%;
   padding: 7px;
+}
+
+aside.sidebar {
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  justify-self: end;
+  align-self: flex-start;
+  width: 225px;
+  min-width: 225px;
+  position: sticky;
+  top: 190px;
+  max-height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 51;
+  background-color: #fff;
+  box-shadow: 0 2px 31px 0 rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+aside.sidebar .title {
+  font-size: 20px;
+  line-height: 1em;
+  background-color: #0da0c5;
+  color: #fff;
+  padding: 20px;
+  margin: 0 !important;
+  width: 100%;
+  font-weight: 700 !important;
+  text-align: left;
+  letter-spacing: normal;
+}
+aside.sidebar .content {
+  font-size: 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+aside.sidebar .content.ul, aside.sidebar .content.ol {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+aside.sidebar .content.ul .item, aside.sidebar .content.ol .item {
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  padding: 15px 20px 15px 40px;
+  color: #29c4a9;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  line-height: 1;
+  background-color: #fff;
+}
+aside.sidebar .content.ul .item::before, aside.sidebar .content.ol .item::before {
+  content: "•";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 26px;
+  text-align: right;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #000;
+}
+aside.sidebar .content.ul .item.active, aside.sidebar .content.ol .item.active {
+  background-color: #29c4a9;
+  color: #fff;
+}
+aside.sidebar .content.ol {
+  counter-reset: list;
+}
+aside.sidebar .content.ol .item::before {
+  counter-increment: list;
+  content: counter(list) ".";
+  font-size: 12px;
+  width: 30px;
+}
+aside.sidebar .content::-webkit-scrollbar {
+  width: 0.5em;
+}
+aside.sidebar .content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 0;
+}
+aside.sidebar .content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+@media (max-width: 830px) {
+  aside.sidebar {
+    display: none;
+  }
+}
+
+body:not(.at-top) .sidebar {
+  max-height: calc(100vh - 210px);
+}
+body.scrolled .sidebar {
+  top: 100px;
+  max-height: calc(100vh - 120px);
 }
 
 .main > .title {
@@ -451,109 +558,6 @@
   border: 0;
   box-shadow: none;
   background-color: initial;
-}
-
-.with-description main > .title {
-  margin: 0;
-  padding-top: 30px;
-}
-.with-description main > .description {
-  max-width: 1080px;
-  text-align: center;
-  color: #fff;
-  padding: 20px 0;
-  margin: 0 auto 120px;
-}
-
-.sidebar {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-  justify-self: end;
-  width: 225px;
-  min-width: 225px;
-  position: sticky;
-  top: 190px;
-  max-height: calc(100vh - 220px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  z-index: 51;
-  background-color: #fff;
-  box-shadow: 0 2px 31px 0 rgba(0, 0, 0, 0.3);
-  padding: 0;
-}
-.sidebar .title {
-  font-size: 20px;
-  line-height: 1em;
-  background-color: #0da0c5;
-  color: #fff;
-  padding: 20px;
-  margin: 0 !important;
-  width: 100%;
-  font-weight: 700 !important;
-}
-.sidebar .content {
-  font-size: 15px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
-}
-.sidebar .content.ol {
-  text-align: left;
-  counter-reset: list;
-  display: flex;
-  flex-direction: column;
-}
-.sidebar .content.ol .item {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  padding: 15px 20px 15px 40px;
-  color: #29c4a9;
-  font-weight: 600;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  line-height: 1;
-  background-color: #fff;
-}
-.sidebar .content.ol .item::before {
-  counter-increment: list;
-  content: counter(list) ".";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 30px;
-  text-align: right;
-  transform: translateY(-50%);
-  font-size: 12px;
-  color: #000;
-}
-.sidebar .content.ol .item.active {
-  background-color: #29c4a9;
-  color: #fff;
-}
-.sidebar .content::-webkit-scrollbar {
-  width: 0.5em;
-}
-.sidebar .content::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 0;
-}
-.sidebar .content::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: transparent;
-}
-@media (max-width: 830px) {
-  .sidebar {
-    display: none;
-  }
-}
-
-body:not(.at-top) .sidebar {
-  max-height: calc(100vh - 210px);
-}
-body.scrolled .sidebar {
-  top: 100px;
-  max-height: calc(100vh - 120px);
 }
 
 @media (max-width: 700px) {

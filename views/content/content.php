@@ -53,7 +53,7 @@ if ('post' === get_post_type()) { ?>
 		); ?>
 	</div>
 
-	<?= do_shortcode('[htm_more_side_panel]') ?>
+	<?php get_template_part('views/widgets/side-panel') ?>
 </div>
 
 <?php // htm_s_entry_footer(); 

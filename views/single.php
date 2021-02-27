@@ -13,6 +13,12 @@
  * @package howtomake_S
  */
 
+$toc = to_object(get_field('toc'));
+if (!$toc)
+	$toc = (object) [
+		'active' => false
+	];
+
 ?>
 <!doctype html>
 <html <?= get_language_attributes() ?>>
@@ -24,10 +30,10 @@
 	<div class="body-wrap">
 		<?php do_action('get_header') ?>
 		<?php get_template_part('views/partials/header') ?>
-		<div class="wrap main-container" role="document">
+		<div class="wrap main-container<?= get_field('description') ? ' with-description' : '' ?>" role="document">
 			<div class="body-decor"></div>
 			<div class="body-curves"></div>
-			<div class="content">
+			<div class="content<?= $toc->active ? ' with-sidebar' : '' ?>">
 				<main class="main" itemscope itemtype="http://schema.org/Article">
 
 					<?php if (have_posts()) {

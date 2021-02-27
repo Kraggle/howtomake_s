@@ -423,3 +423,14 @@ $dark-color: darken($main-color, 10%);
         }
     }
 }
+
+.acf-input {
+    .with-edit-wrap {
+        display: flex;
+        gap: 10px;
+    }
+
+    .edit {
+        cursor: pointer;
+    }
+}

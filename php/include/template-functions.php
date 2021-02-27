@@ -524,7 +524,8 @@ function do_more_panel($content, $title = '', $args = array()) {
 		$type = $args['type'];
 
 	if ($title) {
-		$title = '<h4 class="more-title">' . $title . '</h4>';
+		$el = $args['title_element'];
+		$title = "<$el class='more-title'>$title</$el>";
 	}
 
 	if (isset($args['classes'])) {
@@ -534,13 +535,13 @@ function do_more_panel($content, $title = '', $args = array()) {
 	}
 
 	$classes[] = 'more-panel';
+	$classes[] = "is-$type";
+	$classes[] = $args['background'];
 
-	if ($type !== 'default')
-		$classes[] = "is-$type";
+	if ($args['sticky'])
+		$classes[] = 'make-sticky';
 
-	if (isset($args['background'])) {
-		$classes[] = 'bg-' . $args['background'];
-	} ?>
+?>
 
 	<div class="<?= implode(' ', $classes) ?>">
 		<?php if ($type == 'quote') { ?>
@@ -548,7 +549,7 @@ function do_more_panel($content, $title = '', $args = array()) {
 		<?php } ?>
 		<?= $title ?>
 		<div class="more-content">
-			<?= is_callable($content) ? $content() : $content ?>
+			<?= apply_filters('other_content', is_callable($content) ? $content() : $content) ?>
 		</div>
 	</div>
 

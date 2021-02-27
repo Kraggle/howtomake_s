@@ -39,6 +39,11 @@
                 flex-direction: column;
             }
         }
+
+        .inner-wrap {
+            display: flex;
+            gap: 50px;
+        }
     }
 
     .content-wrap {

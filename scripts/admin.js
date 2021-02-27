@@ -175,6 +175,45 @@ $(() => {
 	$('input[type="checkbox"').on('change', function() {
 		$(this).parents('.ks-setting-box').find('.ks-button').addClass('doMe');
 	});
+
+	setTimeout(() => {
+		$('.edit').closest('.acf-input').each(function() {
+			const _me = $(this);
+			$('.edit', _me).length > 1 && $('.edit', _me).last().remove();
+
+			const _els = $('> .edit, > .select2', _me);
+			if (_els.length == 2) {
+				_els.wrapAll('<div class="with-edit-wrap"></div>');
+
+				$('.edit', _me).on('click', function(e) {
+					e.preventDefault();
+					const id = $('select option[selected=selected]', _me).val();
+					if (id) {
+						console.log(id);
+
+						$.ajax({
+							url: V.ajax,
+							type: 'POST',
+							data: {
+								action: 'get_edit_link',
+								nonce: $('.admin-page-nonce').attr('nonce'),
+								id
+							}
+						}).done(result => {
+							result = JSON.parse(result);
+
+							if (result.link) {
+								console.log(result.link);
+								const win = window.open(result.link, '_blank');
+								win.focus();
+							}
+						});
+					}
+				});
+			}
+		});
+	}, 2000);
+
 });
 
 function doProgress(total, left) {

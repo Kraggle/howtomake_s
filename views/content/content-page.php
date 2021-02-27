@@ -10,9 +10,9 @@
 
 the_title('<h1 class="title" itemprop="headline">', '</h1>');
 
-$sidebar = (object) get_field('side_bar');
-if (!$sidebar)
-	$sidebar = (object) [
+$toc = to_object(get_field('toc'));
+if (!$toc)
+	$toc = (object) [
 		'active' => false
 	];
 
@@ -25,7 +25,7 @@ if ($desc = get_field('description')) { ?>
 echo content_schema_meta(); ?>
 
 <div class="wrapper">
-	<?php if ($sidebar->active) { ?>
+	<?php if ($toc->active) { ?>
 		<div class="inner-wrap">
 		<?php get_template_part('views/widgets/table-of-contents');
 	} ?>
@@ -55,12 +55,11 @@ echo content_schema_meta(); ?>
 			); ?>
 		</div>
 
-		<?php if ($sidebar->active) { ?>
+		<?php if ($toc->active) { ?>
 		</div>
 	<?php } ?>
 
-	<?php if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]');
-	else get_template_part('views/widgets/home-side-panel') ?>
+	<?php get_template_part('views/widgets/side-panel') ?>
 </div>
 
 <?php // htm_s_entry_footer(); 

@@ -1368,3 +1368,22 @@ function htm_put_youtube_data() {
 	exit;
 }
 add_ajax_action('put_youtube_data');
+
+/**
+ * 
+ * 
+ * @return void 
+ */
+function htm_get_edit_link() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'admin_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) [];
+	$id = $_REQUEST['id'];
+
+	$return->link = html_entity_decode(get_edit_post_link($id));
+
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_edit_link');

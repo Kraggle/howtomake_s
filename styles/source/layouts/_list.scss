@@ -54,7 +54,7 @@
             font-size: 16px;
             line-height: 18px;
             text-transform: none;
-            padding: 10px 10px 0;
+            margin: 10px;
             color: #333;
         }
 
@@ -78,6 +78,7 @@
             padding: 17px 15px;
             color: #fff;
             background-color: $article;
+            margin-top: 10px;
 
             svg {
                 height: 14px;

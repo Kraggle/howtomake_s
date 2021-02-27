@@ -349,3 +349,11 @@
   text-align: right;
   opacity: 0.4;
 }
+
+.acf-input .with-edit-wrap {
+  display: flex;
+  gap: 10px;
+}
+.acf-input .edit {
+  cursor: pointer;
+}

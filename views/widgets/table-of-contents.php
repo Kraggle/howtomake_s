@@ -1,20 +1,22 @@
 <?php
 // This is for including a table of contents as a sidebar
 
-$sb = to_object(get_field('side_bar'));
-if (!$sb)
-	$sb = (object) [
+$toc = to_object(get_field('toc'));
+if (!$toc)
+	$toc = (object) [
 		'active' => false
 	];
 
-if (!$sb->active) exit;
+if (!$toc->active) exit;
+
+$el = $toc->title_element;
 
 ?>
 
 <aside class="sidebar">
-	<h4 class="title"><?php $sb->title ?><?= $sb->title ?: 'Table of Contents' ?></h4>
-	<div class="content <?= $sb->type ?>">
-		<?php foreach ($sb->items as $item) {
+	<<?= $el ?> class="title"><?php $toc->title ?><?= $toc->title ?: 'Table of Contents' ?></<?= $el ?>>
+	<div class="content <?= $toc->type ?>">
+		<?php foreach ($toc->items as $item) {
 			$link = $item->id ? "#$item->id" : '' ?>
 			<a href="<?= "{$item->link}$link" ?>" class="item"><?= $item->name ?></a>
 		<?php } ?>

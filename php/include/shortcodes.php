@@ -109,70 +109,69 @@ function howtomake_shortcode_embed_featured_video() {
 }
 add_shortcode('featured_video_embed', 'howtomake_shortcode_embed_featured_video');
 
+add_shortcode('search_form', function () {
 
-function htm_s_shotcode_more_panel() {
+	$value = get_search_query();
+	$value = !$value ? '' : $value;
 
-	ob_start(); ?>
+	ob_start() ?>
 
-	<div class="more-side">
+	<form role="search" method="get" class="search-form" action="/search/">
+		<input type="text" name="term" class="search-field" placeholder="Search" value="<?= $value ?>">
+		<button type="submit" class="search-submit"><i class="fa-icon type-regular svg-search"></i></button>
+		<input type="hidden" name="type" value="post,video">
+		<input type="hidden" name="order" value="desc">
+		<input type="hidden" name="orderby" value="relevance">
+	</form>
 
-		<div class="more-part" part="1"></div>
-		<div class="more-part" part="2"></div>
-		<div class="more-part" part="3"></div>
-
-		<?php
-		// Search Panel
-		do_more_panel(function () {
-			get_template_part('views/widgets/search-form');
-		});
-
-		// About Panel
-		do_more_panel(function () {
-			get_template_part('views/partials/about-us');
-		}, 'About Us');
-
-		// Popular Panel
-		do_more_panel(function () {
-			wpp_get_mostpopular([
-				'post_type' => 'post',
-				'wpp_start' => '',
-				'wpp_end'   => '',
-				'post_html' => '<a href="{url}">{text_title}</a>',
-				'range'     => 'last7days'
-			]);
-		}, 'Popular');
-
-		do_more_panel(function () {
-			$list = wp_list_categories([
-				'title_li'           => '',
-				'style'              => 'none',
-				'echo'               => false,
-				'use_desc_for_title' => false,
-				'taxonomy'           => 'category'
-			]);
-			return trim(str_replace('<br />',  '', $list));
-		}, 'Categories');
-
-		do_more_panel(function () {
-			$latest = get_posts([
-				'post_type' => 'post'
-			]);
-
-			if ($latest) {
-				foreach ($latest as $post) { ?>
-					<a href="<?= get_permalink($post) ?>"><?= $post->post_title ?></a>
-		<?php }
-			}
-		}, 'Latest'); ?>
-
-	</div>
-
-<?php $html = ob_get_contents();
+	<?php $html = ob_get_contents();
 	ob_end_clean();
 
 	return $html;
-}
-add_shortcode('htm_more_side_panel', 'htm_s_shotcode_more_panel');
+});
+
+add_shortcode('list_categories', function ($attrs = null) {
+
+	extract(shortcode_atts([
+		'title_li'           => '',
+		'style'              => 'none',
+		'use_desc_for_title' => false,
+		'taxonomy'           => 'category'
+	], $attrs, 'htm_s'));
+
+	$list = wp_list_categories([
+		'title_li'           => $title_li,
+		'style'              => $style,
+		'echo'               => false,
+		'use_desc_for_title' => $use_desc_for_title,
+		'taxonomy'           => $taxonomy
+	]);
+	return trim(str_replace('<br />',  '', $list));
+});
+
+add_shortcode('latest_posts', function ($attrs = null) {
+
+	extract(shortcode_atts([
+		'post_type' => 'post'
+	], $attrs, 'htm_s'));
+
+	$latest = get_posts([
+		'post_type' => $post_type
+	]);
+
+	ob_start();
+
+	if ($latest) {
+		foreach ($latest as $post) { ?>
+			<a href="<?= get_permalink($post) ?>"><?= $post->post_title ?></a>
+	<?php }
+	}
+
+	$html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+});
 
 function sitemap_item($object, $post_type, $type = 'post') {
 	$type = $type === 'post';
@@ -317,7 +316,3 @@ function htm_shortcode_sitemap() {
 	return $html;
 }
 add_shortcode('htm_sitemap', 'htm_shortcode_sitemap');
-
-
-
-

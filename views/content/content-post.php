@@ -33,8 +33,13 @@ ob_end_clean();
 
 the_title('<h1 class="title" itemprop="headline">', '</h1>');
 
+$toc = to_object(get_field('toc'));
+if (!$toc)
+	$toc = (object) [
+		'active' => false
+	]; ?>
 
-echo content_schema_meta(); ?>
+<?= content_schema_meta(); ?>
 
 <p class="meta">by
 	<span class="author">
@@ -46,14 +51,29 @@ echo content_schema_meta(); ?>
 	<?php the_category(', ') ?>
 </p>
 
+<?php if ($desc = get_field('description')) { ?>
+	<div class="description">
+		<?= $desc ?>
+	</div>
+<?php } ?>
+
 <?php htm_s_post_thumbnail(); ?>
 
 <div class="wrapper">
-	<div class="content-wrap" itemprop="articleBody">
-		<?= $content ?>
-	</div>
+	<?php if ($toc->active) { ?>
+		<div class="inner-wrap">
+		<?php get_template_part('views/widgets/table-of-contents');
+	} ?>
 
-	<?= do_shortcode('[htm_more_side_panel]') ?>
+		<div class="content-wrap" itemprop="articleBody">
+			<?= $content ?>
+		</div>
+
+		<?php if ($toc->active) { ?>
+		</div>
+	<?php } ?>
+
+	<?php get_template_part('views/widgets/side-panel') ?>
 </div>
 
 <?= $related ?>

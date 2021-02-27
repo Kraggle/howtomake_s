@@ -18,7 +18,7 @@
 
 	</div>
 
-	<?= do_shortcode('[htm_more_side_panel]') ?>
+	<?php get_template_part('views/widgets/side-panel') ?>
 </div>
 
 <?php 

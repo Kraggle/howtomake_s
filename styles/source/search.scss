@@ -1,7 +1,7 @@
-@import 'common/variables';
-@import 'common/fa-variables';
-@import 'layouts/list';
-@import 'layouts/post-nav';
+@import './common/variables';
+@import './common/fa-variables';
+@import './layouts/list';
+@import './layouts/post-nav';
 
 .query-box {
     @include transition;
