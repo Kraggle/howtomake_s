@@ -1,5 +1,6 @@
 @import './common/variables';
 @import './common/fa-variables';
+@import './common/ispinner';
 @import './layouts/list';
 @import './layouts/sidebar';
 
@@ -236,7 +237,7 @@ main {
         gap: 0;
         justify-self: end;
         align-self: flex-end;
-        visibility: collapse;
+        visibility: visible;
 
         .video {
             @include transition;
@@ -244,9 +245,13 @@ main {
             position: relative;
             width: 35px;
             height: 35px;
-            background-color: $color-main;
+            background-color: #ccc;
             color: #fff;
+            margin-right: 5px;
             cursor: pointer;
+            margin-top: 2px;
+
+            &.loading, &.selected{background-color: $color-main;}
 
             svg {
                 width: 18px;
@@ -256,36 +261,48 @@ main {
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
+            &.loading{
+                svg{visibility: hidden;}
+                .ispinner{
+                    display: block!important;
+                    margin: auto;
+                    margin-top: 8px;
+                }
+            }
 
-            $dislike: #d08484;
+            $like: #69c95e;
+            $dislike: #c95e5e;
+            $fave: #ed68b4;
+            
+
+            &:hover{background-color: lighten($color-main, 5%); margin-top: 0px;}
+            &.loading, &.selected{background-color: $color-main;}
 
             &.dislike {
-                background-color: $dislike;
                 border-top-right-radius: 4px;
                 margin-left: 1px;
+                
+                &.loading, &.selected{background-color: $dislike;}
+                &:hover{background-color: lighten($dislike, 5%);}
             }
 
             &.like {
-                background-color: $color-gradient;
                 border-top-left-radius: 4px;
+                
+                &.loading, &.selected{background-color: $like;}
+                &:hover{background-color: lighten($like, 5%);}
             }
 
-            &.later {
+            &.fave {
                 border-radius: 4px 4px 0 0;
-                margin-left: 10px;
+                margin-right: 0px;
+               
+                &.loading, &.selected{background-color: $fave;}
+                &:hover{background-color: lighten($fave, 5%);}
             }
+            
 
-            &:hover {
-                background-color: lighten($color-main, 5%);
 
-                &.like {
-                    background-color: lighten($color-gradient, 5%);
-                }
-
-                &.dislike {
-                    background-color: lighten(#d08484, 5%);
-                }
-            }
         }
     }
 

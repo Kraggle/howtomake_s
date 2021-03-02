@@ -53,10 +53,17 @@ ob_end_clean();
 				<span class="date"><?= get_the_date('M jS, Y') ?></span> |
 				<?= $categories ?>
 			</p>
-			<div class="button-wrap">
-				<div class="video like"><?= get_font_awesome_icon('thumbs-up', 'solid') ?></div>
-				<div class="video dislike"><?= get_font_awesome_icon('thumbs-down', 'solid') ?></div>
-				<div class="video later"><?= get_font_awesome_icon('folder-plus', 'solid') ?></div>
+			<?php 
+			$user = wp_get_current_user();
+			$userPostInteractions = get_user_post_interactions($user->ID, $post->ID); 
+			//var_dump($userPostInteractions);
+
+			
+			?>
+			<div class="button-wrap" data-nonce="<?= wp_create_nonce('post_interaction_nonce') ?>">
+				<div class="video like <?php if($userPostInteractions['like'])echo 'selected'; ?>" data-post-id="<?= $id ?>" data-action="like"><?= get_font_awesome_icon('thumbs-up', 'solid') ?><?php get_template_part('views/widgets/ispinner-white') ?></div>
+				<div class="video dislike <?php if($userPostInteractions['dislike'])echo 'selected'; ?>" data-post-id="<?= $id ?>" data-action="dislike"><?= get_font_awesome_icon('thumbs-down', 'solid') ?><?php get_template_part('views/widgets/ispinner-white') ?></div>
+				<div class="video fave <?php if($userPostInteractions['fave'])echo 'selected'; ?>" data-post-id="<?= $id ?>" data-action="fave"><?= get_font_awesome_icon('heart', 'solid') ?><?php get_template_part('views/widgets/ispinner-white') ?></div>
 			</div>
 		</div>
 

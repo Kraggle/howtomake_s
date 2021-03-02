@@ -15,9 +15,9 @@ if (!defined('ABSPATH')) {
 }
 
 // Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
-require_once(ABSPATH . 'wp-admin/includes/image.php');
+//require_once(ABSPATH . 'wp-admin/includes/image.php');
 
-require_once __DIR__ . '/../../include/functions.php';
+//require_once __DIR__ . '/../../include/functions.php';
 
 // ================================== Settings End =======================================
 
@@ -171,7 +171,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			$saved_ids = (object) [];
 			$ids = [];
 			foreach ($posts as $post) {
-				if ($saved_ids->{$post->yt_id}) {
+				if (isset($saved_ids->{$post->yt_id})) {
 					// delete the post as its a duplicate
 					wp_delete_post($post->id, true);
 					$wpdb->query("DELETE FROM {$wpdb->videometa} WHERE post_id = {$post->id};");
@@ -213,7 +213,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 			$index = 0;
 			foreach ($items as &$item) {
-				if ($item->is_saved) continue;
+				if (isset($item->is_saved) && $item->is_saved) continue;
 
 				if ($index % 10 == 0) {
 					file_put_contents($itemsPath, json_encode($items));
