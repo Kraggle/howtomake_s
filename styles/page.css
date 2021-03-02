@@ -181,7 +181,7 @@
   color: #fff;
   background-color: transparent;
   right: 20px;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 .more-side .more-panel input {
   padding: 20px;
@@ -191,7 +191,7 @@
   line-height: 30px;
   color: #fff;
   z-index: 0;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 .more-side .more-panel input::placeholder {
   text-transform: uppercase;
@@ -277,7 +277,7 @@
 }
 
 aside.sidebar {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   justify-self: end;
   align-self: flex-start;
   width: 225px;
@@ -317,7 +317,7 @@ aside.sidebar .content.ul, aside.sidebar .content.ol {
   flex-direction: column;
 }
 aside.sidebar .content.ul .item, aside.sidebar .content.ol .item {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   padding: 15px 20px 15px 40px;
   color: #29c4a9;
@@ -347,6 +347,7 @@ aside.sidebar .content.ul .item.sub, aside.sidebar .content.ol .item.sub {
 aside.sidebar .content.ul .item.sub::before, aside.sidebar .content.ol .item.sub::before {
   content: "○";
   width: 36px;
+  font-size: 14px;
 }
 aside.sidebar .content.ol {
   counter-reset: list;

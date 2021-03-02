@@ -624,10 +624,18 @@ aside.sidebar .content.ul .item.active, aside.sidebar .content.ol .item.active {
   background-color: #29c4a9;
   color: #fff;
 }
+aside.sidebar .content.ul .item.sub, aside.sidebar .content.ol .item.sub {
+  padding-left: 50px;
+}
+aside.sidebar .content.ul .item.sub::before, aside.sidebar .content.ol .item.sub::before {
+  content: "○";
+  width: 36px;
+  font-size: 14px;
+}
 aside.sidebar .content.ol {
   counter-reset: list;
 }
-aside.sidebar .content.ol .item::before {
+aside.sidebar .content.ol .item:not(.sub)::before {
   counter-increment: list;
   content: counter(list) ".";
   font-size: 12px;

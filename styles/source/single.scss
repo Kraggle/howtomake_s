@@ -251,7 +251,9 @@ main {
             cursor: pointer;
             margin-top: 2px;
 
-            &.loading, &.selected{background-color: $color-main;}
+            &.loading, &.selected {
+                background-color: $color-main;
+            }
 
             svg {
                 width: 18px;
@@ -261,10 +263,14 @@ main {
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
-            &.loading{
-                svg{visibility: hidden;}
-                .ispinner{
-                    display: block!important;
+
+            &.loading {
+                svg {
+                    visibility: hidden;
+                }
+
+                .ispinner {
+                    display: block !important;
                     margin: auto;
                     margin-top: 8px;
                 }
@@ -273,36 +279,53 @@ main {
             $like: #69c95e;
             $dislike: #c95e5e;
             $fave: #ed68b4;
-            
 
-            &:hover{background-color: lighten($color-main, 5%); margin-top: 0px;}
-            &.loading, &.selected{background-color: $color-main;}
+            &:hover {
+                background-color: lighten($color-main, 5%);
+                margin-top: 0px;
+            }
+
+            &.loading, &.selected {
+                background-color: $color-main;
+            }
 
             &.dislike {
                 border-top-right-radius: 4px;
                 margin-left: 1px;
-                
-                &.loading, &.selected{background-color: $dislike;}
-                &:hover{background-color: lighten($dislike, 5%);}
+
+                &.loading, &.selected {
+                    background-color: $dislike;
+                }
+
+                &:hover {
+                    background-color: lighten($dislike, 5%);
+                }
             }
 
             &.like {
                 border-top-left-radius: 4px;
-                
-                &.loading, &.selected{background-color: $like;}
-                &:hover{background-color: lighten($like, 5%);}
+
+                &.loading, &.selected {
+                    background-color: $like;
+                }
+
+                &:hover {
+                    background-color: lighten($like, 5%);
+                }
             }
 
             &.fave {
                 border-radius: 4px 4px 0 0;
                 margin-right: 0px;
-               
-                &.loading, &.selected{background-color: $fave;}
-                &:hover{background-color: lighten($fave, 5%);}
+
+                &.loading, &.selected {
+                    background-color: $fave;
+                }
+
+                &:hover {
+                    background-color: lighten($fave, 5%);
+                }
             }
-            
-
-
         }
     }
 
