@@ -329,7 +329,7 @@ function htm_s_on_install() {
 			post_id int UNSIGNED NOT NULL,
 			attribute varchar(100) NOT NULL,
 			attribute_value text NOT NULL,
-			last_updated datetime DEFAULT CURRENT_TIMESTAMP;,
+			last_updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 			KEY  user_id(user_id),
 			KEY  post_id(post_id)
 		) $charset_collate;"
