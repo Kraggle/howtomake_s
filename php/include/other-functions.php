@@ -215,11 +215,13 @@ function get_playlist_items($ytUploadsId, $nextPageToken = null) {
 function save_user_post_interaction($userId, $postId, $attribute, $value) {
 	global $wpdb;
 
+		
 	$data = [
 		'user_id'       => $userId,
 		'post_id'       => $postId,
 		'attribute'    => $attribute,
-		'attribute_value'    => $value
+		'attribute_value'    => $value,
+		'last_updated'	=> wp_date('Y-m-d H:i:s')
 	];
 	try{
 		$result = $wpdb->insert( $wpdb->prefix.'htm_user_post_interactions', $data );
@@ -324,12 +326,14 @@ function htm_s_on_install() {
 	);
 
 	$wpdb->query(
-		"CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
+		"SET sql_mode = '';
+
+		CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
 			user_id int UNSIGNED NOT NULL,
 			post_id int UNSIGNED NOT NULL,
 			attribute varchar(100) NOT NULL,
 			attribute_value text NOT NULL,
-			last_updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			last_updated DATETIME DEFAULT NULL,
 			KEY  user_id(user_id),
 			KEY  post_id(post_id)
 		) $charset_collate;"
