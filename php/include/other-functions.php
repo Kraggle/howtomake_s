@@ -1,6 +1,271 @@
 <?php
-
+$nl = "<br />\n";
 require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/image.php');
+
+
+
+function indent($count = 1, $symbol = ' &raquo; ') {
+	$indent = '';
+	for ($i = 0; $i < $count; $i++) {
+		$indent .= $symbol;
+	}
+	return $indent;
+}
+
+if (!function_exists('getYoutubeService')) {
+
+	function getYoutubeService() {
+		// INFO: Changed this to try the API key before resuming, as with 3 
+		// INFO: API keys we can triple the quota in a day 
+
+		$appName = 'Youtube Scraper';
+		$apiKeys = [ // Youtube API Keys
+			'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
+			'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
+			'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
+		];
+
+		// Google API init
+		$client = new Google_Client();
+		$client->setApplicationName($appName);
+
+		foreach ($apiKeys as $key) {
+
+			$client->setDeveloperKey($key);
+			$service = new Google_Service_YouTube($client);
+
+			try {
+				$results = $service->i18nRegions->listI18nRegions('id');
+
+				if ($results)
+					break;
+			} catch (Exception $e) {
+				videoLogger::getInstance()->put('Exception: ' . $e->getMessage());
+			}
+		}
+
+		return $service;
+	}
+}
+
+/**
+ * Get enhanced video information from Youtube
+ *
+ * @param array $features An array of features to save, all if null. default: null
+ * @return void
+ */
+function getExtraYoutubeInfo(array $features = null) {
+
+	global $log;
+
+	$videos = get_results(
+		"SELECT
+		p.ID AS id,
+		m.meta_value AS yt_id,
+		p.post_title AS title
+		FROM wp_posts p
+		INNER JOIN wp_postmeta m
+			ON p.ID = m.post_id
+		WHERE p.post_type = 'video'
+		AND p.post_status = 'publish'
+		AND m.meta_key = 'youtube_video_id'
+		AND (p.ID NOT IN (SELECT
+			tr.object_id
+		FROM wp_term_relationships tr
+			INNER JOIN wp_term_taxonomy tt
+			ON tr.term_taxonomy_id = tt.term_taxonomy_id
+		WHERE tt.taxonomy = 'post_tag')
+		OR p.ID NOT IN (SELECT
+			pm.post_id
+		FROM wp_postmeta pm
+		WHERE pm.meta_key = 'video_duration_raw'))"
+	);
+
+	$videoIds = list_ids($videos, 'yt_id');
+
+	if (!count($videoIds))
+		return;
+
+	$log->put('Getting extra youtube information!');
+	$log->put('There are ' . count($videoIds) . ' that still have missing info.');
+
+	// Process in batches to reduce API calls. 50 is Youtube's pagination limit.
+	$chunkedVideoIDs = array_chunk($videoIds, 50, true);
+
+	foreach ($chunkedVideoIDs as $ids) {
+
+		// Get more information for the videos
+		$optParams = array(
+			'id' => implode(',', $ids),
+		);
+
+		try {
+			$results = getYoutubeService()->videos->listVideos('id,snippet,contentDetails,statistics,topicDetails', $optParams);
+
+			foreach ($results->items as $item) {
+				$i = array_search($item->id, array_column($videos, 'yt_id'));
+				if (!is_numeric($i)) continue; // Skip if video ID not in list, shouldn't happen
+				$post = $videos[$i];
+
+				$log->put(indent() . "Adding extra information for: {$post->title}");
+
+				// Attach keywords as tags to post
+				if (is_null($features) || in_array('keywords', $features)) {
+					wp_set_post_tags($post->id, $item->snippet->tags, true);
+					set_video_categories_from_tags($post->id, $item->snippet->tags, $post->title);
+				}
+
+				// Video Duration
+				if (is_null($features) || in_array('duration', $features)) {
+					// ISO_8601 Format
+					update_post_meta($post->id, 'video_duration_raw', $item->contentDetails->duration);
+
+					$di  = new DateInterval($item->contentDetails->duration);
+					$sec = ceil(($di->days * 86400) + ($di->h * 3600) + ($di->i * 60) + $di->s);
+					add_post_meta($post->id, 'duration_seconds', $sec, true);
+
+					if ($sec < 58) {
+						wp_update_post([
+							'ID' => $post->id,
+							'post_status' => 'draft'
+						]);
+					}
+				}
+
+				// INFO: Added this to grab images, buy only if it's in features
+				// Video Featured Image
+				if (is_array($features) && in_array('image', $features))
+					save_video_image_for_post($post->id, $item);
+
+				save_youtube_data($post->id, $item);
+			}
+		} catch (Exception $e) {
+			$log->put('Exception: ' . $e->getMessage());
+		}
+
+		test_restart();
+	}
+}
+
+class videoLogger {
+
+	private
+		$file,
+		$format;
+	private static $instance;
+
+	public function __construct($filename, $format = '[d-M-Y H:i:s]') {
+		$this->file = $filename;
+		$this->format = $format;
+
+		if (!file_exists($filename))
+			file_put_contents($this->file, '');
+	}
+
+	public static function getInstance($filename = '', $format = '[d-M-Y H:i:s]') {
+		return !isset(self::$instance) ?
+			self::$instance = new videoLogger($filename, $format) :
+			self::$instance;
+	}
+
+	public function put($insert) {
+		$timestamp = date($this->format);
+		file_put_contents($this->file, "$timestamp &raquo; $insert\n", FILE_APPEND);
+	}
+
+	public function get() {
+		$content = file_get_contents($this->file);
+		return $content;
+	}
+}
+
+function get_channel_video_ids($term_id) {
+	return get_results(
+		"SELECT
+		m.meta_value AS yt_id,
+		p.ID AS id
+		FROM wp_term_relationships r
+		INNER JOIN wp_posts p
+			ON r.object_id = p.ID
+		INNER JOIN wp_postmeta AS m
+			ON m.post_id = p.ID
+		WHERE r.term_taxonomy_id = $term_id
+		AND m.meta_key = 'youtube_video_id'"
+	);
+}
+
+function get_playlist_items($ytUploadsId, $nextPageToken = null) {
+	try {
+
+		$query = [
+			'maxResults' => 50,
+			'playlistId' => $ytUploadsId
+		];
+
+		if ($nextPageToken)
+			$query['pageToken'] = $nextPageToken;
+
+		return getYoutubeService()->playlistItems->listPlaylistItems('snippet', $query);
+	} catch (Exception $e) {
+		videoLogger::getInstance()->put('Exception: ' . $e->getMessage());
+	}
+}
+
+
+function save_user_post_interaction($userId, $postId, $attribute, $value) {
+	global $wpdb;
+
+	$data = [
+		'user_id'       => $userId,
+		'post_id'       => $postId,
+		'attribute'    => $attribute,
+		'attribute_value'    => $value
+	];
+	try{
+		$result = $wpdb->insert( $wpdb->prefix.'htm_user_post_interactions', $data );
+	}
+	catch(Exception $e){
+		return 0;
+	}
+	return $result;
+}
+
+function delete_user_post_interaction($userId, $postId, $attribute) {
+	global $wpdb;
+
+	$result = $wpdb->query(
+		$wpdb->prepare(
+			"DELETE FROM {$wpdb->prefix}htm_user_post_interactions 
+			WHERE user_id = %d
+			AND post_id = %d
+			AND attribute = %s
+			",
+			[$userId, $postId, $attribute]
+		)
+	);
+
+	return $result;
+}
+
+function get_user_post_interactions($userId, $postId){
+	global $wpdb;
+	$results = $wpdb->get_results( 
+		$wpdb->prepare("SELECT attribute, attribute_value
+		FROM {$wpdb->prefix}htm_user_post_interactions 
+		WHERE user_id=%d
+		AND post_id=%d", [$userId, $postId]) 
+	);
+
+	$outputArray = [];
+
+	foreach($results as $elem){
+		$outputArray[$elem->attribute] = $elem->attribute_value;
+	}
+
+
+	return $outputArray;
+}
+
 
 /**
  * This is used to run tasks only once the plugin version
@@ -57,6 +322,29 @@ function htm_s_on_install() {
 			KEY meta_key (meta_key($max_index_length))
 		) $charset_collate;"
 	);
+
+	$wpdb->query(
+		"CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
+			user_id int UNSIGNED NOT NULL,
+			post_id int UNSIGNED NOT NULL,
+			attribute varchar(100) NOT NULL,
+			attribute_value text NOT NULL,
+			last_updated datetime DEFAULT CURRENT_TIMESTAMP;,
+			KEY  user_id(user_id),
+			KEY  post_id(post_id)
+		) $charset_collate;"
+	);
+	
+
+	
+	$wpdb->query(
+		"ALTER TABLE {$wpdb->prefix}htm_user_post_interactions
+			ADD CONSTRAINT user_post_attrib PRIMARY KEY (user_id, post_id, attribute);"
+	);
+
+
+
+	
 	/* End of keep this section */
 
 	add_option('htm__s_version', $htm__s_version);
@@ -968,40 +1256,7 @@ function htm__update_custom_roles() {
 add_action('init', 'htm__update_custom_roles');
 
 
-function getYoutubeService() {
-	// INFO: Changed this to try the API key before resuming, as with 3 
-	// INFO: API keys we can triple the quota in a day 
 
-	/* cSpell:disable */
-	$appName = 'Youtube Scraper';
-	$apiKeys = [ // Youtube API Keys
-		'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
-		'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
-		'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
-	];
-	/* cSpell:enable */
-
-	// Google API init
-	$client = new Google_Client();
-	$client->setApplicationName($appName);
-
-	foreach ($apiKeys as $key) {
-
-		$client->setDeveloperKey($key);
-		$service = new Google_Service_YouTube($client);
-
-		try {
-			$results = $service->i18nRegions->listI18nRegions('id');
-
-			if ($results)
-				break;
-		} catch (Exception $e) {
-			videoLogger::getInstance()->put('Exception: ' . $e->getMessage());
-		}
-	}
-
-	return $service;
-}
 
 /**
  * This runs from the How to Make - Video Editor menu, it will get all selected 
@@ -1294,3 +1549,25 @@ function custom_number_format($n, $precision = 1) {
 
 	return $n_format;
 }
+
+	/*	Value				Type	Example	
+	* $entityType			String	(user|system), 
+    * $event                String
+	* entity id				Int		
+	* acted on entity type	String	(article, video),
+    * value                 String
+	* label					String
+	* data					Mixed
+	*/
+
+    function SaveAnalyticsEvent(
+		$entityType, 
+		$event, 
+		$entityId = null, 
+		$actedOnEntityType = null,  
+		$value, 
+		$label = null, 
+		$data = null ) {
+
+
+	}

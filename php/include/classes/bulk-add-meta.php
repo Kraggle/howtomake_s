@@ -6,10 +6,10 @@ class BulkAddMeta extends BulkCore {
 		if (!_get_meta_table($meta_type))
 			return false;
 
-		if (null === self::$instance)
+		if (!isset(self::$instance))
 			self::$instance = (object) [];
 
-		if (null === self::$instance->$meta_type) {
+		if (!isset(self::$instance->$meta_type)) {
 			global $table_prefix;
 
 			$user = defined('DB_USER') ? DB_USER : '';

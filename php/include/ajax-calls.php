@@ -1387,3 +1387,52 @@ function htm_get_edit_link() {
 	exit;
 }
 add_ajax_action('get_edit_link');
+
+
+function htm_user_post_interaction() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'post_interaction_nonce'))
+		exit(FAILED_NONCE);
+
+	$return = (object) [];
+	$postId = $_REQUEST['post_id'];
+	$action = $_REQUEST['user_action'];
+	$state = $_REQUEST['state'];
+
+	$user = wp_get_current_user();
+
+	if(!$user){
+		wp_send_json_error( "Authentication error" );
+		exit;
+	}
+
+	if(!in_array($action, ['like', 'dislike', 'fave'])){
+		wp_send_json_error( "Invalid action" );
+		exit;
+	}
+
+	if(!in_array($state, ['on', 'off'])){
+		wp_send_json_error( "Invalid state" );
+		exit;
+	}
+
+	
+	if($state == 'off'){
+		delete_user_post_interaction($user->ID, $postId, $action);
+	}else{
+		$return = save_user_post_interaction($user->ID, $postId, $action, $state);
+		if($action == 'like'){
+			delete_user_post_interaction($user->ID, $postId, 'dislike');
+		}elseif($action == 'dislike'){
+			delete_user_post_interaction($user->ID, $postId, 'like');
+		}
+	}
+
+
+	//$return = 1;
+
+
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('user_post_interaction');
+

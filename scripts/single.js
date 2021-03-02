@@ -64,6 +64,38 @@ $(() => {
 			}, 200);
 		});
 	}
+
+	$('.youtube .button-wrap .video').click( function(){
+
+		var btn = $(this);
+
+
+
+		btn.addClass('loading');
+		
+		$.ajax({
+			url: params.ajax,
+			data: {
+				action: 'user_post_interaction',
+				nonce: $('.youtube .button-wrap ').data('nonce'),
+				post_id: btn.data('post-id'),
+				user_action: btn.data('action'),
+				state: btn.hasClass('selected')?'off':'on'// Previous state
+			}
+		}).done(function(json) {
+			btn.removeClass('loading')
+			btn.toggleClass('selected');
+
+			// When turning on Like/Dislike, switch the other one off
+			if(btn.hasClass("like") && btn.hasClass("selected"))$(".dislike").removeClass("selected");
+			if(btn.hasClass("dislike") && btn.hasClass("selected"))$(".like").removeClass("selected");
+
+
+			var data = JSON.parse(json)
+			console.log(data)
+
+		})
+	})
 });
 
 $.fn.extend({
