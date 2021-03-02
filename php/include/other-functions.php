@@ -326,9 +326,7 @@ function htm_s_on_install() {
 	);
 
 	$wpdb->query(
-		"SET sql_mode = '';
-
-		CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
+		"CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
 			user_id int UNSIGNED NOT NULL,
 			post_id int UNSIGNED NOT NULL,
 			attribute varchar(100) NOT NULL,
