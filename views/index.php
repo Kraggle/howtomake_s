@@ -13,7 +13,7 @@
  * @package howtomake_S
  */
 
-logger('index.php has beed called, this should be rectified as soon as posible', 'we are just going to display a simple coming soon message for now.');
+logger('index.php has beed called, this should be rectified as soon as posible', home_url($wp->request));
 
 ?>
 <!doctype html>

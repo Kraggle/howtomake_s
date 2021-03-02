@@ -2,6 +2,24 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/image.php');
 
+if (!function_exists('logger')) {
+	function logger() {
+		if (!IS_DEBUG) return;
+
+		$db = array_shift(debug_backtrace());
+		$line = $db['line'];
+		$file = $db['file'];
+
+		$msg = "$file:$line [logger]";
+
+		foreach (func_get_args() as $arg) {
+			$msg .= "\n" . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg, JSON_PRETTY_PRINT));
+		}
+
+		error_log($msg . "\n");
+	}
+}
+
 /**
  * This is used to run tasks only once the plugin version
  * changes or it is activated for the first time.
@@ -59,7 +77,26 @@ function htm_s_on_install() {
 	);
 	/* End of keep this section */
 
-	add_option('htm__s_version', $htm__s_version);
+	$items = $wpdb->get_results(
+		"SELECT 
+			meta_key AS 'key' 
+		FROM wp_postmeta 
+		WHERE meta_key LIKE '%toc_items_%' 
+		GROUP BY meta_key"
+	);
+
+	foreach ($items as &$item) {
+		if (strpos($item->key, '_item_')) continue;
+		$key = preg_replace('/(_\d+_)/', '$1item_', $item->key);
+
+		$wpdb->query(
+			"UPDATE 
+				wp_postmeta 
+			SET meta_key = '$key' 
+			WHERE meta_key = '$item->key'"
+		);
+	}
+
 	update_option('htm__s_version', $htm__s_version);
 }
 
@@ -181,24 +218,6 @@ function logger_object($object) {
 	$fp = fopen('object.json', 'w');
 	fwrite($fp, json_encode($object, JSON_PRETTY_PRINT));
 	fclose($fp);
-}
-
-if (!function_exists('logger')) {
-	function logger() {
-		if (!IS_DEBUG) return;
-
-		$db = array_shift(debug_backtrace());
-		$line = $db['line'];
-		$file = $db['file'];
-
-		$msg = "$file:$line [logger]";
-
-		foreach (func_get_args() as $arg) {
-			$msg .= "\n" . (in_array(gettype($arg), ['string', 'double', 'integer']) ? $arg : json_encode($arg, JSON_PRETTY_PRINT));
-		}
-
-		error_log($msg . "\n");
-	}
 }
 
 function logger_print() {

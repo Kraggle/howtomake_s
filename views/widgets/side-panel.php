@@ -28,7 +28,7 @@ if ($bar->panels) { ?>
 		<?php foreach ($bar->panels as $panel) {
 			$panel = $panel->panel;
 			if ($panel->existing_panel)
-				$panel = to_object(get_field('single', $panel->existing_panel));
+				$panel = to_object(get_field('panel', $panel->existing_panel))->panel;
 
 			if ($panel->args->sticky) {
 				if (!$sticky) $sticky = true;

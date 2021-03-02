@@ -363,13 +363,23 @@ aside.sidebar {
                     background-color: $color-gradient;
                     color: #fff;
                 }
+
+                &.sub {
+                    padding-left: 50px;
+
+                    &::before {
+                        content: '○';
+                        width: 36px;
+                        font-size: 14px;
+                    }
+                }
             }
         }
 
         &.ol {
             counter-reset: list;
 
-            .item {
+            .item:not(.sub) {
                 &::before {
                     counter-increment: list;
                     content: counter(list) '.';

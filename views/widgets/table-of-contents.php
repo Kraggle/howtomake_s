@@ -9,17 +9,29 @@ if (!$toc)
 
 if (!$toc->active) exit;
 
-$el = $toc->title_element;
+$el = $toc->title->element;
 
-?>
+if ($style = $toc->title->style)
+	$style = ' style="' . implode(';', explode(PHP_EOL, $style)) . ';"'; ?>
 
 <aside class="sidebar">
-	<<?= $el ?> class="title"><?php $toc->title ?><?= $toc->title ?: 'Table of Contents' ?></<?= $el ?>>
+
+	<<?= $el ?> class="title" <?= $style ?: '' ?>><?= $toc->title->text ?: 'Table of Contents' ?></<?= $el ?>>
+
 	<div class="content <?= $toc->type ?>">
 		<?php foreach ($toc->items as $item) {
-			$link = $item->id ? "#$item->id" : '' ?>
+			$subs = $item->sub_items;
+			$item = $item->item->item;
+			$link = $item->id ? "#$item->id" : ''; ?>
 			<a href="<?= "{$item->link}$link" ?>" class="item"><?= $item->name ?></a>
-		<?php } ?>
+			<?php if ($subs) {
+				foreach ($subs as $sub) {
+					$item = $sub->item;
+					$link = $item->id ? "#$item->id" : ''; ?>
+					<a href="<?= "{$item->link}$link" ?>" class="sub item"><?= $item->name ?></a>
+		<?php }
+			}
+		} ?>
 	</div>
 </aside>
 
