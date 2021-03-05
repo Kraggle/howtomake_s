@@ -21,14 +21,15 @@ if ($style = $toc->title->style)
 	<div class="content <?= $toc->type ?>">
 		<?php foreach ($toc->items as $item) {
 			$subs = $item->sub_items;
+			$type = $item->sub_type;
 			$item = $item->item->item;
 			$link = $item->id ? "#$item->id" : ''; ?>
 			<a href="<?= "{$item->link}$link" ?>" class="item"><?= $item->name ?></a>
 			<?php if ($subs) {
 				foreach ($subs as $sub) {
-					$item = $sub->item;
-					$link = $item->id ? "#$item->id" : ''; ?>
-					<a href="<?= "{$item->link}$link" ?>" class="sub item"><?= $item->name ?></a>
+					$sub = $sub->item;
+					$link = $sub->id ? "#$sub->id" : ''; ?>
+					<a href="<?= "{$sub->link}$link" ?>" class="sub item <?= $type ?>"><?= $sub->name ?></a>
 		<?php }
 			}
 		} ?>

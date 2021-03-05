@@ -364,6 +364,10 @@ aside.sidebar {
                     color: #fff;
                 }
 
+                &:not(.sub) {
+                    counter-reset: subs;
+                }
+
                 &.sub {
                     padding-left: 50px;
 
@@ -371,6 +375,15 @@ aside.sidebar {
                         content: '○';
                         width: 36px;
                         font-size: 14px;
+                    }
+
+                    &.ol {
+                        &::before {
+                            counter-increment: subs;
+                            content: counter(subs) '.';
+                            font-size: 12px;
+                            width: 40px;
+                        }
                     }
                 }
             }

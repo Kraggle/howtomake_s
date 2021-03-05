@@ -1,5 +1,6 @@
 import { jQuery as $ } from './src/jquery-3.5.1.js';
 import V from './custom/Paths.js';
+import { timed } from './custom/K.js';
 
 $(() => {
 	time.build($('.ks-progress-time'));
@@ -212,6 +213,54 @@ $(() => {
 			}
 		});
 	}, 2000);
+
+	const ids = {
+		list: [],
+		timed: timed(),
+		text: {
+			content: null
+		},
+		visual: {
+			content: null
+		},
+		on: true, // true = visual, false = text
+		update(e) {
+			ids.timed.run(() => {
+				if (!e) e = $('textarea#content');
+				ids.on = !!e.level;
+
+				const on = ids.on ? 'visual' : 'text',
+					content = ids.on ? e.level.content : $(e.target ? e.target : e).val();
+
+				if (content !== ids[on].content) {
+					ids[on].content = content;
+
+					ids.list = [];
+
+					$('<div />', {
+						html: content
+					}).find('[id][id!=""]').each(function() {
+						ids.list.push($(this).attr('id'));
+					});
+				}
+			}, 2000);
+		}
+	};
+
+	if ($('div[data-name="toc"]').length) {
+		$('#post-body-content').on('input propertyChange', 'textarea#content', ids.update);
+
+		const editor = setInterval(() => {
+			/* eslint-disable no-undef */
+			if (tinyMCE.editors.length && tinyMCE.editors[0].id === 'content') {
+				tinyMCE.editors[0].on('change', ids.update);
+				clearInterval(editor);
+			}
+			/* eslint-enable no-undef */
+		}, 2000);
+
+		ids.update();
+	}
 });
 
 function doProgress(total, left) {

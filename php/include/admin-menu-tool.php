@@ -156,7 +156,7 @@ $menu_items = [
 		</div>
 		<button id="setYD" class="ks-button" action="set_youtube_data" other="getYD" get=".check-list input" repeat=50 isDouble=true>Refresh</button>
 	</div>
-	<?php }
+<?php }
 	], (object) [
 		'name' => 'Page Settings',
 		'content' => function () { ?>
@@ -213,7 +213,7 @@ $menu_items = [
 		</div>
 		<button id="setSitemap" type="save" class="ks-button" action="set_sitemap_settings">Save</button>
 	</div>
-	<?php }
+<?php }
 	], (object) [
 		'name' => 'Promo Popup',
 		'content' => function () { ?>
@@ -233,7 +233,7 @@ $menu_items = [
 			<select name="cf7-form">
 				<option value="create-account">create-account.php</option>
 			</select> */ ?>
-			
+
 		</div>
 		<button id="setSitemap" type="save" class="ks-button" action="set_sitemap_settings">Save</button>
 	</div>
@@ -252,7 +252,7 @@ class HTM_Admin_Menu {
 	function __construct() {
 		$this->pages = (object) [];
 
-		add_action('admin_menu', array($this, 'init_menu'));
+		add_action('admin_menu', array($this, 'init_menu'), 99);
 	}
 
 	function init_menu() {
@@ -262,7 +262,8 @@ class HTM_Admin_Menu {
 			'module-htm-admin-js',
 			get_template_directory_uri() . '/scripts/admin.js',
 			[],
-			filemtime(get_template_directory() . '/scripts/admin.js')
+			filemtime(get_template_directory() . '/scripts/admin.js'),
+			true
 		);
 		wp_enqueue_style('htm-admin-css', get_template_directory_uri() . '/styles/admin.css');
 
@@ -273,6 +274,16 @@ class HTM_Admin_Menu {
 		foreach ($menu_items as $item) {
 			$this->add_menu($item->name, $item->content);
 		}
+
+		add_action('admin_footer', function () {
+			global $wp_scripts;
+
+			array_move(
+				$wp_scripts->queue,
+				array_search('module-htm-admin-js', $wp_scripts->queue),
+				count($wp_scripts->queue)
+			);
+		}, 99);
 	}
 
 	function add_menu($name, $content = '') {

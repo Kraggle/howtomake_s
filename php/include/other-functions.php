@@ -20,6 +20,113 @@ if (!function_exists('logger')) {
 	}
 }
 
+/**
+ * This is used to run tasks only once the plugin version
+ * changes or it is activated for the first time.
+ */
+function htm_s_on_install() {
+
+	// Do stuff only on update here
+	$path = parse_url(get_template_directory_uri(), PHP_URL_PATH);
+	$paths = array(
+		'theme' => $path,
+		'assets' => "$path/assets",
+		'images' => "$path/assets/images",
+		'fonts' => "$path/assets/fonts",
+		'ajax' => "/wp-admin/admin-ajax.php"
+	);
+
+	$js = fopen(get_template_directory() . '/scripts/custom/Paths.js', 'w') or die('Unable to open file!');
+	fwrite(
+		$js,
+		'const V = JSON.parse(\'' . str_replace('\\', '', json_encode($paths)) . '\');' .
+			'export default V;'
+	);
+	fclose($js);
+
+	global $htm__s_version, $wpdb;
+
+	/* Keep these as it is the only place that creates them */
+	$charset_collate = $wpdb->get_charset_collate();
+	$max_index_length = 191;
+
+	$wpdb->{'videometa'} = "{$wpdb->prefix}yt_video_meta";
+	$wpdb->{'channelmeta'} = "{$wpdb->prefix}yt_channel_meta";
+
+	$wpdb->query(
+		"CREATE TABLE IF NOT EXISTS {$wpdb->videometa} (
+			meta_id bigint(20) unsigned NOT NULL auto_increment,
+			post_id bigint(20) unsigned NOT NULL default '0',
+			meta_key varchar(255) default NULL,
+			meta_value longtext,
+			PRIMARY KEY  (meta_id),
+			KEY post_id (post_id),
+			KEY meta_key (meta_key($max_index_length))
+		) $charset_collate;"
+	);
+	$wpdb->query(
+		"CREATE TABLE IF NOT EXISTS {$wpdb->channelmeta} (
+			meta_id bigint(20) unsigned NOT NULL auto_increment,
+			object_id bigint(20) unsigned NOT NULL default '0',
+			meta_key varchar(255) default NULL,
+			meta_value longtext,
+			PRIMARY KEY  (meta_id),
+			KEY object_id (object_id),
+			KEY meta_key (meta_key($max_index_length))
+		) $charset_collate;"
+	);
+
+	$wpdb->query(
+		"CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
+			user_id int UNSIGNED NOT NULL,
+			post_id int UNSIGNED NOT NULL,
+			attribute varchar(100) NOT NULL,
+			attribute_value text NOT NULL,
+			last_updated DATETIME DEFAULT NULL,
+			KEY  user_id(user_id),
+			KEY  post_id(post_id)
+		) $charset_collate;"
+	);
+
+
+
+	$wpdb->query(
+		"ALTER TABLE {$wpdb->prefix}htm_user_post_interactions
+			ADD CONSTRAINT user_post_attrib PRIMARY KEY (user_id, post_id, attribute);"
+	);
+
+	/* End of keep this section */
+
+	// $items = $wpdb->get_results(
+	// 	"SELECT 
+	// 		meta_key AS 'key' 
+	// 	FROM wp_postmeta 
+	// 	WHERE meta_key LIKE '%toc_items_%' 
+	// 	GROUP BY meta_key"
+	// );
+
+	// foreach ($items as &$item) {
+	// 	if (strpos($item->key, '_item_')) continue;
+	// 	$key = preg_replace('/(_\d+_)/', '$1item_', $item->key);
+
+	// 	$wpdb->query(
+	// 		"UPDATE 
+	// 			wp_postmeta 
+	// 		SET meta_key = '$key' 
+	// 		WHERE meta_key = '$item->key'"
+	// 	);
+	// }
+
+	update_option('htm__s_version', $htm__s_version);
+}
+
+function htm_check_update() {
+	global $htm__s_version;
+	if (get_site_option('htm__s_version') != $htm__s_version) {
+		htm_s_on_install();
+	}
+}
+htm_check_update();
 
 
 function indent($count = 1, $symbol = ' &raquo; ') {
@@ -37,11 +144,13 @@ if (!function_exists('getYoutubeService')) {
 		// INFO: API keys we can triple the quota in a day 
 
 		$appName = 'Youtube Scraper';
+		/* cSpell:disable */
 		$apiKeys = [ // Youtube API Keys
 			'AIzaSyByB7ZeVa4qIN9TPeAlgG6tJtkYoT8Xme8',
 			'AIzaSyDtGJtBPXdcWfBswi3mJSezfoj23Fr2T1A',
 			'AIzaSyD7iDUybQmkxls-Ge3kQ_sGHLsNbAxvc00',
 		];
+		/* cSpell:enable */
 
 		// Google API init
 		$client = new Google_Client();
@@ -165,38 +274,6 @@ function getExtraYoutubeInfo(array $features = null) {
 	}
 }
 
-class videoLogger {
-
-	private
-		$file,
-		$format;
-	private static $instance;
-
-	public function __construct($filename, $format = '[d-M-Y H:i:s]') {
-		$this->file = $filename;
-		$this->format = $format;
-
-		if (!file_exists($filename))
-			file_put_contents($this->file, '');
-	}
-
-	public static function getInstance($filename = '', $format = '[d-M-Y H:i:s]') {
-		return !isset(self::$instance) ?
-			self::$instance = new videoLogger($filename, $format) :
-			self::$instance;
-	}
-
-	public function put($insert) {
-		$timestamp = date($this->format);
-		file_put_contents($this->file, "$timestamp &raquo; $insert\n", FILE_APPEND);
-	}
-
-	public function get() {
-		$content = file_get_contents($this->file);
-		return $content;
-	}
-}
-
 function get_channel_video_ids($term_id) {
 	return get_results(
 		"SELECT
@@ -284,118 +361,6 @@ function get_user_post_interactions($userId, $postId) {
 
 	return $outputArray;
 }
-
-
-/**
- * This is used to run tasks only once the plugin version
- * changes or it is activated for the first time.
- */
-function htm_s_on_install() {
-
-	// Do stuff only on update here
-	$path = parse_url(get_template_directory_uri(), PHP_URL_PATH);
-	$paths = array(
-		'theme' => $path,
-		'assets' => "$path/assets",
-		'images' => "$path/assets/images",
-		'fonts' => "$path/assets/fonts",
-		'ajax' => "/wp-admin/admin-ajax.php"
-	);
-
-	$js = fopen(get_template_directory() . '/scripts/custom/Paths.js', 'w') or die('Unable to open file!');
-	fwrite(
-		$js,
-		'const V = JSON.parse(\'' . str_replace('\\', '', json_encode($paths)) . '\');' .
-			'export default V;'
-	);
-	fclose($js);
-
-	global $htm__s_version, $wpdb;
-
-	/* Keep these as it is the only place that creates them */
-	$charset_collate = $wpdb->get_charset_collate();
-	$max_index_length = 191;
-
-	$wpdb->{'videometa'} = "{$wpdb->prefix}yt_video_meta";
-	$wpdb->{'channelmeta'} = "{$wpdb->prefix}yt_channel_meta";
-
-	$wpdb->query(
-		"CREATE TABLE IF NOT EXISTS {$wpdb->videometa} (
-			meta_id bigint(20) unsigned NOT NULL auto_increment,
-			post_id bigint(20) unsigned NOT NULL default '0',
-			meta_key varchar(255) default NULL,
-			meta_value longtext,
-			PRIMARY KEY  (meta_id),
-			KEY post_id (post_id),
-			KEY meta_key (meta_key($max_index_length))
-		) $charset_collate;"
-	);
-	$wpdb->query(
-		"CREATE TABLE IF NOT EXISTS {$wpdb->channelmeta} (
-			meta_id bigint(20) unsigned NOT NULL auto_increment,
-			object_id bigint(20) unsigned NOT NULL default '0',
-			meta_key varchar(255) default NULL,
-			meta_value longtext,
-			PRIMARY KEY  (meta_id),
-			KEY object_id (object_id),
-			KEY meta_key (meta_key($max_index_length))
-		) $charset_collate;"
-	);
-
-	$wpdb->query(
-		"CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
-			user_id int UNSIGNED NOT NULL,
-			post_id int UNSIGNED NOT NULL,
-			attribute varchar(100) NOT NULL,
-			attribute_value text NOT NULL,
-			last_updated DATETIME DEFAULT NULL,
-			KEY  user_id(user_id),
-			KEY  post_id(post_id)
-		) $charset_collate;"
-	);
-
-
-
-	$wpdb->query(
-		"ALTER TABLE {$wpdb->prefix}htm_user_post_interactions
-			ADD CONSTRAINT user_post_attrib PRIMARY KEY (user_id, post_id, attribute);"
-	);
-
-
-
-
-	/* End of keep this section */
-
-	$items = $wpdb->get_results(
-		"SELECT 
-			meta_key AS 'key' 
-		FROM wp_postmeta 
-		WHERE meta_key LIKE '%toc_items_%' 
-		GROUP BY meta_key"
-	);
-
-	foreach ($items as &$item) {
-		if (strpos($item->key, '_item_')) continue;
-		$key = preg_replace('/(_\d+_)/', '$1item_', $item->key);
-
-		$wpdb->query(
-			"UPDATE 
-				wp_postmeta 
-			SET meta_key = '$key' 
-			WHERE meta_key = '$item->key'"
-		);
-	}
-
-	update_option('htm__s_version', $htm__s_version);
-}
-
-function htm_check_update() {
-	global $htm__s_version;
-	if (get_site_option('htm__s_version') != $htm__s_version) {
-		htm_s_on_install();
-	}
-}
-htm_check_update();
 
 function remove_emoji($text) {
 
@@ -842,10 +807,7 @@ function has_post_meta($id, $key) {
 
 function htm_set_permalink($id, $link, $post) {
 
-	if (has_post_meta($id, 'htm_permalink'))
-		update_post_meta($id, 'htm_permalink', $link);
-	else
-		add_post_meta($id, 'htm_permalink', $link);
+	update_post_meta($id, 'htm_permalink', $link);
 
 	$children = get_children([
 		'post_parent' 	 => $id,
@@ -870,6 +832,19 @@ function get_php_includes($file = '') {
 
 function get_php_vendor($file = '') {
 	return get_template_directory() . '/php/vendor/' . $file;
+}
+
+/**
+ * Move an element from one position to another in another
+ * 
+ * @param array   $array The array to change
+ * @param integer $a     The position of the element
+ * @param integer $b     Where to move it to
+ * @return void 
+ */
+function array_move(&$array, $a, $b) {
+	$out = array_splice($array, $a, 1);
+	array_splice($array, $b, 0, $out);
 }
 
 /**
@@ -1009,8 +984,6 @@ function save_video_image_for_post($post, $info) {
 // 	return count($match) ? $match[1] : false;
 // }
 
-
-
 function random_string($length = 10) {
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$charactersLength = strlen($characters);
@@ -1081,51 +1054,6 @@ function concat_strings($array, $key = null, $delimiter = ', ', $last = ' and ')
 		$entries[] = $key ? to_object($entry)->$key : $entry;
 
 	return implode($delimiter, $entries) . $last . $final;
-}
-
-// TODO: Make this work having different instances for each filename input.
-/**
- * This, like error_log, outputs whatever you tell it to to a file of your choosing.
- * 
- * @param string $filename This is the path and filename of the file you want to log to.
- * @param string $format   This is the format of the date of each string output to the log.
- */
-class outputLogger {
-
-	private
-		$file,
-		$format;
-	private static $instance;
-
-	public function __construct($filename, $format = '[d-M-Y H:i:s]') {
-		$this->file = $filename;
-		$this->format = $format;
-
-		$path = pathinfo($filename);
-		if (!file_exists($path['dirname']))
-			mkdir($path['dirname']);
-
-		if (!file_exists($filename))
-			file_put_contents($this->file, '');
-	}
-
-	public static function getInstance($filename = '', $format = '[d-M-Y H:i:s]') {
-		return !isset(self::$instance) ?
-			self::$instance = new outputLogger($filename, $format) :
-			self::$instance;
-	}
-
-	public function put($insert) {
-		$timestamp = date($this->format);
-		file_put_contents($this->file, "$timestamp $insert\n", FILE_APPEND);
-
-		return $this;
-	}
-
-	public function get() {
-		$content = file_get_contents($this->file);
-		return $content;
-	}
 }
 
 /**
@@ -1570,16 +1498,17 @@ function custom_number_format($n, $precision = 1) {
 	return $n_format;
 }
 
-/*	Value				Type	Example	
-	* $entityType			String	(user|system), 
-    * $event                String
-	* entity id				Int		
-	* acted on entity type	String	(article, video),
-    * value                 String
-	* label					String
-	* data					Mixed
-	*/
-
+/**	
+ * Save Analytics Event
+ * 
+ * @param string  $entityType        (user|system), 
+ * @param string  $event
+ * @param integer $entityId		
+ * @param string  $actedOnEntityType (article, video),
+ * @param string  $value
+ * @param string  $label
+ * @param mixed   $data
+ */
 function SaveAnalyticsEvent(
 	$entityType,
 	$event,

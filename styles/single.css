@@ -624,6 +624,9 @@ aside.sidebar .content.ul .item.active, aside.sidebar .content.ol .item.active {
   background-color: #29c4a9;
   color: #fff;
 }
+aside.sidebar .content.ul .item:not(.sub), aside.sidebar .content.ol .item:not(.sub) {
+  counter-reset: subs;
+}
 aside.sidebar .content.ul .item.sub, aside.sidebar .content.ol .item.sub {
   padding-left: 50px;
 }
@@ -631,6 +634,12 @@ aside.sidebar .content.ul .item.sub::before, aside.sidebar .content.ol .item.sub
   content: "○";
   width: 36px;
   font-size: 14px;
+}
+aside.sidebar .content.ul .item.sub.ol::before, aside.sidebar .content.ol .item.sub.ol::before {
+  counter-increment: subs;
+  content: counter(subs) ".";
+  font-size: 12px;
+  width: 40px;
 }
 aside.sidebar .content.ol {
   counter-reset: list;

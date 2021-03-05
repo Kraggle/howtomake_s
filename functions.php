@@ -34,10 +34,6 @@ $htm__s_version = '0.1.25';
 global $refreshing_categories;
 $refreshing_categories = false;
 
-
-
-
-
 /**
  * Helper function for prettying up errors
  * @param string $message
@@ -63,8 +59,7 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'enqueue', 'filters', 'media', 'widgets', 'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts', 'shortcodes',
-	'forms', 'ajax-calls', 'bulk-functions', 'admin-menu-tool', 'mail', 'contact-form-7', 'option-pages'
+	'enqueue', 'filters', 'media', 'widgets', 'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts', 'shortcodes', 'forms', 'import-classes', 'ajax-calls', 'admin-menu-tool', 'mail', 'contact-form-7', 'option-pages'
 ]);
 
 add_action('init', function () {
@@ -107,8 +102,6 @@ foreach ([
 	});
 }
 
-
-
 /**
  * Load Jetpack compatibility file.
  */
@@ -116,16 +109,12 @@ foreach ([
 // 	require get_template_directory() . '/php/include/jetpack.php';
 // }
 
-
-
 add_action('post_updated', function ($id, $post) {
 	$link = get_permalink($id);
 
 	if (!preg_match('/-autosave-/', $link))
 		htm_set_permalink($id, $link, $post);
 }, 20, 2);
-
-
 
 add_action('acf/render_field', function ($field) {
 	if (in_array($field['_name'], ['existing_panel', 'existing_content', 'existing_panels'])) { ?>

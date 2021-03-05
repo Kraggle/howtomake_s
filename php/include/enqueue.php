@@ -51,16 +51,6 @@ function htm_add_head_stuff() {
 				]
 			]
 		],
-		// "home" => (object) [
-		// 	"query" => is_front_page(),
-		// 	"styles" => [
-		// 		(object) [
-		// 			"name" => "htm_s-home",
-		// 			"path" => "$path/styles/home.css",
-		// 			"src" => "$uri/styles/home.css"
-		// 		]
-		// 	]
-		// ],
 		"single" => (object) [
 			"query" => in_array($base, ['single.php', 'index.php']),
 			"scripts" => [
@@ -195,4 +185,3 @@ function htm_add_head_stuff() {
 		}
 	}
 }
-
