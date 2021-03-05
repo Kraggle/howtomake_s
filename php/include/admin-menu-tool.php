@@ -265,7 +265,12 @@ class HTM_Admin_Menu {
 			filemtime(get_template_directory() . '/scripts/admin.js'),
 			true
 		);
-		wp_enqueue_style('htm-admin-css', get_template_directory_uri() . '/styles/admin.css');
+		wp_enqueue_style(
+			'htm-admin-css',
+			get_template_directory_uri() . '/styles/admin.css',
+			[],
+			filemtime(get_template_directory() . '/styles/admin.css')
+		);
 
 		add_menu_page($this->name, $this->name, $this->capability, $this->dash, array($this, 'dashboard_page'), 'data:image/svg+xml,' . HTM_MENU_ICON);
 		add_submenu_page($this->dash, "Dashboard", "Dashboard", $this->capability, $this->dash, array($this, 'dashboard_page'));
