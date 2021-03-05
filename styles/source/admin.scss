@@ -433,4 +433,8 @@ $dark-color: darken($main-color, 10%);
     .edit {
         cursor: pointer;
     }
+
+    .error {
+        background-color: #f7c1c1;
+    }
 }

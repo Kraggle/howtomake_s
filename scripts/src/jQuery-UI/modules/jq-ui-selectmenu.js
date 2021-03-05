@@ -1,3 +1,5 @@
+import { jQuery as $ } from '../../jquery-3.5.1.js';
+
 /*!
  * jQuery UI Selectmenu 1.12.1
  * http://jqueryui.com
@@ -86,15 +88,15 @@ $.widget("ui.selectmenu", [$.ui.formResetMixin, {
 
         // Create button
         this.button = $("<span>", {
-                tabindex: this.options.disabled ? -1 : 0,
-                id: this.ids.button,
-                role: "combobox",
-                "aria-expanded": "false",
-                "aria-autocomplete": "list",
-                "aria-owns": this.ids.menu,
-                "aria-haspopup": "true",
-                title: this.element.attr("title")
-            })
+            tabindex: this.options.disabled ? -1 : 0,
+            id: this.ids.button,
+            role: "combobox",
+            "aria-expanded": "false",
+            "aria-autocomplete": "list",
+            "aria-owns": this.ids.menu,
+            "aria-haspopup": "true",
+            title: this.element.attr("title")
+        })
             .insertAfter(this.element);
 
         this._addClass(this.button, "ui-selectmenu-button ui-selectmenu-button-closed",
@@ -404,7 +406,7 @@ $.widget("ui.selectmenu", [$.ui.formResetMixin, {
             }
 
             if (!$(event.target).closest(".ui-selectmenu-menu, #" +
-                    $.ui.escapeSelector(this.ids.button)).length) {
+                $.ui.escapeSelector(this.ids.button)).length) {
                 this.close(event);
             }
         }
@@ -586,7 +588,7 @@ $.widget("ui.selectmenu", [$.ui.formResetMixin, {
         // we always remove classes first and add them second, otherwise if both classes have the
         // same theme class, it will be removed after we add it.
         this._removeClass(this.button, "ui-selectmenu-button-" +
-                (this.isOpen ? "closed" : "open"))
+            (this.isOpen ? "closed" : "open"))
             ._addClass(this.button, "ui-selectmenu-button-" +
                 (this.isOpen ? "open" : "closed"))
             ._toggleClass(this.menuWrap, "ui-selectmenu-open", null, this.isOpen);

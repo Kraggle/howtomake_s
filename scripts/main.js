@@ -34,11 +34,11 @@ $(() => {
 
 		if ($('.more-side').length) {
 			const using = $('.more-part:visible').length;
-			if ($('.more-side').data('using') != using) {
+			if ($('.more-side').data('using') !== using) {
 
 				let items = $('.more-side .more-panel');
 
-				if (items.data().hasOwnProperty('order')) {
+				if ('order' in items.data()) {
 					items = items.sort(function(a, b) {
 						const sA = parseInt($(a).data('order')),
 							sB = parseInt($(b).data('order'));
@@ -48,7 +48,7 @@ $(() => {
 
 				if (using === 0) {
 					items.each(function(i) {
-						if (!$(this).data().hasOwnProperty('order'))
+						if (!('order' in $(this).data()))
 							$(this).data('order', i);
 
 						$(this).clone(true).appendTo($('.more-side'));
@@ -69,12 +69,12 @@ $(() => {
 				let current = 1;
 
 				items.each(function(i) {
-					if (!$(this).data().hasOwnProperty('order'))
+					if (!('order' in $(this).data()))
 						$(this).data('order', i);
 
 					$(this).clone(true).appendTo(parts[current]);
 					$(this).remove();
-					current = current == using ? 1 : current + 1;
+					current = current === using ? 1 : current + 1;
 				});
 
 				$('.more-side').data('using', using);
@@ -98,14 +98,14 @@ $(() => {
 		const timer = timed();
 		$(window).on('scroll', () => {
 			found = false;
-			$('.content-wrap > [id!=""][id]').each(function() {
+			$('.content-wrap [id!=""][id]').each(function() {
 				const id = '#' + $(this).attr('id'),
 					_btn = $(`.sidebar [href="${id}"]`);
 
 				if (!found && $(this).visible(true) && _btn.length) {
 					found = true;
 
-					if (this != old) {
+					if (this !== old) {
 						old = this;
 						_btn.siblings().removeClass('active');
 						_btn.addClass('active');

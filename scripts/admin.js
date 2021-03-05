@@ -1,6 +1,8 @@
 import { jQuery as $ } from './src/jquery-3.5.1.js';
 import V from './custom/Paths.js';
-import { timed } from './custom/K.js';
+import { K, timed } from './custom/K.js';
+import './src/jQuery-UI/jq-ui-core.js';
+import './src/jQuery-UI/modules/jq-ui-autocomplete.js';
 
 $(() => {
 	time.build($('.ks-progress-time'));
@@ -215,7 +217,9 @@ $(() => {
 	}, 2000);
 
 	const ids = {
+		el: $('div[data-name="toc"]'),
 		list: [],
+		changed: false,
 		timed: timed(),
 		text: {
 			content: null
@@ -235,19 +239,56 @@ $(() => {
 				if (content !== ids[on].content) {
 					ids[on].content = content;
 
-					ids.list = [];
+					const list = [];
 
 					$('<div />', {
 						html: content
 					}).find('[id][id!=""]').each(function() {
-						ids.list.push($(this).attr('id'));
+						list.push($(this).attr('id'));
 					});
+
+					if (!K.equals(ids.list, list)) {
+						ids.list = list;
+						ids.changed = true;
+						ids.autoComplete();
+					}
 				}
 			}, 2000);
+		},
+		autoComplete() {
+			const _els = $('td[data-name="id"] input', ids.el);
+			_els.autocomplete({
+				source: ids.list
+			});
+
+			const events = 'input change keyup click propertyChange';
+			_els.off(events).on(events, ids.ifError);
+			_els.each(ids.ifError);
+		},
+		ifError() {
+			const val = $(this).val();
+			if (ids.changed || $(this).data('value') !== val) {
+				ids.changed = false;
+
+				const _select = $(this).closest('.acf-table').find('[data-name=link] select'),
+					link = $(':selected', _select).text() !== '- Select -';
+
+				_select.data('timer') && clearInterval(_select.data('timer'));
+				_select.data('timer', setInterval(() => {
+					if (_select.data('value') !== $(':selected', _select).text()) {
+						_select.data('value', $(':selected', _select).text());
+						$(this).trigger('change');
+						ids.changed = true;
+					}
+				}, 2000));
+
+				$(this).data('value', val);
+				$(this)[`${K.isInArray(val, ids.list) || !val || link ? 'remove' : 'add'}Class`]('error');
+			}
 		}
 	};
 
-	if ($('div[data-name="toc"]').length) {
+	if (ids.el.length) {
 		$('#post-body-content').on('input propertyChange', 'textarea#content', ids.update);
 
 		const editor = setInterval(() => {
@@ -260,6 +301,8 @@ $(() => {
 		}, 2000);
 
 		ids.update();
+
+		ids.el.on('click', 'a[data-event=add-row]', ids.autoComplete);
 	}
 });
 

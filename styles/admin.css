@@ -148,7 +148,7 @@
   opacity: 0.6;
 }
 .ks-box .ks-setting-box .ks-button {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   border: 0;
   background-color: #fff;
   margin: 0;
@@ -219,7 +219,7 @@
   font-size: 17px;
 }
 .ks-progress .ks-progress-back {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #29c4a9;
   position: absolute;
   left: 0;
@@ -261,7 +261,7 @@
   cursor: pointer;
 }
 .check-wrap .check-mark::after {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   content: "";
   position: absolute;
   top: 0;
@@ -356,4 +356,7 @@
 }
 .acf-input .edit {
   cursor: pointer;
+}
+.acf-input .error {
+  background-color: #f7c1c1;
 }
