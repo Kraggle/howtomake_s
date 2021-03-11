@@ -1,9 +1,9 @@
-import { jQuery as $ } from '../../jquery-3.5.1.js';
-import '../jq-ui-core.js';
-import './jq-ui-mouse.js'
-import './jq-ui-sortable.js'
-import './jq-ui-selectable.js'
-import './jq-ui-disable-selection.js'
+import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import '../jq-ui-core-min.js';
+import './jq-ui-mouse-min.js'
+import './jq-ui-sortable-min.js'
+import './jq-ui-selectable-min.js'
+import './jq-ui-disable-selection-min.js'
 /*!
  * jQuery UI Resizable 1.12.1
  * http://jqueryui.com
@@ -278,8 +278,8 @@ $.widget("ui.resizable", $.ui.mouse, {
 
                 if (this.elementIsWrapper &&
                     this.originalElement[0]
-                    .nodeName
-                    .match(/^(textarea|input|select|button)$/i)) {
+                        .nodeName
+                        .match(/^(textarea|input|select|button)$/i)) {
                     axis = $(this.handles[i], this.element);
 
                     padWrapper = /sw|ne|nw|se|n|s/.test(i) ?
@@ -288,8 +288,8 @@ $.widget("ui.resizable", $.ui.mouse, {
 
                     padPos = ["padding",
                         /ne|nw|n/.test(i) ? "Top" :
-                        /se|sw|s/.test(i) ? "Bottom" :
-                        /^e$/.test(i) ? "Right" : "Left"
+                            /se|sw|s/.test(i) ? "Bottom" :
+                                /^e$/.test(i) ? "Right" : "Left"
                     ].join("");
 
                     target.css(padPos, padWrapper);
@@ -808,27 +808,27 @@ $.ui.plugin.add("resizable", "animate", {
 
         that.element.animate(
             $.extend(style, top && left ? { top: top, left: left } : {}), {
-                duration: o.animateDuration,
-                easing: o.animateEasing,
-                step: function() {
+            duration: o.animateDuration,
+            easing: o.animateEasing,
+            step: function() {
 
-                    var data = {
-                        width: parseFloat(that.element.css("width")),
-                        height: parseFloat(that.element.css("height")),
-                        top: parseFloat(that.element.css("top")),
-                        left: parseFloat(that.element.css("left"))
-                    };
+                var data = {
+                    width: parseFloat(that.element.css("width")),
+                    height: parseFloat(that.element.css("height")),
+                    top: parseFloat(that.element.css("top")),
+                    left: parseFloat(that.element.css("left"))
+                };
 
-                    if (pr && pr.length) {
-                        $(pr[0]).css({ width: data.width, height: data.height });
-                    }
-
-                    // Propagating resize, and updating values for each animation step
-                    that._updateCache(data);
-                    that._propagate("resize", event);
-
+                if (pr && pr.length) {
+                    $(pr[0]).css({ width: data.width, height: data.height });
                 }
+
+                // Propagating resize, and updating values for each animation step
+                that._updateCache(data);
+                that._propagate("resize", event);
+
             }
+        }
         );
     }
 
@@ -843,8 +843,8 @@ $.ui.plugin.add("resizable", "containment", {
             el = that.element,
             oc = o.containment,
             ce = (oc instanceof $) ?
-            oc.get(0) :
-            (/parent/.test(oc)) ? el.parent().get(0) : oc;
+                oc.get(0) :
+                (/parent/.test(oc)) ? el.parent().get(0) : oc;
 
         if (!ce) {
             return;

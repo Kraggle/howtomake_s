@@ -1,8 +1,8 @@
-import { jQuery as $ } from './src/jquery-3.5.1.js';
+import { jQuery as $ } from './src/jquery-3.5.1-min.js';
 import V from './custom/Paths.js';
-import { K, timed } from './custom/K.js';
-import './src/jQuery-UI/jq-ui-core.js';
-import './src/jQuery-UI/modules/jq-ui-autocomplete.js';
+import { K, timed } from './custom/K-min.js';
+import './src/jQuery-UI/jq-ui-core-min.js';
+import './src/jQuery-UI/modules/jq-ui-autocomplete-min.js';
 
 $(() => {
 	time.build($('.ks-progress-time'));

@@ -1,4 +1,4 @@
-import { jQuery as $ } from './jquery3.4.1.js';
+import { jQuery as $ } from './jquery-3.5.1-min.js';
 
 const imgColor = {
 	pluginName: 'imgColor',
@@ -157,7 +157,7 @@ function Plugin(element, selector, options) {
 		options.ignore = ignore;
 	}
 
-	options.success = function (data) {
+	options.success = function(data) {
 		var matches = typeof selector === 'function' ? selector.call(element, element, data.color) :
 			typeof selector === 'string' ? $(selector) : el.parent();
 		// for `selector.call(element, element, data.color)` may not return a jQuery object
@@ -172,8 +172,8 @@ function Plugin(element, selector, options) {
 // @param selector {Selector | Function}[optional]
 // @param {string}   options.ignore - Which border should be ignored,
 //    there are 4 kinds of values: 't', 'r', 'b', 'l', you can ignore multiple borders like this: 'tb', it's optional
-$.fn[imgColor.pluginName] = function (selector, options) {
-	return this.each(function () {
+$.fn[imgColor.pluginName] = function(selector, options) {
+	return this.each(function() {
 		new Plugin(this, selector, options);
 	});
 };

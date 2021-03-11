@@ -1,8 +1,8 @@
-import { jQuery as $ } from './src/jquery-3.5.1.js';
-import header from './partials/header.js';
-import dialog from './util/dialog.js';
-import './custom/jquery-visible.js';
-import { timed } from './custom/K.js';
+import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+import header from './partials/header-min.js';
+import dialog from './util/dialog-min.js';
+import './custom/jquery-visible-min.js';
+import { timed } from './custom/K-min.js';
 
 $(() => {
 	header.build();

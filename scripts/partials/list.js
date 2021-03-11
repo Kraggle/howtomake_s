@@ -1,6 +1,6 @@
-import { jQuery as $ } from '../src/jquery-3.5.1.js';
+import { jQuery as $ } from '../src/jquery-3.5.1-min.js';
 
-export const onResize = (force) => {
+export const onResize = force => {
 	const using = $('.list-part:visible').length;
 	if (force || $('.list').data('using') != using) {
 

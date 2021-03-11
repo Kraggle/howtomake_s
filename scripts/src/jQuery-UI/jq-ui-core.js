@@ -1,4 +1,4 @@
-import { jQuery as $ } from '../jquery-3.5.1.js';
+import { jQuery as $ } from '../jquery-3.5.1-min.js';
 
 /*! jQuery UI - v1.12.1 - 2019-06-09
  * http://jqueryui.com

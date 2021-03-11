@@ -23,6 +23,7 @@ function htm_add_head_stuff() {
 
 	$path = get_template_directory();
 	$uri = get_template_directory_uri();
+	$min = IS_LIVE ? '-min' : '';
 
 	$links = (object) [
 		"everyPage" => (object) [
@@ -30,8 +31,8 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-main",
-					"path" => "$path/scripts/main.js",
-					"src" => "$uri/scripts/main.js",
+					"path" => "$path/scripts/main{$min}.js",
+					"src" => "$uri/scripts/main{$min}.js",
 					"module" => true,
 					"params" => [ // These appear as global js object called 'params'
 						'ajax' => admin_url('admin-ajax.php'),
@@ -56,8 +57,8 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-single",
-					"path" => "$path/scripts/single.js",
-					"src" => "$uri/scripts/single.js",
+					"path" => "$path/scripts/single{$min}.js",
+					"src" => "$uri/scripts/single{$min}.js",
 					"module" => true,
 					"params" => [
 						'ajax' => admin_url('admin-ajax.php'),
@@ -77,8 +78,8 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-category",
-					"path" => "$path/scripts/category.js",
-					"src" => "$uri/scripts/category.js",
+					"path" => "$path/scripts/category{$min}.js",
+					"src" => "$uri/scripts/category{$min}.js",
 					"module" => true
 				]
 			],
@@ -95,8 +96,8 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-search",
-					"path" => "$path/scripts/search.js",
-					"src" => "$uri/scripts/search.js",
+					"path" => "$path/scripts/search{$min}.js",
+					"src" => "$uri/scripts/search{$min}.js",
 					"module" => true
 				]
 			],
@@ -113,8 +114,8 @@ function htm_add_head_stuff() {
 			"scripts" => [
 				(object) [
 					"name" => "htm_s-channel",
-					"path" => "$path/scripts/channel.js",
-					"src" => "$uri/scripts/channel.js",
+					"path" => "$path/scripts/channel{$min}.js",
+					"src" => "$uri/scripts/channel{$min}.js",
 					"module" => true
 				]
 			],

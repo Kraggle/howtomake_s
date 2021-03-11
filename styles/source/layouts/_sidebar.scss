@@ -335,6 +335,7 @@ aside.sidebar {
             text-align: left;
             display: flex;
             flex-direction: column;
+            width: 100%;
 
             .item {
                 @include transition;

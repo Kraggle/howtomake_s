@@ -1,6 +1,6 @@
-import { jQuery as $ } from '../../jquery-3.5.1.js';
-import './jq-ui-mouse.js';
-import './jq-ui-keycode.js';
+import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import './jq-ui-mouse-min.js';
+import './jq-ui-keycode-min.js';
 
 /*!
  * jQuery UI Slider 1.12.1

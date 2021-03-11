@@ -1,0 +1,284 @@
+@import './common/variables';
+
+svg {
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+#htm-keyword-info {
+    .htm-tabs {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        align-items: flex-end;
+        gap: 5px;
+        color: #666;
+        z-index: 1;
+        position: relative;
+        top: 1px;
+
+        > .tab {
+            padding: 5px 10px;
+            align-self: stretch;
+        }
+    }
+
+    .tab-group {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        grid-template-rows: repeat(2, 20px);
+        justify-items: stretch;
+
+        label {
+            grid-area: 1/1/2/-1;
+            cursor: initial;
+            background-color: #ebebeb;
+            text-align: center;
+            border: 1px solid #e5e5e5;
+            border-bottom: 0;
+        }
+    }
+
+    .tab {
+        padding: 0 10px;
+        cursor: pointer;
+        background-color: #ebebeb;
+        border: 1px solid #e5e5e5;
+
+        &.active {
+            color: #555;
+            background-color: #f5f5f5;
+            border-bottom-color: #f5f5f5;
+        }
+
+        svg {
+            margin-top: 5px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .htm-boxes {
+        width: 100%;
+        position: relative;
+        background-color: #fff;
+        min-height: 200px;
+        border: 1px solid #e5e5e5;
+    }
+
+    .box {
+        display: none;
+
+        &.active {
+            display: initial;
+        }
+
+        .title {
+            padding: 12px;
+            margin: 0;
+            font-size: 14px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #e5e5e5;
+
+            span {
+                font-weight: normal;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .section-wrap {
+        padding: 12px;
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .head {
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.1;
+            margin: 2px 0 12px 5px;
+        }
+    }
+
+    .input-wrap {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        gap: 5px;
+        padding-bottom: 5px;
+    }
+
+    .button {
+        position: relative;
+        vertical-align: middle;
+        width: 36px;
+        border-color: #7e8993;
+
+        svg {
+            position: absolute;
+            width: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &.delete {
+            color: $color-error;
+        }
+    }
+
+    .actions {
+        text-align: right;
+    }
+
+    .button-primary {
+        &.save {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: $color-gradient;
+            border-color: $color-gradient;
+
+            &:hover {
+                background: darken($color-gradient, 5%);
+            }
+        }
+    }
+
+    input[type=number] {
+        padding-right: 0;
+    }
+
+    .filter-input {
+        padding: 0 0 0 8px;
+        margin: 12px;
+        width: calc(100% - 24px);
+
+        &::placeholder {
+            color: #bbb;
+        }
+    }
+
+    .switch-wrap {
+        display: inline-block;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        background: #f5f5f5;
+        height: 30px;
+        vertical-align: middle;
+        border: #7e8993 solid 1px;
+        transition: background 0.25s ease;
+
+        .switch {
+            min-width: 19px;
+            float: left;
+            text-align: center;
+            font-size: 13px;
+            line-height: 22px;
+            padding: 4px 10px;
+
+            &.on {
+                color: #fff;
+                text-shadow: #007cba 0 1px 0;
+            }
+        }
+
+        .switch-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            right: 50%;
+            z-index: 1;
+            background: #fff;
+            border-radius: 3px;
+            border: #7e8993 solid 1px;
+            transition: all 0.25s ease;
+            transition-property: left, right;
+        }
+    }
+
+    .switch-input {
+        display: none;
+
+        &:checked {
+            ~ .switch-wrap {
+                background: #0d99d5;
+                border-color: #007cba;
+
+                .switch-slider {
+                    left: 50%;
+                    right: 2px;
+                    border-color: #007cba;
+                }
+            }
+        }
+    }
+
+    .keys-table {
+        padding: 0 12px 12px;
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 45px 60px;
+            gap: 5px;
+            align-items: center;
+            justify-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #e5e5e5;
+
+            &.head {
+                font-weight: 500;
+            }
+
+            &:last-of-type {
+                border-bottom: 0;
+            }
+
+            .left {
+                justify-self: flex-start;
+            }
+
+            &.hide {
+                display: none;
+            }
+        }
+
+        .head-wrap {
+            display: grid;
+            grid-template-columns: 1fr 15px;
+            justify-self: flex-start;
+            cursor: pointer;
+
+            .icon {
+                position: relative;
+                opacity: 0.1;
+            }
+
+            &.sort {
+                .icon {
+                    opacity: 1;
+                }
+            }
+
+            &[order=desc] {
+                svg {
+                    transform: rotate(180deg) translateY(50%);
+                }
+            }
+
+            svg {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                width: 10px;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

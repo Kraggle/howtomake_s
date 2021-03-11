@@ -1,6 +1,6 @@
-import { jQuery as $ } from '../../jquery-3.5.1.js';
-import '../jq-ui-core.js';
-import './jq-ui-mouse.js'
+import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import '../jq-ui-core-min.js';
+import './jq-ui-mouse-min.js'
 
 /*!
  * jQuery UI Focusable 1.12.1

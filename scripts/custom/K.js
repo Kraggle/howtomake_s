@@ -502,6 +502,7 @@ K.Util = {
 				case 'number':
 					if (!obj1 && K.Util.isNull(obj2)) return true;
 					if (obj1 && !obj2) return false;
+					return false;
 				case 'string':
 				case 'boolean':
 					if (obj1 != obj2) return false;
@@ -516,18 +517,16 @@ K.Util = {
 		return true;
 	},
 
-	isNull: (obj) => {
-		return K.Util.isInArray(K.Util.type(obj), ['null', 'undefined']);
-	},
+	isNull: obj => K.Util.isInArray(K.Util.type(obj), ['null', 'undefined']),
 
-	length: (item) => {
+	length: item => {
 		const type = K.Util.type(item);
 		if (type == 'object') return Object.keys(item).length;
 		else if (type == 'array') return item.length;
 		return 0;
 	},
 
-	empty: (obj) => {
+	empty: obj => {
 		switch (K.Util.type(obj)) {
 			case 'object':
 				for (const _name in obj) return false;

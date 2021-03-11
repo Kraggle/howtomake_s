@@ -1,12 +1,12 @@
-import { jQuery as $ } from '../../jquery-3.5.1.js';
-import '../jq-ui-core.js';
-import '../effects/jq-ui-effects.js';
-import './jq-ui-position.js'
-import './jq-ui-draggable.js'
-import './jq-ui-resizeable.js'
-import './jq-ui-tabbable.js'
-import './jq-ui-button.js'
-import './jq-ui-keycode.js'
+import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import '../jq-ui-core-min.js';
+import '../effects/jq-ui-effects-min.js';
+import './jq-ui-position-min.js'
+import './jq-ui-draggable-min.js'
+import './jq-ui-resizeable-min.js'
+import './jq-ui-tabbable-min.js'
+import './jq-ui-button-min.js'
+import './jq-ui-keycode-min.js'
 
 
 /*!
@@ -315,7 +315,7 @@ $.widget("ui.dialog", {
         function checkFocus() {
             var activeElement = $.ui.safeActiveElement(this.document[0]),
                 isActive = this.uiDialog[0] === activeElement ||
-                $.contains(this.uiDialog[0], activeElement);
+                    $.contains(this.uiDialog[0], activeElement);
             if (!isActive) {
                 this._focusTabbable();
             }
@@ -365,7 +365,7 @@ $.widget("ui.dialog", {
                     });
                     event.preventDefault();
                 } else if ((event.target === first[0] ||
-                        event.target === this.uiDialog[0]) && event.shiftKey) {
+                    event.target === this.uiDialog[0]) && event.shiftKey) {
                     this._delay(function() {
                         last.trigger("focus");
                     });
@@ -563,8 +563,8 @@ $.widget("ui.dialog", {
             // but dialogs have to use absolute or fixed positioning
             position = this.uiDialog.css("position"),
             resizeHandles = typeof handles === "string" ?
-            handles :
-            "n,e,s,w,se,sw,ne,nw";
+                handles :
+                "n,e,s,w,se,sw,ne,nw";
 
         function filteredUi(ui) {
             return {
@@ -576,40 +576,40 @@ $.widget("ui.dialog", {
         }
 
         this.uiDialog.resizable({
-                cancel: ".ui-dialog-content",
-                containment: "document",
-                alsoResize: this.element,
-                maxWidth: options.maxWidth,
-                maxHeight: options.maxHeight,
-                minWidth: options.minWidth,
-                minHeight: this._minHeight(),
-                handles: resizeHandles,
-                start: function(event, ui) {
-                    that._addClass($(this), "ui-dialog-resizing");
-                    that._blockFrames();
-                    that._trigger("resizeStart", event, filteredUi(ui));
-                },
-                resize: function(event, ui) {
-                    that._trigger("resize", event, filteredUi(ui));
-                },
-                stop: function(event, ui) {
-                    var offset = that.uiDialog.offset(),
-                        left = offset.left - that.document.scrollLeft(),
-                        top = offset.top - that.document.scrollTop();
+            cancel: ".ui-dialog-content",
+            containment: "document",
+            alsoResize: this.element,
+            maxWidth: options.maxWidth,
+            maxHeight: options.maxHeight,
+            minWidth: options.minWidth,
+            minHeight: this._minHeight(),
+            handles: resizeHandles,
+            start: function(event, ui) {
+                that._addClass($(this), "ui-dialog-resizing");
+                that._blockFrames();
+                that._trigger("resizeStart", event, filteredUi(ui));
+            },
+            resize: function(event, ui) {
+                that._trigger("resize", event, filteredUi(ui));
+            },
+            stop: function(event, ui) {
+                var offset = that.uiDialog.offset(),
+                    left = offset.left - that.document.scrollLeft(),
+                    top = offset.top - that.document.scrollTop();
 
-                    options.height = that.uiDialog.height();
-                    options.width = that.uiDialog.width();
-                    options.position = {
-                        my: "left top",
-                        at: "left" + (left >= 0 ? "+" : "") + left + " " +
-                            "top" + (top >= 0 ? "+" : "") + top,
-                        of: that.window
-                    };
-                    that._removeClass($(this), "ui-dialog-resizing");
-                    that._unblockFrames();
-                    that._trigger("resizeStop", event, filteredUi(ui));
-                }
-            })
+                options.height = that.uiDialog.height();
+                options.width = that.uiDialog.width();
+                options.position = {
+                    my: "left top",
+                    at: "left" + (left >= 0 ? "+" : "") + left + " " +
+                        "top" + (top >= 0 ? "+" : "") + top,
+                    of: that.window
+                };
+                that._removeClass($(this), "ui-dialog-resizing");
+                that._unblockFrames();
+                that._trigger("resizeStop", event, filteredUi(ui));
+            }
+        })
             .css("position", position);
     },
 
@@ -777,9 +777,9 @@ $.widget("ui.dialog", {
         // Reset wrapper sizing
         // determine the height of all the non-content elements
         nonContentHeight = this.uiDialog.css({
-                height: "auto",
-                width: options.width
-            })
+            height: "auto",
+            width: options.width
+        })
             .outerHeight();
         minContentHeight = Math.max(0, options.minHeight - nonContentHeight);
         maxContentHeight = typeof options.maxHeight === "number" ?

@@ -1400,29 +1400,29 @@ function htm_user_post_interaction() {
 
 	$user = wp_get_current_user();
 
-	if(!$user){
-		wp_send_json_error( "Authentication error" );
+	if (!$user) {
+		wp_send_json_error("Authentication error");
 		exit;
 	}
 
-	if(!in_array($action, ['like', 'dislike', 'fave'])){
-		wp_send_json_error( "Invalid action" );
+	if (!in_array($action, ['like', 'dislike', 'fave'])) {
+		wp_send_json_error("Invalid action");
 		exit;
 	}
 
-	if(!in_array($state, ['on', 'off'])){
-		wp_send_json_error( "Invalid state" );
+	if (!in_array($state, ['on', 'off'])) {
+		wp_send_json_error("Invalid state");
 		exit;
 	}
 
-	
-	if($state == 'off'){
+
+	if ($state == 'off') {
 		delete_user_post_interaction($user->ID, $postId, $action);
-	}else{
+	} else {
 		$return = save_user_post_interaction($user->ID, $postId, $action, $state);
-		if($action == 'like'){
+		if ($action == 'like') {
 			delete_user_post_interaction($user->ID, $postId, 'dislike');
-		}elseif($action == 'dislike'){
+		} elseif ($action == 'dislike') {
 			delete_user_post_interaction($user->ID, $postId, 'like');
 		}
 	}
@@ -1436,3 +1436,45 @@ function htm_user_post_interaction() {
 }
 add_ajax_action('user_post_interaction');
 
+/**
+ * 
+ * 
+ * @return void 
+ */
+function htm_get_keyword_settings() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'density_nonce'))
+		exit(FAILED_NONCE);
+
+	global $stop_words_default;
+
+	$return = (object) [
+		'ignore_list' => wp_unslash(get_option('keywords_ignore_list', $stop_words_default)),
+		'min_words' => get_option('keywords_min_words', 1),
+		'max_words' => get_option('keywords_max_words', 6),
+		'refresh' => get_option('keywords_refresh', 2),
+		'min_count' => get_option('keywords_min_count', 2),
+		'ignore_enabled' => get_option('keywords_ignore_enabled', true),
+	];
+
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_keyword_settings');
+
+/**
+ * 
+ * 
+ * @return void 
+ */
+function htm_set_keyword_settings() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'density_nonce'))
+		exit(FAILED_NONCE);
+
+	$data = $_REQUEST['data'];
+
+	foreach ($data as $key => $value)
+		update_option("keywords_{$key}", wp_unslash($value));
+
+	exit;
+}
+add_ajax_action('set_keyword_settings');

@@ -59,7 +59,7 @@ array_map(function ($file) use ($htm_s_error) {
 		$htm_s_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
 	}
 }, [
-	'enqueue', 'filters', 'media', 'widgets', 'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts', 'shortcodes', 'forms', 'import-classes', 'ajax-calls', 'admin-menu-tool', 'mail', 'contact-form-7', 'option-pages'
+	'enqueue', 'filters', 'actions', 'media', 'widgets', 'template-tags', 'other-functions', 'template-functions', 'customizer', 'custom-posts', 'shortcodes', 'forms', 'import-classes', 'ajax-calls', 'admin-menu-tool', 'mail', 'contact-form-7', 'option-pages'
 ]);
 
 add_action('init', function () {

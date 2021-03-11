@@ -1,5 +1,5 @@
-import { jQuery as $ } from '../../jquery-3.5.1.js';
-import '../jq-ui-core.js';
+import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import '../jq-ui-core-min.js';
 
 /*!
  * jQuery UI Position 1.12.1

@@ -1,0 +1,1 @@
+import{jQuery as r}from"./src/jquery-3.5.1-min.js";import{list as i}from"./partials/list-min.js";import m from"./partials/gallery-min.js";r((()=>{i.build(),m.build()}));

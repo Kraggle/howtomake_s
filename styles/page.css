@@ -315,6 +315,7 @@ aside.sidebar .content.ul, aside.sidebar .content.ol {
   text-align: left;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 aside.sidebar .content.ul .item, aside.sidebar .content.ol .item {
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);

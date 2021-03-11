@@ -1,5 +1,5 @@
-import { jQuery as $ } from '../../jquery-3.5.1.js';
-import '../jq-ui-core.js';
+import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import '../jq-ui-core-min.js';
 /*!
  * jQuery UI Button 1.12.1
  * http://jqueryui.com
@@ -286,7 +286,7 @@ if ($.uiBackCompat !== false) {
                 this.options.text = this.options.showLabel;
             }
             if (!this.options.icon && (this.options.icons.primary ||
-                    this.options.icons.secondary)) {
+                this.options.icons.secondary)) {
                 if (this.options.icons.primary) {
                     this.options.icon = this.options.icons.primary;
                 } else {

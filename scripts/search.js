@@ -1,8 +1,8 @@
-import { jQuery as $ } from './src/jquery-3.5.1.js';
-import './src/jQuery-UI/importer.js';
+import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+import './src/jQuery-UI/importer-min.js';
 import V from './custom/Paths.js';
-import { timed, K } from './custom/K.js';
-import { clamp as $clamp } from './src/clamp.js';
+import { timed, K } from './custom/K-min.js';
+import { clamp as $clamp } from './src/clamp-min.js';
 
 const timer = timed();
 

@@ -1,8 +1,8 @@
-import { jQuery as $ } from '../src/jquery-3.5.1.js';
+import { jQuery as $ } from '../src/jquery-3.5.1-min.js';
 import V from '../custom/Paths.js';
-import SVG from '../custom/SVGIcons.js';
+import SVG from '../custom/SVGIcons-min.js';
 // import '../src/imgColor.js';
-import { clamp as $clamp } from '../src/clamp.js';
+import { clamp as $clamp } from '../src/clamp-min.js';
 
 const timer = {
 	category: 1500,

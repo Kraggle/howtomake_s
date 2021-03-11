@@ -1,5 +1,5 @@
-import { jQuery as $ } from './src/jquery-3.5.1.js';
-import { clamp as $clamp } from './src/clamp.js';
+import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+import { clamp as $clamp } from './src/clamp-min.js';
 
 const tileWidth = 216;
 
@@ -65,14 +65,14 @@ $(() => {
 		});
 	}
 
-	$('.youtube .button-wrap .video').click( function(){
+	$('.youtube .button-wrap .video').click(function() {
 
 		var btn = $(this);
 
 
 
 		btn.addClass('loading');
-		
+
 		$.ajax({
 			url: params.ajax,
 			data: {
@@ -80,15 +80,15 @@ $(() => {
 				nonce: $('.youtube .button-wrap ').data('nonce'),
 				post_id: btn.data('post-id'),
 				user_action: btn.data('action'),
-				state: btn.hasClass('selected')?'off':'on'// Previous state
+				state: btn.hasClass('selected') ? 'off' : 'on'// Previous state
 			}
 		}).done(function(json) {
 			btn.removeClass('loading')
 			btn.toggleClass('selected');
 
 			// When turning on Like/Dislike, switch the other one off
-			if(btn.hasClass("like") && btn.hasClass("selected"))$(".dislike").removeClass("selected");
-			if(btn.hasClass("dislike") && btn.hasClass("selected"))$(".like").removeClass("selected");
+			if (btn.hasClass("like") && btn.hasClass("selected")) $(".dislike").removeClass("selected");
+			if (btn.hasClass("dislike") && btn.hasClass("selected")) $(".like").removeClass("selected");
 
 
 			var data = JSON.parse(json)

@@ -1,0 +1,243 @@
+/** Import Bootstrap functions */
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: italic;
+}
+svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+#htm-keyword-info .htm-tabs {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: flex-end;
+  gap: 5px;
+  color: #666;
+  z-index: 1;
+  position: relative;
+  top: 1px;
+}
+#htm-keyword-info .htm-tabs > .tab {
+  padding: 5px 10px;
+  align-self: stretch;
+}
+#htm-keyword-info .tab-group {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-template-rows: repeat(2, 20px);
+  justify-items: stretch;
+}
+#htm-keyword-info .tab-group label {
+  grid-area: 1/1/2/-1;
+  cursor: initial;
+  background-color: #ebebeb;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+  border-bottom: 0;
+}
+#htm-keyword-info .tab {
+  padding: 0 10px;
+  cursor: pointer;
+  background-color: #ebebeb;
+  border: 1px solid #e5e5e5;
+}
+#htm-keyword-info .tab.active {
+  color: #555;
+  background-color: #f5f5f5;
+  border-bottom-color: #f5f5f5;
+}
+#htm-keyword-info .tab svg {
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+}
+#htm-keyword-info .htm-boxes {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  min-height: 200px;
+  border: 1px solid #e5e5e5;
+}
+#htm-keyword-info .box {
+  display: none;
+}
+#htm-keyword-info .box.active {
+  display: initial;
+}
+#htm-keyword-info .box .title {
+  padding: 12px;
+  margin: 0;
+  font-size: 14px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e5e5e5;
+}
+#htm-keyword-info .box .title span {
+  font-weight: normal;
+  font-size: 13px;
+}
+#htm-keyword-info .section-wrap {
+  padding: 12px;
+}
+#htm-keyword-info .section-wrap:not(:last-of-type) {
+  border-bottom: 1px solid #e5e5e5;
+}
+#htm-keyword-info .section-wrap .head {
+  font-weight: bold;
+}
+#htm-keyword-info .section-wrap p {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.1;
+  margin: 2px 0 12px 5px;
+}
+#htm-keyword-info .input-wrap {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: 5px;
+  padding-bottom: 5px;
+}
+#htm-keyword-info .button {
+  position: relative;
+  vertical-align: middle;
+  width: 36px;
+  border-color: #7e8993;
+}
+#htm-keyword-info .button svg {
+  position: absolute;
+  width: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#htm-keyword-info .button.delete {
+  color: #e07171;
+}
+#htm-keyword-info .actions {
+  text-align: right;
+}
+#htm-keyword-info .button-primary.save {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #29c4a9;
+  border-color: #29c4a9;
+}
+#htm-keyword-info .button-primary.save:hover {
+  background: #25af97;
+}
+#htm-keyword-info input[type=number] {
+  padding-right: 0;
+}
+#htm-keyword-info .filter-input {
+  padding: 0 0 0 8px;
+  margin: 12px;
+  width: calc(100% - 24px);
+}
+#htm-keyword-info .filter-input::placeholder {
+  color: #bbb;
+}
+#htm-keyword-info .switch-wrap {
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  background: #f5f5f5;
+  height: 30px;
+  vertical-align: middle;
+  border: #7e8993 solid 1px;
+  transition: background 0.25s ease;
+}
+#htm-keyword-info .switch-wrap .switch {
+  min-width: 19px;
+  float: left;
+  text-align: center;
+  font-size: 13px;
+  line-height: 22px;
+  padding: 4px 10px;
+}
+#htm-keyword-info .switch-wrap .switch.on {
+  color: #fff;
+  text-shadow: #007cba 0 1px 0;
+}
+#htm-keyword-info .switch-wrap .switch-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 50%;
+  z-index: 1;
+  background: #fff;
+  border-radius: 3px;
+  border: #7e8993 solid 1px;
+  transition: all 0.25s ease;
+  transition-property: left, right;
+}
+#htm-keyword-info .switch-input {
+  display: none;
+}
+#htm-keyword-info .switch-input:checked ~ .switch-wrap {
+  background: #0d99d5;
+  border-color: #007cba;
+}
+#htm-keyword-info .switch-input:checked ~ .switch-wrap .switch-slider {
+  left: 50%;
+  right: 2px;
+  border-color: #007cba;
+}
+#htm-keyword-info .keys-table {
+  padding: 0 12px 12px;
+}
+#htm-keyword-info .keys-table .row {
+  display: grid;
+  grid-template-columns: 1fr 45px 60px;
+  gap: 5px;
+  align-items: center;
+  justify-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+#htm-keyword-info .keys-table .row.head {
+  font-weight: 500;
+}
+#htm-keyword-info .keys-table .row:last-of-type {
+  border-bottom: 0;
+}
+#htm-keyword-info .keys-table .row .left {
+  justify-self: flex-start;
+}
+#htm-keyword-info .keys-table .row.hide {
+  display: none;
+}
+#htm-keyword-info .keys-table .head-wrap {
+  display: grid;
+  grid-template-columns: 1fr 15px;
+  justify-self: flex-start;
+  cursor: pointer;
+}
+#htm-keyword-info .keys-table .head-wrap .icon {
+  position: relative;
+  opacity: 0.1;
+}
+#htm-keyword-info .keys-table .head-wrap.sort .icon {
+  opacity: 1;
+}
+#htm-keyword-info .keys-table .head-wrap[order=desc] svg {
+  transform: rotate(180deg) translateY(50%);
+}
+#htm-keyword-info .keys-table .head-wrap svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 10px;
+  transform: translateY(-50%);
+}

@@ -1,6 +1,6 @@
-import { jQuery as $ } from './src/jquery-3.5.1.js';
-import { list } from './partials/list.js';
-import gallery from './partials/gallery.js';
+import { jQuery as $ } from './src/jquery-3.5.1-min.js';
+import { list } from './partials/list-min.js';
+import gallery from './partials/gallery-min.js';
 
 $(() => {
 

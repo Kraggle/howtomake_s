@@ -1,4 +1,4 @@
-import { jQuery as $ } from '../src/jquery-3.5.1.js';
+import { jQuery as $ } from '../src/jquery-3.5.1-min.js';
 
 const $w = $(window);
 $.fn.visible = function(partial, hidden, direction, container) {

@@ -1,9 +1,9 @@
-import { jQuery as $ } from '../../jquery-3.5.1.js';
-import './jq-ui-keycode.js';
-import './jq-ui-mouse.js';
-import './jq-ui-menu.js';
-import './jq-ui-position.js';
-import '../effects/jq-ui-effects.js';
+import { jQuery as $ } from '../../jquery-3.5.1-min.js';
+import './jq-ui-keycode-min.js';
+import './jq-ui-mouse-min.js';
+import './jq-ui-menu-min.js';
+import './jq-ui-position-min.js';
+import '../effects/jq-ui-effects-min.js';
 
 /*!
  * jQuery UI Autocomplete 1.12.1
