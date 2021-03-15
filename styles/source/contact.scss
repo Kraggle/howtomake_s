@@ -1,10 +1,116 @@
-// @import "common/variables";
+@import 'common/variables';
 
-.et-db #et-boc .et-l .et_pb_contact_form_0 .et_pb_contact_field .input {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
+.title {
+    color: #fff;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: 700;
+}
 
-    &::placeholder {
-        letter-spacing: 1px;
+.wp-block-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    box-shadow: 0 26px 90px -14px rgba(#000, 0.18);
+    max-width: calc(100vw - 80px);
+    margin: 0 auto;
+    z-index: 1;
+
+    @media (max-width: 1109px) {
+        grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 412px) {
+        max-width: 100%;
+    }
+
+    > :first-child {
+        background-image: linear-gradient(-15deg, $color-main 0%, $color-gradient 100%);
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        padding: 60px;
+        gap: 30px;
+        justify-content: center;
+
+        @media (max-width: 400px) {
+            padding: 40px;
+        }
+    }
+
+    > :nth-child(2) {
+        background-color: rgba(#fff, 0.63);
+        margin: 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: calc(100% - 120px);
+        margin: 180px auto;
+
+        @media (max-width: 400px) {
+            width: calc(100% - 80px);
+            margin: 80px auto;
+        }
+    }
+
+    textarea,
+    input:not([type=submit]) {
+        background-color: transparent;
+        color: #000;
+        border-bottom: 3px inset rgba(0, 71, 214, 0.1);
+        width: 100%;
+        padding: 16px 0;
+        font-size: 14px;
+
+        &::placeholder {
+            text-transform: uppercase;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: 700;
+            opacity: 1;
+        }
+    }
+
+    textarea {
+        height: 115px;
+    }
+
+    input[type=submit] {
+        @include transition;
+
+        padding: 14px 40px;
+        background-color: transparent;
+        border: 2px solid $color-gradient;
+        border-radius: 50px;
+        color: $color-gradient;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        float: right;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($color-gradient, 0.15);
+        }
+    }
+
+    h2 {
+        font-size: 70px;
+        font-weight: 300;
+        line-height: 1.2;
+
+        strong {
+            font-weight: 800;
+        }
+
+        @media (max-width: 570px) {
+            font-size: 50px;
+        }
+
+        @media (max-width: 462px) {
+            font-size: 40px;
+        }
     }
 }

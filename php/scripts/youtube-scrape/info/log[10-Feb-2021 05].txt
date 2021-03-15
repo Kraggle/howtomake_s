@@ -1,0 +1,146 @@
+[10-Feb-2021 05:00:02] &raquo; Getting the channels and checking if they need updating.
+[10-Feb-2021 05:00:02] &raquo; <b>Ahrefs</b>:
+[10-Feb-2021 05:00:02] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:04] &raquo;  &raquo; We have: 194 and there are 190 in total.
+[10-Feb-2021 05:00:04] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:04] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:04] &raquo; <b>Andrei Jikh</b>:
+[10-Feb-2021 05:00:04] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:07] &raquo;  &raquo; We have: 211 and there are 211 in total.
+[10-Feb-2021 05:00:07] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:07] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:07] &raquo; <b>Beast of eCom</b>:
+[10-Feb-2021 05:00:07] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:08] &raquo;  &raquo; We have: 136 and there are 136 in total.
+[10-Feb-2021 05:00:08] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:08] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:08] &raquo; <b>Daily Motivation</b>:
+[10-Feb-2021 05:00:08] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:10] &raquo;  &raquo; We have: 171 and there are 172 in total.
+[10-Feb-2021 05:00:10] &raquo;  &raquo; Results: 1
+[10-Feb-2021 05:00:10] &raquo;  &raquo;  &raquo; kK9QoolSs30 - Elon Musk: "I promised I wouldn't talk about this again!"
+[10-Feb-2021 05:00:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 26421
+[10-Feb-2021 05:00:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 26422
+[10-Feb-2021 05:00:21] &raquo; Restarting in 60 seconds
+[10-Feb-2021 05:00:21] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:21] &raquo; <b>Dragons Den</b>:
+[10-Feb-2021 05:00:21] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:25] &raquo;  &raquo; We have: 366 and there are 366 in total.
+[10-Feb-2021 05:00:25] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:25] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:25] &raquo; <b>Gabriel St-Germain</b>:
+[10-Feb-2021 05:00:25] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:26] &raquo;  &raquo; We have: 28 and there are 24 in total.
+[10-Feb-2021 05:00:26] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:26] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:26] &raquo; <b>Graham Stephan</b>:
+[10-Feb-2021 05:00:26] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:32] &raquo;  &raquo; We have: 585 and there are 586 in total.
+[10-Feb-2021 05:00:32] &raquo;  &raquo; Results: 1
+[10-Feb-2021 05:00:32] &raquo;  &raquo;  &raquo; Gr_pRSw4ZRw - BITCOIN TO $500,000 What You MUST Know
+[10-Feb-2021 05:00:32] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 26423
+[10-Feb-2021 05:00:44] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 26424
+[10-Feb-2021 05:00:44] &raquo; Restarting in 37 seconds
+[10-Feb-2021 05:00:44] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:44] &raquo; <b>Jack Kitchener</b>:
+[10-Feb-2021 05:00:44] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:47] &raquo;  &raquo; We have: 308 and there are 308 in total.
+[10-Feb-2021 05:00:47] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:47] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:48] &raquo; <b>Jared Goetz</b>:
+[10-Feb-2021 05:00:48] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:48] &raquo;  &raquo; We have: 21 and there are 20 in total.
+[10-Feb-2021 05:00:48] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:48] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:48] &raquo; <b>Kristin Stones</b>:
+[10-Feb-2021 05:00:48] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:50] &raquo;  &raquo; We have: 150 and there are 150 in total.
+[10-Feb-2021 05:00:50] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:00:50] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:00:50] &raquo; <b>Law of Attraction Coaching</b>:
+[10-Feb-2021 05:00:50] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:00:51] &raquo;  &raquo; We have: 103 and there are 104 in total.
+[10-Feb-2021 05:00:51] &raquo;  &raquo; Results: 1
+[10-Feb-2021 05:00:51] &raquo;  &raquo;  &raquo; Rn3f2XMob60 - I'M GOING TO MAKE IT Best Motivational Speech
+[10-Feb-2021 05:00:51] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 26425
+[10-Feb-2021 05:01:03] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 26426
+[10-Feb-2021 05:01:03] &raquo; Restarting in 18 seconds
+[10-Feb-2021 05:01:03] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:01:03] &raquo; <b>Robert Kiyosaki</b>:
+[10-Feb-2021 05:01:03] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:01:09] &raquo;  &raquo; We have: 568 and there are 567 in total.
+[10-Feb-2021 05:01:09] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:01:09] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:01:09] &raquo; <b>Shark Tank Australia</b>:
+[10-Feb-2021 05:01:09] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:01:11] &raquo;  &raquo; We have: 207 and there are 208 in total.
+[10-Feb-2021 05:01:11] &raquo;  &raquo; Results: 1
+[10-Feb-2021 05:01:11] &raquo;  &raquo;  &raquo; s1i1amacqZ8 - The World's First Patented Burger | Shark Tank AUS #Shorts
+[10-Feb-2021 05:01:11] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 26427
+[10-Feb-2021 05:01:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 26428
+[10-Feb-2021 05:01:25] &raquo; Restarting in -4 seconds
+[10-Feb-2021 05:01:25] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[10-Feb-2021 05:01:25] &raquo; Getting the channels and checking if they need updating.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[10-Feb-2021 05:01:25] &raquo; <b>Shark Tank Australia</b>:
+[10-Feb-2021 05:01:25] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:01:27] &raquo;  &raquo; We have: 208 and there are 208 in total.
+[10-Feb-2021 05:01:27] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:01:27] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:01:27] &raquo; <b>Valuetainment</b>:
+[10-Feb-2021 05:01:27] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:01:41] &raquo;  &raquo; We have: 1486 and there are 1484 in total.
+[10-Feb-2021 05:01:41] &raquo;  &raquo; Results: 2
+[10-Feb-2021 05:01:41] &raquo;  &raquo;  &raquo; GZ9gfxoFs10 - 10 Reasons Why Most Entrepreneurs Go Out of Business
+[10-Feb-2021 05:01:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 26429
+[10-Feb-2021 05:01:53] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 26430
+[10-Feb-2021 05:01:53] &raquo; Restarting in 52 seconds
+[10-Feb-2021 05:01:53] &raquo;  &raquo;  &raquo; fppZDBmvEWc - Don’t Become an Entrepreneur if You Hate This
+[10-Feb-2021 05:01:53] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 26431
+[10-Feb-2021 05:02:00] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 26432
+[10-Feb-2021 05:02:00] &raquo; Restarting in 45 seconds
+[10-Feb-2021 05:02:00] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:02:00] &raquo; <b>Wholesale Ted</b>:
+[10-Feb-2021 05:02:00] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[10-Feb-2021 05:02:02] &raquo;  &raquo; We have: 158 and there are 153 in total.
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Results: 0
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-10
+[10-Feb-2021 05:02:02] &raquo; Getting extra youtube information!
+[10-Feb-2021 05:02:02] &raquo; There are 25 that still have missing info.
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[10-Feb-2021 05:02:02] &raquo;  &raquo; Adding extra information for: Robinhood Just Responded To Us (CEO &amp; I Talk)
+[10-Feb-2021 05:02:05] &raquo;  &raquo; Adding extra information for: Tesla &amp; Elon Musk Buy Bitcoin GAME OVER
+[10-Feb-2021 05:02:06] &raquo;  &raquo; Adding extra information for: Suing Robinhood The Aftermath
+[10-Feb-2021 05:02:11] &raquo;  &raquo; Adding extra information for: WAKE UP &amp; GRIND Best Motivational Speech 2021
+[10-Feb-2021 05:02:11] &raquo;  &raquo; Adding extra information for: Elon Musk: "I promised I wouldn't talk about this again!"
+[10-Feb-2021 05:02:12] &raquo;  &raquo; Adding extra information for: BITCOIN TO $500,000 What You MUST Know
+[10-Feb-2021 05:02:12] &raquo;  &raquo; Adding extra information for: I'M GOING TO MAKE IT Best Motivational Speech
+[10-Feb-2021 05:02:13] &raquo;  &raquo; Adding extra information for: The World's First Patented Burger | Shark Tank AUS #Shorts
+[10-Feb-2021 05:02:14] &raquo;  &raquo; Adding extra information for: 10 Reasons Why Most Entrepreneurs Go Out of Business
+[10-Feb-2021 05:02:14] &raquo;  &raquo; Adding extra information for: Don’t Become an Entrepreneur if You Hate This
+[10-Feb-2021 05:02:15] &raquo; Restarting in 30 seconds

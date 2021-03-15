@@ -8,78 +8,83 @@
  * @package htm_s
  */
 
+//echo content_schema_meta(); 
 
-the_title('<h1 class="title">', '</h1>'); ?>
+$channel_id = get_the_terms($post, 'video-channel')[0]->term_id;
 
-<p class="meta">by
-	<span class="author">
-		<a title="Video by" href="<? the_channel(null, 'link') ?>"><? the_channel(null, 'name'); ?></a>
-	</span> |
-	<span class="date"><? echo get_the_date() ?></span> |
-	<? the_terms($id, 'video-category', '', ', ') ?>
-</p>
+ob_start();
+the_terms($id, 'video-category', '', '~');
+$categories = concat_strings(explode('~', ob_get_contents()));
+ob_end_clean();
 
-<div id="v_<? echo $id ?>" class="video-wrap">
-	<iframe width="1080" height="608" src="https://www.youtube.com/embed/<?php the_field('youtube_video_id'); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+// This is used to split the content and the related posts apart 
+ob_start();
+the_content();
+echo '<div class="remove">';
+$content = ob_get_contents();
+echo '</div>';
+ob_end_clean();
 
-<div class="wrapper">
+$doc = phpQuery::newDocument($content);
+$content = pq('> p');
+$related = pq('.yarpp-related');
+
+ob_start();
+print $content->htmlOuter();
+$content = ob_get_contents();
+ob_end_clean();
+
+ob_start();
+print $related->htmlOuter();
+$related = ob_get_contents();
+ob_end_clean();
+
+?>
+
+<div class="wrapper youtube">
 	<div class="content-wrap">
+		<div id="v_<?= $id ?>" class="video-wrap">
+			<iframe width="1080" height="608" src="https://www.youtube.com/embed/<?php the_field('youtube_video_id'); ?>?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<div class="display-wrap">
+			<?php the_title('<h1 class="title">', '</h1>'); ?>
+			<p class="meta">
+				<?= custom_number_format(get_video_meta($id, 'statistics.viewCount')) ?> views |
+				<span class="date"><?= get_the_date('M jS, Y') ?></span> |
+				<?= $categories ?>
+			</p>
+			<?php 
+			$user = wp_get_current_user();
+			$userPostInteractions = get_user_post_interactions($user->ID, $post->ID); 
+			//var_dump($userPostInteractions);
 
-		<h3>Description</h3>
-
-		<? the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'htm_s'),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post(get_the_title())
-			)
-		); ?>
-
-		<div class="detail-wrap">
-			<div class="left">
-				<line class="overline"></line>
-				<h4 class="detail-title">Channel Overview</h4>
-				<p><? the_channel(null, 'description'); ?></p>
-			</div>
-			<div class="right">
-				<div class="detail-box">
-					<h5 class="detail-head">Category</h5>
-					<? the_terms($id, 'video-category', '', ', ') ?>
-				</div>
-				<div class="detail-box">
-					<h5 class="detail-head">Publisher</h5>
-					<a href="<? the_channel(null, 'link') ?>"><? the_channel(null, 'name'); ?></a>
-				</div>
-				<div class="detail-box">
-					<h5 class="detail-head">Release Date</h5>
-					<span class="date"><? echo get_the_date() ?></span>
-				</div>
-				<div class="detail-box">
-					<h5 class="detail-head">Platform</h5>
-					<span>YouTube</span>
-				</div>
+			
+			?>
+			<div class="button-wrap" data-nonce="<?= wp_create_nonce('post_interaction_nonce') ?>">
+				<div class="video like <?php if($userPostInteractions['like'])echo 'selected'; ?>" data-post-id="<?= $id ?>" data-action="like"><?= get_font_awesome_icon('thumbs-up', 'solid') ?><?php get_template_part('views/widgets/ispinner-white') ?></div>
+				<div class="video dislike <?php if($userPostInteractions['dislike'])echo 'selected'; ?>" data-post-id="<?= $id ?>" data-action="dislike"><?= get_font_awesome_icon('thumbs-down', 'solid') ?><?php get_template_part('views/widgets/ispinner-white') ?></div>
+				<div class="video fave <?php if($userPostInteractions['fave'])echo 'selected'; ?>" data-post-id="<?= $id ?>" data-action="fave"><?= get_font_awesome_icon('heart', 'solid') ?><?php get_template_part('views/widgets/ispinner-white') ?></div>
 			</div>
 		</div>
-		<a href="<? the_channel(null, 'link') ?>" class="channel-link">View More from Channel</a>
 
-		<? wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'htm_s'),
-				'after'  => '</div>',
-			)
-		); ?>
+		<!-- <h3>Description</h3> -->
+		<div class="desc">
+			<?= $content ?>
+		</div>
+		<div class="show-more"><?= get_font_awesome_icon('chevron-down', 'solid') ?></div>
 	</div>
-
-
+	<div class="side-content">
+		<a href="<?= get_channel($channel_id, 'link') ?>" class="channel-title">
+			<?php get_channel($channel_id, 'logo'); ?>
+			<h2 class="title"><?= get_channel($channel_id) ?></h2>
+			<p class="meta">
+				<span class="subscribers"><?= custom_number_format(get_channel_meta($channel_id, 'statistics.subscriberCount')) ?> subscribers</span> |
+				<span class="videos"><?php get_channel($channel_id, 'count') ?> videos</span>
+			</p>
+		</a>
+		<?= $related ?>
+	</div>
 </div>
 
-<? 
+<?php 
 // END

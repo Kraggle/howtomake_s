@@ -1,0 +1,149 @@
+[17-Feb-2021 05:00:01] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 05:00:01] &raquo; <b>Ahrefs</b>:
+[17-Feb-2021 05:00:02] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:04] &raquo;  &raquo; We have: 194 and there are 190 in total.
+[17-Feb-2021 05:00:04] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:04] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:04] &raquo; <b>Andrei Jikh</b>:
+[17-Feb-2021 05:00:04] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:07] &raquo;  &raquo; We have: 213 and there are 213 in total.
+[17-Feb-2021 05:00:07] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:07] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:07] &raquo; <b>Beast of eCom</b>:
+[17-Feb-2021 05:00:07] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:08] &raquo;  &raquo; We have: 137 and there are 137 in total.
+[17-Feb-2021 05:00:08] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:08] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:09] &raquo; <b>Daily Motivation</b>:
+[17-Feb-2021 05:00:09] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:10] &raquo;  &raquo; We have: 172 and there are 173 in total.
+[17-Feb-2021 05:00:10] &raquo;  &raquo; Results: 1
+[17-Feb-2021 05:00:10] &raquo;  &raquo;  &raquo; jA2n5wLy1f0 - A Truth That Most Refuse To See...
+[17-Feb-2021 05:00:14] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30080
+[17-Feb-2021 05:00:15] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30081
+[17-Feb-2021 05:00:15] &raquo; Restarting in 66 seconds
+[17-Feb-2021 05:00:15] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:15] &raquo; <b>Dragons Den</b>:
+[17-Feb-2021 05:00:15] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:19] &raquo;  &raquo; We have: 369 and there are 369 in total.
+[17-Feb-2021 05:00:19] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:19] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:20] &raquo; <b>Gabriel St-Germain</b>:
+[17-Feb-2021 05:00:20] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:20] &raquo;  &raquo; We have: 28 and there are 24 in total.
+[17-Feb-2021 05:00:20] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:20] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:20] &raquo; <b>Graham Stephan</b>:
+[17-Feb-2021 05:00:20] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:27] &raquo;  &raquo; We have: 588 and there are 588 in total.
+[17-Feb-2021 05:00:27] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:27] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:27] &raquo; <b>Jack Kitchener</b>:
+[17-Feb-2021 05:00:27] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:31] &raquo;  &raquo; We have: 308 and there are 308 in total.
+[17-Feb-2021 05:00:31] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:31] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:31] &raquo; <b>Jared Goetz</b>:
+[17-Feb-2021 05:00:31] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:31] &raquo;  &raquo; We have: 21 and there are 20 in total.
+[17-Feb-2021 05:00:31] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:31] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:31] &raquo; <b>Kristin Stones</b>:
+[17-Feb-2021 05:00:31] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:33] &raquo;  &raquo; We have: 151 and there are 151 in total.
+[17-Feb-2021 05:00:33] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:33] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:33] &raquo; <b>Law of Attraction Coaching</b>:
+[17-Feb-2021 05:00:33] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:34] &raquo;  &raquo; We have: 109 and there are 110 in total.
+[17-Feb-2021 05:00:34] &raquo;  &raquo; Results: 1
+[17-Feb-2021 05:00:34] &raquo;  &raquo;  &raquo; K8YnLi-FUeI - YOU WILL GET THROUGH THIS Best Motivational Speech
+[17-Feb-2021 05:00:45] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30082
+[17-Feb-2021 05:00:48] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30083
+[17-Feb-2021 05:00:48] &raquo; Restarting in 33 seconds
+[17-Feb-2021 05:00:48] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:48] &raquo; <b>Robert Kiyosaki</b>:
+[17-Feb-2021 05:00:48] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:54] &raquo;  &raquo; We have: 570 and there are 569 in total.
+[17-Feb-2021 05:00:54] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:00:54] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:00:54] &raquo; <b>Shark Tank Australia</b>:
+[17-Feb-2021 05:00:54] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:00:56] &raquo;  &raquo; We have: 209 and there are 210 in total.
+[17-Feb-2021 05:00:56] &raquo;  &raquo; Results: 1
+[17-Feb-2021 05:00:56] &raquo;  &raquo;  &raquo; 5Tr-K2heUyc - Entrepreneur Reinvents the Truck | Shark Tank AUS #Shorts
+[17-Feb-2021 05:00:57] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30084
+[17-Feb-2021 05:01:00] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30085
+[17-Feb-2021 05:01:00] &raquo; Restarting in 21 seconds
+[17-Feb-2021 05:01:00] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:01:00] &raquo; <b>Valuetainment</b>:
+[17-Feb-2021 05:01:00] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:01:14] &raquo;  &raquo; We have: 1491 and there are 1488 in total.
+[17-Feb-2021 05:01:14] &raquo;  &raquo; Results: 1
+[17-Feb-2021 05:01:14] &raquo;  &raquo;  &raquo; 2g8PawZIRrk - NEXT MARKET CRASH: 10 Signs it's Coming
+[17-Feb-2021 05:01:15] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30086
+[17-Feb-2021 05:01:18] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30087
+[17-Feb-2021 05:01:18] &raquo; Restarting in 3 seconds
+[17-Feb-2021 05:01:18] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:01:18] &raquo; <b>Wholesale Ted</b>:
+[17-Feb-2021 05:01:18] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[17-Feb-2021 05:01:19] &raquo;  &raquo; We have: 159 and there are 154 in total.
+[17-Feb-2021 05:01:19] &raquo;  &raquo; Results: 0
+[17-Feb-2021 05:01:19] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 05:01:20] &raquo; Getting extra youtube information!
+[17-Feb-2021 05:01:20] &raquo; There are 19 that still have missing info.
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: A Truth That Most Refuse To See...
+[17-Feb-2021 05:01:20] &raquo;  &raquo; Adding extra information for: YOU WILL GET THROUGH THIS Best Motivational Speech
+[17-Feb-2021 05:01:21] &raquo;  &raquo; Adding extra information for: Entrepreneur Reinvents the Truck | Shark Tank AUS #Shorts
+[17-Feb-2021 05:01:22] &raquo;  &raquo; Adding extra information for: NEXT MARKET CRASH: 10 Signs it's Coming
+[17-Feb-2021 05:01:22] &raquo; Restarting in -1 seconds
+[17-Feb-2021 05:01:22] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[17-Feb-2021 05:01:23] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[17-Feb-2021 05:01:23] &raquo; Getting extra youtube information!
+[17-Feb-2021 05:01:23] &raquo; There are 15 that still have missing info.
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[17-Feb-2021 05:01:23] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[17-Feb-2021 05:01:23] &raquo; Restarting in 79 seconds

@@ -1,0 +1,87 @@
+
+
+.ispinner{
+  position: relative;
+  width: 20px;
+  height: 20px;
+  .ispinner-blade{
+    // position: absolute;
+    // top: 13.5px;
+    // left: 7px;//8.5
+    // width: 2.5px;
+    // height: 6.5px;
+    // background-color: #8e8e93;
+    // border-radius: 1.25px;
+    position: absolute;
+    left: 44.5%;
+    top: 37%;
+    width: 10%;
+    height: 25%;
+    border-radius: 50%/20%;
+    -webkit-animation: ispinner-fade 1s linear infinite;
+    animation: ispinner-fade 1s linear infinite;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+
+    @for $i from 1 through 12{
+      &:nth-child(#{$i}){
+        //transform: rotate(#{360deg / 12 * $i}) translateY(-6.5px);
+        transform: rotate(#{360deg / 12 * $i}) translate(0,-150%);
+        -webkit-transform: rotate(#{360deg / 12 * $i}) translate(0,-150%);
+        animation-delay: 1s / 12 * ($i - 16);
+        -webkit-animation-delay: 1s / 12 * ($i - 16);
+        
+      }
+    }//8 - 14
+
+  }
+
+  &.white .ispinner-blade{
+    background-color: #fff;
+  }
+
+
+  &.ispinner-large{
+    width: 35px;
+    height: 35px;
+    .ispinner-blade{
+      top: 11.5px;
+      left: 15px;
+      width: 5px;
+      height: 12px;
+      border-radius: 2.5px;
+
+      // &:nth-child(1){ transform: rotate(45) translateY(-11.5px) }
+      // &:nth-child(2){ transform: rotate(90) translateY(-11.5px) }
+      // &:nth-child(3){ transform: rotate(135) translateY(-11.5px) }
+      // &:nth-child(4){ transform: rotate(180) translateY(-11.5px) }
+      // &:nth-child(5){ transform: rotate(225) translateY(-11.5px) }
+      // &:nth-child(6){ transform: rotate(270) translateY(-11.5px) }
+      // &:nth-child(7){ transform: rotate(315) translateY(-11.5px) }
+      // &:nth-child(8){ transform: rotate(360) translateY(-11.5px) }
+      @for $i from 1 through 12{
+        &:nth-child(#{$i}){
+          transform: rotate(#{360deg / 12 * $i}) translateY(-11.5px);
+        }
+      }
+
+    }
+  }
+  
+  &.animating .ispinner-blade {
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+  }
+
+}
+@keyframes ispinner-fade{
+  0%{
+    opacity: 0.85
+  }
+  50%{
+    opacity: 0.25
+  }
+  100%{
+    opacity: 0.25
+  }
+}

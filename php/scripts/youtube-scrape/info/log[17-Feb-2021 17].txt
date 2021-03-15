@@ -1,0 +1,300 @@
+[17-Feb-2021 17:09:55] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[17-Feb-2021 17:10:05] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[17-Feb-2021 17:10:05] &raquo; <b>Valuetainment</b>:
+[17-Feb-2021 17:10:05] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 17:10:06] &raquo; Restarting in 78 seconds
+[17-Feb-2021 17:10:06] &raquo; Restarting in 78 seconds
+[17-Feb-2021 17:10:07] &raquo; Restarting in 77 seconds
+[17-Feb-2021 17:10:08] &raquo; Restarting in 76 seconds
+[17-Feb-2021 17:10:09] &raquo; Restarting in 75 seconds
+[17-Feb-2021 17:10:10] &raquo; Restarting in 74 seconds
+[17-Feb-2021 17:10:11] &raquo; Restarting in 73 seconds
+[17-Feb-2021 17:10:11] &raquo; Restarting in 73 seconds
+[17-Feb-2021 17:10:12] &raquo; Kill script has been triggered, before resuming you must `CANCEL KILL`!
+[17-Feb-2021 17:10:12] &raquo; <span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>
+[17-Feb-2021 17:10:13] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 17:11:06] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 17:11:13] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 17:11:18] &raquo; Kill script has been canceled, you may resume.
+[17-Feb-2021 17:11:22] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[17-Feb-2021 17:11:22] &raquo; <b>Valuetainment</b>:
+[17-Feb-2021 17:11:22] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 17:11:22] &raquo; Restarting in 80 seconds
+[17-Feb-2021 17:11:23] &raquo; Restarting in 79 seconds
+[17-Feb-2021 17:11:23] &raquo; Restarting in 79 seconds
+[17-Feb-2021 17:11:24] &raquo; Restarting in 78 seconds
+[17-Feb-2021 17:11:24] &raquo; Restarting in 78 seconds
+[17-Feb-2021 17:11:24] &raquo; Restarting in 78 seconds
+[17-Feb-2021 17:11:25] &raquo; Restarting in 77 seconds
+[17-Feb-2021 17:11:25] &raquo; Restarting in 77 seconds
+[17-Feb-2021 17:11:25] &raquo; Restarting in 77 seconds
+[17-Feb-2021 17:11:26] &raquo; Restarting in 76 seconds
+[17-Feb-2021 17:11:26] &raquo; Restarting in 76 seconds
+[17-Feb-2021 17:11:27] &raquo; Restarting in 75 seconds
+[17-Feb-2021 17:11:27] &raquo; Restarting in 75 seconds
+[17-Feb-2021 17:11:27] &raquo; Restarting in 75 seconds
+[17-Feb-2021 17:11:28] &raquo; Restarting in 74 seconds
+[17-Feb-2021 17:11:28] &raquo; Restarting in 74 seconds
+[17-Feb-2021 17:11:28] &raquo; Restarting in 74 seconds
+[17-Feb-2021 17:11:29] &raquo; Restarting in 73 seconds
+[17-Feb-2021 17:11:29] &raquo; Restarting in 73 seconds
+[17-Feb-2021 17:11:30] &raquo; Restarting in 72 seconds
+[17-Feb-2021 17:11:30] &raquo; Restarting in 72 seconds
+[17-Feb-2021 17:11:30] &raquo; Restarting in 72 seconds
+[17-Feb-2021 17:11:31] &raquo; Restarting in 71 seconds
+[17-Feb-2021 17:11:31] &raquo; Restarting in 71 seconds
+[17-Feb-2021 17:11:32] &raquo; Restarting in 70 seconds
+[17-Feb-2021 17:11:32] &raquo; Restarting in 70 seconds
+[17-Feb-2021 17:11:32] &raquo; Restarting in 70 seconds
+[17-Feb-2021 17:11:33] &raquo; Restarting in 69 seconds
+[17-Feb-2021 17:11:33] &raquo; Restarting in 69 seconds
+[17-Feb-2021 17:11:33] &raquo; Restarting in 69 seconds
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:33] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:34] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:11:40] &raquo;  &raquo; We have: 1491 and there are 1488 in total.
+[17-Feb-2021 17:11:40] &raquo;  &raquo; Results: 1
+[17-Feb-2021 17:11:40] &raquo;  &raquo;  &raquo; 2g8PawZIRrk - NEXT MARKET CRASH: 10 Signs it's Coming
+[17-Feb-2021 17:11:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30060
+[17-Feb-2021 17:11:46] &raquo; Kill script has been triggered, before resuming you must `CANCEL KILL`!
+[17-Feb-2021 17:11:47] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30061
+[17-Feb-2021 17:11:47] &raquo; <span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>
+[17-Feb-2021 17:11:48] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 17:13:11] &raquo; <span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>
+[17-Feb-2021 17:13:15] &raquo; Kill script has been canceled, you may resume.
+[17-Feb-2021 17:14:26] &raquo; Kill script has been canceled, you may resume.
+[17-Feb-2021 17:14:31] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[17-Feb-2021 17:14:31] &raquo; <b>Valuetainment</b>:
+[17-Feb-2021 17:14:31] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 17:14:32] &raquo; Restarting in 78 seconds
+[17-Feb-2021 17:14:32] &raquo; Restarting in 78 seconds
+[17-Feb-2021 17:14:33] &raquo; Restarting in 77 seconds
+[17-Feb-2021 17:14:33] &raquo; Restarting in 77 seconds
+[17-Feb-2021 17:14:33] &raquo; Restarting in 77 seconds
+[17-Feb-2021 17:14:34] &raquo; Restarting in 76 seconds
+[17-Feb-2021 17:14:34] &raquo; Restarting in 76 seconds
+[17-Feb-2021 17:14:34] &raquo; Restarting in 76 seconds
+[17-Feb-2021 17:14:35] &raquo; Restarting in 75 seconds
+[17-Feb-2021 17:14:35] &raquo; Restarting in 75 seconds
+[17-Feb-2021 17:14:36] &raquo; Restarting in 74 seconds
+[17-Feb-2021 17:14:36] &raquo; Restarting in 74 seconds
+[17-Feb-2021 17:14:36] &raquo; Restarting in 74 seconds
+[17-Feb-2021 17:14:37] &raquo; Restarting in 73 seconds
+[17-Feb-2021 17:14:37] &raquo; Restarting in 73 seconds
+[17-Feb-2021 17:14:37] &raquo; Restarting in 73 seconds
+[17-Feb-2021 17:14:38] &raquo; Restarting in 72 seconds
+[17-Feb-2021 17:14:38] &raquo; Restarting in 72 seconds
+[17-Feb-2021 17:14:39] &raquo; Restarting in 71 seconds
+[17-Feb-2021 17:14:39] &raquo; Restarting in 71 seconds
+[17-Feb-2021 17:14:39] &raquo; Restarting in 71 seconds
+[17-Feb-2021 17:14:40] &raquo; Restarting in 70 seconds
+[17-Feb-2021 17:14:40] &raquo; Restarting in 70 seconds
+[17-Feb-2021 17:14:40] &raquo; Restarting in 70 seconds
+[17-Feb-2021 17:14:41] &raquo; Restarting in 69 seconds
+[17-Feb-2021 17:14:41] &raquo; Restarting in 69 seconds
+[17-Feb-2021 17:14:41] &raquo; Restarting in 69 seconds
+[17-Feb-2021 17:14:42] &raquo; Restarting in 68 seconds
+[17-Feb-2021 17:14:42] &raquo; Restarting in 68 seconds
+[17-Feb-2021 17:14:43] &raquo; Restarting in 67 seconds
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:43] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:49] &raquo;  &raquo; We have: 1492 and there are 1488 in total.
+[17-Feb-2021 17:14:49] &raquo;  &raquo; Results: 0
+[17-Feb-2021 17:14:49] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 17:14:49] &raquo; <b>Wholesale Ted</b>:
+[17-Feb-2021 17:14:49] &raquo;  &raquo; It's been more than 1 day, so we're checking for dead links and duplicates
+[17-Feb-2021 17:14:50] &raquo; Restarting in 60 seconds
+[17-Feb-2021 17:14:50] &raquo; Restarting in 60 seconds
+[17-Feb-2021 17:14:50] &raquo; Restarting in 60 seconds
+[17-Feb-2021 17:14:51] &raquo; Restarting in 59 seconds
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo;  &raquo; Deleting post  as it was a dead link!
+[17-Feb-2021 17:14:51] &raquo;  &raquo; We have: 159 and there are 154 in total.
+[17-Feb-2021 17:14:51] &raquo;  &raquo; Results: 0
+[17-Feb-2021 17:14:51] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-17
+[17-Feb-2021 17:14:52] &raquo; Getting extra youtube information!
+[17-Feb-2021 17:14:52] &raquo; There are 23 that still have missing info.
+[17-Feb-2021 17:14:53] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[17-Feb-2021 17:14:53] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[17-Feb-2021 17:14:53] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[17-Feb-2021 17:14:53] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[17-Feb-2021 17:14:54] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[17-Feb-2021 17:14:54] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[17-Feb-2021 17:14:54] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[17-Feb-2021 17:14:55] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[17-Feb-2021 17:14:55] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[17-Feb-2021 17:14:55] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[17-Feb-2021 17:14:55] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[17-Feb-2021 17:14:56] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[17-Feb-2021 17:14:56] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[17-Feb-2021 17:14:56] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[17-Feb-2021 17:14:56] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[17-Feb-2021 17:14:56] &raquo;  &raquo; Adding extra information for: How to Use Internal Links to Rank Higher in Google
+[17-Feb-2021 17:15:02] &raquo;  &raquo; Adding extra information for: A Truth That Most Refuse To See...
+[17-Feb-2021 17:15:05] &raquo;  &raquo; Adding extra information for: Peter's FLABBERGASTED by Online Retailer’s Return Rate! | Dragons’ Den
+[17-Feb-2021 17:15:13] &raquo;  &raquo; Adding extra information for: 7 Minimalist Habits For A Simpler Life | Minimalism For Beginners
+[17-Feb-2021 17:15:29] &raquo;  &raquo; Adding extra information for: PUSH YOURSELF Best Motivational Speech for 2021
+[17-Feb-2021 17:15:34] &raquo;  &raquo; Adding extra information for: YOU WILL GET THROUGH THIS Best Motivational Speech
+[17-Feb-2021 17:15:39] &raquo;  &raquo; Adding extra information for: Entrepreneur Reinvents the Truck | Shark Tank AUS #Shorts
+[17-Feb-2021 17:15:51] &raquo;  &raquo; Adding extra information for: NEXT MARKET CRASH: 10 Signs it's Coming
+[17-Feb-2021 17:15:58] &raquo; 
+[17-Feb-2021 17:15:58] &raquo; Getting the channels and checking if they need updating.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[17-Feb-2021 17:15:58] &raquo; Getting extra youtube information!
+[17-Feb-2021 17:15:58] &raquo; There are 15 that still have missing info.
+[17-Feb-2021 17:15:59] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[17-Feb-2021 17:15:59] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[17-Feb-2021 17:15:59] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[17-Feb-2021 17:15:59] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[17-Feb-2021 17:15:59] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[17-Feb-2021 17:15:59] &raquo; <span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>
+[17-Feb-2021 17:15:59] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[17-Feb-2021 17:16:00] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[17-Feb-2021 17:16:00] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[17-Feb-2021 17:16:00] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[17-Feb-2021 17:16:00] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[17-Feb-2021 17:16:01] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[17-Feb-2021 17:16:01] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[17-Feb-2021 17:16:01] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[17-Feb-2021 17:16:01] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[17-Feb-2021 17:16:02] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[17-Feb-2021 17:16:02] &raquo; Restarting in 76 seconds
+[17-Feb-2021 17:19:59] &raquo; Click `START UPDATE` at the top of the page to manually run this task.

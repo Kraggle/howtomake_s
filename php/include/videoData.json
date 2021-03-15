@@ -1,0 +1,108 @@
+{
+	"kind": "youtube#videoListResponse",
+	"etag": "bt9U1PafN9tnO0gPAf5vTCUO0Ok",
+	"items": [
+		{
+			"kind": "youtube#video",
+			"etag": "QJZCp1kfqaWWfHL6EAlTqnltY9w",
+			"id": "0XOcTJuSizw",
+			"snippet": {
+				"publishedAt": "2019-12-30T16:20:01Z",
+				"channelId": "UCGy7SkBjcIAgTiwkXEtPnYg",
+				"title": "How I Made Six Figures (My First Year On YouTube!)",
+				"description": "This is how I made six figures my first year on YouTube! Step by step\n\n► My Stock Portfolio: https://www.patreon.com/andreijikh\n► Get 2 Free Stocks on WeBull when you deposit $100 (Valued up to $1000): https://act.webull.com/kol-us/share.html?hl=en&inviteCode=QhhB1aDNwEDP\n► Try Audible and Get Two Free Audiobooks: https://amzn.to/2ouTHKS\n► M1 Finance Roth IRA: https://m1finance.8bxp97.net/c/1980551/696710/10646\n► Stocking Stuffers for the Holidays: https://www.ipo52.com\n► ROBINHOOD Invite Code (grab your other free stock): https://robinhood.c3me6x.net/c/1980551/671816/10402\n► How I Make My Videos: https://www.amazon.com/shop/andreijikh\n► Music In My Videos: https://www.epidemicsound.com/referral/cr8cqg/\n\n►Instagram: https://www.instagram.com/andreijikh/\n► http://www.MAJIKH.com► My Stock Portfolio: https://www.patreon.com/andreijikh\n► Get 2 Free Stocks on WeBull when you deposit $100 (Valued up to $1000): https://act.webull.com/kol-us/share.html?hl=en&inviteCode=QhhB1aDNwEDP\n► Try Audible and Get Two Free Audiobooks: https://amzn.to/2ouTHKS\n► M1 Finance Roth IRA: https://mbsy.co/BMPJf\n► Stocking Stuffers for the Holidays: https://www.ipo52.com\n► ROBINHOOD Invite Code (grab your other free stock): https://robinhood.c3me6x.net/c/1980551/671816/10402\n► How I Make My Videos: https://www.amazon.com/shop/andreijikh\n► Music In My Videos: https://www.epidemicsound.com/referral/cr8cqg/\n\n►Instagram: https://www.instagram.com/andreijikh/\n► http://www.MAJIKH.com\n\nThis is how I made six figures from my first year on YouTube. I started in January of this year, I always wondered about how to work from home - could it really be true? Can you really make a living and build wealth making videos online? I quit my job, and started YouTube, with no backup plan. That was not smart. Instead of investing in the stock market or dividends, I chose to invest in myself. There are many roads to financial independence. It was a rough start.\n\nIn January - I made $0, my click through rate (CTR) was non existent, I didn't understand how to do thumbnails and titles. \n\nIn February - I made $0 - slowly learning how to structure my investing videos about compound interest, stock market, dividends, robinhood, etc.\n\nIn March - $90.48, but it's not enough for YouTube to pay you ($100 is the minimum). I earned $0 in March.\n\nIn April - I made $1511.57. I had ONE video go viral and get a ton of views. Even though the income is higher, I wasn't paid anything in April because YouTube pays one month behind, which was $90.I earned nothing, four months in.\n\nIn May - I made $1923.07, I had another video go crazy called how I made 781.47 with Robinhood Dividends, where I showed my income from my dividend investments. This was the turning point in realizing that some videos pay more depending on your topic. Personal finance, financial minimalism, finance, credit cards, brokerages, etc. pay a lot more money than most other topics on YouTube.\n\nIn June - $2558.13, I learned ANOTHER lesson that I didn’t know about before. I learned I could monetize my videos by placing ads in the middle of my videos. I went back and placed mid-roll ads in every video I could find.\n\nSo far, I've made $6,083.25. Far surpassing my $1000 of income goal in 2019, but that translates into $5.07 per hour working as much as I have 6 months in. Almost less than half the minimum wage.\n\nIn July - I made $3,895.60, I noticed a direct correlation between monetization and views.\n\nIn August - $5808.33. This is replacing my “income” from what I was earning at my job at this point. \n\nIn September - $14,879.04, my first five figure month. I started earning between $20-$30 for every one thousand views. My investment of my time is now starting to have a huge compound interest effect.\n\nIn October - another 5 figure month. $11,622.\n\nIn November - $30,782.18. This is unbelievable. I just made someone's annual salary in one month. Incredible.\n\nIn December - $41,080.62. I'm speechless. I'm glad I quit my day job.\n\nNext is Patreon, where you can find my spreadsheet that keeps track of your stock investments, shows your dividend stocks, and more. I've made $14,104 from Patreon.\n\nAmazon Links - $1941\n\nAffiliate Marketing - $54,508.27 (I just started affiliate marketing 3 months ago, unbelievable income source so far).\n\nDividend Income - $7005.85\n\nShopify Income - $7,704.66\n\nMy total income for 2019 has just passed $200,000 (I don't have the exact amount, but it's slightly above $200k). I'm so glad I quit my day job to take a chance. None of this would be possible without my dividend investment that gave me courage, and YOU for watching my videos. Thank you so much. \n\n2020, I would love to do a course and sponsored videos as additional sources of income.\n\n\n*Links above include affiliate commission or referrals. I'm part of an affiliate network and I receive compensation from partnering websites. The video is accurate as of the posting date but may not be accurate in the future.",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/0XOcTJuSizw/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/0XOcTJuSizw/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/0XOcTJuSizw/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					},
+					"standard": {
+						"url": "https://i.ytimg.com/vi/0XOcTJuSizw/sddefault.jpg",
+						"width": 640,
+						"height": 480
+					},
+					"maxres": {
+						"url": "https://i.ytimg.com/vi/0XOcTJuSizw/maxresdefault.jpg",
+						"width": 1280,
+						"height": 720
+					}
+				},
+				"channelTitle": "Andrei Jikh",
+				"tags": [
+					"six figures",
+					"how I made",
+					"how to make money online",
+					"work from home",
+					"affiliate marketing",
+					"dividend investing",
+					"robinhood",
+					"how i quit",
+					"robinhood app",
+					"investment",
+					"stock market app",
+					"best brokerage",
+					"how to invest",
+					"how to build wealth",
+					"investing in stocks",
+					"investing 101",
+					"how to make money",
+					"investing for beginners",
+					"andrei jikh",
+					"dividend stocks",
+					"personal finance",
+					"i quit my day job",
+					"financial independence",
+					"compound interest",
+					"passive income",
+					"6 figures",
+					"minimum wage"
+				],
+				"categoryId": "27",
+				"liveBroadcastContent": "none",
+				"defaultLanguage": "en",
+				"localized": {
+					"title": "How I Made Six Figures (My First Year On YouTube!)",
+					"description": "This is how I made six figures my first year on YouTube! Step by step\n\n► My Stock Portfolio: https://www.patreon.com/andreijikh\n► Get 2 Free Stocks on WeBull when you deposit $100 (Valued up to $1000): https://act.webull.com/kol-us/share.html?hl=en&inviteCode=QhhB1aDNwEDP\n► Try Audible and Get Two Free Audiobooks: https://amzn.to/2ouTHKS\n► M1 Finance Roth IRA: https://m1finance.8bxp97.net/c/1980551/696710/10646\n► Stocking Stuffers for the Holidays: https://www.ipo52.com\n► ROBINHOOD Invite Code (grab your other free stock): https://robinhood.c3me6x.net/c/1980551/671816/10402\n► How I Make My Videos: https://www.amazon.com/shop/andreijikh\n► Music In My Videos: https://www.epidemicsound.com/referral/cr8cqg/\n\n►Instagram: https://www.instagram.com/andreijikh/\n► http://www.MAJIKH.com► My Stock Portfolio: https://www.patreon.com/andreijikh\n► Get 2 Free Stocks on WeBull when you deposit $100 (Valued up to $1000): https://act.webull.com/kol-us/share.html?hl=en&inviteCode=QhhB1aDNwEDP\n► Try Audible and Get Two Free Audiobooks: https://amzn.to/2ouTHKS\n► M1 Finance Roth IRA: https://mbsy.co/BMPJf\n► Stocking Stuffers for the Holidays: https://www.ipo52.com\n► ROBINHOOD Invite Code (grab your other free stock): https://robinhood.c3me6x.net/c/1980551/671816/10402\n► How I Make My Videos: https://www.amazon.com/shop/andreijikh\n► Music In My Videos: https://www.epidemicsound.com/referral/cr8cqg/\n\n►Instagram: https://www.instagram.com/andreijikh/\n► http://www.MAJIKH.com\n\nThis is how I made six figures from my first year on YouTube. I started in January of this year, I always wondered about how to work from home - could it really be true? Can you really make a living and build wealth making videos online? I quit my job, and started YouTube, with no backup plan. That was not smart. Instead of investing in the stock market or dividends, I chose to invest in myself. There are many roads to financial independence. It was a rough start.\n\nIn January - I made $0, my click through rate (CTR) was non existent, I didn't understand how to do thumbnails and titles. \n\nIn February - I made $0 - slowly learning how to structure my investing videos about compound interest, stock market, dividends, robinhood, etc.\n\nIn March - $90.48, but it's not enough for YouTube to pay you ($100 is the minimum). I earned $0 in March.\n\nIn April - I made $1511.57. I had ONE video go viral and get a ton of views. Even though the income is higher, I wasn't paid anything in April because YouTube pays one month behind, which was $90.I earned nothing, four months in.\n\nIn May - I made $1923.07, I had another video go crazy called how I made 781.47 with Robinhood Dividends, where I showed my income from my dividend investments. This was the turning point in realizing that some videos pay more depending on your topic. Personal finance, financial minimalism, finance, credit cards, brokerages, etc. pay a lot more money than most other topics on YouTube.\n\nIn June - $2558.13, I learned ANOTHER lesson that I didn’t know about before. I learned I could monetize my videos by placing ads in the middle of my videos. I went back and placed mid-roll ads in every video I could find.\n\nSo far, I've made $6,083.25. Far surpassing my $1000 of income goal in 2019, but that translates into $5.07 per hour working as much as I have 6 months in. Almost less than half the minimum wage.\n\nIn July - I made $3,895.60, I noticed a direct correlation between monetization and views.\n\nIn August - $5808.33. This is replacing my “income” from what I was earning at my job at this point. \n\nIn September - $14,879.04, my first five figure month. I started earning between $20-$30 for every one thousand views. My investment of my time is now starting to have a huge compound interest effect.\n\nIn October - another 5 figure month. $11,622.\n\nIn November - $30,782.18. This is unbelievable. I just made someone's annual salary in one month. Incredible.\n\nIn December - $41,080.62. I'm speechless. I'm glad I quit my day job.\n\nNext is Patreon, where you can find my spreadsheet that keeps track of your stock investments, shows your dividend stocks, and more. I've made $14,104 from Patreon.\n\nAmazon Links - $1941\n\nAffiliate Marketing - $54,508.27 (I just started affiliate marketing 3 months ago, unbelievable income source so far).\n\nDividend Income - $7005.85\n\nShopify Income - $7,704.66\n\nMy total income for 2019 has just passed $200,000 (I don't have the exact amount, but it's slightly above $200k). I'm so glad I quit my day job to take a chance. None of this would be possible without my dividend investment that gave me courage, and YOU for watching my videos. Thank you so much. \n\n2020, I would love to do a course and sponsored videos as additional sources of income.\n\n\n*Links above include affiliate commission or referrals. I'm part of an affiliate network and I receive compensation from partnering websites. The video is accurate as of the posting date but may not be accurate in the future."
+				},
+				"defaultAudioLanguage": "en"
+			},
+			"contentDetails": {
+				"duration": "PT16M36S",
+				"dimension": "2d",
+				"definition": "hd",
+				"caption": "false",
+				"licensedContent": true,
+				"contentRating": {},
+				"projection": "rectangular"
+			},
+			"statistics": {
+				"viewCount": "155932",
+				"likeCount": "9172",
+				"dislikeCount": "178",
+				"favoriteCount": "0",
+				"commentCount": "1574"
+			},
+			"topicDetails": {
+				"topicCategories": [
+					"https://en.wikipedia.org/wiki/Business",
+					"https://en.wikipedia.org/wiki/Lifestyle_(sociology)"
+				]
+			}
+		}
+	],
+	"pageInfo": {
+		"totalResults": 1,
+		"resultsPerPage": 1
+	}
+}

@@ -90,10 +90,10 @@
 
         &::after {
             position: absolute;
-            content: '\35';
-            font-family: etmodules;
-            font-size: 18px;
-            margin-top: -3px;
+            content: fa-content($fa-var-chevron-right);
+            font-family: 'Font Awesome 5 Pro';
+            font-size: 12px;
+            margin-top: 2px;
             right: 20px;
             opacity: 0;
             transition: $transition;
@@ -104,7 +104,7 @@
             padding-right: 42px;
 
             &::after {
-                right: 14px;
+                right: 18px;
                 opacity: 1;
             }
         }
@@ -160,11 +160,14 @@
     }
 
     .gallery-arrow {
-        font-family: etmodules;
+        font-family: 'Font Awesome 5 Pro';
         pointer-events: none;
+        display: block;
+        width: 60px;
+        text-align: center;
 
         &::after {
-            content: '\35';
+            content: fa-content($fa-var-chevron-right);
             font-size: 60px;
             position: relative;
             opacity: 0;
@@ -173,7 +176,7 @@
 
         &.left {
             &::after {
-                content: '\34';
+                content: fa-content($fa-var-chevron-left);
                 left: -40px;
             }
         }

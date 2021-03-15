@@ -8,35 +8,59 @@
  * @package htm_s
  */
 
-if (!is_front_page()) the_title('<h1 class="title">', '</h1>'); ?>
+the_title('<h1 class="title" itemprop="headline">', '</h1>');
+
+$toc = to_object(get_field('toc'));
+if (!$toc)
+	$toc = (object) [
+		'active' => false
+	];
+
+if ($desc = get_field('description')) { ?>
+	<div class="description">
+		<?= $desc ?>
+	</div>
+<?php }
+
+echo content_schema_meta(); ?>
 
 <div class="wrapper">
-	<div class="content-wrap">
-		<? the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'htm_s'),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post(get_the_title())
-			)
-		);
+	<?php if ($toc->active) { ?>
+		<div class="inner-wrap">
+		<?php get_template_part('views/widgets/table-of-contents');
+	} ?>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'htm_s'),
-				'after'  => '</div>',
-			)
-		); ?>
-	</div>
 
-	<? if (!is_front_page()) echo do_shortcode('[htm_more_side_panel]') ?>
+		<div class="content-wrap" itemprop="articleBody">
+			<?php the_content(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'htm_s'),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post(get_the_title())
+				)
+			);
+
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__('Pages:', 'htm_s'),
+					'after'  => '</div>',
+				)
+			); ?>
+		</div>
+
+		<?php if ($toc->active) { ?>
+		</div>
+	<?php } ?>
+
+	<?php get_template_part('views/widgets/side-panel') ?>
 </div>
 
-<? // htm_s_entry_footer(); 
+<?php // htm_s_entry_footer(); 
 // END

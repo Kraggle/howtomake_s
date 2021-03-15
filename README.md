@@ -1,2 +1,11 @@
 # howtomake_s
- A wordpress theme for howtomakemoneyfromhomeuk.com
+
+ A wordpress theme made specifically for howtomakemoneyfromhomeuk.com by Kraggle
+
+## Recent Changes
+
+- Added file modified signature as version for all css and js
+- Fixed the search page elements for multiple screen sizes
+- Admin bsr now starts hidden with a button to show it
+- Added custom HTML sitemap as there were now too many links for plugins to handle
+- Fixed some styling int he footer for desktop and mobile

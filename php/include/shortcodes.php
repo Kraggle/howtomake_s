@@ -63,6 +63,11 @@ function howtomake_shortcode_video_publish_date() {
 add_shortcode('current_video_publish_date', 'howtomake_shortcode_video_publish_date');
 
 
+function howtomake_shortcode_registration_url() {
+
+	return get_the_date('jS M, Y');
+}
+add_shortcode('registration_url', 'howtomake_shortcode_registration_url');
 
 
 /* Video Channel */
@@ -104,80 +109,210 @@ function howtomake_shortcode_embed_featured_video() {
 }
 add_shortcode('featured_video_embed', 'howtomake_shortcode_embed_featured_video');
 
+add_shortcode('search_form', function () {
 
-function htm_s_shotcode_more_panel() {
+	$value = get_search_query();
+	$value = !$value ? '' : $value;
+
+	ob_start() ?>
+
+	<form role="search" method="get" class="search-form" action="/search/">
+		<input type="text" name="term" class="search-field" placeholder="Search" value="<?= $value ?>">
+		<button type="submit" class="search-submit"><i class="fa-icon type-regular svg-search"></i></button>
+		<input type="hidden" name="type" value="post,video">
+		<input type="hidden" name="order" value="desc">
+		<input type="hidden" name="orderby" value="relevance">
+	</form>
+
+	<?php $html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+});
+
+add_shortcode('list_categories', function ($attrs = null) {
+
+	extract(shortcode_atts([
+		'title_li'           => '',
+		'style'              => 'none',
+		'use_desc_for_title' => false,
+		'taxonomy'           => 'category'
+	], $attrs, 'htm_s'));
+
+	$list = wp_list_categories([
+		'title_li'           => $title_li,
+		'style'              => $style,
+		'echo'               => false,
+		'use_desc_for_title' => $use_desc_for_title,
+		'taxonomy'           => $taxonomy
+	]);
+	return trim(str_replace('<br />',  '', $list));
+});
+
+add_shortcode('latest_posts', function ($attrs = null) {
+
+	extract(shortcode_atts([
+		'post_type' => 'post'
+	], $attrs, 'htm_s'));
+
+	$latest = get_posts([
+		'post_type' => $post_type
+	]);
+
+	ob_start();
+
+	if ($latest) {
+		foreach ($latest as $post) { ?>
+			<a href="<?= get_permalink($post) ?>"><?= $post->post_title ?></a>
+	<?php }
+	}
+
+	$html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+});
+
+function sitemap_item($object, $post_type, $type = 'post') {
+	$type = $type === 'post';
+	$id   = $type ? $object->ID : $object->term_id;
+	$link = $type ? $object->link : get_term_link($object->term_id);
+	$name = $type ? $object->post_title : $object->name;
 
 	ob_start(); ?>
+	<li class="list-item" id="<?= "{$post_type}_{$id}" ?>">
+		<a href="<?= $link ?>" class="list-link" title="<?= $name ?>">
+			<?= $name ?>
+		</a>
 
-	<div class="more-side">
+		<?php if ($type) {
+			$kids = get_results(
+				"SELECT
+					p.ID,
+					p.post_title,
+					m.meta_value AS link
+				FROM wp_postmeta m
+				INNER JOIN wp_posts p
+					ON m.post_id = p.ID
+				WHERE p.post_type = '$post_type'
+				AND p.post_status = 'publish'
+				AND p.post_parent = $id
+				AND m.meta_key = 'htm_permalink'
+				GROUP BY p.ID,
+						p.post_title,
+						m.meta_value"
+			);
 
-		<div class="more-part" part="1"></div>
-		<div class="more-part" part="2"></div>
-		<div class="more-part" part="3"></div>
+			if (!empty($kids)) {
+				foreach ($kids as $key => $post)
+					$kids[$key]->post_title = friendly_title($post->post_title);
 
-		<!-- search panel -->
-		<div class="more-panel">
-			<? get_template_part('views/widgets/search-form') ?>
-		</div>
+				uasort($kids, function ($a, $b) {
+					$aT = preg_replace('/^[^\w]+/', '', $a->post_title);
+					$bT = preg_replace('/^[^\w]+/', '', $b->post_title);
+					return strnatcasecmp($aT, $bT);
+				}); ?>
 
-		<!-- about panel -->
-		<div class="more-panel">
-			<h4 class="more-title">About Us</h4>
-			<div class="more-content">
-				<? get_template_part('views/partials/about-us') ?>
-			</div>
-		</div>
-
-		<!-- popular panel -->
-		<div class="more-panel">
-			<h4 class="more-title">Popular</h4>
-			<div class="more-content">
-				<? wpp_get_mostpopular([
-					'post_type' => 'post',
-					'wpp_start' => '',
-					'wpp_end'   => '',
-					'post_html' => '<a href="{url}">{text_title}</a>',
-					'range'     => 'last7days'
-				]) ?>
-			</div>
-		</div>
-
-		<!-- categories panel -->
-		<div class="more-panel">
-			<h4 class="more-title">Categories</h4>
-			<div class="more-content">
-				<? $list = wp_list_categories([
-					'title_li'           => '',
-					'style'              => 'none',
-					'echo'               => false,
-					'use_desc_for_title' => false,
-					'taxonomy'           => 'category'
-				]);
-				$list = trim(str_replace('<br />',  '', $list));
-				echo $list; ?>
-			</div>
-		</div>
-
-		<!-- latest panel -->
-		<div class="more-panel">
-			<h4 class="more-title">Latest</h4>
-			<div class="more-content">
-				<? $latest = get_posts([
-					'post_type' => 'post'
-				]);
-
-				if ($latest) {
-					foreach ($latest as $post) { ?>
-						<a href="<? echo get_permalink($post) ?>"><? echo $post->post_title ?></a>
-				<? }
-				} ?>
-			</div>
-		</div>
-	</div>
-
-<? $html = ob_get_contents();
+				<ul class="section-sub-list">
+					<?php foreach ($kids as $kid) {
+						echo sitemap_item($kid, $post_type, $type);
+					} ?>
+				</ul>
+			<?php } ?>
+		<?php } ?>
+	</li>
+	<?php
+	$html = ob_get_contents();
 	ob_end_clean();
 
 	return $html;
 }
-add_shortcode('htm_more_side_panel', 'htm_s_shotcode_more_panel');
+
+function htm_shortcode_sitemap() {
+
+	$post_types = get_post_types(array('public' => true), 'names', 'and');
+	$taxonomies = htm_get_taxonomies();
+
+	global $wpdb;
+	$wpdb->query(
+		"DELETE
+		FROM wp_postmeta
+		WHERE meta_key = 'htm_permalink'
+		AND meta_value LIKE '%-autosave-%'"
+	);
+
+	ob_start();
+
+	foreach ($post_types as $post_type) {
+		if (!get_option("htm_sitemap_include_$post_type")) continue;
+
+		$posts = get_results(
+			"SELECT
+				p.ID,
+				p.post_title,
+				m.meta_value AS link
+			FROM wp_postmeta m
+			INNER JOIN wp_posts p
+				ON m.post_id = p.ID
+			WHERE p.post_type = '$post_type'
+			AND p.post_status = 'publish'
+			AND p.post_parent = 0
+			AND m.meta_key = 'htm_permalink'
+			GROUP BY p.ID,
+					p.post_title,
+					m.meta_value"
+		);
+
+		if (!empty($posts)) {
+			foreach ($posts as $key => $post)
+				$posts[$key]->post_title = friendly_title($post->post_title);
+
+			uasort($posts, function ($a, $b) {
+				$aT = preg_replace('/^[^\w]+/', '', $a->post_title);
+				$bT = preg_replace('/^[^\w]+/', '', $b->post_title);
+				return strnatcasecmp($aT, $bT);
+			});
+
+			$type = get_post_type_object($post_type); ?>
+
+			<div class="section-wrap">
+				<h3 class="section-head"><?= $type->label ?></h3>
+				<ul class="section-list">
+
+					<?php foreach ($posts as $post) {
+						echo sitemap_item($post, $post_type, 'post');
+					} ?>
+				</ul>
+			</div>
+			<?php }
+		wp_reset_query();
+	}
+
+	if ($taxonomies) {
+		foreach ($taxonomies as $taxonomy) {
+			$tax = get_taxonomy($taxonomy);
+			if (!get_option("htm_sitemap_include_{$tax->name}")) continue;
+
+			$terms = get_terms(array('taxonomy' => $taxonomy, 'orderby' => 'name', 'order' => 'ASC', 'hide_empty' => true));
+
+			if (!empty($terms)) { ?>
+				<div class="section-wrap">
+					<h3 class="section-head"><?= $tax->label ?></h3>
+					<ul class="section-list">
+
+						<?php foreach ($terms as $term) {
+
+							echo sitemap_item($term, $tax->label, 'taxonomy');
+						} ?>
+					</ul>
+				</div>
+<?php }
+		}
+	}
+
+	$html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+}
+add_shortcode('htm_sitemap', 'htm_shortcode_sitemap');

@@ -1,0 +1,45 @@
+[02-Mar-2021 16:00:03] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[02-Mar-2021 16:00:09] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 16:00:09] &raquo; Saving the youtube data for 15 channels!
+[02-Mar-2021 16:00:18] &raquo; <b>Ahrefs</b>:
+[02-Mar-2021 16:00:18] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 16:00:21] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 194 videos.
+[02-Mar-2021 16:00:24] &raquo; Restarting in 65 seconds
+[02-Mar-2021 16:00:24] &raquo;  &raquo;  &raquo; Saving the youtube data for 194 videos! This may take some time.
+[02-Mar-2021 16:01:32] &raquo; 
+[02-Mar-2021 16:09:02] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 16:09:02] &raquo; <b>Ahrefs</b>:
+[02-Mar-2021 16:09:02] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 16:09:02] &raquo;  &raquo;  &raquo; Saving the youtube data for 194 videos! This may take some time.
+[02-Mar-2021 16:10:15] &raquo;  &raquo; We have: 194 and there are 193 in total.
+[02-Mar-2021 16:10:15] &raquo;  &raquo; Results: 3
+[02-Mar-2021 16:10:15] &raquo;  &raquo;  &raquo; H-B5oFJjL8I - What are Keywords and How to Choose Them? 1.1. SEO Course by Ahrefs
+[02-Mar-2021 16:10:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30074
+[02-Mar-2021 16:10:52] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30075
+[02-Mar-2021 16:10:52] &raquo; 
+[02-Mar-2021 16:11:00] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 16:11:00] &raquo; <b>Ahrefs</b>:
+[02-Mar-2021 16:11:00] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 16:11:00] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 195 videos.
+[02-Mar-2021 16:11:02] &raquo; Restarting in 78 seconds
+[02-Mar-2021 16:11:02] &raquo;  &raquo;  &raquo; Saving the youtube data for 195 videos! This may take some time.
+[02-Mar-2021 16:12:25] &raquo; 
+[02-Mar-2021 16:12:25] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 16:12:25] &raquo; <b>Ahrefs</b>:
+[02-Mar-2021 16:12:25] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 16:12:25] &raquo;  &raquo;  &raquo; Saving the youtube data for 195 videos! This may take some time.
+[02-Mar-2021 16:13:52] &raquo; 
+[02-Mar-2021 16:22:47] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 16:22:47] &raquo; <b>Ahrefs</b>:
+[02-Mar-2021 16:22:47] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 16:22:47] &raquo;  &raquo;  &raquo; Saving the youtube data for 195 videos! This may take some time.
+[02-Mar-2021 16:23:12] &raquo;  &raquo; We have: 195 and there are 193 in total.
+[02-Mar-2021 16:23:12] &raquo;  &raquo; Results: 2
+[02-Mar-2021 16:23:12] &raquo;  &raquo;  &raquo; btwC4zmewss - SEO Basics: What is SEO and Why is it Important? [SEO Course by Ahrefs]
+[02-Mar-2021 16:23:22] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30076
+[02-Mar-2021 16:23:38] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30077
+[02-Mar-2021 16:23:38] &raquo; Restarting in 29 seconds
+[02-Mar-2021 16:23:38] &raquo;  &raquo;  &raquo; 3tbDkc3k48E - How to Use Internal Links to Rank Higher in Google
+[02-Mar-2021 16:23:43] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 30078
+[02-Mar-2021 16:24:13] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 30079
+[02-Mar-2021 16:24:13] &raquo; 

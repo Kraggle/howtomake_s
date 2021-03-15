@@ -1,5 +1,7 @@
-<?
+<?php
 // HTML partial/header
+
+$nonce = wp_create_nonce('main_menu_nonce');
 
 // CREATE header-mobile.html
 ob_start();
@@ -14,11 +16,13 @@ $fw = fopen($file, "w");
 fputs($fw, $page, strlen($page));
 fclose($fw);
 
+global $wp;
+
 ?>
 
 <div class="menu-back"></div>
 
-<header class="banner for-desktop">
+<header class="banner for-desktop" data-nonce="<?= $nonce ?>">
 	<div class="upper">
 		<div class="trending-box">
 			<span class="trending-label">TRENDING:</span>
@@ -27,12 +31,12 @@ fclose($fw);
 
 		<div class="menu-spacer"></div>
 
-		<?
+		<?php
 		if (has_nav_menu('social-menu')) {
 			wp_nav_menu([
 				'theme_location' => 'social-menu',
 				'container' => '',
-				'menu_class' => 'social-icons',
+				'menu_class' => 'social-icons icons',
 				'menu_id' => '',
 				'echo' => true,
 			]);
@@ -41,19 +45,43 @@ fclose($fw);
 
 		<!-- .et-top-search -->
 		<div class="top-search">
-			<? get_template_part('views/widgets/search-form') ?>
+			<?php get_template_part('views/widgets/search-form') ?>
+		</div>
+
+		<div class="top-account icons">
+			<?php if(is_user_logged_in()): ?>
+				<div class="account-menu logged-in">
+					<div class="fa-icon el-a type-solid svg-user">
+						<a href="https://dashboard.howtomakemoneyfromhomeuk.com/" >&nbsp;</a>
+						</div>
+					<div class="submenu">
+						<div class="submenu-inner">
+							<ul>
+							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/">Dashboard</a></li>
+							<li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/">Account</a></li>
+								<?php /* <li><a href="https://dashboard.howtomakemoneyfromhomeuk.com/account/?action=courses">Courses</a></li>*/ ?>
+								<li><a href="/wp-login.php?action=logout">Log Out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			<?php else: ?>
+				<div class="auth-links logged-out">
+					<a href="https://dashboard.howtomakemoneyfromhomeuk.com/login/?return-url=<?php echo urlencode(add_query_arg( $wp->query_vars, home_url( $wp->request ) )); ?>" class="login-link">Sign In</a> / <a href="https://dashboard.howtomakemoneyfromhomeuk.com/register/basic/?return-url=<?php echo urlencode(add_query_arg( $wp->query_vars, home_url( $wp->request ) )); ?>" class="register-link">Register</a>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 
 	<div class="lower">
-		<a class="brand" href="<? echo esc_url(home_url('/')); ?>">
-			<img class="logo" src="<? echo wp_get_attachment_image_url(17385, 'medium') ?>" alt="<? echo esc_attr(get_bloginfo('name')); ?>" />
+		<a class="brand" href="<?= esc_url(home_url('/')); ?>">
+			<?php get_template_part('views/partials/logo') ?>
 		</a>
 
 		<div class="menu-spacer"></div>
 
 		<nav class="primary-nav for-desktop">
-			<?
+			<?php
 			if (has_nav_menu('primary-menu')) {
 				wp_nav_menu([
 					'theme_location' => 'primary-menu',
@@ -68,5 +96,5 @@ fclose($fw);
 	</div>
 </header>
 
-<?
+<?php
 // END

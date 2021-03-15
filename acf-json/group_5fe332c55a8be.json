@@ -1,0 +1,23 @@
+{
+    "key": "group_5fe332c55a8be",
+    "title": "Featured Post",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Adds a Featured Group option posts for use with the menu",
+    "modified": 1614431058
+}

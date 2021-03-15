@@ -1,0 +1,111 @@
+[02-Mar-2021 13:26:26] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[02-Mar-2021 13:26:32] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Mar-2021 13:26:32] &raquo; <b>Robert Kiyosaki</b>:
+[02-Mar-2021 13:26:32] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 13:26:32] &raquo;  &raquo;  &raquo; Saving the youtube data for 573 videos! This may take some time.
+[02-Mar-2021 13:26:58] &raquo;  &raquo; We have: 573 and there are 574 in total.
+[02-Mar-2021 13:26:58] &raquo;  &raquo; Results: 2
+[02-Mar-2021 13:26:58] &raquo;  &raquo;  &raquo; sKlTxd5qa9k - Weapon for Capitalism: Financial Education Robert & Kim Kiyosaki, Andy Tanner, Alexandra Gonzalez
+[02-Mar-2021 13:27:01] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31169
+[02-Mar-2021 13:27:04] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31170
+[02-Mar-2021 13:27:04] &raquo; Restarting in 48 seconds
+[02-Mar-2021 13:27:04] &raquo;  &raquo;  &raquo; lx7A8PWa-Fo - Strategies to Create CASHFLOW Kim Kiyosaki [CASHFLOW Clubs]
+[02-Mar-2021 13:27:06] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31171
+[02-Mar-2021 13:27:08] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31172
+[02-Mar-2021 13:27:08] &raquo; Restarting in 44 seconds
+[02-Mar-2021 13:27:08] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-02
+[02-Mar-2021 13:27:08] &raquo; Restarting in 44 seconds
+[02-Mar-2021 13:27:08] &raquo; <b>Shark Tank Australia</b>:
+[02-Mar-2021 13:27:08] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 13:27:08] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 210 videos.
+[02-Mar-2021 13:27:09] &raquo; Restarting in 43 seconds
+[02-Mar-2021 13:27:09] &raquo;  &raquo;  &raquo; Saving the youtube data for 210 videos! This may take some time.
+[02-Mar-2021 13:27:19] &raquo;  &raquo; We have: 210 and there are 213 in total.
+[02-Mar-2021 13:27:19] &raquo;  &raquo; Results: 3
+[02-Mar-2021 13:27:19] &raquo;  &raquo;  &raquo; 8KgCqVf-TG4 - “The Beauty of This Is, Even a Woman Can Do It” | Shark Tank AUS
+[02-Mar-2021 13:27:19] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31173
+[02-Mar-2021 13:27:21] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31174
+[02-Mar-2021 13:27:21] &raquo; Restarting in 31 seconds
+[02-Mar-2021 13:27:21] &raquo;  &raquo;  &raquo; 2kVYCNXrxx0 - This 17-Year-Old An Absolute Powerhouse! | Shark Tank AUS #Shorts
+[02-Mar-2021 13:27:21] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31175
+[02-Mar-2021 13:27:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31176
+[02-Mar-2021 13:27:23] &raquo; Restarting in 29 seconds
+[02-Mar-2021 13:27:23] &raquo;  &raquo;  &raquo; 2TXg2f9lQwI - Sharks Blown-Away by Cutting Edge Micro-Retailers | Shark Tank AUS
+[02-Mar-2021 13:27:23] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31177
+[02-Mar-2021 13:27:25] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31178
+[02-Mar-2021 13:27:25] &raquo; Restarting in 27 seconds
+[02-Mar-2021 13:27:25] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-02
+[02-Mar-2021 13:27:25] &raquo; Restarting in 27 seconds
+[02-Mar-2021 13:27:25] &raquo; <b>Valuetainment</b>:
+[02-Mar-2021 13:27:25] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 13:27:25] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 1493 videos.
+[02-Mar-2021 13:27:34] &raquo; Restarting in 18 seconds
+[02-Mar-2021 13:27:34] &raquo;  &raquo;  &raquo; Saving the youtube data for 1481 videos! This may take some time.
+[02-Mar-2021 13:27:52] &raquo; 
+[02-Mar-2021 13:28:11] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[02-Mar-2021 13:28:11] &raquo; <b>Valuetainment</b>:
+[02-Mar-2021 13:28:11] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 13:28:11] &raquo;  &raquo;  &raquo; Saving the youtube data for 1481 videos! This may take some time.
+[02-Mar-2021 13:29:19] &raquo;  &raquo;  &raquo; Video @11060 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:19] &raquo;  &raquo;  &raquo; Video @11062 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:20] &raquo;  &raquo;  &raquo; Video @11064 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:21] &raquo;  &raquo;  &raquo; Video @11208 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:21] &raquo;  &raquo;  &raquo; Video @11214 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:22] &raquo;  &raquo;  &raquo; Video @12525 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:23] &raquo;  &raquo;  &raquo; Video @12598 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:23] &raquo;  &raquo;  &raquo; Video @12974 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:24] &raquo;  &raquo;  &raquo; Video @13247 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:25] &raquo;  &raquo;  &raquo; Video @13923 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:25] &raquo;  &raquo;  &raquo; Video @13997 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:26] &raquo;  &raquo;  &raquo; Video @14061 has been deleted as it no longer existed!
+[02-Mar-2021 13:29:31] &raquo;  &raquo; We have: 1481 and there are 1477 in total.
+[02-Mar-2021 13:29:31] &raquo;  &raquo; Results: 4
+[02-Mar-2021 13:29:31] &raquo;  &raquo;  &raquo; 5VmK5mroYQE - Stop Deflecting Pressure
+[02-Mar-2021 13:29:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31179
+[02-Mar-2021 13:29:35] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31180
+[02-Mar-2021 13:29:35] &raquo; 
+[02-Mar-2021 13:57:15] &raquo; Click `START UPDATE` at the top of the page to manually run this task.
+[02-Mar-2021 13:57:20] &raquo; Getting the channels and checking if they need updating.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[02-Mar-2021 13:57:20] &raquo; <b>Valuetainment</b>:
+[02-Mar-2021 13:57:20] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[02-Mar-2021 13:57:20] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 1482 videos.
+[02-Mar-2021 13:57:29] &raquo; Restarting in 71 seconds
+[02-Mar-2021 13:57:29] &raquo;  &raquo;  &raquo; Saving the youtube data for 1482 videos! This may take some time.
+[02-Mar-2021 13:58:40] &raquo; 

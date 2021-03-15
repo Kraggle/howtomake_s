@@ -10,27 +10,27 @@
 
 
 if (is_singular())
-	the_title('<h1 class="title">', '</h1>');
+	the_title('<h1 class="title" itemprop="headline">', '</h1>');
 else
-	the_title('<h2 class="title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+	the_title('<h2 class="title" itemprop="headline"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
 
 if ('post' === get_post_type()) { ?>
 	<p class="meta">by
 		<span class="author">
-			<a href="<? echo get_author_posts_url(get_the_author_meta('ID')) ?>" title="Posts by " rel="author">
-				<? echo  get_the_author() ?>
+			<a href="<?= get_author_posts_url(get_the_author_meta('ID')) ?>" title="Posts by " rel="author">
+				<?= get_the_author() ?>
 			</a>
 		</span> |
-		<span class="date"><? echo get_the_date() ?></span> |
-		<? the_category(', ') ?>
+		<span class="date"><?= get_the_date() ?></span> |
+		<?php the_category(', ') ?>
 	</p>
-<? } ?>
+<?php } ?>
 
-<? htm_s_post_thumbnail(); ?>
+<?php htm_s_post_thumbnail(); ?>
 
 <div class="wrapper">
 	<div class="content-wrap">
-		<? the_content(
+		<?php the_content(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
@@ -53,8 +53,8 @@ if ('post' === get_post_type()) { ?>
 		); ?>
 	</div>
 
-	<? echo do_shortcode('[htm_more_side_panel]') ?>
+	<?php get_template_part('views/widgets/side-panel') ?>
 </div>
 
-<? // htm_s_entry_footer(); 
+<?php // htm_s_entry_footer(); 
 // END

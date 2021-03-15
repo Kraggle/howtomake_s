@@ -1,0 +1,193 @@
+Google_Service_YouTube_PlaylistItem Object
+(
+    [contentDetailsType:protected] => Google_Service_YouTube_PlaylistItemContentDetails
+    [contentDetailsDataType:protected] => 
+    [etag] => 99kmE0KQL23mzrDiC90Qmwx85yU
+    [id] => VVVDOHdjenk3NzM0aktQaGlSMlVrUzlBLnBvWm5nUjBfRUk4
+    [kind] => youtube#playlistItem
+    [snippetType:protected] => Google_Service_YouTube_PlaylistItemSnippet
+    [snippetDataType:protected] => 
+    [statusType:protected] => Google_Service_YouTube_PlaylistItemStatus
+    [statusDataType:protected] => 
+    [internal_gapi_mappings:protected] => Array
+        (
+        )
+
+    [modelData:protected] => Array
+        (
+        )
+
+    [processed:protected] => Array
+        (
+        )
+
+    [snippet] => Google_Service_YouTube_PlaylistItemSnippet Object
+        (
+            [channelId] => UCC8wczy7734jKPhiR2UkS9A
+            [channelTitle] => Wholesale Ted
+            [description] => A common question we’re asked is this: “is dropshipping banned on Amazon?” Or “is dropshipping banned on eBay?” The answer is no - it isn’t! 
+UPDATE: Hi everyone. Recently, we got hit with what (we believe to be false) copyright claims on our older videos music. Regardless of the legitimacy, we've been going back through those videos & removing the sections with music 🌞 it's a slow process with the editor. We're hoping to restore as many as possible. Thank you 🌞 ecommerce is an ever-changing world, and so we do recommend watching our latest videos regardless. Thank you & we hope you have a wonderful day, wherever you are in the world 🌎
+            [playlistId] => UUC8wczy7734jKPhiR2UkS9A
+            [position] => 146
+            [publishedAt] => 2016-03-17T03:23:53Z
+            [resourceIdType:protected] => Google_Service_YouTube_ResourceId
+            [resourceIdDataType:protected] => 
+            [thumbnailsType:protected] => Google_Service_YouTube_ThumbnailDetails
+            [thumbnailsDataType:protected] => 
+            [title] => Is Dropshipping Banned on Amazon and eBay? (DS Domination Confusion)
+            [internal_gapi_mappings:protected] => Array
+                (
+                )
+
+            [modelData:protected] => Array
+                (
+                )
+
+            [processed:protected] => Array
+                (
+                )
+
+            [thumbnails] => Google_Service_YouTube_ThumbnailDetails Object
+                (
+                    [defaultType:protected] => Google_Service_YouTube_Thumbnail
+                    [defaultDataType:protected] => 
+                    [highType:protected] => Google_Service_YouTube_Thumbnail
+                    [highDataType:protected] => 
+                    [maxresType:protected] => Google_Service_YouTube_Thumbnail
+                    [maxresDataType:protected] => 
+                    [mediumType:protected] => Google_Service_YouTube_Thumbnail
+                    [mediumDataType:protected] => 
+                    [standardType:protected] => Google_Service_YouTube_Thumbnail
+                    [standardDataType:protected] => 
+                    [internal_gapi_mappings:protected] => Array
+                        (
+                        )
+
+                    [modelData:protected] => Array
+                        (
+                        )
+
+                    [processed:protected] => Array
+                        (
+                        )
+
+                    [default] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 90
+                            [url] => https://i.ytimg.com/vi/poZngR0_EI8/default.jpg
+                            [width] => 120
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [medium] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 180
+                            [url] => https://i.ytimg.com/vi/poZngR0_EI8/mqdefault.jpg
+                            [width] => 320
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [high] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 360
+                            [url] => https://i.ytimg.com/vi/poZngR0_EI8/hqdefault.jpg
+                            [width] => 480
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [standard] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 480
+                            [url] => https://i.ytimg.com/vi/poZngR0_EI8/sddefault.jpg
+                            [width] => 640
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [maxres] => Google_Service_YouTube_Thumbnail Object
+                        (
+                            [height] => 720
+                            [url] => https://i.ytimg.com/vi/poZngR0_EI8/maxresdefault.jpg
+                            [width] => 1280
+                            [internal_gapi_mappings:protected] => Array
+                                (
+                                )
+
+                            [modelData:protected] => Array
+                                (
+                                )
+
+                            [processed:protected] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [resourceId] => Google_Service_YouTube_ResourceId Object
+                (
+                    [channelId] => 
+                    [kind] => youtube#video
+                    [playlistId] => 
+                    [videoId] => poZngR0_EI8
+                    [internal_gapi_mappings:protected] => Array
+                        (
+                        )
+
+                    [modelData:protected] => Array
+                        (
+                        )
+
+                    [processed:protected] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)

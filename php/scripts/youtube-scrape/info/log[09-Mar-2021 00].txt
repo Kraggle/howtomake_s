@@ -1,0 +1,130 @@
+[09-Mar-2021 00:00:01] &raquo; Getting the channels and checking if they need updating.
+[09-Mar-2021 00:00:01] &raquo; Saving the youtube data for 15 channels!
+[09-Mar-2021 00:00:02] &raquo; <b>Ahrefs</b>:
+[09-Mar-2021 00:00:02] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:00:02] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 200 videos.
+[09-Mar-2021 00:00:03] &raquo; Restarting in 78 seconds
+[09-Mar-2021 00:00:03] &raquo;  &raquo;  &raquo; Saving the youtube data for 200 videos! This may take some time.
+[09-Mar-2021 00:00:11] &raquo;  &raquo; We have: 200 and there are 197 in total.
+[09-Mar-2021 00:00:11] &raquo;  &raquo; Results: 1
+[09-Mar-2021 00:00:11] &raquo;  &raquo;  &raquo; lu9-GvQGZAE - What is On-Page SEO 2.1. SEO Course by Ahrefs
+[09-Mar-2021 00:00:12] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31422
+[09-Mar-2021 00:00:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31423
+[09-Mar-2021 00:00:14] &raquo; Restarting in 67 seconds
+[09-Mar-2021 00:00:14] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:00:14] &raquo; Restarting in 67 seconds
+[09-Mar-2021 00:00:14] &raquo; <b>Andrei Jikh</b>:
+[09-Mar-2021 00:00:14] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:00:14] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 219 videos.
+[09-Mar-2021 00:00:15] &raquo; Restarting in 66 seconds
+[09-Mar-2021 00:00:15] &raquo;  &raquo;  &raquo; Saving the youtube data for 219 videos! This may take some time.
+[09-Mar-2021 00:00:29] &raquo;  &raquo; We have: 219 and there are 220 in total.
+[09-Mar-2021 00:00:29] &raquo;  &raquo; Results: 1
+[09-Mar-2021 00:00:29] &raquo;  &raquo;  &raquo; MXnLUpZBi4A - The TRUTH About NFTs
+[09-Mar-2021 00:00:30] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31424
+[09-Mar-2021 00:00:31] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31425
+[09-Mar-2021 00:00:31] &raquo; Restarting in 50 seconds
+[09-Mar-2021 00:00:31] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:00:31] &raquo; Restarting in 50 seconds
+[09-Mar-2021 00:00:31] &raquo; <b>Beast Of E-Com</b>:
+[09-Mar-2021 00:00:31] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:00:31] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 138 videos.
+[09-Mar-2021 00:00:32] &raquo; Restarting in 49 seconds
+[09-Mar-2021 00:00:32] &raquo;  &raquo;  &raquo; Saving the youtube data for 138 videos! This may take some time.
+[09-Mar-2021 00:00:38] &raquo;  &raquo; We have: 138 and there are 138 in total.
+[09-Mar-2021 00:00:38] &raquo;  &raquo; Results: 0
+[09-Mar-2021 00:00:38] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:00:38] &raquo; Restarting in 43 seconds
+[09-Mar-2021 00:00:38] &raquo; <b>Daily Motivation</b>:
+[09-Mar-2021 00:00:38] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:00:38] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 177 videos.
+[09-Mar-2021 00:00:39] &raquo; Restarting in 42 seconds
+[09-Mar-2021 00:00:39] &raquo;  &raquo;  &raquo; Saving the youtube data for 177 videos! This may take some time.
+[09-Mar-2021 00:00:47] &raquo;  &raquo; We have: 177 and there are 178 in total.
+[09-Mar-2021 00:00:47] &raquo;  &raquo; Results: 1
+[09-Mar-2021 00:00:47] &raquo;  &raquo;  &raquo; -Px31H6OUC4 - IT WILL MAKE YOU THINK...
+[09-Mar-2021 00:00:50] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31426
+[09-Mar-2021 00:00:52] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31427
+[09-Mar-2021 00:00:52] &raquo; Restarting in 29 seconds
+[09-Mar-2021 00:00:52] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:00:52] &raquo; Restarting in 29 seconds
+[09-Mar-2021 00:00:52] &raquo; <b>Dragons Den</b>:
+[09-Mar-2021 00:00:52] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:00:52] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 378 videos.
+[09-Mar-2021 00:00:53] &raquo; Restarting in 28 seconds
+[09-Mar-2021 00:00:53] &raquo;  &raquo;  &raquo; Saving the youtube data for 378 videos! This may take some time.
+[09-Mar-2021 00:01:15] &raquo;  &raquo; We have: 378 and there are 378 in total.
+[09-Mar-2021 00:01:15] &raquo;  &raquo; Results: 0
+[09-Mar-2021 00:01:15] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:01:15] &raquo; Restarting in 6 seconds
+[09-Mar-2021 00:01:15] &raquo; <b>Gabriel St-Germain</b>:
+[09-Mar-2021 00:01:15] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:01:15] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 28 videos.
+[09-Mar-2021 00:01:16] &raquo; Restarting in 5 seconds
+[09-Mar-2021 00:01:16] &raquo;  &raquo;  &raquo; Saving the youtube data for 28 videos! This may take some time.
+[09-Mar-2021 00:01:16] &raquo;  &raquo; We have: 28 and there are 24 in total.
+[09-Mar-2021 00:01:16] &raquo;  &raquo; Results: 0
+[09-Mar-2021 00:01:16] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:01:17] &raquo; Restarting in 4 seconds
+[09-Mar-2021 00:01:17] &raquo; <b>Graham Stephan</b>:
+[09-Mar-2021 00:01:17] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:01:17] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 596 videos.
+[09-Mar-2021 00:01:20] &raquo; Restarting in 1 seconds
+[09-Mar-2021 00:01:20] &raquo;  &raquo;  &raquo; Saving the youtube data for 596 videos! This may take some time.
+[09-Mar-2021 00:01:21] &raquo; 
+[09-Mar-2021 00:01:21] &raquo; Getting the channels and checking if they need updating.
+[09-Mar-2021 00:01:21] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[09-Mar-2021 00:01:21] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[09-Mar-2021 00:01:21] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[09-Mar-2021 00:01:21] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[09-Mar-2021 00:01:21] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[09-Mar-2021 00:01:21] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[09-Mar-2021 00:01:21] &raquo; <b>Graham Stephan</b>:
+[09-Mar-2021 00:01:21] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:01:21] &raquo;  &raquo;  &raquo; Saving the youtube data for 596 videos! This may take some time.
+[09-Mar-2021 00:01:58] &raquo;  &raquo; We have: 596 and there are 597 in total.
+[09-Mar-2021 00:01:58] &raquo;  &raquo; Results: 1
+[09-Mar-2021 00:01:58] &raquo;  &raquo;  &raquo; btUWj4HSGyg - My Thoughts On The Wealth Tax
+[09-Mar-2021 00:01:59] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31428
+[09-Mar-2021 00:02:03] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31429
+[09-Mar-2021 00:02:03] &raquo; Restarting in 38 seconds
+[09-Mar-2021 00:02:03] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:02:03] &raquo; Restarting in 38 seconds
+[09-Mar-2021 00:02:03] &raquo; <b>Jack Kitchener</b>:
+[09-Mar-2021 00:02:03] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:02:03] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 308 videos.
+[09-Mar-2021 00:02:05] &raquo; Restarting in 36 seconds
+[09-Mar-2021 00:02:05] &raquo;  &raquo;  &raquo; Saving the youtube data for 308 videos! This may take some time.
+[09-Mar-2021 00:02:20] &raquo;  &raquo; We have: 308 and there are 308 in total.
+[09-Mar-2021 00:02:20] &raquo;  &raquo; Results: 0
+[09-Mar-2021 00:02:20] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:02:20] &raquo; Restarting in 21 seconds
+[09-Mar-2021 00:02:20] &raquo; <b>Jared Goetz</b>:
+[09-Mar-2021 00:02:20] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:02:20] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 21 videos.
+[09-Mar-2021 00:02:20] &raquo; Restarting in 21 seconds
+[09-Mar-2021 00:02:20] &raquo;  &raquo;  &raquo; Saving the youtube data for 21 videos! This may take some time.
+[09-Mar-2021 00:02:21] &raquo;  &raquo; We have: 21 and there are 20 in total.
+[09-Mar-2021 00:02:21] &raquo;  &raquo; Results: 0
+[09-Mar-2021 00:02:21] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:02:21] &raquo; Restarting in 20 seconds
+[09-Mar-2021 00:02:21] &raquo; <b>Kristin Stones</b>:
+[09-Mar-2021 00:02:21] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:02:21] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 154 videos.
+[09-Mar-2021 00:02:22] &raquo; Restarting in 19 seconds
+[09-Mar-2021 00:02:22] &raquo;  &raquo;  &raquo; Saving the youtube data for 154 videos! This may take some time.
+[09-Mar-2021 00:02:32] &raquo;  &raquo; We have: 154 and there are 154 in total.
+[09-Mar-2021 00:02:32] &raquo;  &raquo; Results: 0
+[09-Mar-2021 00:02:32] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-09
+[09-Mar-2021 00:02:32] &raquo; Restarting in 9 seconds
+[09-Mar-2021 00:02:32] &raquo; <b>Law of Attraction Coaching</b>:
+[09-Mar-2021 00:02:32] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[09-Mar-2021 00:02:32] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 100 videos.
+[09-Mar-2021 00:02:32] &raquo; Restarting in 9 seconds
+[09-Mar-2021 00:02:32] &raquo;  &raquo;  &raquo; Saving the youtube data for 100 videos! This may take some time.
+[09-Mar-2021 00:02:36] &raquo;  &raquo; We have: 100 and there are 101 in total.
+[09-Mar-2021 00:02:37] &raquo;  &raquo; Results: 1
+[09-Mar-2021 00:02:37] &raquo;  &raquo;  &raquo; zyeB2RSTTYk - DISCIPLINE IS EVERYTHING Best Motivational Video 2021
+[09-Mar-2021 00:02:49] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31430
+[09-Mar-2021 00:02:51] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31431
+[09-Mar-2021 00:02:51] &raquo; 

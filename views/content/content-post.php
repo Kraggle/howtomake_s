@@ -8,48 +8,75 @@
  * @package htm_s
  */
 
+// This is used to split the content and the related posts apart 
+ob_start();
+the_content();
+$content = ob_get_contents();
+ob_end_clean();
 
-the_title('<h1 class="title">', '</h1>'); ?>
+$doc = phpQuery::newDocument($content);
+$related = pq('.yarpp-related');
+$entries = $related->find('.list .entry')->slice(0, 5);
+$related->find('.list')->html($entries);
+
+$doc->find('.yarpp-related')->remove();
+
+ob_start();
+print $doc->htmlOuter();
+$content = ob_get_contents();
+ob_end_clean();
+
+ob_start();
+print $related->htmlOuter();
+$related = ob_get_contents();
+ob_end_clean();
+
+the_title('<h1 class="title" itemprop="headline">', '</h1>');
+
+$toc = to_object(get_field('toc'));
+if (!$toc)
+	$toc = (object) [
+		'active' => false
+	]; ?>
+
+<?= content_schema_meta(); ?>
 
 <p class="meta">by
 	<span class="author">
-		<a href="<? echo get_author_posts_url(get_the_author_meta('ID')) ?>" title="Posts by " rel="author">
-			<? echo  get_the_author() ?>
+		<a href="<?= get_author_posts_url(get_the_author_meta('ID')) ?>" title="Posts by " rel="author">
+			<?= get_the_author() ?>
 		</a>
 	</span> |
-	<span class="date"><? echo get_the_date() ?></span> |
-	<? the_category(', ') ?>
+	<span class="date"><?= get_the_date() ?></span> |
+	<?php the_category(', ') ?>
 </p>
 
-<? htm_s_post_thumbnail(); ?>
+<?php if ($desc = get_field('description')) { ?>
+	<div class="description">
+		<?= $desc ?>
+	</div>
+<?php } ?>
+
+<?php htm_s_post_thumbnail(); ?>
 
 <div class="wrapper">
-	<div class="content-wrap">
-		<? the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'htm_s'),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post(get_the_title())
-			)
-		);
+	<?php if ($toc->active) { ?>
+		<div class="inner-wrap">
+		<?php get_template_part('views/widgets/table-of-contents');
+	} ?>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'htm_s'),
-				'after'  => '</div>',
-			)
-		); ?>
-	</div>
+		<div class="content-wrap" itemprop="articleBody">
+			<?= $content ?>
+		</div>
 
-	<? echo do_shortcode('[htm_more_side_panel]') ?>
+		<?php if ($toc->active) { ?>
+		</div>
+	<?php } ?>
+
+	<?php get_template_part('views/widgets/side-panel') ?>
 </div>
 
-<? // htm_s_entry_footer(); 
+<?= $related ?>
+
+<?php // htm_s_entry_footer(); 
 // END

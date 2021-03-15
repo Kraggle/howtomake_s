@@ -125,16 +125,21 @@ if (!function_exists('htm_s_post_thumbnail')) {
 			return;
 		}
 
-		if (is_singular()) { ?>
+		if (is_singular()) {
+			$image = get_the_post_thumbnail();
+			preg_match('/width="(\d+).+height="(\d+)/', $image, $dims); ?>
 
-			<div class="featured-image">
-				<? the_post_thumbnail(); ?>
+			<div class="featured-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+				<meta itemprop="url" content="<?= get_the_post_thumbnail_url() ?>">
+				<meta itemprop="width" content="<?= $dims[1] ?>">
+				<meta itemprop="height" content="<?= $dims[2] ?>">
+				<?php the_post_thumbnail(); ?>
 			</div>
 
-		<? } else { ?>
+		<?php } else { ?>
 
-			<a class="featured-image" href="<? the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<? the_post_thumbnail(
+			<a class="featured-image" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+				<?php the_post_thumbnail(
 					'featured-image',
 					array(
 						'alt' => the_title_attribute(
@@ -145,7 +150,7 @@ if (!function_exists('htm_s_post_thumbnail')) {
 					)
 				); ?>
 			</a>
-<? }
+<?php }
 	}
 }
 

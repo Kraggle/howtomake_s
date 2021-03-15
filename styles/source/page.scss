@@ -1,9 +1,11 @@
-@import "common/variables";
+@import './common/variables';
+@import './layouts/sidebar';
 
 .main {
     > .title {
         color: #fff;
         margin-bottom: 60px;
+        font-weight: 800;
     }
 }
 
@@ -20,8 +22,9 @@
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
-    @media (max-width: 980px) {
-        flex-direction: column;
+    .inner-wrap {
+        display: flex;
+        gap: 50px;
     }
 
     a {
@@ -30,17 +33,18 @@
     }
 
     p {
-        color: $color-text-blue;
         margin-bottom: 20px;
     }
 
     a, p, ul, ol, div, noscript {
-        + h6,
-        + h5,
-        + h4,
-        + h3,
-        + h2 {
-            margin-top: 50px;
+        @for $i from 1 through 6 {
+            + h#{$i} {
+                margin-top: 100px;
+
+                @media (max-width: 500px) {
+                    margin-top: 60px;
+                }
+            }
         }
     }
 
@@ -60,40 +64,62 @@
     }
 
     li {
-        margin: 20px;
-        color: $color-text-blue;
-        line-height: 1.1em;
-        font-size: 15px;
+        margin: 10px 20px;
+        line-height: 1.7em;
+    }
+
+    h1,
+    h2 {
+        font-size: 30px;
+        font-weight: 750;
     }
 
     h3 {
         font-size: 25px;
     }
 
-    h2 {
-        font-size: 35px;
-        font-weight: 750;
-    }
-
-    h2, h3, h4, h5, h6 {
-        margin-bottom: 15px;
-    }
-
-    .image-wrap {
-        position: relative;
-        margin: 20px 0;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+    @for $i from 2 through 6 {
+        h#{$i} {
+            margin-bottom: 15px;
         }
     }
 
     @media (max-width: 600px) {
         h2 {
-            font-size: 30px;
+            font-size: 24px;
         }
+    }
+
+    .image-wrap {
+        position: relative;
+        margin: 20px 0;
+        width: 100%;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .image-center {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .centre-image {
+        background-image: linear-gradient(209deg, $color-main 0%, $color-gradient 100%);
+
+        img {
+            display: block;
+            margin: auto;
+        }
+    }
+
+    @media (max-width: 1180px) {
+        flex-direction: column;
     }
 }
 
@@ -121,11 +147,69 @@
 
             &::placeholder {
                 text-transform: uppercase;
+                opacity: 1;
             }
 
             &:focus {
                 outline: none;
             }
         }
+    }
+}
+
+.page-home {
+    .content-wrap {
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        background-color: initial;
+    }
+}
+
+@media (max-width: 700px) {
+    .content {
+        .title {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 750;
+        }
+
+        .has-text-align-right,
+        .content-wrap h1,
+        .money-list,
+        .goto-article {
+            display: none;
+        }
+
+        .content-wrap {
+            > p {
+                &:nth-of-type(1),
+                &:nth-of-type(2) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .body-decor {
+        height: 70px;
+    }
+
+    .body-curves + .content {
+        margin: -130px auto 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .content {
+        .title {
+            margin-bottom: 40px;
+        }
+    }
+
+    .body-curves + .content {
+        margin: -140px auto 0;
     }
 }

@@ -1,0 +1,68 @@
+{
+	"kind": "youtube#channelListResponse",
+	"etag": "zTL6-S7dmrMNK0CDbVB_qKB12sI",
+	"pageInfo": {
+		"totalResults": 1,
+		"resultsPerPage": 5
+	},
+	"items": [
+		{
+			"kind": "youtube#channel",
+			"etag": "M3qZJBp4o9kkyV1Gmoz8maToU9k",
+			"id": "UCGy7SkBjcIAgTiwkXEtPnYg",
+			"snippet": {
+				"title": "Andrei Jikh",
+				"description": "I'm like Harry Potter - if he was a financial minimalist, did card tricks and worried about money. For biz inquiries, please email andrei@majikh.com",
+				"customUrl": "andreijikh",
+				"publishedAt": "2017-03-24T00:43:42Z",
+				"thumbnails": {
+					"default": {
+						"url": "https://yt3.ggpht.com/ytc/AAUvwngpTqv_IzK0WjlRnwkHC5bzYm5zA7wqfiDPzATsow=s88-c-k-c0x00ffffff-no-rj",
+						"width": 88,
+						"height": 88
+					},
+					"medium": {
+						"url": "https://yt3.ggpht.com/ytc/AAUvwngpTqv_IzK0WjlRnwkHC5bzYm5zA7wqfiDPzATsow=s240-c-k-c0x00ffffff-no-rj",
+						"width": 240,
+						"height": 240
+					},
+					"high": {
+						"url": "https://yt3.ggpht.com/ytc/AAUvwngpTqv_IzK0WjlRnwkHC5bzYm5zA7wqfiDPzATsow=s800-c-k-c0x00ffffff-no-rj",
+						"width": 800,
+						"height": 800
+					}
+				},
+				"localized": {
+					"title": "Andrei Jikh",
+					"description": "I'm like Harry Potter - if he was a financial minimalist, did card tricks and worried about money. For biz inquiries, please email andrei@majikh.com"
+				},
+				"country": "US"
+			},
+			"contentDetails": {
+				"relatedPlaylists": {
+					"likes": "",
+					"favorites": "",
+					"uploads": "UUGy7SkBjcIAgTiwkXEtPnYg"
+				}
+			},
+			"statistics": {
+				"viewCount": "87985429",
+				"subscriberCount": "1250000",
+				"hiddenSubscriberCount": false,
+				"videoCount": "213"
+			},
+			"topicDetails": {
+				"topicIds": [
+					"/m/019_rr",
+					"/m/03glg",
+					"/m/01k8wb"
+				],
+				"topicCategories": [
+					"https://en.wikipedia.org/wiki/Lifestyle_(sociology)",
+					"https://en.wikipedia.org/wiki/Hobby",
+					"https://en.wikipedia.org/wiki/Knowledge"
+				]
+			}
+		}
+	]
+}

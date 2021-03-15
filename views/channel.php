@@ -13,130 +13,172 @@
  * @package howtomake_S
  */
 
-remove_action('loop_start', 'et_dbp_main_loop_start');
-remove_action('loop_end', 'et_dbp_main_loop_end');
+$fields = to_object(get_fields(get_queried_object()));
+$chevron_down = get_font_awesome_icon('chevron-down', 'regular');
 
 ?>
 <!doctype html>
-<html <? echo get_language_attributes() ?>>
-<? get_template_part('views/partials/head') ?>
+<html <?= get_language_attributes() ?>>
+<?php get_template_part('views/partials/head') ?>
 
-<body <? body_class() ?>>
-	<? get_template_part('views/partials/loader') ?>
+<body <?php body_class() ?>>
+	<?php get_template_part('views/partials/body-top') ?>
+	<?php get_template_part('views/partials/loader') ?>
 	<div class="body-wrap">
-		<? do_action('get_header') ?>
-		<? get_template_part('views/partials/header') ?>
+		<?php do_action('get_header') ?>
+		<?php get_template_part('views/partials/header') ?>
 		<div class="wrap main-container" role="document">
 			<div class="body-decor"></div>
 			<div class="body-curves"></div>
-			<div class="content">
+			<div class="content" data-nonce="<?= wp_create_nonce('custom_search_nonce') ?>">
 				<main class="main">
 
-					<h1 class="page-title"><? echo single_cat_title() ?></h1>
-
-					<div class="gallery">
-						<? $j = 0;
-						$ids = [];
-						if (have_posts()) {
-
-							while (have_posts()) {
-								the_post();
-								get_template_part('views/category/gallery', get_post_type(),  ['i' => $j]);
-
-								$j++;
-								$ids[] = $id;
-							}
-						} else {
-							// TODO: Put something if there are no results
-						}
-
-						if ($j) { ?>
-							<div class="gallery-nav">
-								<? for ($i = 0; $i < $j; $i++) { ?>
-									<div btn=<? echo 'g_' . $ids[$i] ?> class="gallery-btn<? echo $i == 0 ? ' active' : '' ?>" index=<? echo $i ?>></div>
-								<? } ?>
+					<div class="top-grid">
+						<div class="channel-title">
+							<?php get_channel(null, 'logo'); ?>
+							<h1 class="title"><?= single_cat_title() ?></h1>
+							<p class="meta">
+								<span class="subscribers"><?= custom_number_format(get_channel_meta(get_queried_object()->term_id, 'statistics.subscriberCount')) ?> subscribers</span> |
+								<span class="videos"><?php get_channel(null, 'count') ?> videos</span>
+							</p>
+							<div class="social-links">
+								<?php get_channel(null, 'social') ?>
 							</div>
-						<? } ?>
-
-						<div class="gallery-control">
-							<div class="gallery-arrow left"></div>
-							<div class="gallery-spacer"></div>
-							<div class="gallery-arrow right"></div>
 						</div>
-					</div>
 
-					<div class="detail-wrap">
-						<div class="left">
-							<? get_channel(null, 'logo'); ?>
-							<line class="overline"></line>
-							<h4 class="detail-title">Channel Overview</h4>
-							<p><? get_channel(null, 'description') ?></p>
-						</div>
-						<div class="right">
-							<div class="detail-box">
-								<h5 class="detail-head">Category</h5>
-								<? get_channel(null, 'categories'); ?>
-							</div>
-							<div class="detail-box">
-								<h5 class="detail-head">Publisher</h5>
-								<span><? get_channel(null, 'name'); ?></span>
-							</div>
-							<div class="detail-box">
-								<h5 class="detail-head">Platform</h5>
-								<span>YouTube</span>
-							</div>
-							<div class="detail-box">
-								<h5 class="detail-head">Videos</h5>
-								<span><? get_channel(null, 'count') ?></span>
-							</div>
-							<div class="detail-box span-2">
-								<h5 class="detail-head">Social</h5>
-								<div class="social-links">
-									<? get_channel(null, 'social') ?>
+						<div class="right-wrap">
+
+							<div class="detail-wrap">
+
+								<span class="nav prev"><?= get_font_awesome_icon('chevron-left', 'solid') ?></span>
+								<span class="nav next"><?= get_font_awesome_icon('chevron-right', 'solid') ?></span>
+								<div class="category-box">
+									<div class="scroller">
+										<?php get_channel(null, 'categories'); ?>
+									</div>
+								</div>
+
+								<div class="more-info">
+									<span>Channel Information</span>
+									<span class="icon"><?= $chevron_down ?></span>
+								</div>
+
+								<div class="collapse">
+
+									<div class="detail-box">
+										<h5 class="detail-head">Description</h5>
+										<span class="icon"><?= $chevron_down ?></span>
+										<div class="collapse">
+											<p><?php get_channel(null, 'description') ?></p>
+										</div>
+									</div>
+
+									<?php if ((is_array($fields->channel_people) && count($fields->channel_people)) || $fields->people_description) { ?>
+										<div class="detail-box">
+
+											<h5 class="detail-head"><?= $fields->people_header ?></h5>
+											<span class="icon"><?= $chevron_down ?></span>
+
+											<div class="collapse">
+												<?php if ($fields->people_description)
+													echo $fields->people_description; ?>
+
+												<?php if (is_array($fields->channel_people) && count($fields->channel_people)) { ?>
+
+													<div class="people">
+														<?php foreach ($fields->channel_people as $person) {
+															if ($person->name) { ?>
+																<a href="<?= $person->url ?: '' ?>" class="person">
+																	<img src="<?= wp_get_attachment_image_url($person->image->ID, 'channel') ?>" class="person-image" />
+																	<div class="overline"></div>
+																	<p class="name"><?= $person->name ?></p>
+																</a>
+															<?php } ?>
+														<?php } ?>
+													</div>
+												<?php } ?>
+											</div>
+
+										</div>
+									<?php }
+
+									if (is_array($fields->quick_facts) && count($fields->quick_facts)) { ?>
+										<div class="detail-box">
+
+											<h5 class="detail-head">Quick Facts</h5>
+											<span class="icon"><?= $chevron_down ?></span>
+
+											<div class="collapse">
+												<ul class="facts">
+													<?php foreach ($fields->quick_facts as $fact) {
+														if ($fact->quick_fact) { ?>
+															<li class="fact"><?= $fact->quick_fact ?></li>
+														<?php } ?>
+													<?php } ?>
+												</ul>
+											</div>
+
+										</div>
+									<?php }
+
+									if (is_array($fields->faqs) && count($fields->faqs)) { ?>
+										<div class="detail-box">
+
+											<h5 class="detail-head">FAQs</h5>
+											<span class="icon"><?= $chevron_down ?></span>
+
+											<div class="collapse">
+												<div class="faqs">
+													<?php foreach ($fields->faqs as $faq) {
+														if ($faq->faq_question && $faq->faq_answer) { ?>
+															<h2 class="question"><?= $faq->faq_question ?></h2>
+															<?= $faq->faq_answer ?>
+														<?php } ?>
+													<?php } ?>
+												</div>
+											</div>
+
+										</div>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
+
+						<div class="featured-video">
+							<!-- <h5>Featured Channel Video</h5> -->
+
+							<?php if (have_posts()) {
+								the_post(); ?>
+
+								<div id="v_<?= $id ?>" class="video-wrap">
+									<iframe width="1080" height="608" src="https://www.youtube.com/embed/<?php the_field('youtube_video_id'); ?>?autoplay=0 " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div>
+							<?php } ?>
+
+						</div>
+
 					</div>
 
-
-					<div class="list">
-						<? if (have_posts()) {
-
-							while (have_posts()) {
-								the_post();
-								get_template_part('views/category/entry', get_post_type());
-							}
-						} else {
-							// TODO: Put something if there are no results
-						} ?>
-
-						<div class="list-part" part=1></div>
-						<div class="list-part" part=2></div>
-						<div class="list-part" part=3></div>
+					<div class="list" term="<?= get_channel(null, 'term_id') ?>">
+						<div class="results none">
+							<label class="name">Results</label>
+							<span class="got">20</span>
+							<span>/</span>
+							<span class="total">164</span>
+							<span class="no">None</span>
+						</div>
 					</div>
-
-					<? the_posts_navigation([
-						'prev_text'          => 'Older Videos',
-						'next_text'          => 'Newer Videos',
-						'screen_reader_text' => '',
-						'class'              => 'post-nav'
-					]); ?>
-
 				</main>
 			</div>
-
-			<? get_template_part('views/partials/subscribe-panel') ?>
-			<? get_template_part('views/partials/more-panel') ?>
 		</div>
-		<? do_action('get_footer') ?>
-		<? get_template_part('views/partials/footer') ?>
-		<? wp_footer() ?>
+		<?php do_action('get_footer') ?>
+		<?php get_template_part('views/partials/footer') ?>
+		<?php wp_footer() ?>
 	</div>
+	<?php get_template_part('views/partials/body-bottom') ?>
 </body>
 
 </html>
 
-<?
-add_action('loop_start', 'et_dbp_main_loop_start');
-add_action('loop_end', 'et_dbp_main_loop_end');
+<?php
 // END
