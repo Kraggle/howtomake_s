@@ -36,7 +36,7 @@ export default {
                             open: function(event, ui) {   //added here
                                 localStorage.setItem("dialog-shown", Date.now());
                                 console.log('Set');
-                                jQuery('.ui-widget-overlay').on('click', function() {
+                                $('.ui-widget-overlay').on('click', function() {
                                     $( "#dialog-wrapper" ).dialog('close');
                                 });
                             },
