@@ -1454,6 +1454,8 @@ function htm_get_keyword_settings() {
 		'refresh' => get_option('keywords_refresh', 2),
 		'min_count' => get_option('keywords_min_count', 2),
 		'ignore_enabled' => get_option('keywords_ignore_enabled', true),
+		'meta_tags' => false,
+		'image_alts' => false
 	];
 
 	echo json_encode($return);
@@ -1478,3 +1480,29 @@ function htm_set_keyword_settings() {
 	exit;
 }
 add_ajax_action('set_keyword_settings');
+
+/**
+ * 
+ * 
+ * @return void 
+ */
+function htm_get_cross_origin() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'density_nonce'))
+		exit(FAILED_NONCE);
+
+	$url = $_REQUEST['url'];
+
+	if (filter_var($url, FILTER_VALIDATE_URL) && !strpos($url, $_SERVER['HTTP_HOST'])) {
+		$return = [
+			'content' => file_get_contents($url)
+		];
+	} else {
+		$return = [
+			'error' => 'Please provide a valid URL!'
+		];
+	}
+
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_cross_origin');

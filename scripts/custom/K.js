@@ -256,7 +256,7 @@ K.Util = {
 		const max = range[1],
 			min = range[0],
 			d = max - min;
-		return x === max && includeMax ? x : ((x - min) % d + d) % d + min;
+		return x === max && includeMax ? x : ((((x - min) % d) + d) % d) + min;
 	},
 
 	// @function falseFn(): Function
@@ -581,6 +581,17 @@ K.local = K.Util.local;
 K.localRemove = K.Util.localRemove;
 K.getPropByString = K.Util.getPropByString;
 
+K.evaluate = {
+	'+': (a, b) => a + b,
+	'-': (a, b) => a - b,
+	'*': (a, b) => a * b,
+	'/': (a, b) => a / b,
+	'<': (a, b) => a < b,
+	'>': (a, b) => a > b,
+	'>=': (a, b) => a >= b,
+	'<=': (a, b) => a <= b
+};
+
 // const o1 = [{ test: true, string: 'some string' }, { shit: false, stain: 'absolutely' }],
 //     o2 = [{ test: true, string: 'some string' }, { shit: false, stain: 'absolutely' }];
 
@@ -617,7 +628,7 @@ K.includeHTML = function() {
 K.imgToSvg = function(cls, callback) {
 	const doc = document;
 
-	doc.querySelectorAll(`img.${cls}`).forEach((img) => {
+	doc.querySelectorAll(`img.${cls}`).forEach(img => {
 		const imgId = img.id,
 			imgClass = img.className,
 			imgURL = img.src,
@@ -1069,7 +1080,7 @@ export function isArrayLike(obj) {
 	}
 
 	return type === 'array' || length === 0 ||
-		typeof length === 'number' && length > 0 && (length - 1) in obj;
+		(typeof length === 'number' && length > 0 && (length - 1) in obj);
 }
 
 const rNotHtmlWhite = (/[^\x20\t\r\n\f]+/g);

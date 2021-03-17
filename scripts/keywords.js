@@ -2,6 +2,7 @@ import { jQuery as $ } from './src/jquery-3.5.1-min.js';
 import V from './custom/Paths.js';
 import { K, timed } from './custom/K-min.js';
 import SVG from './custom/SVGIcons-min.js';
+import { getKeywords, getSettings } from './keywords-shared-min.js';
 
 $(() => {
 	const _this = $('#htm-keyword-info');
@@ -85,66 +86,7 @@ $(() => {
 			keys.createElements();
 			// console.log('%c content has changed so we\'re working on keyword density', 'color:#f69552');
 
-			const text = $('<div/>', {
-				html: keys.content
-			}).text();
-			// console.log(text);
-
-			const blocks = text.split(/[ ]{0,}[.;:?!\n][ ]{0,}/);
-			// console.log(blocks);
-
-			const groups = {};
-			for (let i = keys.min; i <= keys.max; i++)
-				groups[i] = {};
-
-			let wordCount = 0;
-
-			$.each(blocks, (j, v) => {
-				if (v.length < 4 || !v.match(/\w+/)) return;
-
-				const words = v.split(/ \W{0,}|\W{0,} /);
-				wordCount += words.length;
-				$.each(groups, (count, group) => {
-					count = parseInt(count);
-
-					if (words.length >= count) {
-
-						$.each(words, (i, word) => {
-							let string = '';
-							for (let l = i; l < count + i; l++) {
-								if (!words[l]) return;
-								string += ' ' + words[l];
-							}
-							string = string.trim().toLowerCase();
-							const first = string.replaceAll('’', '\'').match(/^[^ ]+/)[0],
-								last = string.replaceAll('’', '\'').match(/[^ ]+$/)[0];
-
-							if (string.length < 3 || string.match(/^(\d+|\d.+\d)$/)) return;
-							if (keys.enabled) {
-								if (count < 3 && (K.isInArray(first, keys.ignore) || K.isInArray(last, keys.ignore))) return;
-								if (count > 2 && K.isInArray(first, keys.ignore) && K.isInArray(last, keys.ignore)) return;
-							}
-
-							if (!group[string]) group[string] = 0;
-							group[string]++;
-						});
-					}
-				});
-			});
-
-			keys.groups = {};
-			$.each(groups, (count, group) => {
-				keys.groups[count] = [];
-				$.each(group, (words, found) => {
-					found >= keys.count && keys.groups[count].push({
-						keywords: words,
-						count: found,
-						density: (found / (wordCount / count)) * 100
-					});
-				});
-
-				keys.groups[count].sort((a, b) => b.count - a.count);
-			});
+			getKeywords(keys);
 
 			keys.display();
 		},
@@ -185,16 +127,7 @@ $(() => {
 		},
 
 		settings() {
-			$.getJSON(V.ajax, {
-				action: 'get_keyword_settings',
-				nonce: $('#keyword_nonce').val()
-			}, function(data) {
-				keys.ignore = data.ignore_list;
-				keys.min = parseInt(data.min_words);
-				keys.max = parseInt(data.max_words);
-				keys.refresh = parseInt(data.refresh);
-				keys.count = parseInt(data.min_count);
-				keys.enabled = data.ignore_enabled == 'true';
+			$.when(getSettings(keys)).then(() => {
 				keys.content = '';
 				keys.new = true;
 				keys.update();

@@ -518,3 +518,20 @@ function get_the_video_excerpt($post = null, $max_length = 200) {
 	 */
 	return apply_filters('get_the_video_excerpt', $content, $post);
 }
+
+/**
+ * Prints a spinner for use in loaders
+ * 
+ * @param string $color Can be white or gray
+ * @param string $size  Can be normal or large
+ * @return void 
+ */
+function get_spinner($color = 'white', $size = 'normal') {
+?>
+	<div class="ispinner animating <?= "$color $size" ?>" style="display: none;">
+		<?php for ($i = 0; $i < 12; $i++) { ?>
+			<div class="ispinner-blade"></div>
+		<?php } ?>
+	</div>
+<?php
+}
