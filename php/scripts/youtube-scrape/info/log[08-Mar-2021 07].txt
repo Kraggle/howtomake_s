@@ -1,0 +1,34 @@
+[08-Mar-2021 07:00:01] &raquo; Getting the channels and checking if they need updating.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[08-Mar-2021 07:00:01] &raquo; Getting extra youtube information!
+[08-Mar-2021 07:00:01] &raquo; There are 15 that still have missing info.
+[08-Mar-2021 07:00:02] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[08-Mar-2021 07:00:02] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[08-Mar-2021 07:00:02] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[08-Mar-2021 07:00:02] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[08-Mar-2021 07:00:02] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[08-Mar-2021 07:00:03] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[08-Mar-2021 07:00:03] &raquo; Restarting in 78 seconds

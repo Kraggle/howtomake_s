@@ -1,0 +1,109 @@
+[14-Feb-2021 05:00:01] &raquo; Getting the channels and checking if they need updating.
+[14-Feb-2021 05:00:01] &raquo; <b>Ahrefs</b>:
+[14-Feb-2021 05:00:01] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:04] &raquo;  &raquo; We have: 194 and there are 190 in total.
+[14-Feb-2021 05:00:04] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:04] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:04] &raquo; <b>Andrei Jikh</b>:
+[14-Feb-2021 05:00:04] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:06] &raquo;  &raquo; We have: 212 and there are 212 in total.
+[14-Feb-2021 05:00:06] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:06] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:06] &raquo; <b>Beast of eCom</b>:
+[14-Feb-2021 05:00:06] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:08] &raquo;  &raquo; We have: 137 and there are 137 in total.
+[14-Feb-2021 05:00:08] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:08] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:08] &raquo; <b>Daily Motivation</b>:
+[14-Feb-2021 05:00:08] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:10] &raquo;  &raquo; We have: 172 and there are 172 in total.
+[14-Feb-2021 05:00:10] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:10] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:10] &raquo; <b>Dragons Den</b>:
+[14-Feb-2021 05:00:10] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:14] &raquo;  &raquo; We have: 368 and there are 369 in total.
+[14-Feb-2021 05:00:14] &raquo;  &raquo; Results: 1
+[14-Feb-2021 05:00:14] &raquo;  &raquo;  &raquo; 5myl7GFaEbQ - 3 of the Biggest Investments in Den History | Dragons' Den
+[14-Feb-2021 05:00:14] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 29954
+[14-Feb-2021 05:00:16] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 29955
+[14-Feb-2021 05:00:16] &raquo; Restarting in 65 seconds
+[14-Feb-2021 05:00:16] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:16] &raquo; <b>Gabriel St-Germain</b>:
+[14-Feb-2021 05:00:16] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:17] &raquo;  &raquo; We have: 28 and there are 24 in total.
+[14-Feb-2021 05:00:17] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:17] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:17] &raquo; <b>Graham Stephan</b>:
+[14-Feb-2021 05:00:17] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:23] &raquo;  &raquo; We have: 587 and there are 587 in total.
+[14-Feb-2021 05:00:23] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:23] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:23] &raquo; <b>Jack Kitchener</b>:
+[14-Feb-2021 05:00:23] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:27] &raquo;  &raquo; We have: 308 and there are 308 in total.
+[14-Feb-2021 05:00:27] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:27] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:27] &raquo; <b>Jared Goetz</b>:
+[14-Feb-2021 05:00:27] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:27] &raquo;  &raquo; We have: 21 and there are 20 in total.
+[14-Feb-2021 05:00:27] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:27] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:27] &raquo; <b>Kristin Stones</b>:
+[14-Feb-2021 05:00:27] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:29] &raquo;  &raquo; We have: 151 and there are 151 in total.
+[14-Feb-2021 05:00:29] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:29] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:29] &raquo; <b>Law of Attraction Coaching</b>:
+[14-Feb-2021 05:00:29] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:30] &raquo;  &raquo; We have: 107 and there are 108 in total.
+[14-Feb-2021 05:00:30] &raquo;  &raquo; Results: 1
+[14-Feb-2021 05:00:30] &raquo;  &raquo;  &raquo; GbaYP1Y_oSQ - Hard Work Beats Talent Best Motivational Speech
+[14-Feb-2021 05:00:41] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 29956
+[14-Feb-2021 05:00:43] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 29957
+[14-Feb-2021 05:00:43] &raquo; Restarting in 38 seconds
+[14-Feb-2021 05:00:43] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:43] &raquo; <b>Robert Kiyosaki</b>:
+[14-Feb-2021 05:00:43] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:49] &raquo;  &raquo; We have: 570 and there are 569 in total.
+[14-Feb-2021 05:00:49] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:00:49] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:49] &raquo; <b>Shark Tank Australia</b>:
+[14-Feb-2021 05:00:49] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:00:51] &raquo;  &raquo; We have: 208 and there are 209 in total.
+[14-Feb-2021 05:00:51] &raquo;  &raquo; Results: 1
+[14-Feb-2021 05:00:51] &raquo;  &raquo;  &raquo; _N326-JdKgg - The Highest Earning Business in Shark Tank History? | Shark Tank AUS
+[14-Feb-2021 05:00:52] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 29958
+[14-Feb-2021 05:00:54] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 29959
+[14-Feb-2021 05:00:54] &raquo; Restarting in 27 seconds
+[14-Feb-2021 05:00:54] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:00:54] &raquo; <b>Valuetainment</b>:
+[14-Feb-2021 05:00:54] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:01:09] &raquo;  &raquo; We have: 1490 and there are 1486 in total.
+[14-Feb-2021 05:01:09] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:01:09] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:01:09] &raquo; <b>Wholesale Ted</b>:
+[14-Feb-2021 05:01:09] &raquo;  &raquo; It's been more than 2 days, so we're checking for dead links and duplicates
+[14-Feb-2021 05:01:11] &raquo;  &raquo; We have: 159 and there are 154 in total.
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Results: 0
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Finished channel update, setting last update to 2021-02-14
+[14-Feb-2021 05:01:11] &raquo; Getting extra youtube information!
+[14-Feb-2021 05:01:11] &raquo; There are 18 that still have missing info.
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[14-Feb-2021 05:01:11] &raquo;  &raquo; Adding extra information for: 3 of the Biggest Investments in Den History | Dragons' Den
+[14-Feb-2021 05:01:12] &raquo;  &raquo; Adding extra information for: Hard Work Beats Talent Best Motivational Speech
+[14-Feb-2021 05:01:12] &raquo;  &raquo; Adding extra information for: The Highest Earning Business in Shark Tank History? | Shark Tank AUS
+[14-Feb-2021 05:01:13] &raquo; Restarting in 8 seconds

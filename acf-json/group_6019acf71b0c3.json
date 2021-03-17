@@ -1,0 +1,65 @@
+{
+    "key": "group_6019acf71b0c3",
+    "title": "Alternative Video Category Names",
+    "fields": [
+        {
+            "key": "field_6019ad0e96cd4",
+            "label": "Alternative Names",
+            "name": "alternative_names",
+            "type": "textarea",
+            "instructions": "Use comma-separated strings.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_601db4eff7279",
+            "label": "Exclude Channels",
+            "name": "exclude_channels",
+            "type": "taxonomy",
+            "instructions": "Check any of these you would like to exclude from this category.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "video-channel",
+            "field_type": "checkbox",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "video-category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "For use by automatic categorization from YouTube tags",
+    "modified": 1612559815
+}

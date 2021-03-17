@@ -1,0 +1,97 @@
+[11-Mar-2021 01:00:02] &raquo; Getting the channels and checking if they need updating.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[11-Mar-2021 01:00:02] &raquo; <b>Robert Kiyosaki</b>:
+[11-Mar-2021 01:00:02] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[11-Mar-2021 01:00:02] &raquo;  &raquo;  &raquo; Saving the youtube data for 577 videos! This may take some time.
+[11-Mar-2021 01:00:28] &raquo;  &raquo; We have: 577 and there are 577 in total.
+[11-Mar-2021 01:00:28] &raquo;  &raquo; Results: 1
+[11-Mar-2021 01:00:28] &raquo;  &raquo;  &raquo; yxDe5KLThrQ - The Government’s Incentives for Entrepreneurs Robert Kiyosaki, Garrett Sutton, and Tom Wheelwright
+[11-Mar-2021 01:00:31] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31898
+[11-Mar-2021 01:00:33] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31899
+[11-Mar-2021 01:00:33] &raquo; Restarting in 49 seconds
+[11-Mar-2021 01:00:33] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-11
+[11-Mar-2021 01:00:33] &raquo; Restarting in 49 seconds
+[11-Mar-2021 01:00:33] &raquo; <b>Shark Tank Australia</b>:
+[11-Mar-2021 01:00:33] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[11-Mar-2021 01:00:33] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 216 videos.
+[11-Mar-2021 01:00:34] &raquo; Restarting in 48 seconds
+[11-Mar-2021 01:00:34] &raquo;  &raquo;  &raquo; Saving the youtube data for 216 videos! This may take some time.
+[11-Mar-2021 01:00:44] &raquo;  &raquo; We have: 216 and there are 216 in total.
+[11-Mar-2021 01:00:44] &raquo;  &raquo; Results: 0
+[11-Mar-2021 01:00:44] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-11
+[11-Mar-2021 01:00:44] &raquo; Restarting in 38 seconds
+[11-Mar-2021 01:00:44] &raquo; <b>Valuetainment</b>:
+[11-Mar-2021 01:00:44] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[11-Mar-2021 01:00:44] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 1490 videos.
+[11-Mar-2021 01:00:52] &raquo; Restarting in 30 seconds
+[11-Mar-2021 01:00:52] &raquo;  &raquo;  &raquo; Saving the youtube data for 1490 videos! This may take some time.
+[11-Mar-2021 01:01:22] &raquo; 
+[11-Mar-2021 01:01:22] &raquo; Getting the channels and checking if they need updating.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[11-Mar-2021 01:01:22] &raquo; <b>Valuetainment</b>:
+[11-Mar-2021 01:01:22] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[11-Mar-2021 01:01:22] &raquo;  &raquo;  &raquo; Saving the youtube data for 1490 videos! This may take some time.
+[11-Mar-2021 01:02:21] &raquo;  &raquo; We have: 1490 and there are 1483 in total.
+[11-Mar-2021 01:02:21] &raquo;  &raquo; Results: 1
+[11-Mar-2021 01:02:21] &raquo;  &raquo;  &raquo; wOrRwYgXR8o - Cuomo Nursing Home Scandal Exposed By NY Assemblyman
+[11-Mar-2021 01:02:22] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31900
+[11-Mar-2021 01:02:23] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31901
+[11-Mar-2021 01:02:23] &raquo; Restarting in 19 seconds
+[11-Mar-2021 01:02:23] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-11
+[11-Mar-2021 01:02:23] &raquo; Restarting in 19 seconds
+[11-Mar-2021 01:02:23] &raquo; <b>Wholesale Ted</b>:
+[11-Mar-2021 01:02:23] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[11-Mar-2021 01:02:23] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 161 videos.
+[11-Mar-2021 01:02:24] &raquo; Restarting in 18 seconds
+[11-Mar-2021 01:02:24] &raquo;  &raquo;  &raquo; Saving the youtube data for 161 videos! This may take some time.
+[11-Mar-2021 01:02:31] &raquo;  &raquo; We have: 161 and there are 156 in total.
+[11-Mar-2021 01:02:31] &raquo;  &raquo; Results: 0
+[11-Mar-2021 01:02:31] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-11
+[11-Mar-2021 01:02:31] &raquo; Restarting in 11 seconds
+[11-Mar-2021 01:02:31] &raquo; Getting extra youtube information!
+[11-Mar-2021 01:02:31] &raquo; There are 22 that still have missing info.
+[11-Mar-2021 01:02:31] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[11-Mar-2021 01:02:31] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[11-Mar-2021 01:02:32] &raquo;  &raquo; Adding extra information for: "Bob, It's Just a Drain Spinny Thing!" | Dragons' Den
+[11-Mar-2021 01:02:33] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Video
+[11-Mar-2021 01:02:34] &raquo;  &raquo; Adding extra information for: On-Page SEO Pt 2: How to Optimize a Page for a Keyword 2.2. SEO Course by Ahrefs
+[11-Mar-2021 01:02:35] &raquo;  &raquo; Adding extra information for: Cuomo Nursing Home Scandal Exposed By NY Assemblyman
+[11-Mar-2021 01:02:36] &raquo;  &raquo; Adding extra information for: FRIEDRICH NIETZSCHE Discovering Yourself: Living 'Existentially'
+[11-Mar-2021 01:02:37] &raquo;  &raquo; Adding extra information for: The Government’s Incentives for Entrepreneurs Robert Kiyosaki, Garrett Sutton, and Tom Wheelwright
+[11-Mar-2021 01:02:38] &raquo;  &raquo; Adding extra information for: Bitcoin To $100k THIS YEAR | Interview With POMP
+[11-Mar-2021 01:02:39] &raquo; Restarting in 3 seconds

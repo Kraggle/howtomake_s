@@ -139,7 +139,7 @@ body .et_pb_searchform > div .et_pb_s {
   border-radius: 0 !important;
   background: #fff !important;
   font-size: 14px !important;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1) !important;
   width: initial !important;
 }
 body .et_pb_searchform > div .et_pb_s::placeholder {
@@ -161,7 +161,7 @@ body .et_pb_searchform > div .et_pb_searchsubmit {
   font-size: 14px !important;
   letter-spacing: 1px !important;
   cursor: pointer !important;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1) !important;
   color: #fff !important;
 }
 body .et_pb_searchform > div .et_pb_searchsubmit:hover {
@@ -2330,11 +2330,11 @@ a.ui-button:active,
   min-height: 100%;
 }
 .primary-nav .sub-menu {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   display: none;
 }
 .primary-nav .menu-item {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   text-transform: uppercase;
   font-weight: 600;
@@ -2344,13 +2344,13 @@ a.ui-button:active,
   color: rgba(255, 255, 255, 0.6);
 }
 .primary-nav .menu-item > a {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   display: block;
   padding: 10px 15px;
 }
 .primary-nav .menu-item > a::before {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   content: "";
   position: absolute;
   left: 0;
@@ -2389,7 +2389,7 @@ a.ui-button:active,
   border-radius: 4px;
 }
 .primary-nav .list-wrap .list-title {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 17px;
   color: #fff;
   padding: 10px 0 0 5px;
@@ -2402,7 +2402,7 @@ a.ui-button:active,
   color: rgba(255, 255, 255, 0.5);
 }
 .primary-nav .list-wrap .list-button {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   display: flex;
   padding-right: 10px;
@@ -2413,7 +2413,7 @@ a.ui-button:active,
   text-transform: none;
 }
 .primary-nav .list-wrap .list-button::after {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   content: "";
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   position: absolute;
@@ -2441,7 +2441,7 @@ a.ui-button:active,
   background-color: transparent;
 }
 .primary-nav .tab-title {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   color: inherit;
 }
 .primary-nav .tab-icon {
@@ -2492,7 +2492,7 @@ a.ui-button:active,
   top: 13px;
 }
 .primary-nav.for-desktop .menu-item.has-sub-menu:hover .menu-box {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   visibility: visible;
   opacity: 1;
   transition-delay: 300ms;
@@ -2532,12 +2532,12 @@ a.ui-button:active,
   line-height: 30px;
 }
 .primary-nav.for-desktop .tab-box {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   max-height: 100%;
 }
 .primary-nav.for-desktop .tab-box .tab-category {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   top: 0;
   width: 100%;
@@ -2566,7 +2566,7 @@ a.ui-button:active,
   cursor: pointer;
 }
 .primary-nav.for-desktop .tab-box .tab-nav svg {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   width: 40px;
   height: 40px;
@@ -2648,7 +2648,7 @@ a.ui-button:active,
   padding-right: 40px;
 }
 .primary-nav.for-mobile {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: fixed;
   top: 60px;
   left: 0;
@@ -2661,7 +2661,7 @@ a.ui-button:active,
   background-image: linear-gradient(180deg, #0da0c5 0%, #29c4a9 100%);
 }
 .primary-nav.for-mobile .nav {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   flex-direction: column;
   justify-content: initial;
   padding: 20px;
@@ -2677,7 +2677,7 @@ a.ui-button:active,
   transform: translateX(0);
 }
 .primary-nav.for-mobile .tab-button {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 5px;
@@ -2712,7 +2712,7 @@ a.ui-button:active,
   width: 100%;
 }
 .primary-nav.for-mobile .tab-wrap {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   padding-top: 10px;
@@ -2722,7 +2722,7 @@ a.ui-button:active,
   transform: translateX(0);
 }
 .primary-nav.for-mobile .tab-box {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   transform: translateX(-1000px);
@@ -2790,13 +2790,13 @@ a.ui-button:active,
 }
 
 .hamburger {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   width: 30px;
   height: 30px;
   padding-top: 3px;
 }
 .hamburger span {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
   width: 100%;
   height: 4px;
@@ -2815,7 +2815,7 @@ a.ui-button:active,
 }
 
 .banner {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #0da0c5;
   position: fixed;
   width: 100%;
@@ -2829,7 +2829,7 @@ a.ui-button:active,
   text-decoration: none;
 }
 .banner .menu-spacer {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   flex: 1;
 }
 .banner .menu-spacer.open {
@@ -2849,7 +2849,7 @@ a.ui-button:active,
   margin: 10px 0 0 10px;
 }
 .banner .upper .fa-icon a {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(255, 255, 255, 0.1);
   width: 30px;
   height: 30px;
@@ -2880,7 +2880,6 @@ a.ui-button:active,
   padding-top: 5px;
   color: #fff;
   font-size: 0.9rem;
-  display: none;
 }
 .banner .upper .top-account .auth-links a:hover {
   text-decoration: underline;
@@ -2948,7 +2947,7 @@ a.ui-button:active,
   background-color: #fff;
   border: 2px solid #fff;
   border-radius: 4px;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1), background-color 0ms ease;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1), background-color 0ms ease;
   background-size: cover;
   height: 128px;
 }
@@ -2981,7 +2980,7 @@ a.ui-button:active,
   background-repeat: no-repeat;
 }
 .banner .tab-post .title {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: none;
   font-size: 16px;
   display: block;
@@ -3003,14 +3002,14 @@ a.ui-button:active,
   max-width: calc(100vw - 80px);
 }
 .banner.for-desktop .lower .brand {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   opacity: 1;
   margin: 10px 0;
   z-index: 9;
 }
 .banner.for-desktop .lower .logo {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   height: 90px;
   width: 148px;
   color: #fff;
@@ -3043,7 +3042,7 @@ a.ui-button:active,
   display: grid;
 }
 .banner.for-desktop .trending-box .trending-button {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   grid-area: 1/1;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
@@ -3069,7 +3068,7 @@ a.ui-button:active,
   height: 60px;
 }
 .banner.for-mobile .brand {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   left: 50%;
   top: 1px;
@@ -3100,7 +3099,7 @@ a.ui-button:active,
   margin: 10px 0 10px 10px;
 }
 .top-search .search-field {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(255, 255, 255, 0.1);
   width: 120px;
   box-sizing: border-box;
@@ -3120,7 +3119,7 @@ a.ui-button:active,
   width: 250px;
 }
 .top-search .search-submit {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   top: 50%;
   right: 10px;
@@ -3129,7 +3128,7 @@ a.ui-button:active,
   margin-top: -8.5px;
 }
 .top-search .search-submit svg {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   width: 16px;
   height: 16px;
   color: #fff;
@@ -3145,11 +3144,11 @@ a.ui-button:active,
   outline: 0;
 }
 .top-search.for-mobile {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 250px;
 }
 .top-search.for-mobile .search-field {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   right: 0;
   top: -15px;
@@ -3193,7 +3192,7 @@ a.ui-button:active,
   }
 }
 .menu-back {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: fixed;
   background-color: #0da0c5;
   border-radius: 0 0 30px 30px;
@@ -3310,7 +3309,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
 .foot .foot-nav-wrap .foot-nav a {
   color: #fff;
   text-decoration: none;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 .foot .foot-nav-wrap .foot-nav a:hover {
   color: #0da0c5;
@@ -3344,7 +3343,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
   color: #fff;
   display: block;
   text-align: right;
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 .foot .foot-login-wrap .log-out:hover,
 .foot .foot-login-wrap .forgot:hover {
@@ -3433,7 +3432,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
 }
 
 .admin-bar-show {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -3492,7 +3491,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
 
 /* The search in the footer */
 .search-wrap {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   flex: 2 1 0;
   position: relative;
   display: flex;
@@ -3506,7 +3505,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
   white-space: nowrap;
 }
 .search-wrap .search-input {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   flex-grow: 1;
   padding: 0 20px;
   font-size: 17px;
@@ -3525,7 +3524,7 @@ body.scrolled:not(.for-mobile) .body-wrap {
   outline: none;
 }
 .search-wrap .svg {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   cursor: pointer;
   color: #fff;

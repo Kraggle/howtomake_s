@@ -1,0 +1,403 @@
+[04-Feb-2021 21:39:07] &raquo; Getting the channels and checking if they need updating.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[04-Feb-2021 21:39:07] &raquo; Getting extra youtube information!
+[04-Feb-2021 21:39:07] &raquo; There are 243 that still have missing info.
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling&#39;s mystery?
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: ? 5 Products That Will LOSE You Money If You Sell Them Online...
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: ? 5 Websites To Make FREE MONEY Online ? Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode - Fed Negative Interest Rates
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS ? Best Motivational Speech
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: How I !@#$&amp; Learn
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: FAKE: CHAPTER 5
+[04-Feb-2021 21:39:09] &raquo;  &raquo; Adding extra information for: FIND OUT WHY THE STOCK MARKET IS SOARING & WHY IT WILL CRASH—Robert and Kim Kiyosaki, Bert Dohmen
+[04-Feb-2021 21:39:12] &raquo;  &raquo; Adding extra information for: FIND OUT HOW ENTREPRENEURS SUCCEED Robert Kiyosaki, JT Marino & Aaron Pool
+[04-Feb-2021 21:39:13] &raquo;  &raquo; Adding extra information for: FIND OUT HOW TO BUILD A SUCCESSFUL BUSINESS TEAM Robert Kiyosaki, Andy Tanner & Garrett Sutton
+[04-Feb-2021 21:39:15] &raquo;  &raquo; Adding extra information for: FIND HOW SECRET SOCIETIES CONTROL YOUR WEALTH
+[04-Feb-2021 21:39:17] &raquo;  &raquo; Adding extra information for: YOUR CAR IS A HORSE -RECORDED IN 2016
+[04-Feb-2021 21:39:17] &raquo;  &raquo; Adding extra information for: THE INVISIBLE ENEMY recorded 2016
+[04-Feb-2021 21:39:17] &raquo;  &raquo; Adding extra information for: GOLDEN RULES recorded 2016
+[04-Feb-2021 21:39:18] &raquo;  &raquo; Adding extra information for: EAST MEETS WEST
+[04-Feb-2021 21:39:18] &raquo;  &raquo; Adding extra information for: FAKE MONEY, FAKE TEACHERS, FAKE ASSETS with Robert Kiyosaki
+[04-Feb-2021 21:39:19] &raquo;  &raquo; Adding extra information for: FIND OUT HOW TO PAY LESS TAXES UNDER TRUMP’S NEW TAX CODE Robert Kiyosaki, Tom Wheelwright
+[04-Feb-2021 21:39:20] &raquo;  &raquo; Adding extra information for: HARD KNOCKS
+[04-Feb-2021 21:39:20] &raquo;  &raquo; Adding extra information for: FIND OUT IF YOU HAVE THE PERSONALITY OF AN ENTREPRENEUR—Robert Kiyosaki, Gretchen Rubin
+[04-Feb-2021 21:39:23] &raquo;  &raquo; Adding extra information for: TURN YOUR PROBLEM INTO A BUSINESS
+[04-Feb-2021 21:39:24] &raquo;  &raquo; Adding extra information for: FIND MEANING, FIND SUCCESS
+[04-Feb-2021 21:39:24] &raquo;  &raquo; Adding extra information for: Investing In The four quarters Of Life -Robert Kiyosaki
+[04-Feb-2021 21:39:25] &raquo;  &raquo; Adding extra information for: FIND OUT WHAT’S FAKE & WHAT’S REAL Robert Kiyosaki, Brien Lundin, Chris Blasi
+[04-Feb-2021 21:39:26] &raquo;  &raquo; Adding extra information for: SCALE, MARKET, SOLVE
+[04-Feb-2021 21:39:26] &raquo;  &raquo; Adding extra information for: FIND OUT WHY THE AMERICAN DREAM IS UNDER THREAT—Robert Kiyosaki, Ken Langone
+[04-Feb-2021 21:39:27] &raquo;  &raquo; Adding extra information for: USEFUL IDIOTS recorded 2016
+[04-Feb-2021 21:39:28] &raquo;  &raquo; Adding extra information for: Retirement Gone Overnight? with Robert Kiyosaki and James Rickards
+[04-Feb-2021 21:39:28] &raquo;  &raquo; Adding extra information for: FIND OUT WHAT TO TEACH YOUR KIDS ABOUT MONEY—Robert Kiyosaki, Andy, Marcy, Zach & David Tanner
+[04-Feb-2021 21:39:30] &raquo;  &raquo; Adding extra information for: The Broken Rule of 72 recorded 2016
+[04-Feb-2021 21:39:31] &raquo;  &raquo; Adding extra information for: Now is the time to make a critical choice, FREE DOWNLOAD Robert Kiyosaki
+[04-Feb-2021 21:39:31] &raquo;  &raquo; Adding extra information for: LESS THAN PERFECT CREDIT SCORE? -with Robert Kiyosaki
+[04-Feb-2021 21:39:32] &raquo;  &raquo; Adding extra information for: FIND OUT HOW TRUMP’S TRADE WAR AFFECTS YOUR WEALTH Robert Kiyosaki, Dr. Alexander Elder
+[04-Feb-2021 21:39:33] &raquo;  &raquo; Adding extra information for: Three Sides of The Coin recorded 2016
+[04-Feb-2021 21:39:34] &raquo;  &raquo; Adding extra information for: FIND OUT THE CAUSE OF INCOME INEQUALITY AND HOW IT IMPACTS YOU—Robert Kiyosaki, Steven Brill
+[04-Feb-2021 21:39:34] &raquo;  &raquo; Adding extra information for: Business Battlefield recorded 2016
+[04-Feb-2021 21:39:35] &raquo;  &raquo; Adding extra information for: FIND OUT HOW FINANCIAL EDUCATION SETS YOU FREE- Robert Kiyosaki, Len and Leanna Giancola, Will...
+[04-Feb-2021 21:39:37] &raquo;  &raquo; Adding extra information for: No Crystal Ball recorded 2016
+[04-Feb-2021 21:39:38] &raquo;  &raquo; Adding extra information for: FIND OUT WHY GENEROSITY IS GOOD FOR BUSINESS-Robert Kiyosaki, John Ruhlin
+[04-Feb-2021 21:39:39] &raquo;  &raquo; Adding extra information for: The Northwest Spiral recorded 2016
+[04-Feb-2021 21:39:40] &raquo;  &raquo; Adding extra information for: SCHOOLS DIVIDE AND CONQUER -ROBERT KIYOSAKI
+[04-Feb-2021 21:39:40] &raquo;  &raquo; Adding extra information for: FIND OUT HOW TO BUILD A BUSINESS-Kim Kiyosaki, Sangeeta Badal
+[04-Feb-2021 21:39:42] &raquo;  &raquo; Adding extra information for: SCHOOL IS SCREWING YOU OVER Robert Kiyosaki
+[04-Feb-2021 21:39:42] &raquo;  &raquo; Adding extra information for: Failure Is The Path
+[04-Feb-2021 21:39:43] &raquo;  &raquo; Adding extra information for: How to Manage Your Money with Robert Kiyosaki
+[04-Feb-2021 21:39:45] &raquo;  &raquo; Adding extra information for: FIND OUT HOW CENTRAL BANKS RIG THE ECONOMY-Robert Kiyosaki, Nomi Prins
+[04-Feb-2021 21:39:46] &raquo;  &raquo; Adding extra information for: The Five Year Plan RECORDED 2016
+[04-Feb-2021 21:39:46] &raquo; Restarting in 40 seconds
+[04-Feb-2021 21:39:50] &raquo;  &raquo; Adding extra information for: FIND OUT HOW ENTREPRENEURS SUCCESSFULLY COMMUNICATE- Robert Kiyosaki, Carmine Gallo
+[04-Feb-2021 21:39:53] &raquo;  &raquo; Adding extra information for: LIKE TRUMP, I DON'T PAY TAXES EITHER ROBERT KIYOSAKI, Rich Dad Poor Dad
+[04-Feb-2021 21:39:54] &raquo;  &raquo; Adding extra information for: How to Buy Your First Investment Property FREE DOWNLOAD Robert Kiyosaki
+[04-Feb-2021 21:39:55] &raquo;  &raquo; Adding extra information for: Makers and Takers recorded 2016
+[04-Feb-2021 21:39:56] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[04-Feb-2021 21:39:56] &raquo;  &raquo; Adding extra information for: The T-Junction recorded 2016
+[04-Feb-2021 21:39:56] &raquo;  &raquo; Adding extra information for: FIND OUT HOW CYBER-CURRENCY IS CHANGING THE WORLD AND HOW YOU CAN PROSPER FROM IT Robert...
+[04-Feb-2021 21:39:58] &raquo;  &raquo; Adding extra information for: THE FUTURE OF OUR ECONOMY -ROBERT KIYOSAKI
+[04-Feb-2021 21:39:59] &raquo;  &raquo; Adding extra information for: HOW TO FIND TRUTH IN AN AGE OF FAKE NEWS & FAKE TEACHERS, Featuring: Robert Kiyosaki and Ryan...
+[04-Feb-2021 21:40:00] &raquo;  &raquo; Adding extra information for: Doing WELL By Doing GOOD recorded 2016
+[04-Feb-2021 21:40:02] &raquo;  &raquo; Adding extra information for: THE WAR ON PRIVACY & HOW YOU CAN PROTECT YOURSELF ROBERT KIYOSAKI, JENNIFER GRANICK & ROBB LECOUNT
+[04-Feb-2021 21:40:03] &raquo;  &raquo; Adding extra information for: THIS IS KEEPING YOU POOR -ROBERT KIYOSAKI
+[04-Feb-2021 21:40:04] &raquo;  &raquo; Adding extra information for: Stocking Up recorded 2016 legacy show
+[04-Feb-2021 21:40:04] &raquo;  &raquo; Adding extra information for: FIND OUT HOW TO PREDICT THE FUTURE—Robert Kiyosaki, Jim Rickards
+[04-Feb-2021 21:40:06] &raquo;  &raquo; Adding extra information for: ORIGINALS recorded 2016
+[04-Feb-2021 21:40:06] &raquo;  &raquo; Adding extra information for: LEARN THE LANGUAGE OF MONEY & RAISE CAPITAL with Robert Kiyosaki, Kathleen Burns Kingsbury,...
+[04-Feb-2021 21:40:09] &raquo;  &raquo; Adding extra information for: IS RICH DAD REAL OR FAKE?
+[04-Feb-2021 21:40:10] &raquo;  &raquo; Adding extra information for: GETTING A JOB IS FOR LOSERS ROBERT KIYOSAKI, RICH DAD POOR DAD
+[04-Feb-2021 21:40:11] &raquo;  &raquo; Adding extra information for: LEARN THE ART OF PERSUASION & INFLUENCE
+[04-Feb-2021 21:40:13] &raquo;  &raquo; Adding extra information for: International Errorism recorded 2016
+[04-Feb-2021 21:40:14] &raquo;  &raquo; Adding extra information for: FIND OUT HOW BLOCKCHAIN IS CHANGING THE WORLD Robert Kiyosaki, Jeff Wang, Joel Flint, Rob...
+[04-Feb-2021 21:40:15] &raquo;  &raquo; Adding extra information for: Getting Sidelined recorded 2016
+[04-Feb-2021 21:40:16] &raquo;  &raquo; Adding extra information for: FIND OUT HOW TO TAKE YOUR BUSINESS FROM SMALL TO BIG—Robert Kiyosaki, Greg McKeown, Blair Singer
+[04-Feb-2021 21:40:18] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[04-Feb-2021 21:40:18] &raquo;  &raquo; Adding extra information for: HOW TO CONVERT A LIABILITY INTO AN ASSET ROBERT KIYOSAKI, Rich Dad Poor Dad
+[04-Feb-2021 21:40:19] &raquo;  &raquo; Adding extra information for: FIND OUT WHAT IT TAKES TO BE A SUCCESSFUL REAL ESTATE INVESTOR Robert Kiyosaki, Ken McElroy
+[04-Feb-2021 21:40:21] &raquo;  &raquo; Adding extra information for: A Higher Standard RECORDED 2016 legacy show
+[04-Feb-2021 21:40:21] &raquo;  &raquo; Adding extra information for: FIND OUT WHY GROUP THINK IS BAD FOR BUSINESS & HOW YOU CAN AVOID IT Kim Kiyosaki, Sallie...
+[04-Feb-2021 21:40:22] &raquo;  &raquo; Adding extra information for: Info-Preneurship RECORDED 2016 legacy show
+[04-Feb-2021 21:40:23] &raquo;  &raquo; Adding extra information for: FIND OUT WHY MONEY DOES NOT MAKE YOU RICH Robert Kiyosaki, Rod Smith, Ryan Broyles & Chris...
+[04-Feb-2021 21:40:26] &raquo;  &raquo; Adding extra information for: Smoke and Mirrors RECORDED 2016 LEGACY SHOW
+[04-Feb-2021 21:40:27] &raquo;  &raquo; Adding extra information for: FIND OUT WHAT TO DO IF THE ECONOMY COLLAPSES Robert Kiyosaki & Doug Casey
+[04-Feb-2021 21:40:28] &raquo;  &raquo; Adding extra information for: THE BIGGEST MISTAKE YOUNG PEOPLE MAKE ROBERT KIYOSAKI
+[04-Feb-2021 21:40:28] &raquo;  &raquo; Adding extra information for: Buy, Borrow, Die recorded 2016 legacy show
+[04-Feb-2021 21:40:29] &raquo;  &raquo; Adding extra information for: INVESTING IN REAL ESTATE -ROBERT KIYOSAKI
+[04-Feb-2021 21:40:29] &raquo;  &raquo; Adding extra information for: FIND OUT HOW THE NEW TAX CODE AFFECTS YOUR WEALTH & BUSINESS—Robert Kiyosaki, Tom Wheelwright,...
+[04-Feb-2021 21:40:30] &raquo;  &raquo; Adding extra information for: CASHFLOW INSTRUCTIONAL VIDEO LOANS & PAYING OFF DEBT
+[04-Feb-2021 21:40:32] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[04-Feb-2021 21:40:32] &raquo;  &raquo; Adding extra information for: FIND OUT THE BEST TIME FOR YOU TO SUCCEED Robert Kiyosaki & Daniel Pink
+[04-Feb-2021 21:40:33] &raquo;  &raquo; Adding extra information for: HOW DEBT CAN GENERATE INCOME -ROBERT KIYOSAKI
+[04-Feb-2021 21:40:34] &raquo;  &raquo; Adding extra information for: HEAR WHAT THE TREASURES AND TRAPS ARE FOR INVESTORS IN 2018 Robert Kiyosaki, Bert Dohmen
+[04-Feb-2021 21:40:35] &raquo;  &raquo; Adding extra information for: Passionate Politics- recorded 2016 LEGACY SHOW
+[04-Feb-2021 21:40:36] &raquo;  &raquo; Adding extra information for: STOP IMPERSONATING ME!!! Public Service Announcement with Robert Kiyosaki
+[04-Feb-2021 21:40:37] &raquo;  &raquo; Adding extra information for: DO YOU WANT ACHIEVEMENT, HAPPINESS AND WELL-BEING?- Robert Kiyosaki, Shawn Achor
+[04-Feb-2021 21:40:38] &raquo;  &raquo; Adding extra information for: CASHFLOW INSTRUCTIONAL VIDEO: BUYING & SELLING STOCKS
+[04-Feb-2021 21:40:38] &raquo;  &raquo; Adding extra information for: THE SURVIVAL OF THE FITTEST -ROBERT KIYOSAKI/ RICH DAD POOR DAD
+[04-Feb-2021 21:40:39] &raquo;  &raquo; Adding extra information for: The Wall Street Hijack LEGACY SHOW recorded 2016
+[04-Feb-2021 21:40:40] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[04-Feb-2021 21:40:40] &raquo;  &raquo; Adding extra information for: CASHFLOW INSTRUCTIONAL VIDEOS: SELLING REAL ESTATE INVESTMENT
+[04-Feb-2021 21:40:41] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[04-Feb-2021 21:40:42] &raquo; Restarting in -16 seconds
+[04-Feb-2021 21:40:42] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[04-Feb-2021 21:40:42] &raquo; Getting the channels and checking if they need updating.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[04-Feb-2021 21:40:42] &raquo; Getting extra youtube information!
+[04-Feb-2021 21:40:42] &raquo; There are 158 that still have missing info.
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling&#39;s mystery?
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: ? 5 Products That Will LOSE You Money If You Sell Them Online...
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: ? 5 Websites To Make FREE MONEY Online ? Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode - Fed Negative Interest Rates
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS ? Best Motivational Speech
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: How I !@#$&amp; Learn
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: Why Investing Isn't Risky -Robert Kiyosaki
+[04-Feb-2021 21:40:44] &raquo;  &raquo; Adding extra information for: FIND OUT WHY BITCOIN IS A JOKE & THE STOCK MARKET WILL CONTINUE RISING Robert Kiyosaki,...
+[04-Feb-2021 21:40:45] &raquo;  &raquo; Adding extra information for: CASHFLOW INSTRUCTIONAL: BUYING REAL ESTATE INVESTMENT Robert Kiyosaki
+[04-Feb-2021 21:40:46] &raquo;  &raquo; Adding extra information for: I’m Offended! LEGACY SHOW recorded 2016
+[04-Feb-2021 21:40:46] &raquo;  &raquo; Adding extra information for: Hear Why The Path To Wealth Starts With Giving Robert Kiyosaki, Darren Weeks, Frank Hopkins, Jr.
+[04-Feb-2021 21:40:48] &raquo;  &raquo; Adding extra information for: CASHFLOW INSTRUCTIONS: RAT RACE CARDS AND SPACES
+[04-Feb-2021 21:40:49] &raquo;  &raquo; Adding extra information for: Dr. Rahda Gopalan
+[04-Feb-2021 21:40:51] &raquo;  &raquo; Adding extra information for: HEAR ABOUT BITCOIN, GOLD & CASH, AND HOW THEY CAN HELP & HURT YOUR WEALTH Robert Kiyosaki,...
+[04-Feb-2021 21:40:52] &raquo;  &raquo; Adding extra information for: CASHFLOW GAME INSTRUCTIONS: PROFESSION CARDS & FINANCIAL STATEMENTS
+[04-Feb-2021 21:40:52] &raquo;  &raquo; Adding extra information for: Evaporation Nation
+[04-Feb-2021 21:40:54] &raquo;  &raquo; Adding extra information for: CASHFLOW GAME INSTRUCTIONS: GAME SET UP Robert Kiyosaki
+[04-Feb-2021 21:40:55] &raquo;  &raquo; Adding extra information for: FIND OUT HOW THE NEW TAX PLAN AFFECTS YOU Robert Kiyosaki
+[04-Feb-2021 21:40:56] &raquo;  &raquo; Adding extra information for: Debate and Switch
+[04-Feb-2021 21:40:56] &raquo;  &raquo; Adding extra information for: HEAR WHY THE HARDEST PART OF ENTREPRENEURSHIP IS DEALING WITH PEOPLE Robert Kiyosaki
+[04-Feb-2021 21:40:58] &raquo;  &raquo; Adding extra information for: A Deformed Democracy
+[04-Feb-2021 21:40:59] &raquo;  &raquo; Adding extra information for: BITCOIN: Find Out What It Is, Why It’s So Popular & If You Should Invest In It Kim Kiyosaki.
+[04-Feb-2021 21:41:01] &raquo;  &raquo; Adding extra information for: CASHFLOW GAME INSTRUCTIONS: YOUR DREAM
+[04-Feb-2021 21:41:01] &raquo;  &raquo; Adding extra information for: BONUS: THE QUAD POD Phoenix Comic Con
+[04-Feb-2021 21:41:02] &raquo;  &raquo; Adding extra information for: THE COLD, HARD TRUTH ABOUT MONEY FROM MR. WONDERFUL Robert Kiyosaki & Kevin O'Leary
+[04-Feb-2021 21:41:02] &raquo;  &raquo; Adding extra information for: WHAT IS RECEIPT MONEY AND FRACTIONAL RESERVE? -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:03] &raquo;  &raquo; Adding extra information for: THE GREED OF THE POOR LEGACY SHOW -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:03] &raquo;  &raquo; Adding extra information for: THE SWAMP IS NOT BEING DRAINED, AND ONLY THE RICH ARE BENEFITTING -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:05] &raquo;  &raquo; Adding extra information for: What Are You Gonna Do? LEGACY SHOW -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:06] &raquo;  &raquo; Adding extra information for: Three Types Of Income By Rich Dad
+[04-Feb-2021 21:41:07] &raquo;  &raquo; Adding extra information for: HOW TO BECOME A MASTER—Robert Kiyosaki & Robert Greene
+[04-Feb-2021 21:41:08] &raquo;  &raquo; Adding extra information for: Fighting Our Fear LEGACY SHOW -Robert Kiyosaki
+[04-Feb-2021 21:41:09] &raquo;  &raquo; Adding extra information for: YOUR CASH IS WORTHLESS, AND HERE’S WHAT YOU CAN DO ABOUT IT Robert Kiyosaki
+[04-Feb-2021 21:41:10] &raquo;  &raquo; Adding extra information for: Moonlighting LEGACY SHOW -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:11] &raquo;  &raquo; Adding extra information for: Why Living Below Your Means Is Bad Advice -Robert Kiyosaki
+[04-Feb-2021 21:41:12] &raquo;  &raquo; Adding extra information for: FIND OUT WHY THE RICH DON’T WORK FOR MONEY, AND WHAT YOU CAN DO ABOUT IT Robert Kiyosaki
+[04-Feb-2021 21:41:13] &raquo;  &raquo; Adding extra information for: The Coal Miner Next Door LEGACY SHOW -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:14] &raquo;  &raquo; Adding extra information for: HEAR FINANCIAL ADVICE FROM RICH MEN, NOT SALESMEN Robert Kiyosaki & Jim Rogers
+[04-Feb-2021 21:41:16] &raquo;  &raquo; Adding extra information for: Good debt and bad debt -Robert Kiyosaki
+[04-Feb-2021 21:41:17] &raquo;  &raquo; Adding extra information for: The New Kleptocracy LEGACY SHOW -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:17] &raquo;  &raquo; Adding extra information for: TECHNIQUES TO MAKE YOUR BRAIN SMARTER—Robert Kiyosaki, Dan McGinn, Jim Kwik
+[04-Feb-2021 21:41:19] &raquo; Restarting in 43 seconds
+[04-Feb-2021 21:41:21] &raquo;  &raquo; Adding extra information for: INVESTING IN REAL ESTATE -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:22] &raquo;  &raquo; Adding extra information for: PROFIT FROM PARADOX -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:22] &raquo;  &raquo; Adding extra information for: LEADERSHIP SKILLS
+[04-Feb-2021 21:41:23] &raquo;  &raquo; Adding extra information for: HOW ENTREPRENEURS GET RICH AND PRESERVE THEIR WEALTH Robert Kiyosaki, Michael Sonnenfeldt
+[04-Feb-2021 21:41:25] &raquo;  &raquo; Adding extra information for: CODE INVASION -ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:26] &raquo;  &raquo; Adding extra information for: A FINANCIAL CRASH IS COMING. FIND OUT HOW YOU CAN SURVIVE AND THRIVE Robert Kiyosaki, Jim...
+[04-Feb-2021 21:41:29] &raquo;  &raquo; Adding extra information for: PROTECT YOURSELF -ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:29] &raquo;  &raquo; Adding extra information for: THE FAST AND THE FURIOUS -ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:30] &raquo;  &raquo; Adding extra information for: WHY TAXES MAKE YOU RICH -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:31] &raquo;  &raquo; Adding extra information for: HOW TO SUCCEED IN BUSINESS AND ELIMINATE YOUR COMPETITION ROBERT KIYOSAKI
+[04-Feb-2021 21:41:32] &raquo;  &raquo; Adding extra information for: HOW THE RICH GET RICHER -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:32] &raquo;  &raquo; Adding extra information for: HOW TO INVEST -ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:33] &raquo;  &raquo; Adding extra information for: If You Can't SELL, You Don't Make MONEY! -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:34] &raquo;  &raquo; Adding extra information for: HABITS OF SUCCESSFUL PEOPLE, HOW TO STOP BAD HABITS -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:36] &raquo;  &raquo; Adding extra information for: MOTIVATIONAL VIDEO, HOW TO OVERCOME FEAR, PERSONAL DEVELOPMENT -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:36] &raquo;  &raquo; Adding extra information for: WHAT TO DO IN A STOCK MARKET CRASH, WHY THE 401K IS BAD- ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:37] &raquo;  &raquo; Adding extra information for: Assets and liabilities -Robert Kiyosaki
+[04-Feb-2021 21:41:37] &raquo;  &raquo; Adding extra information for: CANCER CAN BE CURED -ROBERT KIYOSAKI
+[04-Feb-2021 21:41:39] &raquo;  &raquo; Adding extra information for: THE WORLD WATER CRISIS, WATER SCARCITY- ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:43] &raquo;  &raquo; Adding extra information for: SUCCESSFUL WOMEN ENTREPRENEURS -KIM KIYOSAKI
+[04-Feb-2021 21:41:44] &raquo;  &raquo; Adding extra information for: THE UPCOMING WORLDWIDE DEPRESSION, GLOBAL RECESSION ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:45] &raquo;  &raquo; Adding extra information for: IS THE NEXT FINANCIAL CRISIS COMING? ROBERT KIYOSAKI
+[04-Feb-2021 21:41:46] &raquo;  &raquo; Adding extra information for: #1 CAUSE OF BANKRUPTCY -ROBERT KIYOSAKI LEGACY SHOW
+[04-Feb-2021 21:41:47] &raquo;  &raquo; Adding extra information for: WHY WOULD YOU INVEST IN A MUTUAL FUND? ROBERT KIYOSAKI
+[04-Feb-2021 21:41:48] &raquo;  &raquo; Adding extra information for: HOW TO TELL THE TRUTH
+[04-Feb-2021 21:41:48] &raquo;  &raquo; Adding extra information for: Why Savers Are Losers -Robert Kiyosaki
+[04-Feb-2021 21:41:49] &raquo;  &raquo; Adding extra information for: THE SECRET BEHIND ROBERT KIYOSAKI'S SUCCESS LEGACY SHOW
+[04-Feb-2021 21:41:51] &raquo;  &raquo; Adding extra information for: TIPS FOR YOUNG ENTREPRENEURS
+[04-Feb-2021 21:41:52] &raquo;  &raquo; Adding extra information for: The Cone of Learning: The Why Behind How You Learn -Robert Kiyosaki
+[04-Feb-2021 21:41:52] &raquo;  &raquo; Adding extra information for: HOW TO DO BUSINESS IN THE 21ST CENTURY. ROBERT KIYOSAKI'S BOOK SECOND CHANCE
+[04-Feb-2021 21:41:53] &raquo;  &raquo; Adding extra information for: THE TRUTH ABOUT CHINA'S STOCK MARKET
+[04-Feb-2021 21:41:53] &raquo;  &raquo; Adding extra information for: THE MIDDLE CLASS IN AMERICA
+[04-Feb-2021 21:41:55] &raquo;  &raquo; Adding extra information for: Cashflow Quadrant By Rich Dad
+[04-Feb-2021 21:41:56] &raquo;  &raquo; Adding extra information for: WILL ROBOTS TAKE OVER THE WORLD?
+[04-Feb-2021 21:41:57] &raquo;  &raquo; Adding extra information for: WHY FINANCIAL EDUCATION IS IMPORTANT
+[04-Feb-2021 21:41:58] &raquo;  &raquo; Adding extra information for: WHAT HAPPENS TO WHISTLE BLOWERS WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:41:59] &raquo;  &raquo; Adding extra information for: CASHFLOW GAME WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:01] &raquo;  &raquo; Adding extra information for: HOW TO BECOME AN ENTREPRENEUR
+[04-Feb-2021 21:42:02] &raquo;  &raquo; Adding extra information for: HOW DONALD TRUMP WON THE ELECTION
+[04-Feb-2021 21:42:03] &raquo;  &raquo; Adding extra information for: WHY NETWORK MARKETING IS THE RIGHT CHOICE ROBERT KIYOSAKI
+[04-Feb-2021 21:42:04] &raquo;  &raquo; Adding extra information for: CHOOSE BETWEEN YOUR FINANCIAL EDUCATION AND TRADITIONAL EDUCATION
+[04-Feb-2021 21:42:05] &raquo;  &raquo; Adding extra information for: WHY MALLS ARE CLOSING & DYING- DEAD MALLS WHAT RETAIL EMPLOYEES SHOULD DO
+[04-Feb-2021 21:42:08] &raquo;  &raquo; Adding extra information for: ECONOMIC COLLAPSE PREPARATION- TIPS BY ROBERT KIYOSAKI
+[04-Feb-2021 21:42:08] &raquo;  &raquo; Adding extra information for: ECONOMIC UPDATE AND ECONOMIC THREATS
+[04-Feb-2021 21:42:08] &raquo;  &raquo; Adding extra information for: ROBERT KIYOSAKI'S NEW FREE EBOOK
+[04-Feb-2021 21:42:09] &raquo;  &raquo; Adding extra information for: NETWORK MARKETING & SALES SKILLS WITH ROBERT AND KIM KIYOSAKI
+[04-Feb-2021 21:42:10] &raquo;  &raquo; Adding extra information for: WHAT TO DO WITH YOUR 401K ROBERT KIYOSAKI AND THE RICH DAD ADVISORS
+[04-Feb-2021 21:42:11] &raquo;  &raquo; Adding extra information for: KIYOSAKI'S REAL ESTATE INVESTING STEP BY STEP: HOW TO HAVE INFINITE RETURN ON YOUR INVESTMENTS
+[04-Feb-2021 21:42:12] &raquo;  &raquo; Adding extra information for: HOW TO BECOME SUCCESSFUL- ROBERT KIYOSAKI
+[04-Feb-2021 21:42:12] &raquo;  &raquo; Adding extra information for: ROBERT KIYOSAKI'S MORNING ROUTINE
+[04-Feb-2021 21:42:13] &raquo; Restarting in -11 seconds
+[04-Feb-2021 21:42:13] &raquo; <span style="color:red">Restarting to save from script timout!</span>
+[04-Feb-2021 21:42:13] &raquo; Getting the channels and checking if they need updating.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[04-Feb-2021 21:42:13] &raquo; Getting extra youtube information!
+[04-Feb-2021 21:42:13] &raquo; There are 73 that still have missing info.
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling&#39;s mystery?
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: ? 5 Products That Will LOSE You Money If You Sell Them Online...
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: ? 5 Websites To Make FREE MONEY Online ? Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode - Fed Negative Interest Rates
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS ? Best Motivational Speech
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: How I !@#$&amp; Learn
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[04-Feb-2021 21:42:15] &raquo;  &raquo; Adding extra information for: WHY GOLD AND SILVER ARE VALUABLE- THE MOST IMPORTANT INVESTMENT OF YOUR LIFE
+[04-Feb-2021 21:42:16] &raquo;  &raquo; Adding extra information for: MARKETING AND PARENTING MILLENNIALS -ROBERT KIYOSAKI
+[04-Feb-2021 21:42:17] &raquo;  &raquo; Adding extra information for: HOW TO INCREASE YOUR INCOME: BUY ASSETS- ROBERT KIYOSAKI
+[04-Feb-2021 21:42:18] &raquo;  &raquo; Adding extra information for: WHY THE RICH DON'T PAY TAXES= THE RICH DON'T WORK FOR MONEY- ROBERT KIYOSAKI
+[04-Feb-2021 21:42:19] &raquo;  &raquo; Adding extra information for: FINANCIAL LITERACY 101: A GLIMPSE INTO THE LIFE OF KIM AND ROBERT KIYOSAKI
+[04-Feb-2021 21:42:19] &raquo;  &raquo; Adding extra information for: ENTREPRENEURIAL MINDSET WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:20] &raquo;  &raquo; Adding extra information for: SUCCESSFUL BUSINESS WOMAN: BUSINESS TIPS, MONEY TIPS & PERSONAL TIPS
+[04-Feb-2021 21:42:21] &raquo;  &raquo; Adding extra information for: YOUR WEALTH IS BEING STOLEN
+[04-Feb-2021 21:42:21] &raquo;  &raquo; Adding extra information for: STOP WATCHING FAKE NEWS. FINANCIAL LITERACY 101: MONEY IS FREEDOM- ROBERT KIYOSAKI
+[04-Feb-2021 21:42:22] &raquo;  &raquo; Adding extra information for: HOW ROBERT KIYOSAKI IS PREPARING FOR THE APOCALYPSE
+[04-Feb-2021 21:42:23] &raquo;  &raquo; Adding extra information for: CRYPTOCURRENCY, BLOCKCHAIN TECHNOLOGY AND BITCOINS VALUE EXPLAINED BY ROBERT KIYOSAKI
+[04-Feb-2021 21:42:24] &raquo;  &raquo; Adding extra information for: STEPS TO BE AN ENTREPRENEUR GUY KAWASAKI AND ROBERT KIYOSAKI
+[04-Feb-2021 21:42:24] &raquo;  &raquo; Adding extra information for: HOW TO GET RICH ROBERT KIYOSAKI TEDTALK
+[04-Feb-2021 21:42:25] &raquo;  &raquo; Adding extra information for: HOW ROBERT KIYOSAKI WENT BROKE
+[04-Feb-2021 21:42:26] &raquo;  &raquo; Adding extra information for: FREE EBOOK ON HOW TO INVEST WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:28] &raquo;  &raquo; Adding extra information for: RICH DAD POOR DAD Changed My Life Robert Kiyosaki
+[04-Feb-2021 21:42:29] &raquo;  &raquo; Adding extra information for: WHY YOU SHOULDN'T FIRE MILLENNIALS ROBERT KIYOSAKI
+[04-Feb-2021 21:42:30] &raquo;  &raquo; Adding extra information for: ROBERT KIYOSAKI PREDICTS THE NEXT FINANCIAL CRISIS
+[04-Feb-2021 21:42:30] &raquo;  &raquo; Adding extra information for: CHANGE YOUR LIFE BEFORE BREAKFAST WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:31] &raquo;  &raquo; Adding extra information for: AMERICAN GREED BY ROBERT KIYOSAKI
+[04-Feb-2021 21:42:32] &raquo;  &raquo; Adding extra information for: ROBERT KIYOSAKI INTERVIEWS THE TAX FRAUD WHISTLE BLOWER
+[04-Feb-2021 21:42:34] &raquo;  &raquo; Adding extra information for: NEGOTIATION SKILLS WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:35] &raquo;  &raquo; Adding extra information for: INCOME INEQUALITY EXPLAINED BY ROBERT KIYOSAKI
+[04-Feb-2021 21:42:36] &raquo;  &raquo; Adding extra information for: ROBERT KIYOSAKI DEBT MAKES THE RICH RICHER
+[04-Feb-2021 21:42:37] &raquo;  &raquo; Adding extra information for: HOW TO BECOME FAMOUS WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:38] &raquo;  &raquo; Adding extra information for: INSIDER ON CORRUPTION WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:39] &raquo;  &raquo; Adding extra information for: MOTIVATIONAL THOUGHTS WITH KIM AND ROBERT KIYOSAKI
+[04-Feb-2021 21:42:39] &raquo;  &raquo; Adding extra information for: AMERICAN DREAM RICH DAD POOR DAD
+[04-Feb-2021 21:42:40] &raquo;  &raquo; Adding extra information for: FED UP ROBERT KIYOSAKI
+[04-Feb-2021 21:42:41] &raquo;  &raquo; Adding extra information for: STARTING YOUR OWN BUSINESS RICH DAD POOR DAD
+[04-Feb-2021 21:42:42] &raquo;  &raquo; Adding extra information for: FUTURE BUSINESS PLANS ROBERT KIYOSAKI
+[04-Feb-2021 21:42:43] &raquo;  &raquo; Adding extra information for: 401K FOR DUMMIES ROBERT KIYOSAKI
+[04-Feb-2021 21:42:44] &raquo;  &raquo; Adding extra information for: How to Buy Your First Investment Property
+[04-Feb-2021 21:42:44] &raquo;  &raquo; Adding extra information for: FINANCIAL LITERACY WITH ROBERT KIYOSAKI
+[04-Feb-2021 21:42:45] &raquo;  &raquo; Adding extra information for: No Crystal Ball
+[04-Feb-2021 21:42:45] &raquo; Restarting in 48 seconds
+[04-Feb-2021 21:42:46] &raquo;  &raquo; Adding extra information for: THE NEXT GREAT DEPRESSION ROBERT KIYOSAKI
+[04-Feb-2021 21:42:46] &raquo;  &raquo; Adding extra information for: IS THE STORY OF RICH DAD TRUE?
+[04-Feb-2021 21:42:47] &raquo;  &raquo; Adding extra information for: The Five Year Plan
+[04-Feb-2021 21:42:47] &raquo;  &raquo; Adding extra information for: The T-Junction
+[04-Feb-2021 21:42:47] &raquo;  &raquo; Adding extra information for: HOW TO BENEFIT FROM THE TAX SYSTEM
+[04-Feb-2021 21:42:48] &raquo;  &raquo; Adding extra information for: Rich Dad’s 3 Step Guide to Financial Freedom
+[04-Feb-2021 21:42:50] &raquo;  &raquo; Adding extra information for: Rich Dad's Real Estate Gold
+[04-Feb-2021 21:42:51] &raquo;  &raquo; Adding extra information for: How to Achieve a Rich Mindset
+[04-Feb-2021 21:42:51] &raquo;  &raquo; Adding extra information for: How to Be Successful at Life & Investing
+[04-Feb-2021 21:42:51] &raquo;  &raquo; Adding extra information for: Download The Circle of Profit
+[04-Feb-2021 21:42:51] &raquo;  &raquo; Adding extra information for: How to Manage Your Money
+[04-Feb-2021 21:42:52] &raquo;  &raquo; Adding extra information for: Mother Enlightens Sharks on Dark Side of Modern Parenting | Shark Tank AUS
+[04-Feb-2021 21:42:52] &raquo;  &raquo; Adding extra information for: Reaction To GameStop Short, Robinhood & Reddit Drama
+[04-Feb-2021 21:42:53] &raquo;  &raquo; Adding extra information for: The Impact of Heated Debates & Arguments
+[04-Feb-2021 21:42:54] &raquo;  &raquo; Adding extra information for: Infamous Con Artist Breaks Down Mortgage Fraud
+[04-Feb-2021 21:42:54] &raquo;  &raquo; Adding extra information for: Will Dexter Jackson Compete in Athleticon?
+[04-Feb-2021 21:42:55] &raquo;  &raquo; Adding extra information for: How to Build a Billion Dollar Company
+[04-Feb-2021 21:42:55] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[04-Feb-2021 21:42:55] &raquo;  &raquo; Adding extra information for: What Are You Known For?
+[04-Feb-2021 21:42:56] &raquo;  &raquo; Adding extra information for: How to Make $250,000 in a year by Patrick Bet-David
+[04-Feb-2021 21:42:56] &raquo;  &raquo; Adding extra information for: Mo' Money, Mo' Problems. Was B.I.G. right?
+[04-Feb-2021 21:42:57] &raquo;  &raquo; Adding extra information for: How to Hire a Virtual Assistant How to Use Upwork & OnlineJobs.ph when Hiring VAs ($3/HOUR)
+[04-Feb-2021 21:42:58] &raquo;  &raquo; Adding extra information for: Is Dropshipping Banned on Amazon and eBay? (DS Domination Confusion)
+[04-Feb-2021 21:42:59] &raquo; Restarting in 34 seconds
+[04-Feb-2021 21:51:30] &raquo; Getting the channels and checking if they need updating.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[04-Feb-2021 21:51:30] &raquo; Getting extra youtube information!
+[04-Feb-2021 21:51:30] &raquo; There are 15 that still have missing info.
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling&#39;s mystery?
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: ? 5 Products That Will LOSE You Money If You Sell Them Online...
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: ? 5 Websites To Make FREE MONEY Online ? Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode - Fed Negative Interest Rates
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS ? Best Motivational Speech
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: How I !@#$&amp; Learn
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[04-Feb-2021 21:51:31] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[04-Feb-2021 21:51:31] &raquo; Restarting in 78 seconds
+[04-Feb-2021 21:51:50] &raquo; Getting the channels and checking if they need updating.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Beast of eCom</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Valuetainment</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Skipping <b>Wholesale Ted</b> as it was updated within the last day.
+[04-Feb-2021 21:51:50] &raquo; Getting extra youtube information!
+[04-Feb-2021 21:51:50] &raquo; There are 15 that still have missing info.
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling&#39;s mystery?
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: ? 5 Products That Will LOSE You Money If You Sell Them Online...
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: ? 5 Websites To Make FREE MONEY Online ? Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode - Fed Negative Interest Rates
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS ? Best Motivational Speech
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: How I !@#$&amp; Learn
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[04-Feb-2021 21:51:51] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[04-Feb-2021 21:51:51] &raquo; Restarting in 79 seconds

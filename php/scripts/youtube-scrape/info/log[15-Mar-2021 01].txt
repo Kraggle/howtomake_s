@@ -1,0 +1,55 @@
+[15-Mar-2021 01:00:02] &raquo; Getting the channels and checking if they need updating.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[15-Mar-2021 01:00:02] &raquo; <b>Robert Kiyosaki</b>:
+[15-Mar-2021 01:00:02] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[15-Mar-2021 01:00:02] &raquo;  &raquo;  &raquo; Saving the youtube data for 579 videos! This may take some time.
+[15-Mar-2021 01:00:16] &raquo;  &raquo; We have: 579 and there are 578 in total.
+[15-Mar-2021 01:00:16] &raquo;  &raquo; Results: 0
+[15-Mar-2021 01:00:16] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-15
+[15-Mar-2021 01:00:16] &raquo; Restarting in 65 seconds
+[15-Mar-2021 01:00:16] &raquo; <b>Shark Tank Australia</b>:
+[15-Mar-2021 01:00:16] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[15-Mar-2021 01:00:16] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 217 videos.
+[15-Mar-2021 01:00:18] &raquo; Restarting in 63 seconds
+[15-Mar-2021 01:00:18] &raquo;  &raquo;  &raquo; Saving the youtube data for 217 videos! This may take some time.
+[15-Mar-2021 01:00:27] &raquo;  &raquo; We have: 217 and there are 217 in total.
+[15-Mar-2021 01:00:27] &raquo;  &raquo; Results: 0
+[15-Mar-2021 01:00:27] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-15
+[15-Mar-2021 01:00:27] &raquo; Restarting in 54 seconds
+[15-Mar-2021 01:00:27] &raquo; <b>Valuetainment</b>:
+[15-Mar-2021 01:00:27] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[15-Mar-2021 01:00:27] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 1493 videos.
+[15-Mar-2021 01:00:36] &raquo; Restarting in 45 seconds
+[15-Mar-2021 01:00:36] &raquo;  &raquo;  &raquo; Saving the youtube data for 1493 videos! This may take some time.
+[15-Mar-2021 01:01:21] &raquo; 
+[15-Mar-2021 01:01:21] &raquo; Getting the channels and checking if they need updating.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[15-Mar-2021 01:01:21] &raquo; <b>Valuetainment</b>:
+[15-Mar-2021 01:01:21] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[15-Mar-2021 01:01:21] &raquo;  &raquo;  &raquo; Saving the youtube data for 1493 videos! This may take some time.
+[15-Mar-2021 01:02:43] &raquo;  &raquo; We have: 1493 and there are 1485 in total.
+[15-Mar-2021 01:02:43] &raquo;  &raquo; Results: 0
+[15-Mar-2021 01:02:43] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-15
+[15-Mar-2021 01:02:43] &raquo; 

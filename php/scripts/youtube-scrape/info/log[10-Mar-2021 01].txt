@@ -1,0 +1,93 @@
+[10-Mar-2021 01:00:02] &raquo; Getting the channels and checking if they need updating.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[10-Mar-2021 01:00:02] &raquo; <b>Robert Kiyosaki</b>:
+[10-Mar-2021 01:00:02] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[10-Mar-2021 01:00:02] &raquo;  &raquo;  &raquo; Saving the youtube data for 577 videos! This may take some time.
+[10-Mar-2021 01:00:10] &raquo;  &raquo; We have: 577 and there are 576 in total.
+[10-Mar-2021 01:00:10] &raquo;  &raquo; Results: 0
+[10-Mar-2021 01:00:10] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-10
+[10-Mar-2021 01:00:10] &raquo; Restarting in 72 seconds
+[10-Mar-2021 01:00:10] &raquo; <b>Shark Tank Australia</b>:
+[10-Mar-2021 01:00:10] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[10-Mar-2021 01:00:10] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 215 videos.
+[10-Mar-2021 01:00:12] &raquo; Restarting in 70 seconds
+[10-Mar-2021 01:00:12] &raquo;  &raquo;  &raquo; Saving the youtube data for 215 videos! This may take some time.
+[10-Mar-2021 01:00:20] &raquo;  &raquo; We have: 215 and there are 216 in total.
+[10-Mar-2021 01:00:20] &raquo;  &raquo; Results: 1
+[10-Mar-2021 01:00:20] &raquo;  &raquo;  &raquo; tD-UbDMmMB4 - Sharks Can't Stop Laughing at the Poo Song | Shark Tank AUS #Shorts
+[10-Mar-2021 01:00:20] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31574
+[10-Mar-2021 01:00:22] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31575
+[10-Mar-2021 01:00:22] &raquo; Restarting in 60 seconds
+[10-Mar-2021 01:00:22] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-10
+[10-Mar-2021 01:00:22] &raquo; Restarting in 60 seconds
+[10-Mar-2021 01:00:22] &raquo; <b>Valuetainment</b>:
+[10-Mar-2021 01:00:22] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[10-Mar-2021 01:00:22] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 1489 videos.
+[10-Mar-2021 01:00:30] &raquo; Restarting in 52 seconds
+[10-Mar-2021 01:00:30] &raquo;  &raquo;  &raquo; Saving the youtube data for 1489 videos! This may take some time.
+[10-Mar-2021 01:01:22] &raquo; 
+[10-Mar-2021 01:01:22] &raquo; Getting the channels and checking if they need updating.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[10-Mar-2021 01:01:22] &raquo; <b>Valuetainment</b>:
+[10-Mar-2021 01:01:22] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[10-Mar-2021 01:01:22] &raquo;  &raquo;  &raquo; Saving the youtube data for 1489 videos! This may take some time.
+[10-Mar-2021 01:02:00] &raquo;  &raquo; We have: 1489 and there are 1482 in total.
+[10-Mar-2021 01:02:00] &raquo;  &raquo; Results: 1
+[10-Mar-2021 01:02:00] &raquo;  &raquo;  &raquo; eoBwDLVsNJY - Is New York City The Next Detroit?
+[10-Mar-2021 01:02:10] &raquo;  &raquo;  &raquo;  &raquo; Video successfully added @ 31576
+[10-Mar-2021 01:02:14] &raquo;  &raquo;  &raquo;  &raquo; Successfully created the video thumbnails @ 31577
+[10-Mar-2021 01:02:14] &raquo; Restarting in 28 seconds
+[10-Mar-2021 01:02:14] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-10
+[10-Mar-2021 01:02:14] &raquo; Restarting in 28 seconds
+[10-Mar-2021 01:02:14] &raquo; <b>Wholesale Ted</b>:
+[10-Mar-2021 01:02:14] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[10-Mar-2021 01:02:14] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 161 videos.
+[10-Mar-2021 01:02:15] &raquo; Restarting in 27 seconds
+[10-Mar-2021 01:02:15] &raquo;  &raquo;  &raquo; Saving the youtube data for 161 videos! This may take some time.
+[10-Mar-2021 01:02:22] &raquo;  &raquo; We have: 161 and there are 156 in total.
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Results: 0
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-10
+[10-Mar-2021 01:02:22] &raquo; Restarting in 20 seconds
+[10-Mar-2021 01:02:22] &raquo; Getting extra youtube information!
+[10-Mar-2021 01:02:22] &raquo; There are 18 that still have missing info.
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[10-Mar-2021 01:02:22] &raquo;  &raquo; Adding extra information for: STOP NEGATIVE SELF THINKING Listen To This Everyday (motivational video)
+[10-Mar-2021 01:02:23] &raquo;  &raquo; Adding extra information for: Sharks Can't Stop Laughing at the Poo Song | Shark Tank AUS #Shorts
+[10-Mar-2021 01:02:24] &raquo;  &raquo; Adding extra information for: Is New York City The Next Detroit?
+[10-Mar-2021 01:02:25] &raquo; Restarting in 17 seconds

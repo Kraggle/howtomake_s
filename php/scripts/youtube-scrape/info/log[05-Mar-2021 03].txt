@@ -1,0 +1,51 @@
+[05-Mar-2021 03:00:02] &raquo; Getting the channels and checking if they need updating.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Ahrefs</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Andrei Jikh</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Beast Of E-Com</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Daily Motivation</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Dragons Den</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Gabriel St-Germain</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Graham Stephan</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Jack Kitchener</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Jared Goetz</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Kristin Stones</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Law of Attraction Coaching</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Robert Kiyosaki</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; Skipping <b>Shark Tank Australia</b> as it was updated within the last day.
+[05-Mar-2021 03:00:02] &raquo; <b>Valuetainment</b>:
+[05-Mar-2021 03:00:02] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[05-Mar-2021 03:00:02] &raquo;  &raquo;  &raquo; Saving the youtube data for 1486 videos! This may take some time.
+[05-Mar-2021 03:00:27] &raquo;  &raquo; We have: 1486 and there are 1478 in total.
+[05-Mar-2021 03:00:27] &raquo;  &raquo; Results: 0
+[05-Mar-2021 03:00:27] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-05
+[05-Mar-2021 03:00:27] &raquo; Restarting in 55 seconds
+[05-Mar-2021 03:00:27] &raquo; <b>Wholesale Ted</b>:
+[05-Mar-2021 03:00:27] &raquo;  &raquo; Checking for dead links, duplicates and updating the video data.
+[05-Mar-2021 03:00:27] &raquo;  &raquo;  &raquo; Acquiring the video data from youtube for 160 videos.
+[05-Mar-2021 03:00:28] &raquo; Restarting in 54 seconds
+[05-Mar-2021 03:00:28] &raquo;  &raquo;  &raquo; Saving the youtube data for 160 videos! This may take some time.
+[05-Mar-2021 03:00:37] &raquo;  &raquo; We have: 160 and there are 155 in total.
+[05-Mar-2021 03:00:37] &raquo;  &raquo; Results: 0
+[05-Mar-2021 03:00:37] &raquo;  &raquo; Finished channel update, setting last update to 2021-03-05
+[05-Mar-2021 03:00:37] &raquo; Restarting in 45 seconds
+[05-Mar-2021 03:00:37] &raquo; Getting extra youtube information!
+[05-Mar-2021 03:00:37] &raquo; There are 18 that still have missing info.
+[05-Mar-2021 03:00:37] &raquo;  &raquo; Adding extra information for: Can you solve JK Rowling's mystery?
+[05-Mar-2021 03:00:37] &raquo;  &raquo; Adding extra information for: How I !@#$& Learn
+[05-Mar-2021 03:00:37] &raquo;  &raquo; Adding extra information for: The feeling when you know something great is about to happen
+[05-Mar-2021 03:00:37] &raquo;  &raquo; Adding extra information for: Why Snapchat Lost $6 Billion
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: Focus on The Bigger Picture
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: A Day In My Life
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: Broker Than You LEGACY SHOW recorded 2016
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: BLOCKCHAIN WILL CHANGE EVERYTHING IN BUSINESS Robert Kiyosaki, Landon Thorne, Shane Caniglia
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: The Landslide RECORDED 2016 legacy show
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: The Quick and The Dead RECORDED 2016 legacy show
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: FIND OUT WHO’S LYING TO YOU-Robert Kiyosaki, Michael Floyd
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: 5 Products That Will LOSE You Money If You Sell Them Online...
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: 5 Websites To Make FREE MONEY Online Worldwide (No Credit Card) w/ Phantom T-Shirts...
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: The Stock Market Is About To Explode Fed Negative Interest Rates
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: Focus on Yourself NOT OTHERS Best Motivational Speech
+[05-Mar-2021 03:00:38] &raquo;  &raquo; Adding extra information for: WAKE UP EARLY AND ATTACK THE DAY Motivational Video 2021
+[05-Mar-2021 03:00:39] &raquo;  &raquo; Adding extra information for: Keyword Research Pt. 2: How to Find Keywords for Your Website 1.3. SEO Course by Ahrefs
+[05-Mar-2021 03:00:40] &raquo;  &raquo; Adding extra information for: 7 SINKING FUNDS You Need to Protect Your Budget
+[05-Mar-2021 03:00:41] &raquo; Restarting in 41 seconds
