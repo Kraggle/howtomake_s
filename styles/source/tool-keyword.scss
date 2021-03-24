@@ -8,6 +8,17 @@ $back-color: rgba(#fff, 1);
 $text-color: #000;
 $inactive-text: #777;
 
+:root {
+    --highlight: #{$color-gradient};
+    --highlight-hover: #{darken($color-gradient, 5%)};
+    --highlight-text: #fff;
+    --highlight-border: #{$color-gradient};
+    --red: #{$color-error};
+    --orange: #{$color-highlight};
+    --orange-hover: #{$color-highlight-hover};
+    --orange-border: #{lighten($color-highlight, 10%)};
+}
+
 .wrapper {
     .content-wrap {
         background-color: initial;
@@ -51,10 +62,10 @@ $inactive-text: #777;
             width: 52px;
             height: 52px;
             position: relative;
-            background: $color-gradient;
-            color: #fff;
+            background: var(--highlight);
+            color: var(--highlight-text);
             align-self: flex-start;
-            border: 1px solid $color-gradient;
+            border: 1px solid var(--highlight-border);
 
             svg {
                 position: absolute;
@@ -68,7 +79,7 @@ $inactive-text: #777;
         .input {
             padding: 0 20px;
             font-size: 16px;
-            border: 1px solid $color-gradient;
+            border: 1px solid var(--highlight-border);
             background: #fff;
 
             &::placeholder {
@@ -77,34 +88,34 @@ $inactive-text: #777;
         }
 
         .head {
-            background: $color-gradient;
-            color: #fff;
+            background: var(--highlight);
+            color: var(--highlight-text);
             padding: 0 20px;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 300;
-            border: 1px solid $color-gradient;
+            border: 1px solid var(--highlight-border);
         }
     }
 
     .button {
         @include transition;
 
-        background: $color-gradient;
-        color: #fff;
+        background: var(--highlight);
+        color: var(--highlight-text);
         padding: 0 20px;
         font-size: 14px;
         text-transform: uppercase;
         letter-spacing: 2px;
         font-weight: 300;
-        border: 1px solid $color-gradient;
+        border: 1px solid var(--highlight-border);
         position: relative;
         cursor: pointer;
         align-self: flex-end;
 
         &:hover {
-            background: darken($color-gradient, 5%);
+            background: var(--highlight-hover);
         }
 
         span {
@@ -131,40 +142,35 @@ $inactive-text: #777;
         grid-template-areas: 'head head head head';
 
         .button {
-            height: 50px;
-            width: 50px;
-            border: 0;
+            &.icon {
+                height: 50px;
+                width: 50px;
+                border: 0;
 
-            svg {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 20px;
-                height: 20px;
+                svg {
+                    @include transition(600ms);
+
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 20px;
+                    height: 20px;
+                }
             }
 
             &.add {
-                width: 100%;
                 text-align: center;
                 height: initial;
                 align-self: stretch;
             }
-
-            &.collapse {
-                svg {
-                    @include transition(600ms);
-
-                    transform: translate(-50%, -50%);
-                }
-            }
         }
 
         .title-bar {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr repeat(3, max-content);
             grid-area: head;
-            background: $color-gradient;
+            background: var(--highlight);
 
             .head {
                 display: inline-block;
@@ -187,7 +193,7 @@ $inactive-text: #777;
             .button {
                 position: absolute;
                 background: transparent;
-                color: $color-error;
+                color: var(--red);
                 right: 0;
                 top: 0;
 
@@ -197,7 +203,7 @@ $inactive-text: #777;
                 }
             }
 
-            &:nth-last-of-type(2),
+            &:nth-last-of-type(1),
             &:nth-of-type(4n+1) {
                 .input {
                     border-right-width: 1px;
@@ -297,8 +303,7 @@ input[type=number] {
         top: 1px;
 
         .tab {
-            &:not(.active):not(:first-child) {
-                margin-left: -50px;
+            &.blend:not(.active):not(:first-child) {
                 position: relative;
 
                 &::before {
@@ -315,9 +320,15 @@ input[type=number] {
                 }
             }
 
+            &:first-child {
+                margin-left: 0 !important;
+            }
+
             &.active {
+                margin-left: 0 !important;
+
                 + :not(.active) {
-                    margin-left: 0;
+                    margin-left: 0 !important;
                 }
             }
         }
@@ -341,7 +352,7 @@ input[type=number] {
 
     ::-webkit-scrollbar-thumb {
         border-radius: 3px;
-        background-color: $color-gradient;
+        background-color: var(--highlight);
         border: 0;
     }
 
@@ -369,7 +380,7 @@ input[type=number] {
             position: relative;
             display: flex;
             background-color: #fff;
-            border: 1px solid $color-gradient;
+            border: 1px solid var(--highlight-border);
 
             &::placeholder {
                 color: #999;
@@ -415,7 +426,7 @@ input[type=number] {
 
     .error {
         display: none;
-        color: $color-error;
+        color: var(--red);
         margin-top: 20px;
         font-size: 15px;
 
@@ -464,7 +475,7 @@ input[type=number] {
         cursor: pointer;
         position: relative;
         vertical-align: middle;
-        border: $color-gradient solid 1px;
+        border: var(--highlight-border) solid 1px;
         line-height: 50px;
 
         .switch {
@@ -483,7 +494,7 @@ input[type=number] {
             bottom: 4px;
             right: 50%;
             z-index: 1;
-            background: $color-error;
+            background: var(--red);
         }
     }
 
@@ -495,7 +506,7 @@ input[type=number] {
                 .switch-slider {
                     left: 50%;
                     right: 4px;
-                    background: $color-gradient;
+                    background: var(--highlight);
                 }
             }
         }
@@ -509,8 +520,8 @@ input[type=number] {
         &.update {
             @include transition(600ms);
 
-            background: $color-gradient;
-            color: #fff;
+            background: var(--highlight);
+            color: var(--highlight-text);
             padding: 10px 15px;
             font-size: 14px;
             text-transform: uppercase;
@@ -522,8 +533,8 @@ input[type=number] {
             top: 45px;
             transform-origin: top right;
             transform: translateY(0);
-            background: $color-highlight;
-            border: 1px solid lighten($color-highlight, 10%);
+            background: var(--orange);
+            border: 1px solid var(--orange-border);
             z-index: 0;
 
             span {
@@ -534,7 +545,7 @@ input[type=number] {
             }
 
             &:hover {
-                background: $color-highlight-hover;
+                background: var(--orange-hover);
             }
 
             &.active {
@@ -560,13 +571,13 @@ input[type=number] {
 
     .box.active {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-    }
 
-    &.signed-in {
-        .box.active {
-            grid-template-columns: repeat(3, 1fr);
+        .log-in {
+            grid-column: 1 / -1;
+            text-align: center;
+            display: block;
         }
     }
 }
@@ -645,7 +656,7 @@ input[type=number] {
 .radio-wrap {
     position: relative;
     height: 52px;
-    border: 1px solid $color-gradient;
+    border: 1px solid var(--highlight-border);
     border-left-width: 0;
     padding: 0 5px;
 
@@ -693,7 +704,7 @@ input[type=number] {
         position: absolute;
         top: 0;
         bottom: 0;
-        background: $color-gradient;
+        background: var(--highlight);
         left: 0;
         right: 0;
         z-index: 0;

@@ -28,7 +28,8 @@ $(() => {
 		tab == 'html' && editor.refresh();
 		$(this).closest('[which]').attr('which') == 'Result' && (
 			keys.active = tab,
-			$('.results-wrap .box.active .filter.input').trigger('input')
+			$('.results-wrap .box.active .filter.input').trigger('input'),
+			redoTabs()
 		);
 		K.local(`kdt${$(this).closest('.tab-box').attr('which')}Tab`, tab);
 	});
@@ -91,7 +92,14 @@ $(() => {
 	};
 
 	const settings = {
-		defaults: S.getSettings,
+		user() {
+			return $.getJSON(V.ajax, {
+				action: 'keywords_get_user',
+				nonce: $('#keyword_nonce').val()
+			}, function(data) {
+				S.convertSettings(keys, data);
+			});
+		},
 		get() {
 			const data = {};
 			$('[key]', _setting).each(function() {
@@ -106,10 +114,12 @@ $(() => {
 				data[key] = value;
 			});
 			S.convertSettings(keys, data);
+
+			return data;
 		}
 	};
 
-	settings.defaults(keys);
+	settings.user();
 
 	// MARK: Populate tables with results
 	const updateResults = () => {
@@ -215,6 +225,7 @@ $(() => {
 
 		$('.hidden').removeClass('hidden');
 		$('.loading').removeClass('loading');
+		redoTabs();
 	};
 
 	// MARK: Check button click action
@@ -292,26 +303,36 @@ $(() => {
 	_setting.on('click', '.button.add[add]', function() {
 		const type = $(this).attr('add'),
 			_item = $(this).siblings(`[is=${type}]`).eq(0).clone();
-		_item.insertBefore($(this)).find('input').val('');
+		_item.insertAfter($(this)).find('input').val('');
 	});
 
 	_setting.on('input change propertyChange', 'input', function() {
-		activeUpdate(isIn);
+		activeUpdate(true);
 	});
 
-	$('.update.button', _setting).on('click', function() {
-		$('.update.button', _setting).addClass('active');
-		settings.get();
+	_setting.on('click', '.update.button:not(.active)', function() {
+		$(this).addClass('loading active');
+		const data = settings.get();
 		S.getKeywords(keys);
 		updateResults();
 		activeUpdate(false);
+
+		$.ajax({
+			url: V.ajax,
+			type: 'POST',
+			data: {
+				action: 'keywords_save_user',
+				nonce: $('#keyword_nonce').val(),
+				data
+			}
+		});
 	});
 
 	const updateTimer = timed(),
 		activeUpdate = active => updateTimer.run(() => {
 			_setting[`${active ? 'add' : 'remove'}Class`]('do-update');
-			$('.update.button', _setting).removeClass('active');
-		}, 1000);
+			$('.update.button', _setting).removeClass('active loading');
+		}, 500);
 
 	// MARK: Delete button action
 	_setting.on('click', '.button.delete', function() {
@@ -320,6 +341,33 @@ $(() => {
 		if ($(`[is=${type}]`, _setting).length > 1) _item.remove();
 		else $('input', _item).val('');
 		activeUpdate(true);
+	});
+
+	$('.button.clear', _setting).on('click', () => {
+		const selector = '.collapse-wrap .input-wrap',
+			item = $(selector).eq(0).clone();
+		$(selector).remove();
+		item.insertAfter($('.collapse-wrap .button.add')).find('input').val('').trigger('input');
+	});
+
+	$('.button.default', _setting).on('click', () => {
+		const selector = '.collapse-wrap .input-wrap',
+			item = $(selector).eq(0).clone();
+		$(selector).remove();
+
+		$.getJSON(V.ajax, {
+			action: 'keywords_get_default',
+			nonce: $('#keyword_nonce').val()
+		}, function(data) {
+			$.each(data.ignore_list, (i, word) => {
+				const _i = item.clone();
+				$('input', _i).val(word);
+				$('.collapse-wrap', _setting).append(_i);
+			});
+
+			$('.collapse-wrap .input-wrap input', _setting).trigger('input');
+		});
+
 	});
 
 	// MARK: Filter input action 
@@ -372,6 +420,25 @@ $(() => {
 
 		$('.sort-table', _box).html(sorted);
 	});
+
+	const redoTabs = () => {
+		const width = $('.content .wrapper').outerWidth(),
+			tabs = $('.tab', _result);
+
+		let tabWidth = 10;
+
+		tabs.each(function(i) {
+			const w = $(this).outerWidth() + 11;
+			tabWidth += w;
+		});
+
+		if (width < tabWidth) {
+			const margin = (tabWidth - width) / (tabs.length - 1);
+			tabs.css('margin-left', `-${margin}px`).addClass('blend');
+		} else {
+			tabs.css('margin-left', 0).removeClass('blend');
+		}
+	};
 });
 
 $.expr.pseudos.regex = $.expr.createPseudo(function(expression) {

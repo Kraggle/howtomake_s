@@ -189,6 +189,17 @@
     opacity: 0.25;
   }
 }
+:root {
+  --highlight: #29c4a9;
+  --highlight-hover: #25af97;
+  --highlight-text: #fff;
+  --highlight-border: #29c4a9;
+  --red: #e07171;
+  --orange: #f69552;
+  --orange-hover: #ef690c;
+  --orange-border: #f9b382;
+}
+
 .wrapper .content-wrap {
   background-color: initial;
   padding: 0;
@@ -231,10 +242,10 @@
   width: 52px;
   height: 52px;
   position: relative;
-  background: #29c4a9;
-  color: #fff;
+  background: var(--highlight);
+  color: var(--highlight-text);
   align-self: flex-start;
-  border: 1px solid #29c4a9;
+  border: 1px solid var(--highlight-border);
 }
 .container .collapse-wrap .icon svg,
 .container .textarea-wrap .icon svg,
@@ -250,7 +261,7 @@
 .container .input-wrap .input {
   padding: 0 20px;
   font-size: 16px;
-  border: 1px solid #29c4a9;
+  border: 1px solid var(--highlight-border);
   background: #fff;
 }
 .container .collapse-wrap .input::placeholder,
@@ -261,31 +272,31 @@
 .container .collapse-wrap .head,
 .container .textarea-wrap .head,
 .container .input-wrap .head {
-  background: #29c4a9;
-  color: #fff;
+  background: var(--highlight);
+  color: var(--highlight-text);
   padding: 0 20px;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 300;
-  border: 1px solid #29c4a9;
+  border: 1px solid var(--highlight-border);
 }
 .container .button {
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
-  background: #29c4a9;
-  color: #fff;
+  background: var(--highlight);
+  color: var(--highlight-text);
   padding: 0 20px;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 300;
-  border: 1px solid #29c4a9;
+  border: 1px solid var(--highlight-border);
   position: relative;
   cursor: pointer;
   align-self: flex-end;
 }
 .container .button:hover {
-  background: #25af97;
+  background: var(--highlight-hover);
 }
 .container .button span {
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
@@ -303,12 +314,13 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: "head head head head";
 }
-.container .collapse-wrap .button {
+.container .collapse-wrap .button.icon {
   height: 50px;
   width: 50px;
   border: 0;
 }
-.container .collapse-wrap .button svg {
+.container .collapse-wrap .button.icon svg {
+  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -317,20 +329,15 @@
   height: 20px;
 }
 .container .collapse-wrap .button.add {
-  width: 100%;
   text-align: center;
   height: initial;
   align-self: stretch;
 }
-.container .collapse-wrap .button.collapse svg {
-  transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translate(-50%, -50%);
-}
 .container .collapse-wrap .title-bar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr repeat(3, max-content);
   grid-area: head;
-  background: #29c4a9;
+  background: var(--highlight);
 }
 .container .collapse-wrap .title-bar .head {
   display: inline-block;
@@ -350,7 +357,7 @@
 .container .collapse-wrap .input-wrap .button {
   position: absolute;
   background: transparent;
-  color: #e07171;
+  color: var(--red);
   right: 0;
   top: 0;
 }
@@ -358,7 +365,7 @@
   width: 14px;
   height: 14px;
 }
-.container .collapse-wrap .input-wrap:nth-last-of-type(2) .input, .container .collapse-wrap .input-wrap:nth-of-type(4n+1) .input {
+.container .collapse-wrap .input-wrap:nth-last-of-type(1) .input, .container .collapse-wrap .input-wrap:nth-of-type(4n+1) .input {
   border-right-width: 1px;
 }
 .container .collapse-wrap .input-wrap,
@@ -429,11 +436,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .results-wrap .tab-wrap {
   top: 1px;
 }
-.results-wrap .tab-wrap .tab:not(.active):not(:first-child) {
-  margin-left: -50px;
+.results-wrap .tab-wrap .tab.blend:not(.active):not(:first-child) {
   position: relative;
 }
-.results-wrap .tab-wrap .tab:not(.active):not(:first-child)::before {
+.results-wrap .tab-wrap .tab.blend:not(.active):not(:first-child)::before {
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
   content: "";
   position: absolute;
@@ -444,8 +450,14 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1));
   pointer-events: none;
 }
+.results-wrap .tab-wrap .tab:first-child {
+  margin-left: 0 !important;
+}
+.results-wrap .tab-wrap .tab.active {
+  margin-left: 0 !important;
+}
 .results-wrap .tab-wrap .tab.active + :not(.active) {
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 .results-wrap .input-wrap {
   margin-bottom: 20px;
@@ -461,7 +473,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .tool-wrap ::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background-color: #29c4a9;
+  background-color: var(--highlight);
   border: 0;
 }
 .tool-wrap ::-webkit-scrollbar-track {
@@ -486,7 +498,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   position: relative;
   display: flex;
   background-color: #fff;
-  border: 1px solid #29c4a9;
+  border: 1px solid var(--highlight-border);
 }
 .tool-wrap .textarea-wrap .textarea::placeholder {
   color: #999;
@@ -524,7 +536,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .tool-wrap .error {
   display: none;
-  color: #e07171;
+  color: var(--red);
   margin-top: 20px;
   font-size: 15px;
 }
@@ -561,7 +573,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   cursor: pointer;
   position: relative;
   vertical-align: middle;
-  border: #29c4a9 solid 1px;
+  border: var(--highlight-border) solid 1px;
   line-height: 50px;
 }
 .setting-wrap .switch-wrap .switch {
@@ -578,7 +590,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   bottom: 4px;
   right: 50%;
   z-index: 1;
-  background: #e07171;
+  background: var(--red);
 }
 .setting-wrap .switch-input {
   display: none;
@@ -586,15 +598,15 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .setting-wrap .switch-input:checked ~ .switch-wrap .switch-slider {
   left: 50%;
   right: 4px;
-  background: #29c4a9;
+  background: var(--highlight);
 }
 .setting-wrap .span-all {
   grid-column: 1/-1;
 }
 .setting-wrap .button.update {
   transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
-  background: #29c4a9;
-  color: #fff;
+  background: var(--highlight);
+  color: var(--highlight-text);
   padding: 10px 15px;
   font-size: 14px;
   text-transform: uppercase;
@@ -606,8 +618,8 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   top: 45px;
   transform-origin: top right;
   transform: translateY(0);
-  background: #f69552;
-  border: 1px solid #f9b382;
+  background: var(--orange);
+  border: 1px solid var(--orange-border);
   z-index: 0;
 }
 .setting-wrap .button.update span {
@@ -616,7 +628,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background: transparent;
 }
 .setting-wrap .button.update:hover {
-  background: #ef690c;
+  background: var(--orange-hover);
 }
 .setting-wrap .button.update.active span {
   opacity: 0;
@@ -630,11 +642,13 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .setting-wrap .box.active {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-.setting-wrap.signed-in .box.active {
-  grid-template-columns: repeat(3, 1fr);
+.setting-wrap .box.active .log-in {
+  grid-column: 1/-1;
+  text-align: center;
+  display: block;
 }
 
 .keys-table {
@@ -696,7 +710,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .radio-wrap {
   position: relative;
   height: 52px;
-  border: 1px solid #29c4a9;
+  border: 1px solid var(--highlight-border);
   border-left-width: 0;
   padding: 0 5px;
 }
@@ -736,7 +750,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   position: absolute;
   top: 0;
   bottom: 0;
-  background: #29c4a9;
+  background: var(--highlight);
   left: 0;
   right: 0;
   z-index: 0;

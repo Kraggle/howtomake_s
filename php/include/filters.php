@@ -139,8 +139,6 @@ add_filter('the_content', function ($content) {
 // disable Gutenberg
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
-
-
 function htm_script_as_module($tag, $handle, $src) {
 	if (preg_match('/^module-/', $handle)) {
 		$tag = '<script type="module" src="' . esc_url($src) . '" id="' . $handle . '"></script>';

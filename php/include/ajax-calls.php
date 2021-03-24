@@ -1445,10 +1445,10 @@ function htm_get_keyword_settings() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'density_nonce'))
 		exit(FAILED_NONCE);
 
-	global $stop_words_default;
+	global $keyword_defaults;
 
 	$return = (object) [
-		'ignore_list' => wp_unslash(get_option('keywords_ignore_list', $stop_words_default)),
+		'ignore_list' => wp_unslash(get_option('keywords_ignore_list', $keyword_defaults->ignore_list)),
 		'min_words' => get_option('keywords_min_words', 1),
 		'max_words' => get_option('keywords_max_words', 6),
 		'refresh' => get_option('keywords_refresh', 2),
@@ -1506,3 +1506,74 @@ function htm_get_cross_origin() {
 	exit;
 }
 add_ajax_action('get_cross_origin');
+
+/**
+ * 
+ * 
+ * @return void 
+ */
+function htm_keywords_save_user() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'density_nonce'))
+		exit(FAILED_NONCE);
+
+	if (!is_user_logged_in()) exit;
+
+	global $keyword_defaults;
+
+	$data = $_REQUEST['data'];
+	$ignore = wp_unslash($data['ignore_list']);
+	$keyword_defaults->ignore_list = wp_unslash($keyword_defaults->ignore_list);
+	$data['ignore_list'] = [];
+
+	// remove words that are in the default list
+	foreach ($ignore as $item) {
+		if (!in_array($item, $keyword_defaults->ignore_list))
+			$data['ignore_list'][] = $item;
+	}
+
+	// add prefix to words removed from the default list
+	foreach ($keyword_defaults->ignore_list as $item) {
+		if (!in_array($item, $ignore))
+			$data['ignore_list'][] = "&!$item";
+	}
+
+	foreach ($data as $key => $value) {
+		if (is_numeric($value)) $value = intval($value);
+		elseif (is_bool($value)) $value = boolval($value);
+
+		update_user_meta(get_current_user_id(), "keywords_$key", $value);
+	}
+
+	exit;
+}
+add_ajax_action('keywords_save_user');
+
+/**
+ * 
+ * 
+ * @return void 
+ */
+function htm_keywords_get_user() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'density_nonce'))
+		exit(FAILED_NONCE);
+
+	global $keyword_defaults;
+	echo json_encode(is_user_logged_in() ? get_keyword_user_settings() : $keyword_defaults);
+	exit;
+}
+add_ajax_action('keywords_get_user');
+
+/**
+ * 
+ * 
+ * @return void 
+ */
+function htm_keywords_get_default() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'density_nonce'))
+		exit(FAILED_NONCE);
+
+	global $keyword_defaults;
+	echo json_encode($keyword_defaults);
+	exit;
+}
+add_ajax_action('keywords_get_default');
