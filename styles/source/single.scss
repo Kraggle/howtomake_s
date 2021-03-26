@@ -164,8 +164,9 @@
                 grid-template-columns: 80px 1fr;
             }
 
-            .fancy-icon {
-                width: 100%;
+            .size-channel {
+                width: 80px;
+                height: 80px;
             }
 
             .fancy-sub {
@@ -179,6 +180,13 @@
                 align-self: flex-end;
                 margin-bottom: 0;
                 margin-top: -8px;
+                font-size: 40px;
+
+                .numeric {
+                    display: none;
+                    color: #999;
+                    font-size: 30px;
+                }
             }
 
             .fancy-out {
@@ -213,7 +221,7 @@
                     opacity: 0.3;
                 }
 
-                .fancy-link {
+                .icon {
                     @include transition;
 
                     position: relative;
@@ -234,6 +242,86 @@
 
                     &:hover {
                         background-color: darken($color-gradient, 5%);
+                    }
+
+                    &.icon-facebook {
+                        background-color: $color-facebook;
+
+                        &:hover {
+                            background-color: lighten($color-facebook, 10%);
+                        }
+                    }
+
+                    &.icon-twitter {
+                        background-color: $color-twitter;
+
+                        &:hover {
+                            background-color: lighten($color-twitter, 10%);
+                        }
+                    }
+
+                    &.icon-instagram {
+                        background-color: $color-instagram;
+
+                        &:hover {
+                            background-color: lighten($color-instagram, 10%);
+                        }
+                    }
+
+                    &.icon-youtube {
+                        background-color: $color-youtube;
+
+                        &:hover {
+                            background-color: lighten($color-youtube, 10%);
+                        }
+                    }
+
+                    &.icon-linkedin {
+                        background-color: $color-linkedin;
+
+                        &:hover {
+                            background-color: lighten($color-linkedin, 10%);
+                        }
+                    }
+
+                    &.icon-pinterest {
+                        background-color: $color-pinterest;
+
+                        &:hover {
+                            background-color: lighten($color-pinterest, 10%);
+                        }
+                    }
+
+                    &.icon-tiktok {
+                        background-color: $color-tiktok;
+
+                        &:hover {
+                            background-color: lighten($color-tiktok, 10%);
+                        }
+                    }
+
+                    &.icon-snapchat {
+                        background-color: $color-snapchat;
+
+                        &:hover {
+                            background-color: lighten($color-snapchat, 10%);
+                        }
+                    }
+
+                    &.icon-googleplay {
+                        background-color: $color-googleplay;
+
+                        &:hover {
+                            background-color: lighten($color-googleplay, 10%);
+                        }
+                    }
+
+                    &.icon-appstore {
+                        background-color: $color-appstore;
+
+                        &:hover {
+                            background-color: lighten($color-appstore, 10%);
+                        }
                     }
                 }
             }

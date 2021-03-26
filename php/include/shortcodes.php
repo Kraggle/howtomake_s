@@ -317,63 +317,88 @@ function htm_shortcode_sitemap() {
 }
 add_shortcode('htm_sitemap', 'htm_shortcode_sitemap');
 
-add_shortcode('fancy_title', function ($attrs = []) {
-	extract(shortcode_atts([
-		'id'     => '',
-		'title'  => 'Please add a title="Some Title" attribute to the shortcode',
-		'icon'   => '',
-		'sub'    => '',
-		'social' => '',
-		'link'   => ''
-	], $attrs, 'htm_s'));
-
-	$doSocial = false;
-	if ($social) {
-		$new = explode(';', $social);
-		$social = [];
-		foreach ($new as $item)
-			$social[] = explode(',', $item);
-
-		if ($social[0] && $social[0][0])
-			$doSocial = true;
-	}
-
-	$out = '';
-	if (!empty($link))
-		$out = get_font_awesome_icon('external-link');
+function get_social_icon($which, $link, $echo = true) {
+	$icon = (object) [
+		'website'    => 'external-link',
+		'facebook'   => 'facebook-f',
+		'twitter'    => 'twitter',
+		'instagram'  => 'instagram',
+		'youtube'    => 'youtube',
+		'linkedin'   => 'linkedin-in',
+		'pinterest'  => 'pinterest-p',
+		'tiktok'     => 'tiktok',
+		'snapchat'   => 'snapchat-ghost',
+		'googleplay' => 'google-play',
+		'appstore'     => 'app-store'
+	];
 
 	ob_start(); ?>
 
-	<div id="<?= $id ?>" class="fancy-title<?= !empty($icon) ? ' with-icon' : '' ?><?= $doSocial ? ' with-social' : '' ?><?= !empty($sub) ? ' with-sub' : '' ?>">
+	<a href="<?= $link ?>" class="icon icon-<?= $which ?>" target="_blank"><?= get_font_awesome_icon($icon->$which, $which == 'website' ? 'regular' : 'brands') ?></a>
+
+<?php $html = ob_get_contents();
+	ob_end_clean();
+
+	if ($echo) echo $html;
+	return $html;
+}
+
+add_shortcode('business', function ($attrs = []) {
+	empty_error_log();
+
+	extract(shortcode_atts([
+		'id'     => '',
+		'select' => 0,
+		'num'    => null
+	], $attrs, 'htm_s'));
+
+	$fields = to_object(get_fields($select));
+
+	$social = $fields->social;
+	$doSocial = count($social);
+
+	$out = '';
+	if (!empty($fields->link)) $out = get_font_awesome_icon('external-link');
+
+	ob_start(); ?>
+
+	<div id="<?= $id ?>" class="fancy-title<?= !empty($fields->icon) ? ' with-icon' : '' ?><?= $doSocial ? ' with-social' : '' ?><?= !empty($fields->desc) ? ' with-sub' : '' ?>">
 
 		<?php // The Icon 
-		if (!empty($icon)) { ?>
-			<img loading="lazy" src="<?= $icon ?>" class="fancy-icon">
-		<?php } ?>
+		if (!empty($fields->icon)) {
+			echo wp_get_attachment_image($fields->icon, 'channel');
+		} ?>
 
 		<div class="fancy-details">
 
 			<?php // The Title 
-			if ($link) { ?>
-				<a href="<?= $link ?>" class="fancy-out" target="_blank">
+			if ($out) { ?>
+				<a href="<?= $fields->link ?>" class="fancy-out" target="_blank">
 				<?php } ?>
-				<h2 class="fancy-text"><?= $title ?></h2>
-				<?php if ($link) {
+
+				<h2 class="fancy-text">
+					<?php if (is_numeric($num)) { ?>
+						<span class="numeric"><?= $num ?>.</span>
+					<?php } ?>
+					<?= $fields->name ?>
+				</h2>
+
+				<?php if ($out) {
 					echo $out; ?>
 				</a>
 			<?php } ?>
 
 			<?php // The Subtitle 
-			if (!empty($sub)) { ?>
-				<span class="fancy-sub"><?= $sub ?></span>
+			if (!empty($fields->desc)) { ?>
+				<span class="fancy-sub"><?= $fields->desc ?></span>
 			<?php } ?>
 
 			<?php // The Social links 
 			if ($doSocial) { ?>
 				<div class="fancy-social">
-					<?php foreach ($social as $item) { ?>
-						<a href="<?= $item[1] ?>" class="fancy-link" title="<?= $item[2] ?: '' ?>" <?= $item[3] ? ' style="background-color:' . $item[3] . '"' : '' ?> target="_blank"><?= get_font_awesome_icon($item[0], 'brands') ?></a>
-					<?php } ?>
+					<?php foreach ($social as $item) {
+						get_social_icon($item->which, $item->link);
+					} ?>
 				</div>
 			<?php } ?>
 

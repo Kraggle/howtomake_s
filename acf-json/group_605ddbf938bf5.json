@@ -1,0 +1,157 @@
+{
+    "key": "group_605ddbf938bf5",
+    "title": "Business Extras",
+    "fields": [
+        {
+            "key": "field_605ddc140c61f",
+            "label": "Name",
+            "name": "name",
+            "type": "text",
+            "instructions": "This is the title that will be shown for the business.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_605ddd1f0c622",
+            "label": "Description",
+            "name": "desc",
+            "type": "text",
+            "instructions": "The one-liner to display below the business name.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_605ddc8e0c621",
+            "label": "Icon",
+            "name": "icon",
+            "type": "image",
+            "instructions": "The icon of the business.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "channel",
+            "library": "all",
+            "min_width": 120,
+            "min_height": 120,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_605ddd8c0c623",
+            "label": "Links",
+            "name": "social",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Another",
+            "sub_fields": [
+                {
+                    "key": "field_605dde770c626",
+                    "label": "Which",
+                    "name": "which",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "website": "This",
+                        "facebook": "Facebook",
+                        "twitter": "Twitter",
+                        "youtube": "YouTube",
+                        "instagram": "Instagram",
+                        "linkedin": "Linkedin",
+                        "pinterest": "Pinterest",
+                        "appstore": "App Store",
+                        "googleplay": "Google Play",
+                        "snapchat": "Snapchat",
+                        "tiktok": "TikTok"
+                    },
+                    "default_value": false,
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 1,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_605dddbb0c624",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "url",
+                    "instructions": "The link to the profile for this business.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "business-info"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1616785986
+}
