@@ -151,6 +151,93 @@
                 font-size: 30px;
             }
         }
+
+        .fancy-title {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0 20px;
+            margin-top: 50px;
+            align-items: center;
+            margin-bottom: 15px;
+
+            &.with-icon {
+                grid-template-columns: 80px 1fr;
+            }
+
+            .fancy-icon {
+                width: 100%;
+            }
+
+            .fancy-sub {
+                align-self: flex-start;
+                color: #999;
+                font-size: 17px;
+                display: block;
+            }
+
+            .fancy-text {
+                align-self: flex-end;
+                margin-bottom: 0;
+                margin-top: -8px;
+            }
+
+            .fancy-out {
+                display: flex;
+                position: relative;
+                gap: 8px;
+
+                svg {
+                    position: relative;
+                    top: -5px;
+                    color: $color-gradient;
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+
+            .fancy-social {
+                position: relative;
+                display: flex;
+                gap: 5px;
+                margin-top: 5px;
+
+                // &::after,
+                &::before {
+                    content: '';
+                    position: relative;
+                    width: 120px;
+                    height: 4px;
+                    margin-top: 10px;
+                    background-color: #999;
+                    margin-right: 5px;
+                    opacity: 0.3;
+                }
+
+                .fancy-link {
+                    @include transition;
+
+                    position: relative;
+                    width: 24px;
+                    height: 24px;
+                    background-color: $color-gradient;
+                    border-radius: 4px;
+                    color: #fff;
+
+                    svg {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    &:hover {
+                        background-color: darken($color-gradient, 5%);
+                    }
+                }
+            }
+        }
     }
 }
 

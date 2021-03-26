@@ -306,7 +306,7 @@ function htm_shortcode_sitemap() {
 						} ?>
 					</ul>
 				</div>
-<?php }
+	<?php }
 		}
 	}
 
@@ -316,3 +316,72 @@ function htm_shortcode_sitemap() {
 	return $html;
 }
 add_shortcode('htm_sitemap', 'htm_shortcode_sitemap');
+
+add_shortcode('fancy_title', function ($attrs = []) {
+	extract(shortcode_atts([
+		'id'     => '',
+		'title'  => 'Please add a title="Some Title" attribute to the shortcode',
+		'icon'   => '',
+		'sub'    => '',
+		'social' => '',
+		'link'   => ''
+	], $attrs, 'htm_s'));
+
+	$doSocial = false;
+	if ($social) {
+		$new = explode(';', $social);
+		$social = [];
+		foreach ($new as $item)
+			$social[] = explode(',', $item);
+
+		if ($social[0] && $social[0][0])
+			$doSocial = true;
+	}
+
+	$out = '';
+	if (!empty($link))
+		$out = get_font_awesome_icon('external-link');
+
+	ob_start(); ?>
+
+	<div id="<?= $id ?>" class="fancy-title<?= !empty($icon) ? ' with-icon' : '' ?><?= $doSocial ? ' with-social' : '' ?><?= !empty($sub) ? ' with-sub' : '' ?>">
+
+		<?php // The Icon 
+		if (!empty($icon)) { ?>
+			<img loading="lazy" src="<?= $icon ?>" class="fancy-icon">
+		<?php } ?>
+
+		<div class="fancy-details">
+
+			<?php // The Title 
+			if ($link) { ?>
+				<a href="<?= $link ?>" class="fancy-out" target="_blank">
+				<?php } ?>
+				<h2 class="fancy-text"><?= $title ?></h2>
+				<?php if ($link) {
+					echo $out; ?>
+				</a>
+			<?php } ?>
+
+			<?php // The Subtitle 
+			if (!empty($sub)) { ?>
+				<span class="fancy-sub"><?= $sub ?></span>
+			<?php } ?>
+
+			<?php // The Social links 
+			if ($doSocial) { ?>
+				<div class="fancy-social">
+					<?php foreach ($social as $item) { ?>
+						<a href="<?= $item[1] ?>" class="fancy-link" title="<?= $item[2] ?: '' ?>" <?= $item[3] ? ' style="background-color:' . $item[3] . '"' : '' ?> target="_blank"><?= get_font_awesome_icon($item[0], 'brands') ?></a>
+					<?php } ?>
+				</div>
+			<?php } ?>
+
+		</div>
+	</div>
+
+<?php $html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+});

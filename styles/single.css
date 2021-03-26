@@ -817,6 +817,79 @@ body.scrolled .sidebar {
     font-size: 30px;
   }
 }
+.content .content-wrap .fancy-title {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 20px;
+  margin-top: 50px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.content .content-wrap .fancy-title.with-icon {
+  grid-template-columns: 80px 1fr;
+}
+.content .content-wrap .fancy-title .fancy-icon {
+  width: 100%;
+}
+.content .content-wrap .fancy-title .fancy-sub {
+  align-self: flex-start;
+  color: #999;
+  font-size: 17px;
+  display: block;
+}
+.content .content-wrap .fancy-title .fancy-text {
+  align-self: flex-end;
+  margin-bottom: 0;
+  margin-top: -8px;
+}
+.content .content-wrap .fancy-title .fancy-out {
+  display: flex;
+  position: relative;
+  gap: 8px;
+}
+.content .content-wrap .fancy-title .fancy-out svg {
+  position: relative;
+  top: -5px;
+  color: #29c4a9;
+  width: 12px;
+  height: 12px;
+}
+.content .content-wrap .fancy-title .fancy-social {
+  position: relative;
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+.content .content-wrap .fancy-title .fancy-social::before {
+  content: "";
+  position: relative;
+  width: 120px;
+  height: 4px;
+  margin-top: 10px;
+  background-color: #999;
+  margin-right: 5px;
+  opacity: 0.3;
+}
+.content .content-wrap .fancy-title .fancy-social .fancy-link {
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: #29c4a9;
+  border-radius: 4px;
+  color: #fff;
+}
+.content .content-wrap .fancy-title .fancy-social .fancy-link svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+}
+.content .content-wrap .fancy-title .fancy-social .fancy-link:hover {
+  background-color: #25af97;
+}
 
 main > .yarpp-related h3.related-title {
   margin: 50px 0 30px !important;
