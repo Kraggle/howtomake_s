@@ -114,6 +114,46 @@ add_action('init', function () {
 			'with_front'     => false // Don't display the category base before 
 		)
 	));
+
+	register_post_type('business-info', [
+		'labels' => [
+			'name'               => _x('Businesses', 'post type general name', 'boilerplate'),
+			'singular_name'      => _x('Business', 'post type singular name', 'boilerplate'),
+			'menu_name'          => _x('Businesses', 'admin menu', 'boilerplate'),
+			'name_admin_bar'     => _x('Business', 'add new on admin bar', 'boilerplate'),
+			'add_new'            => _x('Add New', 'optional_extras', 'boilerplate'),
+			'add_new_item'       => __('Add New Business', 'boilerplate'),
+			'new_item'           => __('New Business', 'boilerplate'),
+			'edit_item'          => __('Edit Business', 'boilerplate'),
+			'view_item'          => __('View Business', 'boilerplate'),
+			'all_items'          => __('Businesses', 'boilerplate'),
+			'search_items'       => __('Search Businesses', 'boilerplate'),
+			'parent_item_colon'  => __('Parent Businesses:', 'boilerplate'),
+			'not_found'          => __('No Businesses found.', 'boilerplate'),
+			'not_found_in_trash' => __('No Businesses found in Trash.', 'boilerplate'),
+		],
+		'supports'            => ['title'], // 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-superhero-alt',
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'map_meta_cap'        => true,
+		'capabilities'        => ['edit_posts'],
+		'yarpp_support'       => false
+	]);
+
+	add_action('add_meta_boxes', function () {
+		remove_meta_box('wpseo_meta', 'business-info', 'normal');
+		remove_meta_box('wpseo_meta', 'snippet', 'normal');
+	}, 11);
 });
 
 function htm_filter_by_taxonomies($post_type) {
@@ -204,3 +244,32 @@ function custom_snippet_column($column, $post_id) {
 	}
 }
 add_action('manage_snippet_posts_custom_column', 'custom_snippet_column', 10, 2);
+
+function set_custom_edit_business_info_columns($columns) {
+	$new = array();
+	foreach ($columns as $key => $column) {
+		$new[$key] = $column;
+
+		if ($key == 'title') {
+			$new['shortcode'] = __('Shortcode', 'htm_s');
+		}
+	}
+
+	return $new;
+}
+add_filter('manage_business-info_posts_columns', 'set_custom_edit_business_info_columns');
+
+function custom_business_info_column($column, $post_id) {
+	switch ($column) {
+
+		case 'shortcode':
+			$fields = to_object(get_fields($post_id));
+
+			if (is_string($fields->name))
+				echo "[business select=$post_id]<br>[business select=$post_id num='1' id='some-id']";
+			else
+				_e('Unable to generate!', 'htm_s');
+			break;
+	}
+}
+add_action('manage_business-info_posts_custom_column', 'custom_business_info_column', 10, 2);

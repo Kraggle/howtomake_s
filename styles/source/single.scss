@@ -151,6 +151,181 @@
                 font-size: 30px;
             }
         }
+
+        .fancy-title {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0 20px;
+            margin-top: 50px;
+            align-items: center;
+            margin-bottom: 15px;
+
+            &.with-icon {
+                grid-template-columns: 80px 1fr;
+            }
+
+            .size-channel {
+                width: 80px;
+                height: 80px;
+            }
+
+            .fancy-sub {
+                align-self: flex-start;
+                color: #999;
+                font-size: 17px;
+                display: block;
+            }
+
+            .fancy-text {
+                align-self: flex-end;
+                margin-bottom: 0;
+                margin-top: -8px;
+                font-size: 40px;
+
+                .numeric {
+                    display: none;
+                    color: #999;
+                    font-size: 30px;
+                }
+            }
+
+            .fancy-out {
+                display: flex;
+                position: relative;
+                gap: 8px;
+
+                svg {
+                    position: relative;
+                    top: -5px;
+                    color: $color-gradient;
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+
+            .fancy-social {
+                position: relative;
+                display: flex;
+                gap: 5px;
+                margin-top: 5px;
+
+                // &::after,
+                &::before {
+                    content: '';
+                    position: relative;
+                    width: 120px;
+                    height: 4px;
+                    margin-top: 10px;
+                    background-color: #999;
+                    margin-right: 5px;
+                    opacity: 0.3;
+                }
+
+                .icon {
+                    @include transition;
+
+                    position: relative;
+                    width: 24px;
+                    height: 24px;
+                    background-color: $color-gradient;
+                    border-radius: 4px;
+                    color: #fff;
+
+                    svg {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    &:hover {
+                        background-color: darken($color-gradient, 5%);
+                    }
+
+                    &.icon-facebook {
+                        background-color: $color-facebook;
+
+                        &:hover {
+                            background-color: lighten($color-facebook, 10%);
+                        }
+                    }
+
+                    &.icon-twitter {
+                        background-color: $color-twitter;
+
+                        &:hover {
+                            background-color: lighten($color-twitter, 10%);
+                        }
+                    }
+
+                    &.icon-instagram {
+                        background-color: $color-instagram;
+
+                        &:hover {
+                            background-color: lighten($color-instagram, 10%);
+                        }
+                    }
+
+                    &.icon-youtube {
+                        background-color: $color-youtube;
+
+                        &:hover {
+                            background-color: lighten($color-youtube, 10%);
+                        }
+                    }
+
+                    &.icon-linkedin {
+                        background-color: $color-linkedin;
+
+                        &:hover {
+                            background-color: lighten($color-linkedin, 10%);
+                        }
+                    }
+
+                    &.icon-pinterest {
+                        background-color: $color-pinterest;
+
+                        &:hover {
+                            background-color: lighten($color-pinterest, 10%);
+                        }
+                    }
+
+                    &.icon-tiktok {
+                        background-color: $color-tiktok;
+
+                        &:hover {
+                            background-color: lighten($color-tiktok, 10%);
+                        }
+                    }
+
+                    &.icon-snapchat {
+                        background-color: $color-snapchat;
+
+                        &:hover {
+                            background-color: lighten($color-snapchat, 10%);
+                        }
+                    }
+
+                    &.icon-googleplay {
+                        background-color: $color-googleplay;
+
+                        &:hover {
+                            background-color: lighten($color-googleplay, 10%);
+                        }
+                    }
+
+                    &.icon-appstore {
+                        background-color: $color-appstore;
+
+                        &:hover {
+                            background-color: lighten($color-appstore, 10%);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

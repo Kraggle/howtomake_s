@@ -818,6 +818,146 @@ body.scrolled .sidebar {
     font-size: 30px;
   }
 }
+.content .content-wrap .fancy-title {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 20px;
+  margin-top: 50px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.content .content-wrap .fancy-title.with-icon {
+  grid-template-columns: 80px 1fr;
+}
+.content .content-wrap .fancy-title .size-channel {
+  width: 80px;
+  height: 80px;
+}
+.content .content-wrap .fancy-title .fancy-sub {
+  align-self: flex-start;
+  color: #999;
+  font-size: 17px;
+  display: block;
+}
+.content .content-wrap .fancy-title .fancy-text {
+  align-self: flex-end;
+  margin-bottom: 0;
+  margin-top: -8px;
+  font-size: 40px;
+}
+.content .content-wrap .fancy-title .fancy-text .numeric {
+  display: none;
+  color: #999;
+  font-size: 30px;
+}
+.content .content-wrap .fancy-title .fancy-out {
+  display: flex;
+  position: relative;
+  gap: 8px;
+}
+.content .content-wrap .fancy-title .fancy-out svg {
+  position: relative;
+  top: -5px;
+  color: #29c4a9;
+  width: 12px;
+  height: 12px;
+}
+.content .content-wrap .fancy-title .fancy-social {
+  position: relative;
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+.content .content-wrap .fancy-title .fancy-social::before {
+  content: "";
+  position: relative;
+  width: 120px;
+  height: 4px;
+  margin-top: 10px;
+  background-color: #999;
+  margin-right: 5px;
+  opacity: 0.3;
+}
+.content .content-wrap .fancy-title .fancy-social .icon {
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: #29c4a9;
+  border-radius: 4px;
+  color: #fff;
+}
+.content .content-wrap .fancy-title .fancy-social .icon svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+}
+.content .content-wrap .fancy-title .fancy-social .icon:hover {
+  background-color: #25af97;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-facebook {
+  background-color: #39579a;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-facebook:hover {
+  background-color: #4a6dbc;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-twitter {
+  background-color: #01aced;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-twitter:hover {
+  background-color: #23c2fe;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-instagram {
+  background-color: #517fa4;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-instagram:hover {
+  background-color: #7098b8;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-youtube {
+  background-color: #a8240f;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-youtube:hover {
+  background-color: #d72e13;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-linkedin {
+  background-color: #0077b5;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-linkedin:hover {
+  background-color: #0099e8;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-pinterest {
+  background-color: #c51f26;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-pinterest:hover {
+  background-color: #e0373f;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-tiktok {
+  background-color: #ed61be;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-tiktok:hover {
+  background-color: #f28fd1;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-snapchat {
+  background-color: #eee51c;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-snapchat:hover {
+  background-color: #f2ea4b;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-googleplay {
+  background-color: #57c85c;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-googleplay:hover {
+  background-color: #7dd581;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-appstore {
+  background-color: #0d74ed;
+}
+.content .content-wrap .fancy-title .fancy-social .icon.icon-appstore:hover {
+  background-color: #398ff4;
+}
 
 main > .yarpp-related h3.related-title {
   margin: 50px 0 30px !important;

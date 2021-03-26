@@ -306,7 +306,7 @@ function htm_shortcode_sitemap() {
 						} ?>
 					</ul>
 				</div>
-<?php }
+	<?php }
 		}
 	}
 
@@ -316,3 +316,97 @@ function htm_shortcode_sitemap() {
 	return $html;
 }
 add_shortcode('htm_sitemap', 'htm_shortcode_sitemap');
+
+function get_social_icon($which, $link, $echo = true) {
+	$icon = (object) [
+		'website'    => 'external-link',
+		'facebook'   => 'facebook-f',
+		'twitter'    => 'twitter',
+		'instagram'  => 'instagram',
+		'youtube'    => 'youtube',
+		'linkedin'   => 'linkedin-in',
+		'pinterest'  => 'pinterest-p',
+		'tiktok'     => 'tiktok',
+		'snapchat'   => 'snapchat-ghost',
+		'googleplay' => 'google-play',
+		'appstore'     => 'app-store'
+	];
+
+	ob_start(); ?>
+
+	<a href="<?= $link ?>" class="icon icon-<?= $which ?>" target="_blank"><?= get_font_awesome_icon($icon->$which, $which == 'website' ? 'regular' : 'brands') ?></a>
+
+<?php $html = ob_get_contents();
+	ob_end_clean();
+
+	if ($echo) echo $html;
+	return $html;
+}
+
+add_shortcode('business', function ($attrs = []) {
+	empty_error_log();
+
+	extract(shortcode_atts([
+		'id'     => '',
+		'select' => 0,
+		'num'    => null
+	], $attrs, 'htm_s'));
+
+	$fields = to_object(get_fields($select));
+
+	$social = $fields->social;
+	$doSocial = count($social);
+
+	$out = '';
+	if (!empty($fields->link)) $out = get_font_awesome_icon('external-link');
+
+	ob_start(); ?>
+
+	<div id="<?= $id ?>" class="fancy-title<?= !empty($fields->icon) ? ' with-icon' : '' ?><?= $doSocial ? ' with-social' : '' ?><?= !empty($fields->desc) ? ' with-sub' : '' ?>">
+
+		<?php // The Icon 
+		if (!empty($fields->icon)) {
+			echo wp_get_attachment_image($fields->icon, 'channel');
+		} ?>
+
+		<div class="fancy-details">
+
+			<?php // The Title 
+			if ($out) { ?>
+				<a href="<?= $fields->link ?>" class="fancy-out" target="_blank">
+				<?php } ?>
+
+				<h2 class="fancy-text">
+					<?php if (is_numeric($num)) { ?>
+						<span class="numeric"><?= $num ?>.</span>
+					<?php } ?>
+					<?= $fields->name ?>
+				</h2>
+
+				<?php if ($out) {
+					echo $out; ?>
+				</a>
+			<?php } ?>
+
+			<?php // The Subtitle 
+			if (!empty($fields->desc)) { ?>
+				<span class="fancy-sub"><?= $fields->desc ?></span>
+			<?php } ?>
+
+			<?php // The Social links 
+			if ($doSocial) { ?>
+				<div class="fancy-social">
+					<?php foreach ($social as $item) {
+						get_social_icon($item->which, $item->link);
+					} ?>
+				</div>
+			<?php } ?>
+
+		</div>
+	</div>
+
+<?php $html = ob_get_contents();
+	ob_end_clean();
+
+	return $html;
+});
