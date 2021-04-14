@@ -96,7 +96,8 @@
             + h4,
             + h3,
             + h2,
-            + h1 {
+            + h1,
+            + .fancy-title {
                 margin-top: 50px;
             }
         }
@@ -156,7 +157,6 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 0 20px;
-            margin-top: 50px;
             align-items: center;
             margin-bottom: 15px;
 
