@@ -753,32 +753,38 @@ body.scrolled .sidebar {
 .content .content-wrap a + h4,
 .content .content-wrap a + h3,
 .content .content-wrap a + h2,
-.content .content-wrap a + h1, .content .content-wrap p + h6,
+.content .content-wrap a + h1,
+.content .content-wrap a + .fancy-title, .content .content-wrap p + h6,
 .content .content-wrap p + h5,
 .content .content-wrap p + h4,
 .content .content-wrap p + h3,
 .content .content-wrap p + h2,
-.content .content-wrap p + h1, .content .content-wrap ul + h6,
+.content .content-wrap p + h1,
+.content .content-wrap p + .fancy-title, .content .content-wrap ul + h6,
 .content .content-wrap ul + h5,
 .content .content-wrap ul + h4,
 .content .content-wrap ul + h3,
 .content .content-wrap ul + h2,
-.content .content-wrap ul + h1, .content .content-wrap ol + h6,
+.content .content-wrap ul + h1,
+.content .content-wrap ul + .fancy-title, .content .content-wrap ol + h6,
 .content .content-wrap ol + h5,
 .content .content-wrap ol + h4,
 .content .content-wrap ol + h3,
 .content .content-wrap ol + h2,
-.content .content-wrap ol + h1, .content .content-wrap div + h6,
+.content .content-wrap ol + h1,
+.content .content-wrap ol + .fancy-title, .content .content-wrap div + h6,
 .content .content-wrap div + h5,
 .content .content-wrap div + h4,
 .content .content-wrap div + h3,
 .content .content-wrap div + h2,
-.content .content-wrap div + h1, .content .content-wrap noscript + h6,
+.content .content-wrap div + h1,
+.content .content-wrap div + .fancy-title, .content .content-wrap noscript + h6,
 .content .content-wrap noscript + h5,
 .content .content-wrap noscript + h4,
 .content .content-wrap noscript + h3,
 .content .content-wrap noscript + h2,
-.content .content-wrap noscript + h1 {
+.content .content-wrap noscript + h1,
+.content .content-wrap noscript + .fancy-title {
   margin-top: 50px;
 }
 .content .content-wrap ul + p, .content .content-wrap ol + p {
@@ -822,7 +828,6 @@ body.scrolled .sidebar {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0 20px;
-  margin-top: 50px;
   align-items: center;
   margin-bottom: 15px;
 }

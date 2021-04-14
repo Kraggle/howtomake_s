@@ -677,5 +677,14 @@ add_shortcode('htm_keyword_density_tool', function () {
 <?php
 });
 
+function ignore_item($word = '') {
+?>
+	<div class="input-wrap" is="item">
+		<input type="text" class="input" value="<?= $word ?>">
+		<div class="button icon delete" delete="item" title="Delete Item"><?= get_font_awesome_icon('times') ?></div>
+	</div>
+<?php
+}
+
 // TODO: setting presets
 // TODO: add some sort of history and compare
