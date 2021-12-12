@@ -733,6 +733,7 @@ $sub-scroll-pad: 39px;
         }
 
         .top-account {
+            display: none !important;
             z-index: 999;
 
             .auth-links {

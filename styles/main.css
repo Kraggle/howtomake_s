@@ -2873,6 +2873,7 @@ a.ui-button:active,
   padding: 0;
 }
 .banner .upper .top-account {
+  display: none !important;
   z-index: 999;
 }
 .banner .upper .top-account .auth-links {
