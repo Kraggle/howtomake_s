@@ -161,7 +161,7 @@ function htm_add_head_stuff() {
 	foreach ($links as $name => $item) {
 		if (!$item->query) continue;
 
-		if ($item->scripts) {
+		if (isset($item->scripts)) {
 			foreach ($item->scripts as $script) {
 				if (file_exists($script->path)) {
 					$ver = filemtime($script->path);
@@ -175,7 +175,7 @@ function htm_add_head_stuff() {
 			}
 		}
 
-		if ($item->styles) {
+		if (isset($item->styles)) {
 			foreach ($item->styles as $style) {
 				if (file_exists($style->path)) {
 					$ver = filemtime($style->path);

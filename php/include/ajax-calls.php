@@ -425,6 +425,43 @@ function htm_get_missing_category() {
 	// ↑ --------------------- ↑
 	// Get featured video images 
 
+	// Get business icons
+	// ↓ --------------------- ↓
+	$iconIds = $wpdb->get_results(
+		"SELECT a.ID, b.ID AS 'parent'
+		FROM `wp_posts` a, `wp_posts` b, `wp_postmeta` c
+		WHERE 
+			b.post_type LIKE 'business-info' AND 
+			c.post_id = b.ID AND
+			c.meta_key LIKE 'icon' AND
+			a.ID = c.meta_value AND (
+				a.post_parent = '' OR
+				a.ID NOT IN (
+					SELECT d.object_id 
+					FROM `wp_terms` e, `wp_term_relationships` d
+					WHERE 
+						e.slug LIKE 'business-icon' AND
+						d.term_taxonomy_id = e.term_id
+				)
+			)"
+	);
+
+	foreach ($iconIds as $id) {
+		$i = array_search($id->ID, array_column($return->ids, 'id'));
+		if ($i) {
+			$return->ids[$i]->type[] = 'business-icon';
+			$return->ids[$i]->parent = $id->parent;
+		} else {
+			$return->ids[] = (object) [
+				'type' => ['business-icon'],
+				'parent' => $id->parent,
+				'id' => $id->ID
+			];
+		}
+	}
+	// ↑ --------------------- ↑
+	// Get business icons
+
 	// Get channel images 
 	// ↓ -------------- ↓
 	$channelIds = $wpdb->get_results(
@@ -470,7 +507,8 @@ function htm_get_missing_category() {
 				FROM `wp_posts` b, `wp_posts` c, `wp_postmeta` d
 				WHERE (
 						c.post_type LIKE 'post' OR 
-						c.post_type LIKE 'video'
+						c.post_type LIKE 'video' OR
+						c.post_type LIKE 'business-info'
 					) AND 
 					d.post_id = c.ID AND
 					d.meta_key LIKE '_thumbnail_id' AND
@@ -1400,29 +1438,29 @@ function htm_user_post_interaction() {
 
 	$user = wp_get_current_user();
 
-	if(!$user){
-		wp_send_json_error( "Authentication error" );
+	if (!$user) {
+		wp_send_json_error("Authentication error");
 		exit;
 	}
 
-	if(!in_array($action, ['like', 'dislike', 'fave'])){
-		wp_send_json_error( "Invalid action" );
+	if (!in_array($action, ['like', 'dislike', 'fave'])) {
+		wp_send_json_error("Invalid action");
 		exit;
 	}
 
-	if(!in_array($state, ['on', 'off'])){
-		wp_send_json_error( "Invalid state" );
+	if (!in_array($state, ['on', 'off'])) {
+		wp_send_json_error("Invalid state");
 		exit;
 	}
 
-	
-	if($state == 'off'){
+
+	if ($state == 'off') {
 		delete_user_post_interaction($user->ID, $postId, $action);
-	}else{
+	} else {
 		$return = save_user_post_interaction($user->ID, $postId, $action, $state);
-		if($action == 'like'){
+		if ($action == 'like') {
 			delete_user_post_interaction($user->ID, $postId, 'dislike');
-		}elseif($action == 'dislike'){
+		} elseif ($action == 'dislike') {
 			delete_user_post_interaction($user->ID, $postId, 'like');
 		}
 	}
@@ -1435,4 +1473,3 @@ function htm_user_post_interaction() {
 	exit;
 }
 add_ajax_action('user_post_interaction');
-

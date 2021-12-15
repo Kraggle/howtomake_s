@@ -10,7 +10,7 @@ include('vendor/autoload.php');
  * @package htm_s
  */
 /* cSpell:disable */
-define('IS_LIVE', $_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com');
+define('IS_LIVE', $_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com' || $_SERVER['HTTP_HOST'] === 'htm.kraggle.co.uk');
 if (!defined('IS_DEBUG'))
 	define('IS_DEBUG', IS_LIVE ? false : true);
 

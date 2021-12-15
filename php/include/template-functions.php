@@ -42,7 +42,7 @@ add_action('wp_head', 'htm_s_pingback_header');
 function dialogShouldShow() {
 	$popupOptions = get_field('promo_popup', 'option');
 
-	if ($popupOptions['enabled'][0] == '1') {
+	if (isset($popupOptions['enabled'][0]) && $popupOptions['enabled'][0] == '1') {
 
 		$uris = explode("\n", $popupOptions['uri_list']);
 
@@ -61,7 +61,8 @@ function dialogShouldShow() {
 			($popupOptions['restrict_pages'] == 'all' ||
 				($popupOptions['restrict_pages'] == 'white' && $uriMatches) ||
 				($popupOptions['restrict_pages'] == 'black' && !$uriMatches))
-		) return true;
+		)
+			return true;
 	}
 	return false;
 }

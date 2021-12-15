@@ -1,14 +1,14 @@
 {
     "name": "hayden/howtomake_s",
     "require": {
-        "electrolinux/phpquery": "^0.9.6",
         "rollbar/rollbar": "^2.1",
-        "google/apiclient": "^2.9"
+        "google/apiclient": "^2.9",
+        "electrolinux/phpquery": "^0.9.6"
     },
     "authors": [
         {
-            "name": "Hayden Kibble",
-            "email": "kibblehayden@gmail.com"
+            "name": "Kraggle",
+            "email": "kragglesites@gmail.com"
         }
     ]
 }

@@ -75,8 +75,10 @@ add_action('after_setup_theme', function () {
 	add_image_size_category('related', ['post-featured-images', 'video-featured-images'], 150, 84, true);
 	add_image_size_category('post', 'content-images', 850);
 	add_image_size_category('small', 'content-images', 350);
-	add_image_size_category('channel', 'video-channel-icons', 120, 120, true);
-	add_image_size_category('tiny', 'video-channel-icons', 60, 60, true);
+	add_image_size_category('icon_large', 'business-icon', 350, 350, true);
+	add_image_size_category('icon_medium', 'business-icon', 240, 240, true);
+	add_image_size_category('channel', ['video-channel-icons', 'business-icon'], 120, 120, true);
+	add_image_size_category('tiny', ['video-channel-icons', 'business-icon'], 60, 60, true);
 
 	// logger(get_all_image_sizes());
 

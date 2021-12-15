@@ -674,7 +674,8 @@ function get_image_sizes_for_category($category, $orig_w = 0, $orig_h = 0) {
 	$needed = [];
 	foreach ($sizes as $size => $value) {
 		foreach ($category as $cat) {
-			if (!in_array($cat, $value['category']))
+
+			if (isset($value['category']) && !in_array($cat, $value['category']))
 				continue;
 
 			$w = $value['width'];
