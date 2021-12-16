@@ -71,7 +71,7 @@ if ($uri[1] !== 'search') {
 // INFO:: Default search terms
 $query = (object) [
 	'order' => 'desc',
-	'orderby' => $_REQUEST['term'] ? 'relevance' : 'modified',
+	'orderby' => isset($_REQUEST['term']) ? 'relevance' : 'modified',
 	'type' => [
 		'video',
 		'post'
@@ -151,7 +151,7 @@ $is_video = in_array('video', $query->type);
 						<div class="query-box" data-nonce="<?= wp_create_nonce('custom_search_nonce') ?>">
 
 							<div class="search-box">
-								<input id="search" type="text" name="s" class="search" placeholder="Search" value="<?= $query->term ?>">
+								<input id="search" type="text" name="s" class="search" placeholder="Search" value="<?= $query->term ?? '' ?>">
 								<button class="svg clear"><i class="fa-icon type-light svg-times"></i></button>
 								<div class="divider"></div>
 								<button class="svg submit"><i class="fa-icon type-regular svg-search"></i></button>
@@ -226,34 +226,35 @@ $is_video = in_array('video', $query->type);
 								<button class="any">Select All</button>
 
 								<?php foreach ($taxes as $slug => $tax) {
-									$name = $tax->post ? $tax->post->name : $tax->video->name;
+									$name = isset($tax->post) ? $tax->post->name : $tax->video->name;
 									$enabled = 'false';
 									$checked = '';
 									$disable = '';
 
-									if ($tax->post) {
+									if (isset($tax->post)) {
 										unset($tax->post->description);
-										if (!$tax->video) $disable = 'posts';
-									}
-									if ($tax->video) {
-										unset($tax->video->description);
-										if (!$tax->post) $disable = 'videos';
+										if (!isset($tax->video)) $disable = 'posts';
 									}
 
-									if ($tax->post && $tax->video)
+									if (isset($tax->video)) {
+										unset($tax->video->description);
+										if (!isset($tax->post)) $disable = 'videos';
+									}
+
+									if (isset($tax->post) && isset($tax->video))
 										$disable = 'posts,videos';
 
-									if ($tax->post && $is_post) {
+									if (isset($tax->post) && $is_post) {
 										$enabled = 'true';
 										$checked = 'checked';
-										if (is_array($query->category) && !in_array($slug, $query->category))
+										if (isset($query->category) && is_array($query->category) && !in_array($slug, $query->category))
 											$checked = '';
 									}
 
-									if ($tax->video && $is_video) {
+									if (isset($tax->video) && $is_video) {
 										$enabled = 'true';
 										$checked = 'checked';
-										if (is_array($query->{'video-category'}) && !in_array($slug, $query->{'video-category'}))
+										if (isset($query->{'video-category'}) && is_array($query->{'video-category'}) && !in_array($slug, $query->{'video-category'}))
 											$checked = '';
 									}
 								?>

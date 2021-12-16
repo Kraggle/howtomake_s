@@ -169,11 +169,11 @@ $menu_items = [
 				'checked' => true
 			]] as $check) { ?>
 				<div class="check-box">
-					<label for="_<?= $check['name'] ?>" title="<?= ($check['title'] ?: '') ?>">
+					<label for="_<?= $check['name'] ?>" title="<?= ($check['title'] ?? '') ?>">
 						<?php htm_checkbox("_{$check['name']}", $check['checked']); ?>
 						<div>
-							<span class="ks-check-name"><?= $check['display'] ?></span>
-							<p class="ks-help"><?= ($check['help'] ?: '') ?></p>
+							<span class="ks-check-name"><?= $check['display'] ?? '' ?></span>
+							<p class="ks-help"><?= ($check['help'] ?? '') ?></p>
 						</div>
 					</label>
 				</div>

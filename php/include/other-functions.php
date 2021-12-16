@@ -77,7 +77,7 @@ function htm_s_on_install() {
 	);
 
 	$wpdb->query(
-		"CREATE TABLE {$wpdb->prefix}htm_user_post_interactions (
+		"CREATE TABLE IF NOT EXISTS  {$wpdb->prefix}htm_user_post_interactions (
 			user_id int UNSIGNED NOT NULL,
 			post_id int UNSIGNED NOT NULL,
 			attribute varchar(100) NOT NULL,
@@ -352,12 +352,11 @@ function get_user_post_interactions($userId, $postId) {
 		AND post_id=%d", [$userId, $postId])
 	);
 
-	$outputArray = [];
+	$outputArray = ['like' => 0, 'dislike' => 0, 'fave' => 0];
 
 	foreach ($results as $elem) {
 		$outputArray[$elem->attribute] = $elem->attribute_value;
 	}
-
 
 	return $outputArray;
 }
@@ -571,7 +570,7 @@ function generate_category_thumbnails($object_id) {
 	$sizes = get_image_sizes_for_attachment($object_id);
 
 	$stored = (object) [];
-	if (is_countable($meta->sizes)) {
+	if (is_countable($meta->sizes ?? false)) {
 		foreach ($meta->sizes as $size => $value) {
 			preg_match('/-(\d+x\d+)\./', $value->file, $matches);
 			if ($matches[1]) {
@@ -630,7 +629,9 @@ if (!function_exists('to_object')) {
 	 * @return object The converted array.
 	 */
 	function to_object($array) {
-		return json_decode(json_encode($array), false);
+		if (in_array(gettype($array), ['object', 'array']))
+			return json_decode(json_encode($array), false);
+		return $array;
 	}
 }
 
@@ -642,7 +643,9 @@ if (!function_exists('to_array')) {
 	 * @return array The converted object.
 	 */
 	function to_array($object) {
-		return json_decode(json_encode($object), true);
+		if (in_array(gettype($object), ['object', 'array']))
+			return json_decode(json_encode($object), true);
+		return $object;
 	}
 }
 
@@ -662,7 +665,7 @@ function get_image_sizes_for_attachment($object_id) {
 
 	$meta = wp_get_attachment_metadata($object_id);
 
-	return get_image_sizes_for_category($category, $meta['width'], $meta['height']);
+	return get_image_sizes_for_category($category, $meta['width'] ?? null, $meta['height'] ?? null);
 }
 
 function get_image_sizes_for_category($category, $orig_w = 0, $orig_h = 0) {
@@ -920,6 +923,7 @@ function save_video_image_for_post($post, $info) {
 	$thumbs = $info->snippet->thumbnails;
 	$thumb = $thumbs->maxres ?: ($thumbs->standard ?: ($thumbs->high ?: ($thumbs->medium ?: $thumbs->default)));
 
+
 	$image = @file_get_contents($thumb->url);
 	if (!$image) return false;
 
@@ -942,7 +946,7 @@ function save_video_image_for_post($post, $info) {
 		'image/svg' => 'svg'
 	];
 
-	$ext = $fileExt[$mimeType] ?: 'jpg';
+	$ext = $fileExt[$mimeType] ?? 'jpg';
 
 	$slug = get_slug_from_string($info->snippet->title);
 	$filename = $post . '-' . $slug . '.' . $ext;
@@ -1176,7 +1180,7 @@ function get_search_categories() {
 	]);
 
 	foreach ($taxes as $tax) {
-		if ($return[$tax->slug]) {
+		if (isset($return[$tax->slug])) {
 			$return[$tax->slug]['video'] = $tax;
 		} else {
 			$return[$tax->slug] = [
@@ -1536,7 +1540,9 @@ function listFiles($dir, &$list = []) {
 			continue;
 		}
 
-		if (preg_match('/(.png|.jpg)/', $path))
-			$list[] = str_replace($uploads, '', $path);
+		$file = str_replace($uploads, '', $path);
+
+		if (preg_match('/(.png|.jpg|.jpeg)/', $path) && !in_array($file, $list))
+			$list[] = $file;
 	}
 }

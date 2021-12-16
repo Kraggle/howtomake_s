@@ -696,18 +696,21 @@ function htm_get_missing_media() {
 	foreach ($metas as $meta) {
 		$meta = to_object(maybe_unserialize($meta->meta));
 		$dbList[] = $meta->file;
-		$path = preg_replace('/(\d+\\/\d+\\/).+?\.\w+/', '$1', $meta->file);
+
+		$path = pathinfo($meta->file)['dirname'] . '/';
 		foreach ($meta->sizes as $size)
 			$dbList[] = $path . $size->file;
 	}
 
-	$uploads = wp_upload_dir()['basedir'];
+	$uploads = wp_upload_dir()['basedir'] . '/';
 	$files = [];
 	listFiles($uploads, $files);
+	// $files = array_unique($files);
 
 	$noFile = [];
 	foreach ($dbList as $file) {
-		if (!in_array($file, $files)) {
+		$file = '/' . $file;
+		if (!in_array($file, $files) && !in_array($file, $noFile)) {
 			$noFile[] = $file;
 		}
 	}
@@ -740,8 +743,12 @@ function htm_set_missing_media() {
 	foreach ($files as $file) {
 		$path = $uploads . $file;
 
+		// logger($aws . $file);
+
 		if (!$img = @file_get_contents($aws . $file))
 			continue;
+
+		// logger($file, 'downloaded');
 
 		if (!file_exists(pathinfo($path)['dirname']))
 			mkdir(pathinfo($path)['dirname'], 0755, true);
@@ -770,6 +777,8 @@ function htm_get_files_to_delete() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
 		exit(FAILED_NONCE);
 
+	empty_error_log();
+
 	global $wpdb;
 
 	$metas = $wpdb->get_results(
@@ -787,7 +796,8 @@ function htm_get_files_to_delete() {
 	foreach ($metas as $meta) {
 		$meta = to_object(maybe_unserialize($meta->meta));
 		$dbList[] = $meta->file;
-		$path = preg_replace('/(\d+\\/\d+\\/).+?\.\w+/', '$1', $meta->file);
+
+		$path = pathinfo($meta->file)['dirname'] . '/';
 		foreach ($meta->sizes as $size)
 			$dbList[] = $path . $size->file;
 	}
@@ -1215,7 +1225,7 @@ function htm_get_video_thumbnails() {
 	$get = [];
 	$got = [];
 	foreach ($posts as $post) {
-		if ($yt_meta[$post->ID])
+		if (isset($yt_meta[$post->ID]))
 			$got[] = $post;
 		else
 			$get[] = $post;
@@ -1282,7 +1292,7 @@ function htm_set_video_thumbnails() {
 	foreach ($ids as $id) {
 		$meta = to_object($yt_meta[$id]);
 
-		if ($meta->delete) {
+		if (isset($meta->delete) && $meta->delete) {
 			if ($attachment_id = get_post_thumbnail_id($id))
 				wp_delete_attachment($attachment_id, true);
 			wp_delete_post($id, true);

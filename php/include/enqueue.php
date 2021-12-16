@@ -168,7 +168,7 @@ function htm_add_head_stuff() {
 					$scriptId = ($script->module ? 'module-' : '') . $script->name;
 					wp_enqueue_script($scriptId, $script->src, [], $ver);
 
-					if ($script->params) {
+					if (isset($script->params)) {
 						wp_localize_script($scriptId, 'params', $script->params);
 					}
 				}
