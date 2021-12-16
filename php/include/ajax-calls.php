@@ -226,7 +226,7 @@ function htm_get_trending() {
 		$ids = array();
 		foreach ($results as $result) {
 			$id = $result->post_id;
-			if (!$ids[$id]) $ids[$id] = 0;
+			if (!isset($ids[$id])) $ids[$id] = 0;
 			$ids[$id]++;
 		}
 
@@ -666,6 +666,175 @@ function htm_set_media_to_delete() {
 	exit;
 }
 add_ajax_action('set_media_to_delete');
+
+/**
+ * Used by How to Make - Media Editor to get the number of
+ * files that are missing from the file structure.
+ * 
+ * @return void 
+ */
+function htm_get_missing_media() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	// empty_error_log();
+
+	global $wpdb;
+
+	$metas = $wpdb->get_results(
+		"SELECT pm.meta_value AS 'meta'
+		FROM `wp_posts` p, `wp_postmeta` pm
+		WHERE 
+			p.post_type = 'attachment' AND
+			pm.post_id = p.ID AND
+			pm.meta_key = '_wp_attachment_metadata' AND
+			(pm.meta_value LIKE '%image/jpeg%' OR pm.meta_value LIKE '%image/png%')"
+	);
+
+	$dbList = [];
+
+	foreach ($metas as $meta) {
+		$meta = to_object(maybe_unserialize($meta->meta));
+		$dbList[] = $meta->file;
+		$path = preg_replace('/(\d+\\/\d+\\/).+?\.\w+/', '$1', $meta->file);
+		foreach ($meta->sizes as $size)
+			$dbList[] = $path . $size->file;
+	}
+
+	$uploads = wp_upload_dir()['basedir'];
+	$files = [];
+	listFiles($uploads, $files);
+
+	$noFile = [];
+	foreach ($dbList as $file) {
+		if (!in_array($file, $files)) {
+			$noFile[] = $file;
+		}
+	}
+
+	$return = (object) [
+		'ids' => $noFile
+	];
+	$return->count = count($return->ids);
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_missing_media');
+
+/**
+ * Used by How to Make - Media Editor to acquire the files 
+ * that are missing from the file structure.
+ * 
+ * @return void 
+ */
+function htm_set_missing_media() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	// empty_error_log();
+
+	$uploads = wp_upload_dir()['basedir'] . '/';
+	$aws = 'https://s3.eu-west-2.amazonaws.com/cdn.howtomakemoneyfromhomeuk.com/wp-content/uploads/';
+	$files = $_REQUEST['data']['ids'];
+
+	foreach ($files as $file) {
+		$path = $uploads . $file;
+
+		if (!$img = @file_get_contents($aws . $file))
+			continue;
+
+		if (!file_exists(pathinfo($path)['dirname']))
+			mkdir(pathinfo($path)['dirname'], 0755, true);
+
+		$new = fopen($path, 'w');
+		fwrite($new, $img);
+		fclose($new);
+
+		// logger($path);
+		// echo json_encode(['success' => false]);
+		// exit;
+	}
+
+	echo json_encode(['success' => true]);
+	exit;
+}
+add_ajax_action('set_missing_media');
+
+/**
+ * Used by How to Make - Media Editor to get the number of
+ * files that need to be deleted from the uploads folder.
+ * 
+ * @return void 
+ */
+function htm_get_files_to_delete() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	global $wpdb;
+
+	$metas = $wpdb->get_results(
+		"SELECT pm.meta_value AS 'meta'
+		FROM `wp_posts` p, `wp_postmeta` pm
+		WHERE 
+			p.post_type = 'attachment' AND
+			pm.post_id = p.ID AND
+			pm.meta_key = '_wp_attachment_metadata' AND
+			(pm.meta_value LIKE '%image/jpeg%' OR pm.meta_value LIKE '%image/png%')"
+	);
+
+	$dbList = [];
+
+	foreach ($metas as $meta) {
+		$meta = to_object(maybe_unserialize($meta->meta));
+		$dbList[] = $meta->file;
+		$path = preg_replace('/(\d+\\/\d+\\/).+?\.\w+/', '$1', $meta->file);
+		foreach ($meta->sizes as $size)
+			$dbList[] = $path . $size->file;
+	}
+
+	$uploads = wp_upload_dir()['basedir'];
+	$files = [];
+	listFiles($uploads, $files);
+
+	$noDb = [];
+	foreach ($files as $file) {
+		if (!in_array($file, $dbList)) {
+			$noDb[] = $file;
+			// logger([$file]);
+			// exit;
+		}
+	}
+
+	$return = (object) [
+		'ids' => $noDb
+	];
+	$return->count = count($return->ids);
+	echo json_encode($return);
+	exit;
+}
+add_ajax_action('get_files_to_delete');
+
+/**
+ * Used by How to Make - Media Editor to delete the files 
+ * that are missing from the database.
+ * 
+ * @return void 
+ */
+function htm_set_files_to_delete() {
+	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
+		exit(FAILED_NONCE);
+
+	$uploads = wp_upload_dir()['basedir'] . '/';
+	$files = $_REQUEST['data']['ids'];
+
+	foreach ($files as $file) {
+		unlink($uploads . $file);
+	}
+
+	echo json_encode(['success' => true]);
+	exit;
+}
+add_ajax_action('set_files_to_delete');
 
 /**
  * Used by How to Make - Media Editor to get the missing authors 

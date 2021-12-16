@@ -72,6 +72,31 @@ $menu_items = [
 		</div>
 		<button id="setVT" class="ks-button" action="set_video_thumbnails" other="getVT" repeat=1>Regenerate</button>
 	</div>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Delete Media Files</span>
+		<span class="ks-desc">Deletes all media files that are no longer in the database. WARNING! This cannot be undone.</span>
+		<div class="flex row">
+			<label for="dfCount" class="ks-label">Quantity</label>
+			<input id="dfCount" class="ks-input" type="number" readonly />
+			<div class="spacer"></div>
+			<button id="getDF" class="ks-button" action="get_files_to_delete" count="dfCount" other="setDF">Get Quantity</button>
+		</div>
+		<button id="setDF" class="ks-button red" action="set_files_to_delete" other="getDF" repeat=100>Delete Files</button>
+	</div>
+
+	<div class="ks-setting-box">
+		<span class="ks-name">Acquire Missing Media Files</span>
+		<span class="ks-desc">Pulls all of the missing image files that are in the database but not in the file structure from the old AWS storage.</span>
+		<div class="flex row">
+			<label for="mmCount" class="ks-label">Quantity</label>
+			<input id="mmCount" class="ks-input" type="number" readonly />
+			<div class="spacer"></div>
+			<button id="getMM" class="ks-button" action="get_missing_media" count="mmCount" other="setMM">Get Quantity</button>
+		</div>
+		<button id="setMM" class="ks-button" action="set_missing_media" other="getMM" repeat=10>Download</button>
+	</div>
+
 <?php }
 	],
 	(object) [

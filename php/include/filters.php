@@ -18,7 +18,7 @@ function disable_wp_responsive_images() {
 add_filter('max_srcset_image_width', 'disable_wp_responsive_images');
 
 add_filter('the_content', function ($content) {
-	empty_error_log();
+	// empty_error_log();
 
 	$doc = phpQuery::newDocument($content);
 

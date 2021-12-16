@@ -1520,3 +1520,23 @@ function SaveAnalyticsEvent(
 	$data = null
 ) {
 }
+
+function listFiles($dir, &$list = []) {
+	$uploads = wp_upload_dir()['basedir'] . '/';
+	$ffs = scandir($dir);
+
+	unset($ffs[array_search('.', $ffs, true)]);
+	unset($ffs[array_search('..', $ffs, true)]);
+
+	foreach ($ffs as $ff) {
+		$path = $dir . '/' . $ff;
+
+		if (is_dir($path)) {
+			listFiles($path, $list);
+			continue;
+		}
+
+		if (preg_match('/(.png|.jpg)/', $path))
+			$list[] = str_replace($uploads, '', $path);
+	}
+}
