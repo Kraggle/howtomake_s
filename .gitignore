@@ -1,8 +1,4 @@
 
-
-views/partials/header-mobile.html
-.vscode/
-
 # Logs
 logs
 *.log
@@ -109,3 +105,4 @@ dist
 .tern-port
 
 vendor/
+views/partials/header-mobile.html
