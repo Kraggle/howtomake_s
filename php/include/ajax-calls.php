@@ -28,7 +28,7 @@ function htm_custom_search() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'custom_search_nonce'))
 		exit(FAILED_NONCE);
 
-	$query = $_REQUEST['query'] ?: array();
+	$query = $_REQUEST['query'] ?? array();
 	$query['post_status'] = 'publish';
 
 	if ($query['orderby'] === 'duration') {
@@ -36,7 +36,7 @@ function htm_custom_search() {
 		$query['orderby'] = 'meta_value_num';
 	}
 
-	// logger($query);
+	logger($query);
 
 	$query = new WP_Query($query);
 

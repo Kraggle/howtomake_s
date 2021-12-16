@@ -71,7 +71,7 @@ if ($uri[1] !== 'search') {
 // INFO:: Default search terms
 $query = (object) [
 	'order' => 'desc',
-	'orderby' => isset($_REQUEST['term']) ? 'relevance' : 'modified',
+	'orderby' => isset($_REQUEST['term']) ? 'relevance' : 'date',
 	'type' => [
 		'video',
 		'post'
