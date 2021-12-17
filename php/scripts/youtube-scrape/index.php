@@ -9,8 +9,13 @@
 
 // ------------------------------------------------------------------
 
-// $maxTime = 1440; // 24 minutes
-set_time_limit(0); // unlimited
+global $pid;
+$pid = getmypid();
+
+$maxTime = 600; // 10 minutes
+set_time_limit($maxTime + 120);
+global $endAt;
+$endAt = strtotime("+{$maxTime} seconds");
 
 set_include_path('/home/gdaddykraggle/howtomake/');
 
@@ -18,69 +23,18 @@ if (!defined('ABSPATH')) {
 	require_once("wp-load.php");
 }
 
-// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
-//require_once(ABSPATH . 'wp-admin/includes/image.php');
-
-//require_once __DIR__ . '/../../include/functions.php';
-
-// ================================== Settings End =======================================
-
 global $wpdb;
 
 if ($force = isset($_GET['force']) && $_GET['force']) {
 	$older = date('Y-m-d', strtotime('-1 week'));
 	update_option('last_youtube_data_update', $older);
 	$wpdb->query(
-		"UPDATE {$wpdb->termmeta} SET meta_value = '$older' WHERE meta_key In ('yt_last_update', 'yt_last_removal')"
+		"UPDATE {$wpdb->termmeta} SET meta_value = '$older' WHERE meta_key IN ('yt_last_update', 'yt_last_removal')"
 	);
 }
 
-?>
-
-<html>
-
-<head>
-	<title>Youtube Scraper - HTMMFH</title>
-
-	<style>
-		.logs pre {
-			line-height: 1.4;
-			font-size: 14px;
-			font-family: monospace;
-		}
-	</style>
-</head>
-
-<body>
-	<form method="GET" action="">
-		<input type="hidden" name="action" value="import" />
-		<?php $isChecked = $force ? 'checked' : '' ?>
-		<p>
-			<label>
-				<span>Force update: </span>
-				<input type="checkbox" name="force" <?= $isChecked ?> />
-			</label>
-		</p>
-		<input type="submit" value="START UPDATE" />
-	</form>
-	<input id="kill-switch" type="button" value="KILL SCRIPT" style="position: fixed; top: 20px; right: 20px;" />
-	<input id="cancel-kill" type="button" value="CANCEL KILL" style="position: fixed; top: 50px; right: 20px;" />
-
-	<div class="logs"></div>
-	<div id="scroller"></div>
-	<script type="module" src="index.js"></script>
-</body>
-
-</html>
-
-<?php
-
 $postAuthor = 1;
 $maxResults = 50; // max: 50
-
-// $maxTime = (ini_get('max_execution_time') - 20);
-// global $endAt;
-// $endAt = strtotime("+{$maxTime} seconds");
 
 if (!file_exists('./info/'))
 	mkdir('./info/');
@@ -92,22 +46,25 @@ global $log;
 $log = videoLogger::getInstance('./info/log' . date('[d-M-Y H]') . '.txt');
 
 if (!file_exists('running.json'))
-	file_put_contents('running.json', json_encode(['running' => false]));
+	file_put_contents('running.json', json_encode(['running' => false, 'PID' => false]));
+
 $is = json_decode(file_get_contents('running.json'));
-if ($is->running) {
+$proc = isset($is->pid) && $is->pid && file_exists("~/proc/$is->pid");
+if ($is->running && $proc) {
 	$log->put('<span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>');
 	exit;
 }
 
 if (!file_exists('kill-switch.json'))
 	file_put_contents('kill-switch.json', json_encode(['kill' => false]));
+
 $do = json_decode(file_get_contents('kill-switch.json'));
 if ($do->kill) {
 	$log->put('<span style="color:red">Someone has forced the task to stop, you must allow it to resume with `CANCEL KILL`</span>');
 	exit;
 }
 
-file_put_contents('running.json', json_encode(['running' => true]));
+file_put_contents('running.json', json_encode(['running' => true, 'PID' => $pid]));
 
 $uploadDir = wp_upload_dir()['basedir'] . '/yt-thumb';
 if (!file_exists($uploadDir)) wp_mkdir_p($uploadDir);
@@ -318,34 +275,27 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 	$log->put('Click `START UPDATE` at the top of the page to manually run this task.');
 }
 
-file_put_contents('running.json', json_encode(['running' => false]));
+file_put_contents('running.json', json_encode(['running' => false, 'PID' => false]));
 
-function test_kill($do_msg = true) {
-	global $endAt, $log;
+function test_kill() {
+	global $endAt, $log, $pid;
 
 	$end = false;
 	$msg = '';
-	$header = 'Location: index.php';
 
 	$do = json_decode(file_get_contents('kill-switch.json'));
 	if ($do->kill) {
 		$end = true;
 		$msg = '<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>';
-		$header = 'Location: index.php';
+	} elseif (time() >= $endAt) {
+		$end = true;
+		$msg = '<span style="color:red">Exiting due to being close to the timout of the script.</span>';
 	}
-	// elseif (time() >= $endAt) {
-	// 	$end = true;
-	// 	$msg = '';
-	// 	$header = 'Location: index.php?action=import';
-	// } elseif ($do_msg) {
-	// 	$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
-	// }
 
 	if ($end) {
 		$log->put($msg);
-		file_put_contents('running.json', json_encode(['running' => false]));
+		file_put_contents('running.json', json_encode(['running' => false, 'PID' => $pid]));
 		file_put_contents('kill-switch.json', json_encode(['kill' => false]));
-		header($header);
 		exit;
 	}
 }
