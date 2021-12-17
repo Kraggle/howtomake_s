@@ -9,9 +9,10 @@
 
 // ------------------------------------------------------------------
 
-set_include_path('/home/gdaddykraggle/howtomake/');
+$maxTime = 1440; // 24 minutes
+set_time_limit($maxTime);
 
-error_log(get_include_path());
+set_include_path('/home/gdaddykraggle/howtomake/');
 
 if (!defined('ABSPATH')) {
 	require_once("wp-load.php");
@@ -77,7 +78,6 @@ if ($force = isset($_GET['force']) && $_GET['force']) {
 $postAuthor = 1;
 $maxResults = 50; // max: 50
 
-$maxTime = 80;
 // $maxTime = (ini_get('max_execution_time') - 20);
 global $endAt;
 $endAt = strtotime("+{$maxTime} seconds");
