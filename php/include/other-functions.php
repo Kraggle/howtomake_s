@@ -187,25 +187,31 @@ function getExtraYoutubeInfo(array $features = null) {
 
 	$videos = get_results(
 		"SELECT
-		p.ID AS id,
-		m.meta_value AS yt_id,
-		p.post_title AS title
+			p.ID AS id,
+			m.meta_value AS yt_id,
+			p.post_title AS title
 		FROM wp_posts p
-		INNER JOIN wp_postmeta m
+			INNER JOIN wp_postmeta m
 			ON p.ID = m.post_id
 		WHERE p.post_type = 'video'
 		AND p.post_status = 'publish'
 		AND m.meta_key = 'youtube_video_id'
-		AND (p.ID NOT IN (SELECT
-			tr.object_id
-		FROM wp_term_relationships tr
-			INNER JOIN wp_term_taxonomy tt
-			ON tr.term_taxonomy_id = tt.term_taxonomy_id
-		WHERE tt.taxonomy = 'post_tag')
-		OR p.ID NOT IN (SELECT
-			pm.post_id
-		FROM wp_postmeta pm
-		WHERE pm.meta_key = 'video_duration_raw'))"
+		AND (
+			p.ID NOT IN (
+				SELECT
+					tr.object_id
+				FROM wp_term_relationships tr
+					INNER JOIN wp_term_taxonomy tt
+					ON tr.term_taxonomy_id = tt.term_taxonomy_id
+				WHERE tt.taxonomy = 'post_tag'
+			)
+			OR p.ID NOT IN (
+				SELECT
+					pm.post_id
+				FROM wp_postmeta pm
+				WHERE pm.meta_key = 'video_duration_raw'
+			)
+		)"
 	);
 
 	$videoIds = list_ids($videos, 'yt_id');
@@ -1077,8 +1083,10 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 	if (!is_array($video_tags))
 		$video_tags = explode(',', $video_tags);
 
-	if (empty($video_tags))
-		return false;
+	if (empty($video_tags)) {
+		$video_tags = ['none'];
+		// return false;
+	}
 
 	$cats = get_results(
 		"SELECT
