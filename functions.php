@@ -10,9 +10,9 @@ include('vendor/autoload.php');
  * @package htm_s
  */
 /* cSpell:disable */
-define('IS_LIVE', $_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com' || $_SERVER['HTTP_HOST'] === 'htm.kraggle.co.uk');
+define('IS_LIVE', isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST'] === 'howtomakemoneyfromhomeuk.com' || $_SERVER['HTTP_HOST'] === 'htm.kraggle.co.uk'));
 if (!defined('IS_DEBUG'))
-	define('IS_DEBUG', IS_LIVE ? false : true);
+	define('IS_DEBUG', !IS_LIVE);
 
 // Replace the version number of the theme on each release.
 if (!defined('_S_VERSION'))

@@ -9,9 +9,10 @@
 
 // ------------------------------------------------------------------
 
+set_include_path('/home/gdaddykraggle/howtomake/;E:/laragon/www/howtomake/;');
 
 if (!defined('ABSPATH')) {
-	require_once("../../../../../../wp-load.php");
+	require_once("wp-load.php");
 }
 
 // Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.

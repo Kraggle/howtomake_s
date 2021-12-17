@@ -1,6 +1,6 @@
 <?php
 $nl = "<br />\n";
-require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/image.php');
+require_once(ABSPATH . '/wp-admin/includes/image.php');
 
 if (!function_exists('logger')) {
 	function logger() {
