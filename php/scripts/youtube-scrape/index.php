@@ -9,10 +9,7 @@
 
 // ------------------------------------------------------------------
 
-global $pid;
-$pid = getmypid();
-
-$maxTime = 600; // 10 minutes
+$maxTime = 540; // 9 minutes
 set_time_limit($maxTime + 120);
 global $endAt;
 $endAt = strtotime("+{$maxTime} seconds");
@@ -46,11 +43,10 @@ global $log;
 $log = videoLogger::getInstance('./info/log' . date('[d-M-Y H]') . '.txt');
 
 if (!file_exists('running.json'))
-	file_put_contents('running.json', json_encode(['running' => false, 'PID' => false]));
+	file_put_contents('running.json', json_encode(['running' => false]));
 
 $is = json_decode(file_get_contents('running.json'));
-$proc = isset($is->pid) && $is->pid && file_exists("~/proc/$is->pid");
-if ($is->running && $proc) {
+if ($is->running) {
 	$log->put('<span style="color:red">Either `running.json` has not updated or someone or something else is already running this script.</span>');
 	exit;
 }
@@ -64,7 +60,7 @@ if ($do->kill) {
 	exit;
 }
 
-file_put_contents('running.json', json_encode(['running' => true, 'PID' => $pid]));
+file_put_contents('running.json', json_encode(['running' => true]));
 
 $uploadDir = wp_upload_dir()['basedir'] . '/yt-thumb';
 if (!file_exists($uploadDir)) wp_mkdir_p($uploadDir);
@@ -271,14 +267,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 	}
 
 	getExtraYoutubeInfo();
-} else {
-	$log->put('Click `START UPDATE` at the top of the page to manually run this task.');
 }
 
-file_put_contents('running.json', json_encode(['running' => false, 'PID' => false]));
+file_put_contents('running.json', json_encode(['running' => false]));
 
 function test_kill() {
-	global $endAt, $log, $pid;
+	global $endAt, $log;
 
 	$end = false;
 	$msg = '';
@@ -294,7 +288,7 @@ function test_kill() {
 
 	if ($end) {
 		$log->put($msg);
-		file_put_contents('running.json', json_encode(['running' => false, 'PID' => $pid]));
+		file_put_contents('running.json', json_encode(['running' => false]));
 		file_put_contents('kill-switch.json', json_encode(['kill' => false]));
 		exit;
 	}
