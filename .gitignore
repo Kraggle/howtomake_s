@@ -106,3 +106,5 @@ dist
 
 vendor/
 views/partials/header-mobile.html
+
+php/scripts/youtube-scrape/info/*.txt
