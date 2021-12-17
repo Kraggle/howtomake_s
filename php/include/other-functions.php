@@ -270,7 +270,7 @@ function getExtraYoutubeInfo(array $features = null) {
 			$log->put('Exception: ' . $e->getMessage());
 		}
 
-		test_restart();
+		test_kill();
 	}
 }
 
