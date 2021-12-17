@@ -209,7 +209,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 				}
 
 				file_put_contents($itemsPath, json_encode($items));
-				// test_restart();
+				test_kill();
 			}
 
 			$log->put(indent(2) . 'Saving the youtube data for ' . count($items) . ' videos! This may take some time.');
@@ -220,7 +220,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 				if ($index % 10 == 0) {
 					file_put_contents($itemsPath, json_encode($items));
-					// test_restart(false);
+					test_kill();
 				}
 
 				$post_id = $saved_ids->{$item->id};
@@ -303,14 +303,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 			} else
 				$log->put(indent(3) . 'Failed to add this video.');
 
-			// test_restart();
+			test_kill();
 		}
 
 
 		$log->put(indent() . 'Finished channel update, setting last update to ' . date('Y-m-d'));
 		update_term_meta($channel->term_id, 'yt_last_update', date('Y-m-d'));
 
-		// test_restart();
+		test_kill();
 	}
 
 	getExtraYoutubeInfo();
@@ -320,30 +320,32 @@ if (isset($_GET['action']) && $_GET['action'] === 'import') {
 
 file_put_contents('running.json', json_encode(['running' => false]));
 
-// function test_restart($do_msg = true) {
-// 	global $endAt, $log;
+function test_kill($do_msg = true) {
+	global $endAt, $log;
 
-// 	$end = false;
-// 	$msg = '';
-// 	$header = 'Location: index.php';
+	$end = false;
+	$msg = '';
+	$header = 'Location: index.php';
 
-// 	$do = json_decode(file_get_contents('kill-switch.json'));
-// 	if ($do->kill) {
-// 		$end = true;
-// 		$msg = '<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>';
-// 		$header = 'Location: index.php';
-// 	} elseif (time() >= $endAt) {
-// 		$end = true;
-// 		$msg = '';
-// 		$header = 'Location: index.php?action=import';
-// 	} elseif ($do_msg) {
-// 		$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
-// 	}
+	$do = json_decode(file_get_contents('kill-switch.json'));
+	if ($do->kill) {
+		$end = true;
+		$msg = '<span style="color:red">Exited due to `KILL SWITCH` being pressed!</span>';
+		$header = 'Location: index.php';
+	}
+	// elseif (time() >= $endAt) {
+	// 	$end = true;
+	// 	$msg = '';
+	// 	$header = 'Location: index.php?action=import';
+	// } elseif ($do_msg) {
+	// 	$log->put('Restarting in ' . strval($endAt - time()) . ' seconds');
+	// }
 
-// 	if ($end) {
-// 		$log->put($msg);
-// 		file_put_contents('running.json', json_encode(['running' => false]));
-// 		header($header);
-// 		exit;
-// 	}
-// }
+	if ($end) {
+		$log->put($msg);
+		file_put_contents('running.json', json_encode(['running' => false]));
+		file_put_contents('kill-switch.json', json_encode(['kill' => false]));
+		header($header);
+		exit;
+	}
+}
