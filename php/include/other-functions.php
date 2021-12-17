@@ -196,15 +196,23 @@ function getExtraYoutubeInfo(array $features = null) {
 		WHERE p.post_type = 'video'
 		AND p.post_status = 'publish'
 		AND m.meta_key = 'youtube_video_id'
-		AND (
-			p.ID NOT IN (
-				SELECT
-					tr.object_id
-				FROM wp_term_relationships tr
-					INNER JOIN wp_term_taxonomy tt
-					ON tr.term_taxonomy_id = tt.term_taxonomy_id
-				WHERE tt.taxonomy = 'post_tag'
-			)
+		AND ((
+                p.ID NOT IN (
+            		SELECT 
+                    	pp.post_id
+                    FROM 
+                    	wp_postmeta pp
+                    WHERE pp.meta_key = 'no_youtube_tags'
+            	)
+            	AND p.ID NOT IN (
+					SELECT
+						tr.object_id
+					FROM wp_term_relationships tr
+						INNER JOIN wp_term_taxonomy tt
+						ON tr.term_taxonomy_id = tt.term_taxonomy_id
+					WHERE tt.taxonomy = 'post_tag'
+				)
+            )
 			OR p.ID NOT IN (
 				SELECT
 					pm.post_id
@@ -1080,13 +1088,13 @@ function set_video_categories_from_tags($video_id, $video_tags, $video_title) {
 	if (get_post_type($video_id) != 'video')
 		return false;
 
+	if (!$video_tags) {
+		add_post_meta($video_id, 'no_youtube_tags', 1, true);
+		return false;
+	}
+
 	if (!is_array($video_tags))
 		$video_tags = explode(',', $video_tags);
-
-	if (empty($video_tags)) {
-		$video_tags = ['none'];
-		// return false;
-	}
 
 	$cats = get_results(
 		"SELECT
