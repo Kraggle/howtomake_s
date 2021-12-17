@@ -9,7 +9,9 @@
 
 // ------------------------------------------------------------------
 
-set_include_path('/home/gdaddykraggle/howtomake/;E:/laragon/www/howtomake/;');
+set_include_path('/home/gdaddykraggle/howtomake/');
+
+error_log(get_include_path());
 
 if (!defined('ABSPATH')) {
 	require_once("wp-load.php");
