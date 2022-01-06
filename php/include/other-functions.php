@@ -1519,29 +1519,7 @@ function custom_number_format($n, $precision = 1) {
 	return $n_format;
 }
 
-/**	
- * Save Analytics Event
- * 
- * @param string  $entityType        (user|system), 
- * @param string  $event
- * @param integer $entityId		
- * @param string  $actedOnEntityType (article, video),
- * @param string  $value
- * @param string  $label
- * @param mixed   $data
- */
-function SaveAnalyticsEvent(
-	$entityType,
-	$event,
-	$entityId = null,
-	$actedOnEntityType = null,
-	$value,
-	$label = null,
-	$data = null
-) {
-}
-
-function listFiles($dir, &$list = []) {
+function list_uploads($dir, &$list = []) {
 	$uploads = wp_upload_dir()['basedir'] . '/';
 	$ffs = scandir($dir);
 
@@ -1552,7 +1530,7 @@ function listFiles($dir, &$list = []) {
 		$path = $dir . '/' . $ff;
 
 		if (is_dir($path)) {
-			listFiles($path, $list);
+			list_uploads($path, $list);
 			continue;
 		}
 

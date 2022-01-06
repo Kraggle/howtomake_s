@@ -344,7 +344,7 @@ function get_social_icon($which, $link, $echo = true) {
 }
 
 add_shortcode('business', function ($attrs = []) {
-	empty_error_log();
+	// empty_error_log();
 
 	extract(shortcode_atts([
 		'id'     => '',

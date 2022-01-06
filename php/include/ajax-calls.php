@@ -704,7 +704,7 @@ function htm_get_missing_media() {
 
 	$uploads = wp_upload_dir()['basedir'] . '/';
 	$files = [];
-	listFiles($uploads, $files);
+	list_uploads($uploads, $files);
 	// $files = array_unique($files);
 
 	$noFile = [];
@@ -777,7 +777,7 @@ function htm_get_files_to_delete() {
 	if (!wp_verify_nonce($_REQUEST['nonce'], 'settings_nonce'))
 		exit(FAILED_NONCE);
 
-	empty_error_log();
+	// empty_error_log();
 
 	global $wpdb;
 
@@ -804,7 +804,7 @@ function htm_get_files_to_delete() {
 
 	$uploads = wp_upload_dir()['basedir'];
 	$files = [];
-	listFiles($uploads, $files);
+	list_uploads($uploads, $files);
 
 	$noDb = [];
 	foreach ($files as $file) {
