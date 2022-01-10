@@ -1,231 +1,233 @@
+@import "../common/fa-variables";
+
 .gallery {
-    position: relative;
+  position: relative;
+  width: 100%;
+  max-width: calc(100vw - 80px);
+  padding-top: 56%;
+  margin: 0 auto 100px;
+  box-shadow: 0 2px 31px 0 rgba(#000, 0.3);
+  background-color: $color-button;
+
+  @media (max-height: 720px) {
+    padding-top: 40%;
+  }
+
+  @media (max-width: 950px) {
+    display: none;
+  }
+
+  .gallery-image {
+    position: absolute;
+    top: 0;
     width: 100%;
-    max-width: calc(100vw - 80px);
-    padding-top: 56%;
-    margin: 0 auto 100px;
-    box-shadow: 0 2px 31px 0 rgba(#000, 0.3);
-    background-color: $color-button;
+    height: 100%;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0;
+    transition: $gallery-transition;
 
-    @media (max-height: 720px) {
-        padding-top: 40%;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(#fff, 0.63);
     }
+  }
 
-    @media (max-width: 950px) {
-        display: none;
-    }
+  .gallery-content {
+    position: relative;
+    max-width: 70%;
+    margin: auto;
+    text-align: center;
+    top: 70%;
+    opacity: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: $gallery-transition;
+    transition-delay: 1s;
+    transition-property: top;
+  }
 
-    .gallery-image {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        background-size: cover;
-        background-position: center;
-        z-index: 0;
-        opacity: 0;
-        transition: $gallery-transition;
+  .gallery-title {
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: 600;
+    color: $color-title;
+    margin-bottom: 10px;
+    line-height: 1em;
+    max-height: 4em;
+    overflow: hidden;
+  }
 
-        &::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(#fff, 0.63);
-        }
-    }
+  .gallery-meta {
+    font-size: 13px;
+    color: #333;
+    line-height: 30px;
+  }
 
-    .gallery-content {
-        position: relative;
-        max-width: 70%;
-        margin: auto;
-        text-align: center;
-        top: 70%;
-        opacity: 0;
-        transform: translateY(-50%);
-        z-index: 1;
-        transition: $gallery-transition;
-        transition-delay: 1s;
-        transition-property: top;
-    }
+  .gallery-excerpt {
+    line-height: 24px;
+  }
 
-    .gallery-title {
-        text-transform: uppercase;
-        font-size: 45px;
-        font-weight: 600;
-        color: $color-title;
-        margin-bottom: 10px;
-        line-height: 1em;
-        max-height: 4em;
-        overflow: hidden;
-    }
+  .gallery-more {
+    position: relative;
+    display: inline-block;
+    padding: 18px 34px;
+    font-size: 14px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: bold;
+    background: $color-button;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px -10px rgba(#000, 0.6);
+    transition: $transition;
 
-    .gallery-meta {
-        font-size: 13px;
-        color: #333;
-        line-height: 30px;
-    }
-
-    .gallery-excerpt {
-        line-height: 24px;
-    }
-
-    .gallery-more {
-        position: relative;
-        display: inline-block;
-        padding: 18px 34px;
-        font-size: 14px;
-        margin-top: 20px;
-        text-transform: uppercase;
-        color: #fff;
-        letter-spacing: 1px;
-        font-weight: bold;
-        background: $color-button;
-        border-radius: 50px;
-        box-shadow: 0 10px 30px -10px rgba(#000, 0.6);
-        transition: $transition;
-
-        &::after {
-            position: absolute;
-            content: fa-content($fa-var-chevron-right);
-            font-family: 'Font Awesome 5 Pro';
-            font-size: 12px;
-            margin-top: 2px;
-            right: 20px;
-            opacity: 0;
-            transition: $transition;
-        }
-
-        &:hover {
-            padding-left: 26px;
-            padding-right: 42px;
-
-            &::after {
-                right: 18px;
-                opacity: 1;
-            }
-        }
-    }
-
-    .gallery-nav {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 40px;
-    }
-
-    .gallery-btn {
-        position: relative;
-        display: inline-block;
-        padding: 10px;
-        margin-right: 5px;
-        cursor: pointer;
-
-        &::after {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: rgba(#000, 0.15);
-            border-radius: 9px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            transition: $transition;
-        }
-
-        &.active {
-            &::after {
-                background-color: rgba(#000, 0.7);
-            }
-        }
-    }
-
-    .gallery-control {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        pointer-events: none;
-    }
-
-    .gallery-spacer {
-        flex-grow: 1;
-    }
-
-    .gallery-arrow {
-        font-family: 'Font Awesome 5 Pro';
-        pointer-events: none;
-        display: block;
-        width: 60px;
-        text-align: center;
-
-        &::after {
-            content: fa-content($fa-var-chevron-right);
-            font-size: 60px;
-            position: relative;
-            opacity: 0;
-            transition: $transition;
-        }
-
-        &.left {
-            &::after {
-                content: fa-content($fa-var-chevron-left);
-                left: -40px;
-            }
-        }
-
-        &.right {
-            &::after {
-                left: 40px;
-            }
-        }
-    }
-
-    .gallery-item {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        visibility: hidden;
-        pointer-events: none;
-        opacity: 0;
-        transition: $gallery-transition;
-
-        &.active {
-            visibility: visible;
-            pointer-events: all;
-            opacity: 1;
-
-            .gallery-image {
-                opacity: 1;
-            }
-
-            .gallery-content {
-                transition-delay: 0.8s, 0.8s;
-                transition-property: top, opacity;
-                top: 50%;
-                opacity: 1;
-            }
-        }
+    &::after {
+      position: absolute;
+      content: fa-content($fa-var-chevron-right);
+      font-family: "Font Awesome 5 Pro";
+      font-size: 12px;
+      margin-top: 2px;
+      right: 20px;
+      opacity: 0;
+      transition: $transition;
     }
 
     &:hover {
-        .gallery-arrow {
-            cursor: pointer;
-            pointer-events: all;
+      padding-left: 26px;
+      padding-right: 42px;
 
-            &::after {
-                left: 0;
-                opacity: 1;
-            }
-        }
+      &::after {
+        right: 18px;
+        opacity: 1;
+      }
     }
+  }
+
+  .gallery-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+  }
+
+  .gallery-btn {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(#000, 0.15);
+      border-radius: 9px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: $transition;
+    }
+
+    &.active {
+      &::after {
+        background-color: rgba(#000, 0.7);
+      }
+    }
+  }
+
+  .gallery-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .gallery-spacer {
+    flex-grow: 1;
+  }
+
+  .gallery-arrow {
+    font-family: "Font Awesome 5 Pro";
+    pointer-events: none;
+    display: block;
+    width: 60px;
+    text-align: center;
+
+    &::after {
+      content: fa-content($fa-var-chevron-right);
+      font-size: 60px;
+      position: relative;
+      opacity: 0;
+      transition: $transition;
+    }
+
+    &.left {
+      &::after {
+        content: fa-content($fa-var-chevron-left);
+        left: -40px;
+      }
+    }
+
+    &.right {
+      &::after {
+        left: 40px;
+      }
+    }
+  }
+
+  .gallery-item {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: $gallery-transition;
+
+    &.active {
+      visibility: visible;
+      pointer-events: all;
+      opacity: 1;
+
+      .gallery-image {
+        opacity: 1;
+      }
+
+      .gallery-content {
+        transition-delay: 0.8s, 0.8s;
+        transition-property: top, opacity;
+        top: 50%;
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover {
+    .gallery-arrow {
+      cursor: pointer;
+      pointer-events: all;
+
+      &::after {
+        left: 0;
+        opacity: 1;
+      }
+    }
+  }
 }

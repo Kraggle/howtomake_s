@@ -1,7 +1,9 @@
 /** Import Bootstrap functions */
 // @import "~bootstrap/scss/functions";
 
-$theme-colors: (primary: #525ddc);
+$theme-colors: (
+  primary: #525ddc,
+);
 
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;
@@ -37,19 +39,19 @@ $gallery-transition: 1.2s all cubic-bezier(0.4, 0, 0.2, 1);
 $transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 
 @mixin transition($time: 200ms, $which: all) {
-    transition: $time $which cubic-bezier(0.4, 0, 0.2, 1);
+  transition: $time $which cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @font-face {
-    font-family: 'Mulish';
-    src: url('../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf') format('truetype-variations');
-    font-weight: 200 900;
-    font-style: normal;
+  font-family: "Mulish";
+  src: url("../../../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Mulish';
-    src: url('../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf') format('truetype-variations');
-    font-weight: 200 900;
-    font-style: italic;
+  font-family: "Mulish";
+  src: url("../../../assets/fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: italic;
 }

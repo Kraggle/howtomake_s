@@ -36,7 +36,7 @@ function htm_custom_search() {
 		$query['orderby'] = 'meta_value_num';
 	}
 
-	logger($query);
+	// logger($query);
 
 	$query = new WP_Query($query);
 
